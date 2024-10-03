@@ -241,98 +241,6 @@ function show_help(options) {
 	return task;
 }
 
-function openSpotify(file_path) {
-	var spotify_link = file_path.slice(11);
-	spotify_link = spotify_link.slice(0,-4);
-	switch (spotify_link) {
-		case "1984 Chevrolet Impala": {
-			open("https://open.spotify.com/playlist/5IAGCWRWuLsZ5yDXJ5uzcS?si=21d69289210843ba");
-			return;
-		}
-		case "Black Dodge Hellcat": {
-			open("https://open.spotify.com/playlist/6opZ2DGxsfboKGMFDtA3pr?si=c749f23af7df4153");
-			return;
-		}
-		case "Golf Mk3 1.9 TDI": {
-			open("https://open.spotify.com/playlist/20dFUbTZJrAiNQKtZrNR4W?si=cb1d55f7edbc4278");
-			return;
-		}
-		case "Mercedes W124": {
-			open("https://open.spotify.com/playlist/5MdghNSs8v3fAUJkahiWTK?si=f8e1471384ba4f82");
-			return;
-		}
-		case "Mustang 308": {
-			open("https://open.spotify.com/playlist/67PnSLIMspXsN8Q547ICIe?si=8ff7e77e816842fa");
-			return;
-		}
-		case "S14 With Shitty Mods": {
-			open("https://open.spotify.com/playlist/3Emxl8g4gNqZScj9EB1FzR?si=90c1eddd646f4e0a");
-			return;
-		}
-		case "Skyline GTR R32": {
-			open("https://open.spotify.com/playlist/2Vy6WXSREcIEijEjBwzWT7?si=60c8aaf2e98840b0");
-			return;
-		}
-		case "Toyota AE86": {
-			open("https://open.spotify.com/playlist/7jhDfiq1rIo5qT30ljHLaL?si=dabb6b2057824ad3");
-			return;
-		}
-		case "VAZ-2121": {
-			open("https://open.spotify.com/playlist/3tlnKlSYF3mWsv5x1NOegm?si=af0629f83c1a417d");
-			return;
-		}
-	}	
-	console.log("[USR] ibocse@crlab2-h032: Opened playlist " + spotify_link);
-}
-openSpotify.acceptsFilePaths = true;
-
-//TODO
-function openGit(file_path) {
-	console.log(file_path);
-	
-	switch (file_path) {
-		case "/Desktop/Projects/qrscanner/REPO.git": {
-			open("https://github.com/iulian-b/qrscanner");
-			return;
-		}
-		case "/Desktop/Projects/giovanni-bot/REPO.git": {
-			open("https://github.com/iulian-b/giovanni-bot");
-			return;
-		}
-		case "/Desktop/Projects/proiect-tjpad/REPO.git": {
-			open("https://github.com/iulian-b/proiect-tjpad");
-			return;
-		}
-		case "/Desktop/Projects/ntfb/REPO.git": {
-			open("https://github.com/iulian-b/ntfb-website");
-			return;
-		}
-		case "/Desktop/Projects/indartech/REPO.git": {
-			open("https://github.com/iulian-b/indartech-website");
-			return;
-		}
-		case "/Desktop/Projects/CS50SQL/REPO.git": {
-			open("https://github.com/iulian-b/CS50SQL");
-			return;
-		}
-		case "/Desktop/Projects/ICIS-Project/REPO.git": {
-			open("https://github.com/iulian-b/ICIS-Project");
-			return;
-		}
-		case "/Desktop/Projects/caverna-pysqlcipher/REPO.git": {
-			open("https://github.com/iulian-b/caverna-pysqlcipher");
-			return;
-		}
-		case "/Desktop/Projects/caverna/REPO.git": {
-			open("https://github.com/iulian-b/caverna");
-			return;
-		}
-	}
-	console.log("[USR] ibocse@crlab2-h032: Opened repo");
-
-}
-openGit.acceptsFilePaths = true;
-
 function Notepad(file_path) {
 	// TODO: DRY the default file names and title code (use document.title of the page in the iframe, in make_iframe_window)
 	var document_title = file_path ? file_name_from_path(file_path) : "Untitled";
@@ -351,6 +259,21 @@ function Notepad(file_path) {
 	return new Task($win);
 }
 Notepad.acceptsFilePaths = true;
+
+function openRunDialog() {
+	var $win = make_iframe_window({
+		src: "programs/run/index.html",
+		// icons: iconsAtTwoSizes("run"),
+		title: "Run",
+		outerWidth: 360,
+		outerHeight: 163,
+		zIndex: 200,
+		resizable: false,
+	});
+	console.log("[USR] ibocse@crlab2-h032: run.exe()");
+	return new Task($win);
+}
+openRunDialog.acceptsFilePaths = true;
 
 function PDFViewer(file_path) {
 	// There is no normal way to determine the height of a pdf that has yet to be loaded into the DOM.
@@ -498,7 +421,6 @@ function openWithProgram(file_path) {
 			Explorer();
 			return;
 		}
-
 		case "/Program Files/screensavers/3D-FlowerBox/flowerbox.exe": {
 			FlowerBox();
 			return;
@@ -506,6 +428,14 @@ function openWithProgram(file_path) {
 		case "/Program Files/screensavers/pipes/pipes.exe": {
 			Pipes();
 			return;
+		}
+		case "/Program Files/run/run.exe": {
+			openRunDialog();
+			return;
+		}
+		case "/Desktop/Projects/ccc-crlab2-h032/main.exe": {
+			// open("https://github.com/iulian-b/ccc-crlab2-h032");
+			location.reload();
 		}
 	}
 }
@@ -963,7 +893,7 @@ function openWinamp(file_path) {
 				const url = URL.createObjectURL(blob);
 				webamp.setSkinFromUrl(url);
 			} else if (file_path.match(/(\.m3u|\.pls)$/i)) {
-				openSpotify(file_path);
+				openURLFile(file_path);
 			// } else if (file_path.includes("/My Music/")) {
 			// 	// This is hardcoded for performance reasons
 			// 	var tracks = [
@@ -1284,7 +1214,8 @@ function openURLFile(file_path) {
 			var url = match ? match[1] : content;
 			if (!file_path)  console.log("[USR] ibocse@crlab2-h032: explorer.exe()");
 			else console.log("[USR] ibocse@crlab2-h032: explorer.exe(" + file_path + ")");
-			Explorer(url);
+			// Explorer(url);
+			open(url);
 		});
 	});
 }
@@ -1425,7 +1356,8 @@ var file_extension_associations = {
 	//zip: openWinamp, // MIGHT be a winamp skin zip, so might as well for now
 
 	// Audio:
-	wav: SoundRecorder,
+	// wav: SoundRecorder,
+	wav: openWinamp,
 	mp3: openWinamp,
 	ogg: openWinamp,
 	wma: openWinamp,
@@ -1437,7 +1369,7 @@ var file_extension_associations = {
 	// "mp+": openWinamp,
 
 	// Playlists:
-	m3u: openSpotify,
+	m3u: openURLFile,
 	pls: openWinamp,
 
 	// Programs:
@@ -1450,7 +1382,7 @@ var file_extension_associations = {
 	theme: openThemeFile,
 	themepack: openThemeFile,
 	pdf: PDFViewer, 
-	git: openGit,
+	git: openURLFile,
 };
 
 // Note: global systemExecuteFile called by explorer

@@ -19,12 +19,7 @@ That would be undoubtedly cool, but idk how hard it might be,
 and especially what data channels are available between the VM and the host.
 Partially [inspired by OS.js](https://www.youtube.com/watch?v=c0safRR0ldM&index=16&list=PL74DE0E481419C259).
 
--DESTKOP
---ADD RECYCLE BIN CONTENTS
---ADD MY PICTURES CONTENTS
-
 -START
 --ADD FAVORITES CONTENT
 --SETTINGS
 --FIND 
---RUN

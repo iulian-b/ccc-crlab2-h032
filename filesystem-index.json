@@ -819,31 +819,42 @@
         "requirements.txt": null
       },
       "ccc-crlab2-h032": {
-
+        "main.exe": null,
+        "REPO.git": null
       }
     }
   },
   "Favorites": {},
-  "Recycle Bin": {},
+  "Recycle Bin": {
+    "m00nwalk.wav": null,
+    "c29ycm93.wav": null,
+    "aW5maW5pdHk=.wav": null
+  },
   "My Documents": {
     "Geotagging Backup": {
       "Sessions": {
         "01Oct2019":{
-          "01Oct2019.kml": null
+          "01Oct2019.kml": null,
+          "dHJp.wav": null
         },
         "03Jul2019": {
           "03Jul2019.kml": null
         },
         "17Aug2019": {
-          "17Aug2019.kml": null
+          "17Aug2019.kml": null,
+          "ZHVv.wav": null
         },
         "21Aug2019": {
           "21Aug2019.kml": null
         },
         "24Feb2020": {
-          "24Feb2020.kml": null
+          "24Feb2020.kml": null,
+          "dGV0.wav": null
         },
         "28Jun2019": {
+          "Pics": {
+            "cHJp.wav": null
+          },
           "28Jun2019.kml": null
         },
         "29Jun2019": {
@@ -1023,6 +1034,27 @@
     "STILL DRE.mp3": null
   },
   "My Pictures": {
+    "20170131_114817.jpg": null,
+    "20170225_160324.jpg": null,
+    "20170307_111751.jpg": null,
+    "20170307_112355.jpg": null,
+    "20170512_175122.jpg": null,
+    "20170512_175939.jpg": null,
+    "20170512_175945.jpg": null,
+    "20170512_180116.jpg": null,
+    "20170512_180256.jpg": null,
+    "20170513_140417.jpg": null,
+    "20170514_134324.jpg": null,
+    "20170824_181126.jpg": null,
+    "20170824_181334.jpg": null,
+    "20171031_101509.jpg": null,
+    "20181128_082505.jpg": null,
+    "20190202_130627.jpg": null,
+    "20190411_082408.jpg": null,
+    "20201130_074445.jpg": null,
+    "20240509-103654806.jpg": null,
+    "20240509-103832933.jpg": null,
+    "20240509-105955665.jpg": null
   },
   "Network": {
     "CNTR": null,
@@ -4877,6 +4909,14 @@
       "SpaceCadetPinball.data": null,
       "SpaceCadetPinball.js": null,
       "SpaceCadetPinball.wasm": null
+    },
+    "run": {
+      "src": {
+        "app.js": null
+      },
+      "index.html": null,
+      "run.exe": null,
+      "rundiag.css": null
     },
     "screensavers": {
       "3D-FlowerBox": {

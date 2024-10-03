@@ -67,6 +67,7 @@ $(window).on("keydown", function (e) {
 
 // Buttons
 document.getElementById('start_btn_update').addEventListener("click", function() {
+	console.log("[USR] ibocse@crlab2-h032: Opened sysyem about_dialog()");
 	update_dialog();
 });
 document.getElementById('start_btn_programs').addEventListener("click", function() {
@@ -85,10 +86,12 @@ document.getElementById('start_btn_find').addEventListener("click", function() {
 	alert("FIND");
 });
 document.getElementById('start_btn_help').addEventListener("click", function() {
-	open("https://github.com/iulian-b");
+	console.log("[USR] ibocse@crlab2-h032: Opened help page");
+	open("https://github.com/iulian-b/ccc-crlab2-h032");
 });
 document.getElementById('start_btn_run').addEventListener("click", function() {
-	alert("RUN");
+	console.log("[USR] ibocse@crlab2-h032: Opened run()");
+	openRunDialog();
 });
 document.getElementById('start_btn_logoff').addEventListener("click", function() {
 	console.log("[SYS] ibocse@crlab2-h032: System log off");

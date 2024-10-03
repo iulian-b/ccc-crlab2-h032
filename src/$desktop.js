@@ -9,8 +9,6 @@ var folder_view = new FolderView(desktop_folder_path, {
 });
 $(folder_view.element).appendTo($desktop);
 
-var $tracks = ["NONE"];
-
 function setDesktopWallpaper(file, repeat, saveToLocalStorage) {
 	const blob_url = URL.createObjectURL(file);
 	$desktop.css({
@@ -98,7 +96,7 @@ function open_CV() {
 	if (localStorage.getItem("boot") === null) {
 		localStorage.setItem("boot", true);
 		console.log("[USR] ibocse@crlab2-h032: Opened CV (pls hire me)");
-		systemExecuteFile("/Desktop/CV (EN).pdf");
+		systemExecuteFile("/My Documents/CV (EN).pdf");
 	} 
 	return;
 }
@@ -110,6 +108,31 @@ window.addEventListener('DOMContentLoaded', function() {
 	console.log("[SYS] Welcome, ibocse.")
 	open_CV();
 });
+
+window.addEventListener("storage", () => {
+	if (localStorage.getItem("run") != null) {
+		var target = localStorage.getItem("run");
+
+		// EXE
+		if (target.includes(".exe")) {
+			switch(target) {
+				case "calc.exe": { Calculator(); break; }
+				case "cmd.exe": { CommandPrompt(); break;}
+				case "explorer.exe": { Explorer(); break; }
+				case "solitaire.exe": { Solitaire(); break; }
+				case "paint.exe": { Paint(); break; }
+				case "notepad.exe": { Notepad(); break; }
+				case "WINMINE.exe": { Minesweeper(); break; }
+				case "pdfviewer.exe": { break; }
+				case "picview.exe": { break; }
+				case "pinball.exe": { Pinball(); break;}
+				case "recorder.exe": { Recorder(); break; }
+				case "winamp.exe": { winamp(); break; }
+			}
+		} else if (target != "" ) Explorer(target);
+		localStorage.removeItem("run");
+	}
+  });
 
 // Despite overflow:hidden on html and body,
 // focusing elements that are partially offscreen can still scroll the page.
