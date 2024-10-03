@@ -15,7 +15,6 @@
 		<link href="layout.css" rel="stylesheet" type="text/css">
 		<link href="lib/os-gui/layout.css" rel="stylesheet" type="text/css">
 		<link href="lib/os-gui/windows-98.css" rel="stylesheet" type="text/css">
-		<link href="lib/clippy.js/build/clippy.css" rel="stylesheet" type="text/css">
 		<link href="classic.css" rel="stylesheet" type="text/css">
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -29,7 +28,6 @@
 		<meta name="apple-mobile-web-app-title" content="SOS-9">
 		<meta name="application-name" content="SOS-9">
 		<meta name="viewport" content="width=device-width, user-scalable=no">
-		<!-- For WayBack Machine, hopefully get it to save these resources -->
 		<link rel="prefetch" href="/filesystem-index.json">
 		<link rel="prefetch" href="/programs/notepad/index.html">
 	</head>
@@ -48,7 +46,6 @@
 				<img src="images/start.png"/><b>Start</b>
 			</button>
 			<div class="taskbar-divider"></div>
-			<!-- TODO: pinned apps and resizing handles -->
 			<div class="tasks"></div>
 			<div class="taskbar-divider"></div>
 			<div class="tray inset-shallow">
@@ -58,7 +55,6 @@
 					<!-- Audio -->
 					<img class="tray-icon" src="images/icons/audio-okay-16x16.png" title="Volume">
 				</div>
-				<!-- <div class="taskbar-time" ondblclick="showMessageBox({iconID: 'info', message: 'Time to get an old clock!'})"></div> -->
 				<div class="taskbar-time"></div>
 			</div>
 		</div>
@@ -118,7 +114,7 @@
 						</li>
 						<div class="start-menu-divider inset-shallow"></div>
 						<li>
-							<button id="start_btn_logoff" class="start-btn">
+							<button id="start_btn_logoff" class="start-btn ">
 								<img draggable="false" src="images/icons/key_win_2-32x32.png" width="32" height="32" style="vertical-align: middle;" />
 								Log Off
 							</button>	
@@ -136,7 +132,6 @@
 
 		<script src="lib/jquery.min.js"></script>
 		<script src="lib/browserfs.js"></script>
-		<script src="lib/clippy.js/build/clippy.js"></script>
 		<script src="lib/konami.js"></script>
 		<script src="lib/os-gui/parse-theme.js"></script>
 		<script src="lib/os-gui/MenuBar.js"></script>
@@ -156,8 +151,7 @@
 		<script src="src/window-switcher.js"></script>
 		<script src="src/visualizer-overlay.js"></script>
 		<script src="src/programs.js"></script>
-
-		<!-- TODO: DRY -->
+		
 		<svg style="position: absolute; pointer-events: none; bottom: 100%;">
 			<defs>
 				<filter id="disabled-inset-filter" x="0" y="0" width="1px" height="1px">
