@@ -162,11 +162,16 @@ function sleep(ms) {
 }
   
 window.addEventListener('DOMContentLoaded', function() {
+    // Play only first time
     if (localStorage.getItem("boot") == null) {
         // Toggle desktop OFF
         toggleDeskop(false);
 
-        // Boot animation
+		// Boot Audio
+		// AUTOPLAY DOES NOT WORK IN 2024.
+		// FIND AN ALTERNATIVE
+		// document.getElementById("audio-container").insertAdjacentHTML('beforeend',`<div id="player"><audio autoplay hidden><source src="../audio/BOOT.wav" type="audio/wav"></audio></div>`);
+        // Boot animation @iulian
         scrollUp();
         for(var i=0; i<8;i++){
             bootLoader.insertAdjacentHTML('beforeend',bootText[i]);
@@ -200,7 +205,3 @@ window.addEventListener('DOMContentLoaded', function() {
         if (bootLoader != null) bootLoader.remove();
     }
 });
-
-
-
-// desktop flex-none

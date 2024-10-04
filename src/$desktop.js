@@ -1,6 +1,12 @@
 var $desktop = $(".desktop");
 $desktop.css("touch-action", "none"); // TODO: should this be in FolderView, or is it to prevent scrolling the page or what?
+const loopAudio = new Audio('../audio/LOOP.wav');
+const bootAudio = new Audio('../audio/BOOT.wav');
+loopAudio.volume = 0.2;
+bootAudio.volume = 0.2;
+var interacted = false;
 
+// Folder view
 var folder_view = new FolderView(desktop_folder_path, {
 	asDesktop: true,
 	openFileOrFolder: (path) => { // Note: may not be defined yet, so wrapping with a function.
@@ -9,6 +15,7 @@ var folder_view = new FolderView(desktop_folder_path, {
 });
 $(folder_view.element).appendTo($desktop);
 
+// Wallpaper
 function setDesktopWallpaper(file, repeat, saveToLocalStorage) {
 	const blob_url = URL.createObjectURL(file);
 	$desktop.css({
@@ -56,6 +63,7 @@ try {
 // 	e.preventDefault();
 // });
 
+// Theme
 function loadThemeFile(file) {
 	var reader = new FileReader();
 	reader.onload = () => {
@@ -72,6 +80,7 @@ function loadThemeFromText(fileText) {
 	window.themeCSSProperties = cssProperties;
 }
 
+// Events
 $("html").on("dragover", function (event) {
 	event.preventDefault();
 	event.stopPropagation();
@@ -102,10 +111,32 @@ $("html").on("drop", function (event) {
 // 	return;
 // }
 
+// Listeners
 window.addEventListener('DOMContentLoaded', function() {
 	if (localStorage.getItem("boot") == "true") {
 		systemExecuteFile("/My Documents/CV (EN).pdf");
 	}
+});
+
+// Audio
+// Audio can only play after the user has interacted with the page.
+// Autoplay is deprecated, so this momentarily works despite it being a hackjob.
+document.getElementById('desktop').addEventListener('click', () => {
+	if (!interacted) {
+		interacted = true;
+
+		// Play the boot audio first
+		bootAudio.play();
+		// When the boot audio finishes, play the loop audio
+		bootAudio.addEventListener("ended", function() {
+			loopAudio.play();
+		});
+
+		// When the loop audio finishes, loop the file itself (hence then name)
+		loopAudio.addEventListener("ended", function() {
+			loopAudio.play();
+		});
+	} 
 });
 
 window.addEventListener("storage", () => {
