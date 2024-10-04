@@ -80,10 +80,10 @@ document.getElementById('start_btn_documents').addEventListener("click", functio
 	Explorer("/My Documents/");
 });
 document.getElementById('start_btn_settings').addEventListener("click", function() {
-	alert("SETT");
+	alert("NOT YET IMPLEMENTED");
 });
 document.getElementById('start_btn_find').addEventListener("click", function() {
-	alert("FIND");
+	alert("NOT YET IMPLEMENTED");
 });
 document.getElementById('start_btn_help').addEventListener("click", function() {
 	console.log("[USR] ibocse@crlab2-h032: Opened help page");
