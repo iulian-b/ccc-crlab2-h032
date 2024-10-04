@@ -1,0 +1,43 @@
+@keyframes wiggle {
+    0% {
+      transform: scale(3, 1.2);
+    }
+    0.5% {
+      transform: scale(1, 1);
+    }
+    45% {
+      transform: scale(1, 1);
+    }
+    45.5% {
+      transform: scale(1, 4);
+    }
+    46% {
+      transform: scale(1, 1);
+    }
+    70% {
+      transform: scale(1, 1);
+    }
+    70.5% {
+      transform: scale(5, 1);
+    }
+    71% {
+      transform: scale(1, 1);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }
+  
+  body {
+    padding: 10px 25px;
+    font-family: monospace;
+    font-size: 17px;
+    background-color: #1300a0;
+    color: #fff;
+  }
+  
+  .bsod-container {
+    animation: wiggle 4s infinite;
+    animation-direction: alternate;
+  }
+  

@@ -827,7 +827,11 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 		var file_extension = file_extension_from_path(file_path);
 		// TODO: look inside exe for icons
 		var icon_name = file_extension_icons[file_extension.toLowerCase()];
-		return icon_name || "document";
+
+		// Exception if in /Network
+		if (file_path.includes("/Network/")) {
+			return icon_name || "network";
+		} else return icon_name || "document";
 	};
 	var icons_from_icon_id = function (icon_id) {
 		return {

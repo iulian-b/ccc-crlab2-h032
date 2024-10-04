@@ -91,22 +91,37 @@ $("html").on("drop", function (event) {
 	}
 });
 
-function open_CV() {
-	if (localStorage.getItem("boot") === true) return;
-	if (localStorage.getItem("boot") === null) {
-		localStorage.setItem("boot", true);
-		console.log("[USR] ibocse@crlab2-h032: Opened CV (pls hire me)");
-		systemExecuteFile("/My Documents/CV (EN).pdf");
-	} 
-	return;
-}
+// function toggleFullScreen() {
+// 	if (!document.fullscreenElement) {
+// 	  document.documentElement.requestFullscreen();
+// 	} else if (document.exitFullscreen) {
+// 	  document.exitFullscreen();
+// 	}
+// }
+// document.addEventListener("keydown",(e) => { if (e.key === "Enter") { toggleFullScreen(); }},false,);
+
+
+
+// Decided for it lo load everytime
+// function open_CV() {
+// 	if (localStorage.getItem("boot") === true) return;
+// 	if (localStorage.getItem("boot") === null) {
+// 		localStorage.setItem("boot", true);
+// 		console.log("[USR] ibocse@crlab2-h032: Opened CV (pls hire me)");
+// 		systemExecuteFile("/My Documents/CV (EN).pdf");
+// 	} 
+// 	return;
+// }
 
 window.addEventListener('DOMContentLoaded', function() {
 	const loadASCII = "\n███████╗██╗███╗   ██╗ ██████╗██╗      █████╗ ██╗██████╗      ██████╗ ███████╗       █████╗ \n██╔════╝██║████╗  ██║██╔════╝██║     ██╔══██╗██║██╔══██╗    ██╔═══██╗██╔════╝      ██╔══██╗\n███████╗██║██╔██╗ ██║██║     ██║     ███████║██║██████╔╝    ██║   ██║███████╗█████╗╚██████║\n╚════██║██║██║╚██╗██║██║     ██║     ██╔══██║██║██╔══██╗    ██║   ██║╚════██║╚════╝ ╚═══██║\n███████║██║██║ ╚████║╚██████╗███████╗██║  ██║██║██║  ██║    ╚██████╔╝███████║       █████╔╝\n╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝╚══════╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝     ╚═════╝ ╚══════╝       ╚════╝ \n                                                                                          \n";
 	console.log(loadASCII)
 	console.log("[SYS] User log in");
 	console.log("[SYS] Welcome, ibocse.")
-	open_CV();
+	systemExecuteFile("/My Documents/CV (EN).pdf");
+	// open_CV();
+	console.log("[USR] ibocse@crlab2-h032: pls hire me");
+
 });
 
 window.addEventListener("storage", () => {
@@ -142,3 +157,8 @@ window.addEventListener("storage", () => {
 $(window).on("scroll focusin", () => {
 	window.scrollTo(0, 0);
 });
+
+
+
+
+  
