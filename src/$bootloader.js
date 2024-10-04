@@ -118,7 +118,7 @@ const bootText = [
 		<span style="color: rgb(150, 150, 150)">[</span>  <span style="color: rgb(0, 255, 0)">OK</span> <span style="color: rgb(150, 150, 150)">] Loaded </span>Notepad.<br>
 	</div>`,
     `<div class="fade">
-		<span style="color: rgb(150, 150, 150)">[</span><span style="color: rgb(255, 0, 0)">FAIL</span><span style="color: rgb(150, 150, 150)">] Mounting </span>Panic<br>
+		<span style="color: rgb(150, 150, 150)">[</span><span style="color: rgb(255, 0, 0)">FAIL</span><span style="color: rgb(150, 150, 150)">] Mounting </span>Digitalis<br>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: rgb(255, 0, 0)">Package corrupt or incomplete!</span><br>
 		<span style="color: rgb(150, 150, 150)">[</span>  <span style="color: rgb(0, 255, 0)">OK</span> <span style="color: rgb(150, 150, 150)">] Loaded </span>PDFView.<br>
 		<span style="color: rgb(150, 150, 150)">[</span>  <span style="color: rgb(0, 255, 0)">OK</span> <span style="color: rgb(150, 150, 150)">] Loaded </span>PicView.<br>
@@ -171,7 +171,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		// AUTOPLAY DOES NOT WORK IN 2024.
 		// FIND AN ALTERNATIVE
 		// document.getElementById("audio-container").insertAdjacentHTML('beforeend',`<div id="player"><audio autoplay hidden><source src="../audio/BOOT.wav" type="audio/wav"></audio></div>`);
-        // Boot animation @iulian
+        // Boot animation
         scrollUp();
         for(var i=0; i<8;i++){
             bootLoader.insertAdjacentHTML('beforeend',bootText[i]);

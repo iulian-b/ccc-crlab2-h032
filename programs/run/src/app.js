@@ -1,4 +1,5 @@
 let container = document.getElementById("app");
+const panicAudio = new Audio('../../../audio/PANIC.wav');
 
 $("body").on("mousedown selectstart contextmenu", function (e) {
 	if (
@@ -54,6 +55,7 @@ update_title();
 
 
 document.getElementById("runform").addEventListener("submit", function(event){
+	if (document.getElementById("target").value == "digitalis.exe") panicAudio.play();
 	if (localStorage.getItem("run") != null) localStorage.removeItem("run");
 	else localStorage.setItem("run", document.getElementById("target").value);
 

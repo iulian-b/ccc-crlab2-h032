@@ -13,7 +13,6 @@ Partially [inspired by OS.js](https://www.youtube.com/watch?v=c0safRR0ldM&index=
 --SETTINGS
 --FIND 
 
-AUDIO
 BSOD screen
 VM
 GAMES.
