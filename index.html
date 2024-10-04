@@ -16,6 +16,7 @@
 		<link href="lib/os-gui/layout.css" rel="stylesheet" type="text/css">
 		<link href="lib/os-gui/windows-98.css" rel="stylesheet" type="text/css">
 		<link href="classic.css" rel="stylesheet" type="text/css">
+		<link href="src/boot.css" rel="stylesheet" type="text/css">
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -33,15 +34,16 @@
 	</head>
 	<body>
 		<script>0</script>
+		<div id="bootloader"></div>
 		<!-- Wallpaper -->
-		<div class="desktop" style="background-image: url(images/wallpaper.jpg); background-size: cover; background-position: center;"></div>
+		<div id="desktop" class="desktop" style="background-image: url(images/wallpaper.jpg); background-size: cover; background-position: center;"></div>
 		<!-- Build -->
-		<div class="build-text unselectable" style="position: absolute; right: 5px; bottom: 28px; font-family: italic Fixedsys Excelsior, FixedSys, monospace; font-size: 11px; line-height: 0.4; color: white;">
+		<div id="buildtext" class="build-text unselectable" style="position: absolute; right: 5px; bottom: 28px; font-family: italic Fixedsys Excelsior, FixedSys, monospace; font-size: 11px; line-height: 0.4; color: white;">
 			<p>Sinclair OS-9 build 9.0.8 (x64)</p>
 			<p>Not for commercial use.</p>
 		</div>
 		<!-- Start Button -->
-		<div class="taskbar" style="z-index: 5001;">
+		<div id="taskbar" class="taskbar" style="z-index: 5001;">
 			<button class="start-button toggle" title="Click here to begin.">
 				<img src="images/start.png"/><b>Start</b>
 			</button>
@@ -153,6 +155,7 @@
 		<script src="src/window-switcher.js"></script>
 		<script src="src/visualizer-overlay.js"></script>
 		<script src="src/programs.js"></script>
+		<script src="src/$bootloader.js"></script>
 		
 		<svg style="position: absolute; pointer-events: none; bottom: 100%;">
 			<defs>

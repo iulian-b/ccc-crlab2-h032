@@ -142,7 +142,7 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 	const self = this;
 	// TODO: ensure a trailing slash / use path.join where appropriate
 
-	var $folder_view = $(`<div class="folder-view" tabindex="0">`);
+	var $folder_view = $(`<div id="desktop-icons" class="folder-view" tabindex="0">`);
 
 	this.element = $folder_view[0];
 
