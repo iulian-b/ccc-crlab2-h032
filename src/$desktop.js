@@ -91,17 +91,6 @@ $("html").on("drop", function (event) {
 	}
 });
 
-// function toggleFullScreen() {
-// 	if (!document.fullscreenElement) {
-// 	  document.documentElement.requestFullscreen();
-// 	} else if (document.exitFullscreen) {
-// 	  document.exitFullscreen();
-// 	}
-// }
-// document.addEventListener("keydown",(e) => { if (e.key === "Enter") { toggleFullScreen(); }},false,);
-
-
-
 // Decided for it lo load everytime
 // function open_CV() {
 // 	if (localStorage.getItem("boot") === true) return;
@@ -114,14 +103,9 @@ $("html").on("drop", function (event) {
 // }
 
 window.addEventListener('DOMContentLoaded', function() {
-	const loadASCII = "\n███████╗██╗███╗   ██╗ ██████╗██╗      █████╗ ██╗██████╗      ██████╗ ███████╗       █████╗ \n██╔════╝██║████╗  ██║██╔════╝██║     ██╔══██╗██║██╔══██╗    ██╔═══██╗██╔════╝      ██╔══██╗\n███████╗██║██╔██╗ ██║██║     ██║     ███████║██║██████╔╝    ██║   ██║███████╗█████╗╚██████║\n╚════██║██║██║╚██╗██║██║     ██║     ██╔══██║██║██╔══██╗    ██║   ██║╚════██║╚════╝ ╚═══██║\n███████║██║██║ ╚████║╚██████╗███████╗██║  ██║██║██║  ██║    ╚██████╔╝███████║       █████╔╝\n╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝╚══════╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝     ╚═════╝ ╚══════╝       ╚════╝ \n                                                                                          \n";
-	console.log(loadASCII)
-	console.log("[SYS] User log in");
-	console.log("[SYS] Welcome, ibocse.")
-	systemExecuteFile("/My Documents/CV (EN).pdf");
-	// open_CV();
-	console.log("[USR] ibocse@crlab2-h032: pls hire me");
-
+	if (localStorage.getItem("boot") == "true") {
+		systemExecuteFile("/My Documents/CV (EN).pdf");
+	}
 });
 
 window.addEventListener("storage", () => {
