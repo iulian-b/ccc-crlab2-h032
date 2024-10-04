@@ -2,6 +2,8 @@ var $start_menu = $(".start-menu");
 var $start_selection = $(".start-btn");
 $start_menu.hide();
 var $start_content = document.getElementsByClassName("start-menu-content");
+const shutdownAudio = new Audio('../audio/SHUTDOWN.WAV');
+shutdownAudio.volume = 0.2;
 
 var open_start_menu = function () {
 	$start_button.addClass("selected");
@@ -98,6 +100,10 @@ document.getElementById('start_btn_logoff').addEventListener("click", function()
     document.documentElement.innerHTML = '<body style="background-color:black;"></body>';
 });
 document.getElementById('start_btn_shutdown').addEventListener("click", function() {
+	shutdownAudio.play();
+	loopAudio.pause();
+	bootAudio.pause();
+
 	console.log("[SYS] ibocse@crlab2-h032: System shut down");
     document.documentElement.innerHTML = '<body style="background-color:black;"></body>';
 });

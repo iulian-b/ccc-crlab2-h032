@@ -1,12 +1,5 @@
 * File save and open dialogs
 
-* Integrate Paint better
-
-	* Windows that pop out; will need to display graphics via data URIs or canvases, and rely only on inline styles (or `<style scoped>`?) and the shared styles
-
-		* Could *maybe* use [`<base>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base) for `<img>`s, but all styles (that aren't shared) would have to be inline, and I think it would be better just to try to make everything canvases
-
-
 * Try integrating arbitrary applications by emulating Windows 98 on the webpage [with v86](https://github.com/copy/v86/blob/master/docs/api.md),
 with an X server installed in the VM, and acting as an X client externally??
 And integrating a virtual filesystem??
@@ -20,11 +13,11 @@ Partially [inspired by OS.js](https://www.youtube.com/watch?v=c0safRR0ldM&index=
 --SETTINGS
 --FIND 
 
+AUDIO
 BSOD screen
 VM
 GAMES.
 VIDEO PLAYER
-FIX Mobile viewport
 
 ----------------------------------------------------------
 RES:
