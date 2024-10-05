@@ -206,7 +206,7 @@ window.addEventListener("storage", () => {
 		} else if (target != "" ) Explorer(target);
 		localStorage.removeItem("run");
 	}
-  });
+});
 
 // Despite overflow:hidden on html and body,
 // focusing elements that are partially offscreen can still scroll the page.
