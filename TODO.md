@@ -13,8 +13,7 @@ Partially [inspired by OS.js](https://www.youtube.com/watch?v=c0safRR0ldM&index=
 --SETTINGS
 --FIND 
 
-BSOD screen
-VM
+VM = Copy explorer and make it open http://127.0.0.1:1998/
 GAMES.
 VIDEO PLAYER
 
