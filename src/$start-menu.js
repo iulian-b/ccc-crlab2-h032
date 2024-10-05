@@ -109,7 +109,7 @@ document.getElementById('start_btn_shutdown').addEventListener("click", function
 	// Stop all audio
 	loopAudio.pause();
 	bootAudio.pause();
-	webamp.stop();
+	if (webamp != null)	webamp.stop();
 
 	// Play shutdown sound
 	shutdownAudio.play();

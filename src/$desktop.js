@@ -149,7 +149,7 @@ function timeToPanic() {
 	loopAudio.pause();
 	panicAudio.play();
 
-	const kernelText = `<p id="kpanic" style="color: whitesmoke; font-family: IBM3x;">
+	const kernelText = `<p id="kpanic" class="crt" style="color: whitesmoke; font-family: IBM3x;">
 		[	1.089542] Kernel panic - not syncing: VFS: Unable to mount package digitalis on unkown-block(0,0)<br>
 		[	1.090150] CPU: 0 PID: 1 Comm: swapper/0 Not tainted 3.10.8-327.el7x86_64 #<br>
 		[	1.091479] Hardware name: (USERAGENT)<br>
@@ -177,6 +177,7 @@ function timeToPanic() {
 	sleep(1000).then(() => { 
 		document.documentElement.innerHTML = '<body style="background-color:black;" class="unselectable"></body>'; 
 		document.body.insertAdjacentHTML('beforeend',`<link href="src/boot.css" rel="stylesheet" type="text/css">`);
+		document.body.insertAdjacentHTML('beforeend',`<link href="src/crt.css" rel="stylesheet" type="text/css">`);
 		document.body.insertAdjacentHTML('beforeend',kernelText);
     });
 }
