@@ -331,6 +331,7 @@ function Picview(file_path) {
 		imgDim[1] = img.height;
 
 		// Normalize width
+		
 		if (imgDim[0] <= 400) { 
 			imgDim[0] = 400;
 			imgDim[1] = 260;
@@ -345,6 +346,13 @@ function Picview(file_path) {
 			imgDim[1] = 750;
 		}
 
+		// Fix for vertical images.
+		// Multiplies the heigh with the original WxH ratio of the picture
+		// to get the corrected height 
+		if (img.height > img.width) {
+			const ratio = img.width / img.height;
+			imgDim[0] = ratio * imgDim[1];
+		}
 		return imgDim;
 	}
 
