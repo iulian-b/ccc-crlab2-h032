@@ -459,6 +459,10 @@ function openWithProgram(file_path) {
 			openRunDialog();
 			return;
 		}
+		case "/Program Files/vmware/vmware.exe": {
+			VirtualMachine();
+			return;
+		}
 		case "/Desktop/Projects/ccc-crlab2-h032/main.exe": {
 			// open("https://github.com/iulian-b/ccc-crlab2-h032");
 			location.reload();
@@ -833,6 +837,20 @@ function Explorer(address) {
 	return new Task($win);
 }
 Explorer.acceptsFilePaths = true;
+
+function VirtualMachine(address) {
+	var win_title = "VMware - Sinclair OS";
+	var $win = make_iframe_window({
+		src: "programs/vmware/index.html" + (address ? ("?address=" + encodeURIComponent(address)) : ""),
+		icons: iconsAtTwoSizes("vm"),
+		title: win_title,
+		innerWidth: Math.min(856, innerWidth * 0.9),
+		innerHeight: Math.min(547, innerHeight * 0.7),
+	});
+	console.log("[USR] ibocse@crlab2-h032: vmware.exe()");
+	return new Task($win);
+}
+VirtualMachine.acceptsFilePaths = true;
 
 var webamp_bundle_loaded = false;
 var load_winamp_bundle_if_not_loaded = function (includeButterchurn, callback) {
@@ -1549,6 +1567,11 @@ add_icon_not_via_filesystem({
 	iconID: "pipes",
 	open: FlowerBox,
 	shortcut: true
+});
+add_icon_not_via_filesystem({
+	title: "VMware 2.0",
+	iconID: "vm",
+	open: function () { VirtualMachine("http://127.0.0.1:1998"); }
 });
 add_icon_not_via_filesystem({
 	title: "Pinball",
