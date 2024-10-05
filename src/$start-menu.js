@@ -96,15 +96,26 @@ document.getElementById('start_btn_run').addEventListener("click", function() {
 	openRunDialog();
 });
 document.getElementById('start_btn_logoff').addEventListener("click", function() {
+	// Stop all audio
+	loopAudio.pause();
+	bootAudio.pause();
+	webamp.stop();
+
+	// Clear DOM
 	console.log("[SYS] ibocse@crlab2-h032: System log off");
     document.documentElement.innerHTML = '<body style="background-color:black;"></body>';
 });
 document.getElementById('start_btn_shutdown').addEventListener("click", function() {
-	shutdownAudio.play();
+	// Stop all audio
 	loopAudio.pause();
 	bootAudio.pause();
+	webamp.stop();
 
-	console.log("[SYS] ibocse@crlab2-h032: System shut down");
+	// Play shutdown sound
+	shutdownAudio.play();
+	
+	// Clear DOM
     document.documentElement.innerHTML = '<body style="background-color:black;"></body>';
+	console.log("[SYS] ibocse@crlab2-h032: System shut down");
 });
 
