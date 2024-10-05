@@ -4987,6 +4987,13 @@
       "README.md": null,
       "recorder.exe":null
     },
+    "vmware": {
+      "index.html": null,
+      "menu.js": null,
+      "vmware.css": null,
+      "vmware.js": null,
+      "vmware.exe": null
+    },
     "winamp": {
       "lib": {
         "butterchurn.min.js": null,
