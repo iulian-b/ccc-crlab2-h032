@@ -152,7 +152,7 @@ function timeToPanic() {
 	const kernelText = `<p id="kpanic" class="crt" style="color: whitesmoke; font-family: IBM3x;">
 		[	1.089542] Kernel panic - not syncing: VFS: Unable to mount package digitalis on unkown-block(0,0)<br>
 		[	1.090150] CPU: 0 PID: 1 Comm: swapper/0 Not tainted 3.10.8-327.el7x86_64 #<br>
-		[	1.091479] Hardware name: (USERAGENT)<br>
+		[	1.091479] Client Tunnel: ` + navigator.userAgent + `<br>
 		[	1.092354] ffffffff8184e928 000000001e6559f5 ffff880139387d60 ffffffff816351f1<br>
 		[	1.092846] ffff880139387de0 ffffffff8162ea6c ffffffff00000010 ffff880139387df0<br>
 		[	1.099352] ffff880139387d90 000000001e6559f5 000000001e6559f5 ffff880139387e00<br>

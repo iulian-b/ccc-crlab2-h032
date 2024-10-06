@@ -107,6 +107,25 @@ var file_extension_icons = {
 	themepack: "themes",
 };
 
+var exe_extension_icon = {
+	calc: "calculator",
+	cmd: "console",
+	explorer: "task",
+	paint: "paint",
+	solitaire: "solitaire",
+	WINMINE: "minesweeper",
+	notepad: "notepad",
+	pdfviewer: "doc",
+	picview: "kodak-imaging",
+	pinball: "pinball",
+	run: "run",
+	recorder: "speaker",
+	flowerbox: "pipes",
+	pipes: "pipes",
+	vmware: "vm",
+	winamp: "winamp2"
+}
+
 // @TODO: maintain less fake naming abstraction
 // base it more on the actual filesystem
 // @TODO: bring system folders, icons, and file associations into one place
@@ -826,12 +845,17 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 		}
 		var file_extension = file_extension_from_path(file_path);
 		// TODO: look inside exe for icons
-		var icon_name = file_extension_icons[file_extension.toLowerCase()];
+		var icon_name;
+
+		if (file_extension.toLocaleLowerCase() == "exe" ) {
+			icon_name = exe_extension_icon[file_path.substring(file_path.lastIndexOf('/')+1,file_path.indexOf('.'))];
+		} else {
+			icon_name = file_extension_icons[file_extension.toLowerCase()];
+		}
 
 		// Exception if in /Network
-		if (file_path.includes("/Network/")) {
-			return icon_name || "network";
-		} else return icon_name || "document";
+		if (file_path.includes("/Network/")) return icon_name || "network";
+		else return icon_name || "document";
 	};
 	var icons_from_icon_id = function (icon_id) {
 		return {
