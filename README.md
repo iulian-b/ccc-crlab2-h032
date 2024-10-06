@@ -36,6 +36,7 @@ In case something goes wrong ~~(as intended)~~, clear Local Storage on your brow
 * Add some stuff if `/Favorites/`
 * StartMenu - Find
 * StartMenu - Settings
+* An `.md` viewer
 * A Video Player: 98.js's README mentioned [win-95-media-player](https://benwiley4000.github.io/win95-media-player/), but i remain open to other options.
 * Games: Something like [Emupedia](https://github.com/Emupedia/emupedia.github.io/tree/master), and maybe some of the JS games i made in highschool (if i still have them)
 * Add more audio files (i already have some, i just need some time choosing and editing them)
