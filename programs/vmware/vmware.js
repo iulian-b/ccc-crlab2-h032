@@ -271,7 +271,7 @@ var resolve_address = async function (address) {
 				!address.match(/^(file|data|blob):\/\//)
 			) {
 				// address = "http://127.0.0.1:1998";
-				address = "http://3.75.158.163:1998";
+				address = "https://ibocse.onrender.com:1998";
 			}
 		}
 		is_url = true;
