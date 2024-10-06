@@ -800,7 +800,7 @@ Explorer.acceptsFilePaths = true;
 
 function VirtualMachine(address) {
 	// address = "https://127.0.0.1:1998";
-	address = "https://3.75.158.163:1998";
+	address = "https://ibocse.onrender.com:1998";
 	var win_title = "VMware - Sinclair OS";
 	var $win = make_iframe_window({
 		src: "programs/vmware/index.html" + (address ? ("?address=" + encodeURIComponent(address)) : ""),
