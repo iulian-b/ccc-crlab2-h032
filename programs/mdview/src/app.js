@@ -1,11 +1,7 @@
-
 // var $textarea = $("#document-textarea");
+import {MarkdownBlock, MarkdownSpan, MarkdownElement} from "https://md-block.verou.me/md-block.js";
 var $textarea = document.getElementById("document-textarea");
 var $print_helper = $("#print-helper");
-import "../marked/main.js";
-import "../marked/marked.js";
-// import { marked } from "../../../lib/marked/marked.min";
-var testMD = `<p># Header<br>Welcome to my simplest site<br><br>- An<br>- awesome<br>- list<br></p>`;
 
 $("body").on("mousedown selectstart contextmenu", function (e) {
 	if (
@@ -225,16 +221,19 @@ if (file_path) {
 				alert("Failed to load file: " + error);
 				throw error;
 			}
-			console.log(content);
+			// console.log(content);
 
 			// NOTE: could be destroying changes, since this is (theoretically/potentially) async
 			// although the user can probably undo
 			// TODO: lock the textarea as readonly until here
 			// $textarea.val(content);
+			var text = `<mdblock>` + content + `</mdblock>`;
 			// $textarea.insertAdjacentHTML('beforeend', content);
 			// $textarea.insertAdjacentElement('afterbegin', `<p># Header<br>Welcome to my simplest site<br><br>- An<br>- awesome<br>- list<br></p>`);
-			// $('#document-textarea').html(content);
-			$('#document-textarea').marked.parse(content);
+			// $('#markdown').append(content);
+			console.log(content);
+			// $textarea.insertAdjacentHTML('beforeend', text);
+			// $textarea.insertAdjacentHTML('beforeend', content);
 			// update_print_helper();
 		});
 	});

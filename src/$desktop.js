@@ -117,6 +117,7 @@ $("html").on("drop", function (event) {
 window.addEventListener('DOMContentLoaded', function() {
 	if (localStorage.getItem("boot") == "true") {
 		systemExecuteFile("/My Documents/CV (EN).pdf");
+		// systemExecuteFile("/Desktop/Projects/qrscanner/README.md");
 	}
 });
 
