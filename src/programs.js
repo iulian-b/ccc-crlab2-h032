@@ -266,6 +266,24 @@ function Notepad(file_path) {
 }
 Notepad.acceptsFilePaths = true;
 
+
+function Markdown(file_path) {
+	var document_title = file_path ? file_name_from_path(file_path) : "Untitled";
+	var win_title = document_title + " - MDView";
+
+	var $win = make_iframe_window({
+		src: "programs/mdview/index.html" + (file_path ? ("?path=" + file_path) : ""),
+		icons: iconsAtTwoSizes("md"),
+		title: win_title,
+		outerWidth: 480,
+		outerHeight: 321,
+		resizable: true,
+	});
+	console.log("[USR] ibocse@crlab2-h032: mdview.exe(" + file_path + ")");
+	return new Task($win);
+}
+Markdown.acceptsFilePaths = true;
+
 function openRunDialog() {
 	var $win = make_iframe_window({
 		src: "programs/run/index.html",
@@ -398,76 +416,18 @@ function Network(file_path) {
 Network.acceptsFilePaths = true;
 
 function openWithProgram(file_path) {
-	switch(file_path) {
-		case "/Program Files/calculator/calc.exe": {
-			Calculator();
-			return;
-		}
-		case "/Program Files/command/cmd.exe": {
-			CommandPrompt();
-			return;
-		}
-		case "/Program Files/js-solitaire/solitaire.exe": {
-			Solitaire();
-			return;
-		}
-		case "/Program Files/jspaint/paint.exe": {
-			Paint();
-			return;
-		}
-		case "/Program Files/minesweeper/WINMINE.exe": {
-			Minesweeper();
-			return;
-		}
-		case "/Program Files/notepad/notepad.exe": {
-			Notepad();
-			return;
-		}
-		case "/Program Files/pdfviewer/pdfviewer.exe": {
-			PDFViewer();
-			return;
-		}
-		case "/Program Files/pdfviewer/picview.exe": {
-			Picview();
-			return;
-		}
-		case "/Program Files/pinball/pinball.exe": {
-			Pinball();
-			return;
-		}
-		case "/Program Files/sound-recorder/recorder.exe": {
-			SoundRecorder();
-			return;
-		}
-		case "/Program Files/winamp/winamp.exe": {
-			openWinamp();
-			return;
-		}
-		case "/Program Files/explorer/explorer.exe": {
-			Explorer();
-			return;
-		}
-		case "/Program Files/screensavers/3D-FlowerBox/flowerbox.exe": {
-			FlowerBox();
-			return;
-		}
-		case "/Program Files/screensavers/pipes/pipes.exe": {
-			Pipes();
-			return;
-		}
-		case "/Program Files/run/run.exe": {
-			openRunDialog();
-			return;
-		}
-		case "/Program Files/vmware/vmware.exe": {
-			VirtualMachine();
-			return;
-		}
-		case "/Desktop/Projects/ccc-crlab2-h032/main.exe": {
-			// open("https://github.com/iulian-b/ccc-crlab2-h032");
-			location.reload();
-		}
-	}
+	withFilesystem(function () {
+		var fs = BrowserFS.BFSRequire('fs');
+		fs.readFile(file_path, "utf8", function (error, data) {
+			var program = data.split('\n').shift() 
+			var func = new Function(program); func();
+			if (error) {
+				alert("Failed to run executable: " + error);
+				throw error;
+			}
+		});
+	});
+	return;
 }
 openWithProgram.acceptsFilePaths = true;
 
@@ -839,6 +799,7 @@ function Explorer(address) {
 Explorer.acceptsFilePaths = true;
 
 function VirtualMachine(address) {
+	address = "https://127.0.0.1:1998";
 	var win_title = "VMware - Sinclair OS";
 	var $win = make_iframe_window({
 		src: "programs/vmware/index.html" + (address ? ("?address=" + encodeURIComponent(address)) : ""),
@@ -1336,7 +1297,7 @@ var file_extension_associations = {
 	make: Notepad,
 	map: Notepad,
 	marks: Notepad,
-	md: Notepad,
+	md: Markdown,
 	prettierignore: Notepad,
 	properties: Notepad,
 	rc: Notepad,

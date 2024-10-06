@@ -67,8 +67,7 @@ function load_pic() {
 	// var newPic = '<img src="' + file_path + '" id="pic", style="position: relative; left: 45%; top: 45%"/>';
 	var newPic = '<img src="' + file_path + '" id="pic", style="display: block; margin: 0 auto; height: 100%"/>';
 
-	var parent = document.getElementById("app");
-	parent.insertAdjacentHTML('afterbegin', newPic); 
+	document.getElementById("app").insertAdjacentHTML('afterbegin', newPic); 
 }
 
 function update_title() {

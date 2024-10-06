@@ -69,6 +69,7 @@
 	"dependencies": {
 		"98": "file:",
 		"fs": "^0.0.1-security",
-		"fund": "^1.0.0"
+		"fund": "^1.0.0",
+		"marked": "^14.1.2"
 	}
 }

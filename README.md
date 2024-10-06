@@ -37,11 +37,12 @@ In case something goes wrong ~~(as intended)~~, clear Local Storage on your brow
 * StartMenu - Find
 * StartMenu - Settings
 * An `.md` viewer
+* Update CV.
 * A Video Player: 98.js's README mentioned [win-95-media-player](https://benwiley4000.github.io/win95-media-player/), but i remain open to other options.
 * Games: Something like [Emupedia](https://github.com/Emupedia/emupedia.github.io/tree/master), and maybe some of the JS games i made in highschool (if i still have them)
 * Add more audio files (i already have some, i just need some time choosing and editing them)
 * Fix Audio: autoplay hasn't been a thing [[1]](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/autoplay#value), [[2]](https://stackoverflow.com/a/62720714) since tumblr and myspace apparently
-* Extend Picview and PDFview with Filepicker dialogs
+* Extend Picview and PDFview with Filepicker dialogs (see notepad.exe filesystem thing)
 * Clean up all of the unused stuff from 98.js (as in not used by me)
 * Add digitalis.exe
 
