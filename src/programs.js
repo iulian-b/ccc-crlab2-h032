@@ -799,8 +799,8 @@ function Explorer(address) {
 Explorer.acceptsFilePaths = true;
 
 function VirtualMachine(address) {
-	// address = "https://127.0.0.1:1998";
-	address = "https://ibocse.onrender.com:1998";
+	address = "https://127.0.0.1:3000";
+	// address = "https://ibocse.onrender.com:1998";
 	var win_title = "VMware - Sinclair OS";
 	var $win = make_iframe_window({
 		src: "programs/vmware/index.html" + (address ? ("?address=" + encodeURIComponent(address)) : ""),
@@ -1533,7 +1533,7 @@ add_icon_not_via_filesystem({
 add_icon_not_via_filesystem({
 	title: "VMware 2.0",
 	iconID: "vm",
-	open: function () { VirtualMachine("http://127.0.0.1:1998"); }
+	open: function () { VirtualMachine("http://127.0.0.1:3000"); }
 });
 add_icon_not_via_filesystem({
 	title: "Pinball",

@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => {
-	await page.goto('http://localhost:1998/');
+	await page.goto('http://localhost:3000/');
 	await page.getByText('Pipes').dblclick();
 });
 
