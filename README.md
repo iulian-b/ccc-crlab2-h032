@@ -37,6 +37,7 @@ In case something goes wrong ~~(as intended)~~, clear Local Storage on your brow
 * StartMenu - Find
 * StartMenu - Settings
 * An `.md` viewer
+* Fix explorer() in C:/Desktop not having left side info .htt
 * Update CV.
 * A Video Player: 98.js's README mentioned [win-95-media-player](https://benwiley4000.github.io/win95-media-player/), but i remain open to other options.
 * Games: Something like [Emupedia](https://github.com/Emupedia/emupedia.github.io/tree/master), and maybe some of the JS games i made in highschool (if i still have them)
