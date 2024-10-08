@@ -1,8 +1,10 @@
 # ![1728121822598](images/README/1728121822598.png)ccc-crlab2-h032
 
-A web-OS inspired by Windows 98 and built on top of [98.js](https://github.com/1j01/98).
+A web-OS  built on top of [98.js](https://github.com/1j01/98).
 
-This project was made with the intention of being my profile/presentation/cv on [my website](https://ibocse.info).
+This project was made with the intention of being my profile/presentation/cv on my website.
+
+![1728406072472](images/README/1728406072472.png)
 
 ## Features
 
