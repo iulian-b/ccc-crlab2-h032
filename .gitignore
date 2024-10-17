@@ -3,6 +3,7 @@ node_modules/
 # Reserved for future use
 dist/
 build/
+pull-libs.js
 
 # Playwright
 /test-results/

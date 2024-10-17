@@ -2,7 +2,6 @@
 
 const { copySync, readFileSync, writeFileSync } = require("fs-extra");
 const { basename, join } = require("path");
-import { showMessageBox } from "./src/msgbox";
 
 const copy = (from, toDir) => {
 	const to = join(toDir, basename(from));
