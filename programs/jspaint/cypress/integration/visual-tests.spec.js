@@ -5,7 +5,7 @@ context("visual tests", () => {
 	// These tests are not really cross-platform or even cross-computer,
 	// since they depend on pixel-exact text and SVG rendering, as well as browser-specific built-in styles and layout.
 	// Unfortunately, increasing the threshold to a point where the tests pass on all systems would introduce RIDICULOUS false negatives,
-	// like changing the entire icon set wasn't even detected as a change, in Eye Gaze Mode, where the icons are HUGE!
+	// like changing the entire icon set wasn't even detected as a change, in Eye Gaze Mode (now Enlarge UI mode), where the icons are HUGE!
 	// And again unfortunately, decreasing the threshold to the point where it detects most changes that matter,
 	// it produces RIDICULOUS false positives, like the window title bar gradient and all text being said to be different,
 	// even on the same machine! In short, the image comparison is unusable.
@@ -201,21 +201,33 @@ context("visual tests", () => {
 		cy.get(".window:visible").matchImageSnapshot(Object.assign({}, withMuchTextCompareOptions, { blackout: ["#maybe-outdated-line", "#jspaint-version"] }));
 	});
 
+	const toggleEyeGazeMode = () => {
+		// Eye Gaze Mode has been split into several features.
+		clickMenuButton("Extras");
+		clickMenuItem("Vertical Color Box");
+		closeMenus();
+		clickMenuButton("Extras");
+		clickMenuItem("Quick Undo Button");
+		closeMenus();
+		clickMenuButton("Extras");
+		clickMenuItem("Dwell Clicker");
+		closeMenus();
+		clickMenuButton("Extras");
+		clickMenuItem("Enlarge UI");
+		closeMenus();
+	};
 	it("eye gaze mode", () => {
 		cy.get('.tool[title="Select"]').click();
-		clickMenuButton("Extras");
-		clickMenuItem("Eye Gaze Mode");
-		cy.wait(100);
+		toggleEyeGazeMode();
 		// clickMenuButton("View");
 		// cy.get("body").trigger("pointermove", { clientX: 200, clientY: 150 });
-		closeMenus();
 		cy.wait(100);
-		cy.get(".eye-gaze-mode-undo-button").should("exist");
+		cy.get(".floating-undo-button").should("exist");
 		cy.matchImageSnapshot(withTextCompareOptions);
 	});
 
 	it("bubblegum theme -- eye gaze mode", () => {
-		cy.get(".eye-gaze-mode-undo-button").should("exist");
+		cy.get(".floating-undo-button").should("exist");
 		// selectTheme("Bubblegum"); // not released yet
 		cy.window().then((win) => {
 			win.api_for_cypress_tests.set_theme("bubblegum.css");
@@ -227,7 +239,7 @@ context("visual tests", () => {
 	});
 
 	it("modern light theme -- eye gaze mode", () => {
-		cy.get(".eye-gaze-mode-undo-button").should("exist");
+		cy.get(".floating-undo-button").should("exist");
 		selectTheme("Modern Light");
 		// clickMenuButton("View");
 		// cy.get("body").trigger("pointermove", { clientX: 200, clientY: 150 });
@@ -237,9 +249,8 @@ context("visual tests", () => {
 
 	it("exit eye gaze mode", () => {
 		// this acts as teardown for the eye gaze mode tests
-		clickMenuButton("Extras");
-		clickMenuItem("Eye Gaze Mode");
-		cy.get(".eye-gaze-mode-undo-button").should("not.exist");
+		toggleEyeGazeMode();
+		cy.get(".floating-undo-button").should("not.exist");
 	});
 
 	it("modern light theme -- main screenshot", () => {

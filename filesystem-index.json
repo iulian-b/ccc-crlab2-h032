@@ -1017,7 +1017,8 @@
       "S14 With Shitty Mods.m3u": null,
       "Skyline GTR R32.m3u": null,
       "Toyota AE86.m3u": null,
-      "VAZ-2121.m3u": null
+      "VAZ-2121.m3u": null,
+      "Krait Mk.II.m3u": null
     },
     "better-off-alone.mp3": null,
     "Big Poppa.mp3": null,
@@ -1063,7 +1064,14 @@
     "LAB02": null
   },
   "Games": {
-
+    "diablo.exe": null,
+    "minecraft.exe": null,
+    "minesweeper.exe": null,
+    "pinball.exe": null,
+    "quake3.exe": null,
+    "skifree.exe": null,
+    "tombraider.exe": null,
+    "wolf3d.exe": null
   },
   "Program Files": {
     "calculator": {

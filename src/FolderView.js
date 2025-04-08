@@ -114,6 +114,7 @@ var exe_extension_icon = {
 	paint: "paint",
 	solitaire: "solitaire",
 	WINMINE: "minesweeper",
+	minesweeper: "minesweeper",
 	notepad: "notepad",
 	pdfviewer: "doc",
 	picview: "kodak-imaging",
@@ -123,7 +124,13 @@ var exe_extension_icon = {
 	flowerbox: "pipes",
 	pipes: "pipes",
 	vmware: "vm",
-	winamp: "winamp2"
+	winamp: "winamp2",
+	wolf3d: "wolf-3d",
+	diablo: "diablo1",
+	tombraider: "tomb-raider",
+	quake3: "quake3",
+	minecraft: "minecraft",
+	skifree: "skifree"
 }
 
 // @TODO: maintain less fake naming abstraction

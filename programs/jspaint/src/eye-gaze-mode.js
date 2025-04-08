@@ -1,32 +1,53 @@
 // @ts-check
 // eslint-disable-next-line no-unused-vars
 /* global pointers:writable */
-/* global $Window, average_points, main_canvas, pointer_active, selected_tool, TrackyMouse */
-import { undo } from "./functions.js";
+/* global $Window, main_canvas, pointer_active, selected_tool, TrackyMouse */
+import { change_url_param, undo } from "./functions.js";
 import { $G, load_image_simple } from "./helpers.js";
 import { TOOL_CURVE, TOOL_FILL, TOOL_MAGNIFIER, TOOL_PICK_COLOR, TOOL_POLYGON } from "./tools.js";
 
-let clean_up_eye_gaze_mode = () => { };
-$G.on("eye-gaze-mode-toggled", () => {
-	if ($("body").hasClass("eye-gaze-mode")) {
-		init_eye_gaze_mode();
+// Tracky Mouse provides dwell clicking and head tracking features.
+// https://trackymouse.js.org/
+
+
+let dwell_clicker = { paused: false, dispose: () => { } };
+
+let clean_up_dwell_clicker = () => { };
+$G.on("dwell-clicker-toggled", () => {
+	if ($("body").hasClass("dwell-clicker-mode")) {
+		init_dwell_clicker();
 	} else {
-		clean_up_eye_gaze_mode();
+		clean_up_dwell_clicker();
 	}
 });
-if ($("body").hasClass("eye-gaze-mode")) {
+if ($("body").hasClass("dwell-clicker-mode")) {
 	// #region Initialization (continued; marking stuff that ideally should be at the end of the file)
-	init_eye_gaze_mode();
+	init_dwell_clicker();
 	// #endregion
 }
 
-const eye_gaze_mode_config = {
+let clean_up_tracky_mouse_ui = () => { };
+$G.on("head-tracker-toggled", () => {
+	if ($("body").hasClass("head-tracker-mode")) {
+		init_tracky_mouse_ui();
+	} else {
+		clean_up_tracky_mouse_ui();
+	}
+});
+if ($("body").hasClass("head-tracker-mode")) {
+	// #region Initialization (continued; marking stuff that ideally should be at the end of the file)
+	init_tracky_mouse_ui();
+	// #endregion
+}
+
+const dwell_clicker_config = {
 	targets: `
 		button:not([disabled]),
 		input,
 		textarea,
 		label,
 		a,
+		details summary,
 		.flip-and-rotate .sub-options .radio-wrapper,
 		.current-colors,
 		.color-button,
@@ -88,6 +109,7 @@ const eye_gaze_mode_config = {
 			selected_tool.id !== TOOL_CURVE
 		)
 	),
+	isHeld: () => pointer_active,
 	click: ({ target, x, y }) => {
 		if (target.matches("button:not(.toggle)")) {
 			target.style.borderImage = "var(--inset-deep-border-image)";
@@ -141,36 +163,45 @@ const eye_gaze_mode_config = {
 			return 0;
 		}
 	},
+	beforeDispatch: () => {
+		window.untrusted_gesture = true;
+	},
+	afterDispatch: () => {
+		window.untrusted_gesture = false;
+	},
+	beforePointerDownDispatch() {
+		pointers = []; // prevent multi-touch panning
+	},
+	afterReleaseDrag() {
+		pointers = []; // prevent multi-touch panning
+	},
 };
 
-// Tracky Mouse provides head tracking. https://trackymouse.js.org/
-// To enable Tracky Mouse, you must currently:
-// - toggle `enable_tracky_mouse` to true
-// - uncomment tracky-mouse.js and tracky-mouse.css in index.html
-// - add `'unsafe-eval' blob:` to the `script-src` directive of the Content-Security-Policy in index.html,
-//   as clmtrackr uses eval().
-// TODO: update Tracky Mouse; I actually created a tool to remove the need for eval in clmtrackr,
-// so the next version shouldn't need 'unsafe-eval'.
-// I also brought the dwell clicking code into Tracky Mouse, and it looks like I still need to update jspaint to use the library version.
-// For introducing head tracking as a feature (with the Tracky Mouse UI),
-// there's still UI/UX concerns like providing a way to disable it separately from eye gaze mode,
-// and the minimized window overlapping the floating buttons.
-// Terminologically, I'm not sure what to call the superset of eye gaze mode and head tracking.
-// - "Coarse Input Mode"? Sounds rough, and probably unclear.
-// - "Hands-Free Mode"? Although that could also refer to voice commands. Which are also supported.
-// - "Head Input Mode"/"Head Tracking Mode"? Technically your eyes are part of your head...
-// - "Face Mouse Mode"/"Facial Mouse Mode"? Maybe!
-// I might want to separate it into "Enlarge Interface", "Dwell Clicking", "Head Tracking", and (already split out) "Vertical Color Box".
-// Or "Enlarge UI" and "Tracky Mouse", which would open up a window which would control dwell clicking and head tracking.
-// (I can maintain backwards compatibility with the #eye-gaze-mode URL fragment, breaking it up into the new settings.)
-var enable_tracky_mouse = false;
+async function init_dwell_clicker() {
+	await new Promise((resolve) => $(resolve)); // wait for document ready so app UI is appended before Dwell Clicker visuals
+
+	// (TODO: disable hovering to open submenus (other than with dwell clicking) while Dwell Clicker is enabled?)
+
+	dwell_clicker = TrackyMouse.initDwellClicking(dwell_clicker_config);
+
+	update_floating_buttons();
+
+	clean_up_dwell_clicker = () => {
+		console.log("Cleaning up / disabling Dwell Clicker mode");
+		dwell_clicker.dispose();
+		update_floating_buttons();
+		clean_up_dwell_clicker = () => { };
+	};
+}
+
 var tracky_mouse_deps_promise;
 
-async function init_eye_gaze_mode() {
-	await new Promise((resolve) => $(resolve)); // wait for document ready so app UI is appended before eye gaze mode UI
-	if (enable_tracky_mouse) {
+async function init_tracky_mouse_ui() {
+	await new Promise((resolve) => $(resolve)); // wait for document ready... maybe not needed here?
+	// block for indentation to avoid confusing git diff
+	{
 		if (!tracky_mouse_deps_promise) {
-			TrackyMouse.dependenciesRoot = "lib/tracky-mouse";
+			TrackyMouse.dependenciesRoot = "lib/tracky-mouse/core";
 			tracky_mouse_deps_promise = TrackyMouse.loadDependencies();
 		}
 		await tracky_mouse_deps_promise;
@@ -182,10 +213,53 @@ async function init_eye_gaze_mode() {
 		$tracky_mouse_window.addClass("tracky-mouse-window");
 		const tracky_mouse_container = $tracky_mouse_window.$content[0];
 
-		TrackyMouse.init(tracky_mouse_container);
+		$tracky_mouse_window.on("closed", () => {
+			change_url_param("head-tracker", false);
+		});
+
+		// Use a minimize target so that the window doesn't minimize to the bottom left corner of the screen, overlapping the floating buttons.
+		// Adding it to the menu bar ensures visibility and no overlap because it will wrap to the next row if necessary.
+		// However, this is volatile because if I decided to destroy and recreate the menu bar, this extra button would be lost.
+		// The OS-GUI.js menu bar API doesn't support changing menus on the fly yet, so I'm likely to want to do that (for Recent Files, for example).
+		// I could make an event for menu modifications and listen for it here and re-add the minimize target if necessary.
+		// Of course if OS-GUI.js does support changing menus in the future, I could make this minimize target an actual menu item,
+		// which would be a little different but probably good. (I would need to support non-menu-opening top level buttons too - a real Windows feature, btw.)
+		const minimize_target = document.createElement("button");
+		minimize_target.classList.add("minimize-target");
+		minimize_target.title = "Restore window";
+		minimize_target.addEventListener("click", () => {
+			if ($tracky_mouse_window.is(":visible")) {
+				$tracky_mouse_window.minimize();
+			} else {
+				$tracky_mouse_window.unminimize();
+			}
+		});
+		minimize_target.textContent = "Tracky Mouse";
+		const icon = document.createElement("img");
+		icon.src = "images/tracky-mouse-16x16.png";
+		icon.width = 16;
+		icon.height = 16;
+		minimize_target.prepend(icon);
+		$(".menus").append(minimize_target);
+		$tracky_mouse_window.setMinimizeTarget(minimize_target);
+
+		const tracky_mouse_ui = TrackyMouse.init(tracky_mouse_container);
 		TrackyMouse.useCamera();
 
 		$tracky_mouse_window.center();
+
+		const get_event_options = ({ x, y }) => {
+			return {
+				view: window, // needed for offsetX/Y calculation
+				clientX: x,
+				clientY: y,
+				pointerId: 1234567890,
+				pointerType: "mouse",
+				isPrimary: true,
+				bubbles: true,
+				cancelable: true,
+			};
+		};
 
 		let last_el_over;
 		TrackyMouse.onPointerMove = (x, y) => {
@@ -227,410 +301,245 @@ async function init_eye_gaze_mode() {
 
 		// tracky_mouse_container.querySelector(".tracky-mouse-canvas").classList.add("inset-deep");
 
+		// TODO: avoid using setInterval for this
+		let last_head_tracker_paused;
+		const update_paused_iid = setInterval(() => {
+			// TODO: avoid accessing UI state like this
+			const head_tracker_paused = $tracky_mouse_window.find(".tracky-mouse-start-stop-button").attr("aria-pressed") === "false";
+			// Be careful so that the floating pause button still works.
+			if (head_tracker_paused !== last_head_tracker_paused) {
+				dwell_clicker.paused = head_tracker_paused;
+				last_head_tracker_paused = head_tracker_paused;
+			}
+			const $pause_button = $(".toggle-dwell-clicking");
+			// TODO: ensure disabled state is visually distinct
+			// or instead of disabling it, make it toggle the head tracker pause state as well?
+			// but that might be confusing
+			$pause_button.prop("disabled", head_tracker_paused);
+			// TODO: DRY
+			const pause_button_text = "Pause Dwell Clicking";
+			const resume_button_text = "Resume Dwell Clicking";
+			$("body").toggleClass("dwell-clicker-paused", dwell_clicker.paused);
+			$pause_button.attr("title", dwell_clicker.paused ? resume_button_text : pause_button_text);
+		}, 100);
+
+		clean_up_tracky_mouse_ui = () => {
+			console.log("Cleaning up / disabling Head Tracker mode");
+			clearInterval(update_paused_iid);
+			tracky_mouse_ui.dispose();
+			if (!$tracky_mouse_window.closed) {
+				$tracky_mouse_window.close();
+			}
+			minimize_target.remove();
+			clean_up_tracky_mouse_ui = () => { };
+		};
+	}
+}
+// TODO: move this to a separate file (note dependency on `dwell_clicker`)
+let $floating_buttons = null;
+let clean_up_floating_buttons = null;
+async function update_floating_buttons() {
+	await new Promise((resolve) => $(resolve)); // wait for document ready so app UI is appended before floating buttons
+
+	clean_up_floating_buttons?.();
+
+	if (!$("body").is(".easy-undo-mode, .dwell-clicker-mode")) {
+		return;
 	}
 
-	const circle_radius_max = 50; // dwell indicator size in pixels
-	const hover_timespan = 500; // how long between the dwell indicator appearing and triggering a click
-	const averaging_window_timespan = 500;
-	const inactive_at_startup_timespan = 1500; // (should be at least averaging_window_timespan, but more importantly enough to make it not awkward when enabling eye gaze mode)
-	const inactive_after_release_timespan = 1000; // after click or drag release (from dwell or otherwise)
-	const inactive_after_hovered_timespan = 1000; // after dwell click indicator appears; does not control the time to finish that dwell click, only to click on something else after this is canceled (but it doesn't control that directly)
-	const inactive_after_invalid_timespan = 1000; // after a dwell click is canceled due to an element popping up in front, or existing in front at the center of the other element
-	const inactive_after_focused_timespan = 1000; // after page becomes focused after being unfocused
-	let recent_points = [];
-	let inactive_until_time = Date.now();
-	let paused = false;
-	let hover_candidate;
-	let gaze_dragging = null;
-
-	const deactivate_for_at_least = (timespan) => {
-		inactive_until_time = Math.max(inactive_until_time, Date.now() + timespan);
-	};
-	deactivate_for_at_least(inactive_at_startup_timespan);
-
-	const halo = document.createElement("div");
-	halo.className = "hover-halo";
-	halo.style.display = "none";
-	document.body.appendChild(halo);
-	const dwell_indicator = document.createElement("div");
-	dwell_indicator.className = "dwell-indicator";
-	dwell_indicator.style.width = `${circle_radius_max}px`;
-	dwell_indicator.style.height = `${circle_radius_max}px`;
-	dwell_indicator.style.display = "none";
-	document.body.appendChild(dwell_indicator);
-
-	const on_pointer_move = (e) => {
-		recent_points.push({ x: e.clientX, y: e.clientY, time: Date.now() });
-	};
-	const on_pointer_up_or_cancel = () => {
-		deactivate_for_at_least(inactive_after_release_timespan);
-		gaze_dragging = null;
-	};
-
-	let page_focused = document.visibilityState === "visible"; // guess/assumption
-	let mouse_inside_page = true; // assumption
-	const on_focus = () => {
-		page_focused = true;
-		deactivate_for_at_least(inactive_after_focused_timespan);
-	};
-	const on_blur = () => {
-		page_focused = false;
-	};
-	const on_mouse_leave_page = () => {
-		mouse_inside_page = false;
-	};
-	const on_mouse_enter_page = () => {
-		mouse_inside_page = true;
-	};
-
-	window.addEventListener("pointermove", on_pointer_move);
-	window.addEventListener("pointerup", on_pointer_up_or_cancel);
-	window.addEventListener("pointercancel", on_pointer_up_or_cancel);
-	window.addEventListener("focus", on_focus);
-	window.addEventListener("blur", on_blur);
-	document.addEventListener("mouseleave", on_mouse_leave_page);
-	document.addEventListener("mouseenter", on_mouse_enter_page);
-
-	const get_hover_candidate = (clientX, clientY) => {
-
-		if (!page_focused || !mouse_inside_page) return null;
-
-		let target = document.elementFromPoint(clientX, clientY);
-		if (!target) {
-			return null;
-		}
-
-		let hover_candidate = {
-			x: clientX,
-			y: clientY,
-			time: Date.now(),
-		};
-
-		let retargeted = false;
-		for (const { from, to, withinMargin = Infinity } of eye_gaze_mode_config.retarget) {
-			if (
-				from instanceof Element ? from === target :
-					typeof from === "function" ? from(target) :
-						target.matches(from)
-			) {
-				const to_element =
-					(to instanceof Element || to === null) ? to :
-						typeof to === "function" ? to(target) :
-							(target.closest(to) || target.querySelector(to));
-				if (to_element === null) {
-					return null;
-				} else if (to_element) {
-					const to_rect = to_element.getBoundingClientRect();
-					if (
-						hover_candidate.x > to_rect.left - withinMargin &&
-						hover_candidate.y > to_rect.top - withinMargin &&
-						hover_candidate.x < to_rect.right + withinMargin &&
-						hover_candidate.y < to_rect.bottom + withinMargin
-					) {
-						target = to_element;
-						hover_candidate.x = Math.min(
-							to_rect.right - 1,
-							Math.max(
-								to_rect.left,
-								hover_candidate.x,
-							),
-						);
-						hover_candidate.y = Math.min(
-							to_rect.bottom - 1,
-							Math.max(
-								to_rect.top,
-								hover_candidate.y,
-							),
-						);
-						retargeted = true;
-					}
-				}
-			}
-		}
-
-		if (!retargeted) {
-			target = target.closest(eye_gaze_mode_config.targets);
-
-			if (!target) {
-				return null;
-			}
-		}
-
-		if (!eye_gaze_mode_config.noCenter(target)) {
-			// Nudge hover previews to the center of buttons and things
-			const rect = target.getBoundingClientRect();
-			hover_candidate.x = rect.left + rect.width / 2;
-			hover_candidate.y = rect.top + rect.height / 2;
-		}
-		hover_candidate.target = target;
-		return hover_candidate;
-	};
-
-	const get_event_options = ({ x, y }) => {
-		return {
-			view: window, // needed for offsetX/Y calculation
-			clientX: x,
-			clientY: y,
-			pointerId: 1234567890,
-			pointerType: "mouse",
-			isPrimary: true,
-			bubbles: true,
-			cancelable: true,
-		};
-	};
-
-	const update = () => {
-		const time = Date.now();
-		recent_points = recent_points.filter((point_record) => time < point_record.time + averaging_window_timespan);
-		if (recent_points.length) {
-			const latest_point = recent_points[recent_points.length - 1];
-			recent_points.push({ x: latest_point.x, y: latest_point.y, time });
-			const average_point = average_points(recent_points);
-			// debug
-			// const canvas_point = to_canvas_coords({clientX: average_point.x, clientY: average_point.y});
-			// ctx.fillStyle = "red";
-			// ctx.fillRect(canvas_point.x, canvas_point.y, 10, 10);
-			const recent_movement_amount = Math.hypot(latest_point.x - average_point.x, latest_point.y - average_point.y);
-
-			// Invalidate in case an element pops up in front of the element you're hovering over, e.g. a submenu
-			// (that use case doesn't actually work because the menu pops up before the hover_candidate exists)
-			// (TODO: disable hovering to open submenus in eye gaze mode)
-			// or an element occludes the center of an element you're hovering over, in which case it
-			// could be confusing if it showed a dwell click indicator over a different element than it would click
-			// (but TODO: just move the indicator off center in that case)
-			if (hover_candidate && !gaze_dragging) {
-				const apparent_hover_candidate = get_hover_candidate(hover_candidate.x, hover_candidate.y);
-				const show_occluder_indicator = (occluder) => {
-					const occluder_indicator = document.createElement("div");
-					const occluder_rect = occluder.getBoundingClientRect();
-					const outline_width = 4;
-					occluder_indicator.style.pointerEvents = "none";
-					occluder_indicator.style.zIndex = "1000001";
-					occluder_indicator.style.display = "block";
-					occluder_indicator.style.position = "fixed";
-					occluder_indicator.style.left = `${occluder_rect.left + outline_width}px`;
-					occluder_indicator.style.top = `${occluder_rect.top + outline_width}px`;
-					occluder_indicator.style.width = `${occluder_rect.width - outline_width * 2}px`;
-					occluder_indicator.style.height = `${occluder_rect.height - outline_width * 2}px`;
-					occluder_indicator.style.outline = `${outline_width}px dashed red`;
-					occluder_indicator.style.boxShadow = `0 0 ${outline_width}px ${outline_width}px maroon`;
-					document.body.appendChild(occluder_indicator);
-					setTimeout(() => {
-						occluder_indicator.remove();
-					}, inactive_after_invalid_timespan * 0.5);
-				};
-				if (apparent_hover_candidate) {
-					if (
-						apparent_hover_candidate.target !== hover_candidate.target &&
-						// !retargeted &&
-						!eye_gaze_mode_config.isEquivalentTarget(
-							apparent_hover_candidate.target, hover_candidate.target
-						)
-					) {
-						hover_candidate = null;
-						deactivate_for_at_least(inactive_after_invalid_timespan);
-						show_occluder_indicator(apparent_hover_candidate.target);
-					}
-				} else {
-					let occluder = document.elementFromPoint(hover_candidate.x, hover_candidate.y);
-					hover_candidate = null;
-					deactivate_for_at_least(inactive_after_invalid_timespan);
-					show_occluder_indicator(occluder || document.body);
-				}
-			}
-
-			let circle_position = latest_point;
-			let circle_opacity = 0;
-			let circle_radius = 0;
-			if (hover_candidate) {
-				circle_position = hover_candidate;
-				circle_opacity = 0.4;
-				circle_radius =
-					circle_radius_max *
-					(hover_candidate.time - time + hover_timespan) / hover_timespan;
-				if (time > hover_candidate.time + hover_timespan) {
-					if (pointer_active || gaze_dragging) {
-						window.untrusted_gesture = true;
-						hover_candidate.target.dispatchEvent(new PointerEvent("pointerup",
-							Object.assign(get_event_options(hover_candidate), {
-								button: 0,
-								buttons: 0,
-							})
-						));
-						window.untrusted_gesture = false;
-					} else {
-						pointers = []; // prevent multi-touch panning
-						window.untrusted_gesture = true;
-						hover_candidate.target.dispatchEvent(new PointerEvent("pointerdown",
-							Object.assign(get_event_options(hover_candidate), {
-								button: 0,
-								buttons: 1,
-							})
-						));
-						window.untrusted_gesture = false;
-						if (eye_gaze_mode_config.shouldDrag(hover_candidate.target)) {
-							gaze_dragging = hover_candidate.target;
-						} else {
-							window.untrusted_gesture = true;
-							hover_candidate.target.dispatchEvent(new PointerEvent("pointerup",
-								Object.assign(get_event_options(hover_candidate), {
-									button: 0,
-									buttons: 0,
-								})
-							));
-							eye_gaze_mode_config.click(hover_candidate);
-							window.untrusted_gesture = false;
-						}
-					}
-					hover_candidate = null;
-					deactivate_for_at_least(inactive_after_hovered_timespan);
-				}
-			}
-
-			if (gaze_dragging) {
-				dwell_indicator.classList.add("for-release");
-			} else {
-				dwell_indicator.classList.remove("for-release");
-			}
-			dwell_indicator.style.display = "";
-			dwell_indicator.style.opacity = circle_opacity.toFixed(3);
-			dwell_indicator.style.transform = `scale(${circle_radius / circle_radius_max})`;
-			dwell_indicator.style.left = `${circle_position.x - circle_radius_max / 2}px`;
-			dwell_indicator.style.top = `${circle_position.y - circle_radius_max / 2}px`;
-
-			let halo_target =
-				gaze_dragging ||
-				(hover_candidate || get_hover_candidate(latest_point.x, latest_point.y) || {}).target;
-
-			if (halo_target && (!paused || eye_gaze_mode_config.dwellClickEvenIfPaused(halo_target))) {
-				let rect = halo_target.getBoundingClientRect();
-				const computed_style = getComputedStyle(halo_target);
-				let ancestor = halo_target;
-				let border_radius_scale = 1; // for border radius mimicry, given parents with transform: scale()
-				while (ancestor instanceof HTMLElement) {
-					const ancestor_computed_style = getComputedStyle(ancestor);
-					if (ancestor_computed_style.transform) {
-						// Collect scale transforms
-						const match = ancestor_computed_style.transform.match(/(?:scale|matrix)\((\d+(?:\.\d+)?)/);
-						if (match) {
-							border_radius_scale *= Number(match[1]);
-						}
-					}
-					if (ancestor_computed_style.overflow !== "visible") {
-						// Clamp to visible region if in scrollable area
-						// This lets you see the hover halo when scrolled to the middle of a large canvas
-						const scroll_area_rect = ancestor.getBoundingClientRect();
-						rect = {
-							left: Math.max(rect.left, scroll_area_rect.left),
-							top: Math.max(rect.top, scroll_area_rect.top),
-							right: Math.min(rect.right, scroll_area_rect.right),
-							bottom: Math.min(rect.bottom, scroll_area_rect.bottom),
-						};
-						rect.width = rect.right - rect.left;
-						rect.height = rect.bottom - rect.top;
-					}
-					ancestor = ancestor.parentNode;
-				}
-				halo.style.display = "block";
-				halo.style.position = "fixed";
-				halo.style.left = `${rect.left}px`;
-				halo.style.top = `${rect.top}px`;
-				halo.style.width = `${rect.width}px`;
-				halo.style.height = `${rect.height}px`;
-				// shorthand properties might not work in all browsers (not tested)
-				// this is so overkill...
-				halo.style.borderTopRightRadius = `${parseFloat(computed_style.borderTopRightRadius) * border_radius_scale}px`;
-				halo.style.borderTopLeftRadius = `${parseFloat(computed_style.borderTopLeftRadius) * border_radius_scale}px`;
-				halo.style.borderBottomRightRadius = `${parseFloat(computed_style.borderBottomRightRadius) * border_radius_scale}px`;
-				halo.style.borderBottomLeftRadius = `${parseFloat(computed_style.borderBottomLeftRadius) * border_radius_scale}px`;
-			} else {
-				halo.style.display = "none";
-			}
-
-			if (time < inactive_until_time) {
-				return;
-			}
-			if (recent_movement_amount < 5) {
-				if (!hover_candidate) {
-					hover_candidate = {
-						x: average_point.x,
-						y: average_point.y,
-						time: Date.now(),
-						target: gaze_dragging || null,
-					};
-					if (!gaze_dragging) {
-						hover_candidate = get_hover_candidate(hover_candidate.x, hover_candidate.y);
-					}
-					if (hover_candidate && (paused && !eye_gaze_mode_config.dwellClickEvenIfPaused(hover_candidate.target))) {
-						hover_candidate = null;
-					}
-				}
-			}
-			if (recent_movement_amount > 100) {
-				if (gaze_dragging) {
-					window.untrusted_gesture = true;
-					window.dispatchEvent(new PointerEvent("pointerup",
-						Object.assign(get_event_options(average_point), {
-							button: 0,
-							buttons: 0,
-						})
-					));
-					window.untrusted_gesture = false;
-					pointers = []; // prevent multi-touch panning
-				}
-			}
-			if (recent_movement_amount > 60) {
-				hover_candidate = null;
-			}
-		}
-	};
-	let raf_id;
-	const animate = () => {
-		raf_id = requestAnimationFrame(animate);
-		update();
-	};
-	raf_id = requestAnimationFrame(animate);
-
-	const $floating_buttons =
-		$("<div class='eye-gaze-mode-floating-buttons'/>")
+	$floating_buttons =
+		$("<div class='floating-buttons'/>")
 			.appendTo("body");
 
-	$("<button title='Undo' class='eye-gaze-mode-undo-button'/>")
-		.on("click", undo)
-		.appendTo($floating_buttons)
-		.append(
-			$("<div class='button-icon'>")
-		);
+	if ($("body").hasClass("easy-undo-mode")) {
+		$("<button title='Undo' class='floating-undo-button'/>")
+			.on("click", undo)
+			.appendTo($floating_buttons)
+			.append(
+				$("<div class='button-icon'>")
+			);
+	}
 
-	// These are matched on exactly, for code that provides speech command synonyms
-	const pause_button_text = "Pause Dwell Clicking";
-	const resume_button_text = "Resume Dwell Clicking";
+	if ($("body").hasClass("dwell-clicker-mode")) {
+		// These are matched on exactly, for code that provides speech command synonyms
+		const pause_button_text = "Pause Dwell Clicking";
+		const resume_button_text = "Resume Dwell Clicking";
 
-	const $pause_button = $(`<button class="toggle-dwell-clicking"/>`)
-		.attr("title", pause_button_text)
-		.on("click", () => {
-			paused = !paused;
-			$("body").toggleClass("eye-gaze-mode-paused", paused);
-			$pause_button.attr("title", paused ? resume_button_text : pause_button_text);
-		})
-		.appendTo($floating_buttons)
-		.append(
-			$("<div class='button-icon'>")
-		);
+		const $pause_button = $(`<button class="toggle-dwell-clicking"/>`)
+			.attr("title", pause_button_text)
+			.on("click", () => {
+				dwell_clicker.paused = !dwell_clicker.paused;
+				// TODO: also apply when initially toggling Dwell Clicker mode
+				// I guess the class would already be there, but the title would be wrong.
+				$("body").toggleClass("dwell-clicker-paused", dwell_clicker.paused);
+				$pause_button.attr("title", dwell_clicker.paused ? resume_button_text : pause_button_text);
+			})
+			.appendTo($floating_buttons)
+			.append(
+				$("<div class='button-icon'>")
+			);
+	} else if ($("body").hasClass("easy-undo-mode")) {
+		// TODO: redo button (needs an icon)
+		// $("<button title='Redo' class='floating-redo-button'/>")
+		// 	.on("click", redo)
+		// 	.appendTo($floating_buttons)
+		// 	.append(
+		// 		$("<div class='button-icon'>")
+		// 	);
+	}
 
-	clean_up_eye_gaze_mode = () => {
-		console.log("Cleaning up / disabling eye gaze mode");
-		cancelAnimationFrame(raf_id);
-		halo.remove();
-		dwell_indicator.remove();
+	const update_width = () => {
+		// It's transformed so needs getBoundingClientRect() instead of width()
+		$("body").css("--floating-buttons-width", $floating_buttons[0].getBoundingClientRect().width + "px");
+	};
+	update_width();
+
+	// Update when Enlarge UI mode is toggled, which currently triggers this event, piggybacking off of existing handlers for it, making it a misnomer
+	// (but also when the theme is changed; either could alter the layout)
+	$G.on("theme-load", update_width);
+
+	clean_up_floating_buttons = () => {
+		$("body").css("--floating-buttons-width", "0px");
+		$G.off("theme-load", update_width);
 		$floating_buttons.remove();
-		window.removeEventListener("pointermove", on_pointer_move);
-		window.removeEventListener("pointerup", on_pointer_up_or_cancel);
-		window.removeEventListener("pointercancel", on_pointer_up_or_cancel);
-		window.removeEventListener("focus", on_focus);
-		window.removeEventListener("blur", on_blur);
-		document.removeEventListener("mouseleave", on_mouse_leave_page);
-		document.removeEventListener("mouseenter", on_mouse_enter_page);
-		clean_up_eye_gaze_mode = () => { };
+		$floating_buttons = null;
+		clean_up_floating_buttons = null;
 	};
 }
+
+$G.on("easy-undo-mode-toggled", update_floating_buttons);
+
+// Enlarge UI mode: menu scaling
+// other scaling code is in specific files like $Component.js and $ToolWindow.js
+// but MenuBar isn't owned by this repo
+// TODO: separate file too?
+
+const apply_scale = (menu_popup) => {
+	const enabled = $("body").hasClass("enlarge-ui");
+
+	const $menu_popup = $(menu_popup);
+	const is_submenu = $menu_popup.is("[data-semantic-parent^='menu-popup']");
+
+	const reset_scale_css = () => {
+		$menu_popup.css({
+			transform: "",
+			transformOrigin: "",
+			marginLeft: "",
+			marginTop: "",
+		});
+	};
+
+	if (!enabled) {
+		menu_popup.getBoundingClientRect = HTMLElement.prototype.getBoundingClientRect;
+		reset_scale_css();
+		return;
+	}
+
+	let own_call = true;
+	// Override getBoundingClientRect to ignore the transform,
+	// and potentially schedule updating the scale, for a resize event.
+	// It's used in here but also in MenuBar.js for positioning (see update_position_from_containing_bounds)
+	menu_popup.getBoundingClientRect = () => {
+		reset_scale_css();
+		const bounds = HTMLElement.prototype.getBoundingClientRect.call(menu_popup);
+		// For our own call of getBoundingClientRect, we don't want to recurse,
+		// and we don't need to restore the CSS either since we'll be setting it again.
+		if (!own_call) {
+			requestAnimationFrame(() => {
+				apply_scale(menu_popup);
+			});
+		}
+		return bounds;
+	};
+
+	// Measure the untransformed size
+	const base_bounds = menu_popup.getBoundingClientRect();
+	own_call = false;
+
+	// Define CSS properties for scaling
+	const scale = Math.min(1,
+		Math.min(
+			innerWidth / base_bounds.width,
+			(is_submenu ? innerHeight : innerHeight - base_bounds.top) / base_bounds.height,
+		)
+	);
+	const scaled_width = base_bounds.width * scale;
+	const scaled_height = base_bounds.height * scale;
+	let new_left = Math.max(Math.min(base_bounds.left, window.innerWidth - scaled_width), 0);
+	// Move submenus to the right edge of the screen if there's not enough room
+	// I don't know what Windows 98 does, but this feels better, although the left border is hard to see...
+	// Also, not really taking into account RTL languages here.
+	// Hm, also, this makes it inconsistent with the non-Enlarge UI mode behavior....
+	if (base_bounds.left === 0 && is_submenu) {
+		new_left = window.innerWidth - scaled_width;
+	}
+	const new_top = is_submenu ? Math.min(base_bounds.top, window.innerHeight - scaled_height) : base_bounds.top;
+
+	$menu_popup.css({
+		transform: `scale(${scale})`,
+		transformOrigin: "0% 0%",
+
+		// Don't need to reserve space for other elements since menu popups are floating
+		// marginRight: base_bounds.width * (scale - 1),
+		// marginBottom: base_bounds.height * (scale - 1),
+
+		// Move the menu up/left to fit all on the screen
+		// Not using left/top so that the effect can be reset; they're already used for positioning.
+		// That may not be an important concern considering the menus would need repositioning when toggling the setting, and should really be closed when toggling the setting.
+		marginLeft: new_left - base_bounds.left,
+		marginTop: new_top - base_bounds.top,
+	});
+};
+
+let observer;
+const update_auto_scaling = () => {
+	if (observer) {
+		observer.disconnect();
+		observer = null;
+	}
+	if ($("body").hasClass("enlarge-ui")) {
+		// - `.menu-popup` elements can exist in the DOM before the menu is opened, hidden with `style.display = "none";`
+		// - `.menu-popup` elements may not exist yet when this code runs
+		// - We want to avoid running the scaling code any time other than a menu being opened
+		//   - It MUST not cause recursion when modifying the styles for scaling in the `MutationObserver` callback
+		// - This code should work regardless of whether `.menu-popup` elements are be shown with `style.display = "block";` or `style.display = "";`
+		observer = new MutationObserver((mutations) => {
+			for (const mutation of mutations) {
+				if (!(mutation.target instanceof HTMLElement)) {
+					continue; // type narrowing, to avoid type checker errors
+				}
+				if (
+					mutation.attributeName === "style" &&
+					mutation.target.style.display !== "none" &&
+					mutation.oldValue?.includes("display: none") &&
+					mutation.target.matches(".menu-popup")
+				) {
+					// setTimeout(() => {
+					apply_scale(mutation.target);
+					// }, 1000);
+				}
+			}
+		});
+		observer.observe(document.body, {
+			attributes: true,
+			attributeOldValue: true,
+			attributeFilter: ["style"],
+			subtree: true,
+		});
+	}
+	// Apply scaling to existing menus
+	setTimeout(() => {
+		// Trigger update_position_from_containing_bounds in MenuBar.js, which uses getBoundingClientRect overridden above
+		if (!$("body").hasClass("enlarge-ui")) {
+			for (const el of $(".menu-popup")) {
+				el.dispatchEvent(new CustomEvent("update", {}));
+			}
+		}
+		for (const el of $(".menu-popup")) {
+			apply_scale(el);
+		}
+	}, 0);
+};
+$G.on("enlarge-ui-toggled", update_auto_scaling);
+update_auto_scaling();
+

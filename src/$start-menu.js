@@ -5,11 +5,19 @@ var $start_content = document.getElementsByClassName("start-menu-content");
 const shutdownAudio = new Audio('../audio/SHUTDOWN.WAV');
 shutdownAudio.volume = 0.2;
 
+function ClearStorage() {
+	localStorage.clear();
+	let Cookies = document.cookie.split(';');
+	for (let i = 0; i < Cookies.length; i++) {
+		document.cookie = Cookies[i] + "=; expires=" + new Date(0).toUTCString();
+	}
+}
+
 var open_start_menu = function () {
 	$start_button.addClass("selected");
 	$start_menu.attr("hidden", null);
 	$start_menu.slideDown(100); // DOWN AS IN UP (stupid jQuery)
-	$start_menu.css({ zIndex: ++$Window.Z_INDEX + 5001 });
+	$start_menu.css({zIndex: ++$Window.Z_INDEX + 5001});
 };
 var close_start_menu = function () {
 	$start_button.removeClass("selected");
@@ -33,7 +41,7 @@ const update_dialog = () => {
 		},
 	});
 	$w.$content.html(`<p><img src='/images/banner.png'></p>`);
-	
+
 
 	// $w.$Button("Ok", () => $w.close()).css({ width: 100 });
 
@@ -68,54 +76,58 @@ $(window).on("keydown", function (e) {
 });
 
 // Buttons
-document.getElementById('start_btn_update').addEventListener("click", function() {
+document.getElementById('start_btn_update').addEventListener("click", function () {
 	console.log("[USR] ibocse@crlab2-h032: Opened sysyem about_dialog()");
 	update_dialog();
 });
-document.getElementById('start_btn_programs').addEventListener("click", function() {
+document.getElementById('start_btn_programs').addEventListener("click", function () {
 	Explorer("/Program Files/");
 });
-document.getElementById('start_btn_favorites').addEventListener("click", function() {
+document.getElementById('start_btn_favorites').addEventListener("click", function () {
 	Explorer("/Favorites");
 });
-document.getElementById('start_btn_documents').addEventListener("click", function() {
+document.getElementById('start_btn_documents').addEventListener("click", function () {
 	Explorer("/My Documents/");
 });
-document.getElementById('start_btn_settings').addEventListener("click", function() {
-	alert("NOT YET IMPLEMENTED");
+document.getElementById('start_btn_settings').addEventListener("click", function () {
+	showMessageBox({iconID: 'error', title:'Error', message: 'Cannot open settings-panel in user mode. \n[Cause: 401 Unauthorized Access]'});
 });
-document.getElementById('start_btn_find').addEventListener("click", function() {
-	alert("NOT YET IMPLEMENTED");
+
+document.getElementById('start_btn_find').addEventListener("click", function () {
+	// alert("NOT YET IMPLEMENTED");
 });
-document.getElementById('start_btn_help').addEventListener("click", function() {
+document.getElementById('start_btn_help').addEventListener("click", function () {
 	console.log("[USR] ibocse@crlab2-h032: Opened help page");
 	open("https://github.com/iulian-b/ccc-crlab2-h032");
 });
-document.getElementById('start_btn_run').addEventListener("click", function() {
+document.getElementById('start_btn_run').addEventListener("click", function () {
 	console.log("[USR] ibocse@crlab2-h032: Opened run()");
 	openRunDialog();
 });
-document.getElementById('start_btn_logoff').addEventListener("click", function() {
+document.getElementById('start_btn_logoff').addEventListener("click", function () {
 	// Stop all audio
 	loopAudio.pause();
 	bootAudio.pause();
-	webamp.stop();
+	// webamp.stop();
 
 	// Clear DOM
 	console.log("[SYS] ibocse@crlab2-h032: System log off");
-    document.documentElement.innerHTML = '<body style="background-color:black;"></body>';
+	document.documentElement.innerHTML = '<body style="background-color:black;"></body>';
 });
-document.getElementById('start_btn_shutdown').addEventListener("click", function() {
+document.getElementById('start_btn_shutdown').addEventListener("click", function () {
 	// Stop all audio
 	loopAudio.pause();
 	bootAudio.pause();
-	if (webamp != null)	webamp.stop();
+	// if (webamp != null)	webamp.stop();
 
 	// Play shutdown sound
 	shutdownAudio.play();
-	
+
 	// Clear DOM
-    document.documentElement.innerHTML = '<body style="background-color:black;"></body>';
+	document.documentElement.innerHTML = '<body style="background-color:black;"></body>';
 	console.log("[SYS] ibocse@crlab2-h032: System shut down");
+
+	// Clear storage and cookies
+	ClearStorage();
 });
 

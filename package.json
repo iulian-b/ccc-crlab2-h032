@@ -34,7 +34,8 @@
 	"scripts": {
 		"lint": "cspell-cli lint .",
 		"start": "run-p watch-fs-index start-server",
-		"start-server": "live-server --port=3000 --ignore=node_modules/,.git/,.history/,.idea/,.vscode/,tests/,coverage,coverage/,test-results,test-results/,playwright-report,playwright-report/,blob-report,blob-report/,playwright/.cache,,playwright/.cache/,package.json,package-lock.json,README.md,LICENSE,CNAME,cspell.json,.gitignore,.gitattributes .",
+		"start-server-old": "live-server --port=3000 --ignore=node_modules/,.git/,.history/,.idea/,.vscode/,tests/,coverage,coverage/,test-results,test-results/,playwright-report,playwright-report/,blob-report,blob-report/,playwright/.cache,,playwright/.cache/,package.json,package-lock.json,README.md,LICENSE,CNAME,cspell.json,.gitignore,.gitattributes .",
+		"start-server": "vite --port=1998",
 		"watch-fs-index": "onchange --initial --poll 1000 --kill -f add -f addDir -f unlink -f unlinkDir '**' --exclude 'filesystem-index.json' --exclude '**/.history/**' -- npm run make-fs-index",
 		"watch-fs-index @NOTE 1": "--kill makes it not queue up the events as tasks (as well as sending kill signal to old process)",
 		"watch-fs-index @NOTE 2": "When many files are changed, such as when doing a rebase or otherwise checking out old commits, it can take a long time to start working again. Add --verbose to view the stupid behavior. It probably makes it slower too, logging a lot.",
@@ -42,9 +43,11 @@
 		"make-fs-index @NOTE": "browserfs@2.0.0 is currently assumed to be installed globally",
 		"make-fs-index @TODO 1": "Keep this file out of repo, and generate it on deploy.",
 		"make-fs-index @TODO 2": "Ignore gitignored files, including globally gitignored files... I'm sure there's a way to base it off of what things are checked in to git. git ls-files, or git ls-tree, ideally with the contents after staged changes would be applied (is there a 'tree-ish' for that?)",
-		"pull-libs": "node pull-libs.js"
+		"pull-libs": "node pull-libs.js",
+		"build": "vite build"
 	},
 	"dependencies": {
+		"@playwright/test": "^1.51.1",
 		"ccc-crlab2-h032": "file:"
 	},
 	"devDependencies": {
@@ -55,13 +58,13 @@
 		"cspell-cli": "^8.13.3",
 		"fs-extra": "11.2.0",
 		"json": "^11.0.0",
-		"live-server": "^1.2.0",
 		"npm-run-all": "^4.1.5",
 		"onchange": "^7.1.0",
 		"os-gui": "0.7.3",
 		"recursive-copy": "^2.0.14",
 		"rimraf": "^6.0.1",
 		"send": "0.19.0",
+		"vite": "^6.2.0",
 		"webamp": "1.5.0"
 	}
 }

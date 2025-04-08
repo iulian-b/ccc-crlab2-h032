@@ -416,14 +416,21 @@ body,
 	background-image: url("../../images/classic/options-transparency.svg");
 }
 
-.eye-gaze-mode .eye-gaze-mode-undo-button .button-icon {
+.floating-undo-button .button-icon {
 	background: url(../../images/classic/undo.svg);
 }
-.eye-gaze-mode .toggle-dwell-clicking .button-icon {
+.toggle-dwell-clicking .button-icon {
 	background: url(../../images/classic/eye-gaze-pause.svg);
 }
-.eye-gaze-mode.eye-gaze-mode-paused .toggle-dwell-clicking .button-icon {
+.dwell-clicker-mode.dwell-clicker-paused .toggle-dwell-clicking .button-icon {
 	background: url(../../images/classic/eye-gaze-unpause.svg);
+}
+
+/* Remove hover effect (and specify non-hover style just to be sure) */
+/* The hover effect is way too dramatic when it goes from classic theme-overridden gray to non-overridden red, where it's meant to be only a tweaked shade of red. */
+.tracky-mouse-use-camera-button,
+.tracky-mouse-use-camera-button:hover {
+	background-color: var(--ButtonFace);
 }
 
 input[type=text]:not(.inset-deep),

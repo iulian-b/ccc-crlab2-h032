@@ -99,6 +99,14 @@ html, body, .jspaint {
 .window:not(.squish) {
 	white-space: nowrap;
 }
+/* reset the above to avoid .tracky-mouse-error-message getting clipped (when webcam in use for example) */
+.tracky-mouse-window .tracky-mouse-canvas-overlay {
+	white-space: normal;
+}
+/* fix overlapped min/max labels and barely clickable slider due to 98.css slider styles */
+.tracky-mouse-labeled-slider {
+	height: 20px;
+}
 .component-area {
 	-webkit-user-select: none;
 	-moz-user-select: none;
@@ -195,122 +203,116 @@ html, body, .jspaint {
 	padding-right: 3px;
 }
 
-.hover-halo {
-	pointer-events: none;
-	z-index: 1000000;
-	box-shadow: 0 0 10px yellow, 0 0 3px yellow;
-}
-.dwell-indicator {
-	position: fixed;
-	pointer-events: none;
-	z-index: 1000000;
-}
-.dwell-indicator::after {
-	content: "";
-	display: block;
-	position: absolute;
-	background: red;
-	right: 2px;
-	top: 2px;
-	left: 2px;
-	bottom: 2px;
-}
-.dwell-indicator:not(.for-release) {
-	background: yellow;
-}
-.dwell-indicator.for-release {
-	background: white;
-}
-.dwell-indicator:not(.for-release),
-.dwell-indicator:not(.for-release)::after {
-	border-radius: 50%;
-}
-.dwell-indicator.for-release,
-.dwell-indicator.for-release::after {
-	clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-}
-.eye-gaze-mode .color-button {
+.enlarge-ui .color-button {
 	width: 25px;
 	height: 25px;
 }
-.eye-gaze-mode .colors-component.tall {
+.enlarge-ui .colors-component.tall {
 	width: 50px;
 }
-.eye-gaze-mode .colors-component.tall .color-box {
+.enlarge-ui .colors-component.tall .color-box {
 	width: 100%;
 }
-.eye-gaze-mode .colors-component.tall .current-colors {
+.enlarge-ui .colors-component.tall .current-colors {
 	width: 100%;
 }
-.eye-gaze-mode .colors-component.tall .foreground-color {
+.enlarge-ui .colors-component.tall .foreground-color {
 	right: 12px;
 }
-.eye-gaze-mode .colors-component.tall .background-color {
+.enlarge-ui .colors-component.tall .background-color {
 	left: 12px;
 }
+.enlarge-ui .colors-component.wide {
+	height: 50px;
+}
+.enlarge-ui .colors-component.wide .color-box {
+	height: 100%;
+}
+.enlarge-ui .colors-component.wide .current-colors {
+	height: 100%;
+}
+.enlarge-ui .colors-component.wide .foreground-color {
+	top: 12px;
+}
+.enlarge-ui .colors-component.wide .background-color {
+	bottom: 12px;
+}
 
-.eye-gaze-mode .os-window .window-titlebar {
+/* more specific .tool-window selectors are needed to override titlebar height currently defined in classic.css */
+.enlarge-ui .os-window .window-titlebar,
+.enlarge-ui .os-window.tool-window .window-titlebar {
 	font-size: 2rem;
 	line-height: 1.2;
 	height: 2.8rem;
 }
-.eye-gaze-mode .os-window .window-title-area {
+.enlarge-ui .os-window .window-title-area,
+.enlarge-ui .os-window.tool-window .window-title-area {
 	height: 100%;
 }
-.eye-gaze-mode .os-window .window-titlebar button {
+.enlarge-ui .os-window .window-titlebar button {
 	transform: scale(3);
 	margin-left: 32px;
 }
-.eye-gaze-mode .tool-window .window-titlebar button {
+.enlarge-ui .tool-window .window-titlebar button {
 	transform-origin: 100% 0;
 }
 
-.eye-gaze-mode .menu-button {
+.enlarge-ui .menu-button {
 	padding-left: 10px;
 	padding-right: 10px;
 }
-.eye-gaze-mode .menu-button {
+.enlarge-ui .menu-button {
 	height: 3rem;
 	line-height: 2.5rem;
 }
-.eye-gaze-mode .menu-button,
-.eye-gaze-mode .menu-button * {
+.enlarge-ui .menu-button,
+.enlarge-ui .menu-button * {
 	font-size: 2rem;
 }
-.eye-gaze-mode .menu-item * {
+.enlarge-ui .menu-item * {
 	font-size: 2rem;
 	line-height: 1.5;
 }
-.eye-gaze-mode .menu-item-checkbox-area::after,
-.eye-gaze-mode .menu-item-submenu-area::after {
+.enlarge-ui .menu-item-checkbox-area::after,
+.enlarge-ui .menu-item-submenu-area::after {
 	width: 1.2em;
 	height: 1.2em;
 	mask-size: 1.2em 1.2em;
+	-webkit-mask-size: 1.2em 1.2em;
 }
 
-.eye-gaze-mode .status-area {
-	padding-right: 170px;
+/* sigh, trying to move two things in a similar way but padding does look a bit better for the status area (esp. in Bubblegum theme),
+whereas it breaks component docking calculations if used to shift the colors box */
+.status-area {
+	padding-right: var(--floating-buttons-width);
 }
-
-.eye-gaze-mode-floating-buttons {
+.component-area.bottom {
+	margin-right: var(--floating-buttons-width);
+}
+.floating-buttons {
 	position: fixed;
 	bottom: 0;
 	right: 0;
 	transform-origin: bottom right;
-	transform: scale(3);
+	transform: scale(2);
+	/* Go on top of canvas if both left/bottom docking areas are empty */
+	z-index: 1;
 	/* They're not within .jspaint currently */
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
 }
-.eye-gaze-mode-floating-buttons button {
+.enlarge-ui .floating-buttons {
+	transform: scale(3);
+}
+.floating-buttons button {
 	width: 28px;
 	height: 28px;
 	vertical-align: bottom;
 	position: relative;
 }
-.eye-gaze-mode-floating-buttons .button-icon {
+.floating-buttons .button-icon {
 	position: absolute;
 	right: 0;
 	top: 0;
@@ -547,7 +549,7 @@ html, body, .jspaint {
 .edit-colors-window .result-color-canvas {
 	margin-top: 4px;
 }
-/* WET layout code for small viewports and eye gaze mode */
+/* WET layout code for small viewports and Enlarge UI mode */
 /* could do it cleaner with JavaScript or CSS preprocessor */
 @media (max-width: 450px) {
 	.edit-colors-window {
@@ -563,17 +565,17 @@ html, body, .jspaint {
 		display: none !important;
 	}
 }
-/* WET layout code for small viewports and eye gaze mode */
-.eye-gaze-mode .edit-colors-window {
+/* WET layout code for small viewports and Enlarge UI mode */
+.enlarge-ui .edit-colors-window {
 	overflow: hidden;
 }
-.eye-gaze-mode .edit-colors-window.defining-custom-colors .left-side {
+.enlarge-ui .edit-colors-window.defining-custom-colors .left-side {
 	/* display: none !important; */
 	/* this element is determining the height */
 	width: 0;
 	visibility: hidden;
 }
-.eye-gaze-mode .edit-colors-window:not(.defining-custom-colors) .right-side {
+.enlarge-ui .edit-colors-window:not(.defining-custom-colors) .right-side {
 	display: none !important;
 }
 
@@ -632,7 +634,7 @@ html, body, .jspaint {
 	width: 3px;
 	height: 3px;
 	z-index: 1;
-	pointer-events: none; /* important for eye gaze mode */
+	pointer-events: none; /* important for Dwell Clicker mode */
 }
 .grab-region {
 	/* the grab-region make handles way easier to grab by extending outside the visual representation of the handle */
@@ -1115,14 +1117,14 @@ input[type="radio"] + label::before {
 	/* Also nudge the tools downward to avoid the exit fullscreen button */
 	/* (not if it's in a window, only if it's docked) */
 	/* (I considered using `.ios.fullscreen .horizontal > .component-area:first-child`
-	so that it's not affected by the transform in Eye Gaze Mode,
+	so that it's not affected by the transform in Enlarge UI mode,
 	but it wants tweaking in that case anyways due to the menu bar being bigger */
 	.ios.fullscreen .component-area .tools-component {
 		padding-top: 40px;
 	}
-	/* Not so much in Eye Gaze Mode, where it's scaled with transform,
+	/* Not so much in Enlarge UI mode, where it's scaled with transform,
 	and where the menu bar takes more of the space reserved for the exit fullscreen button */
-	.ios.fullscreen .eye-gaze-mode .component-area .tools-component {
+	.ios.fullscreen .enlarge-ui .component-area .tools-component {
 		padding-top: 10px;
 	}
 }

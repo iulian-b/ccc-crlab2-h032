@@ -299,6 +299,91 @@ function openRunDialog() {
 }
 openRunDialog.acceptsFilePaths = true;
 
+function Wolf3d() {
+	let $win = make_iframe_window({
+		src: "https://git.nihilogic.dk/wolf3d",
+		icons: iconsAtTwoSizes("wolf-3d"),
+		title: "Wolf 3D",
+		outerWidth: 750,
+		outerHeight: 500,
+		resizable: true,
+	});
+	console.log("[USR] ibocse@crlab2-h032: wolf3d.exe()");
+	return new Task($win);
+}
+Wolf3d.acceptsFilePaths = false;
+
+function Diablo() {
+	let $win = make_iframe_window({
+		src: "https://d07riv.github.io/diabloweb/",
+		icons: iconsAtTwoSizes("diablo1"),
+		title: "wolf3d",
+		outerWidth: 1280,
+		outerHeight: 720,
+		resizable: true,
+	});
+	console.log("[USR] ibocse@crlab2-h032: diablo.exe()");
+	return new Task($win);
+}
+Diablo.acceptsFilePaths = false;
+
+// FIX SIZE
+function TombRaider() {
+	let $win = make_iframe_window({
+		src: "http://xproger.info/projects/OpenLara/",
+		icons: iconsAtTwoSizes("tomb-raider"),
+		title: "Tomb Raider",
+		outerWidth: 865,
+		outerHeight: 510,
+		resizable: true
+	});
+	console.log("[USR] ibocse@crlab2-h032: tombraider.exe()");
+	return new Task($win);
+}
+TombRaider.acceptsFilePaths = false;
+
+function Quake3() {
+	let $win = make_iframe_window({
+		src: "http://www.quakejs.com/play?set%20fs_game%20baseq3&set%20g_gametype%200&set%20g_teamAutoJoin%201&map%20q3dm1&addbot%20grunt%204%20f&addbot%20major%204%20f&addbot%20sarge%204%20f&addbot%20grunt%204%20f&addbot%20major%204%20f",
+		icons: iconsAtTwoSizes("quake3"),
+		title: "Quake III",
+		outerWidth: 1280,
+		outerHeight: 720,
+		resizable: true,
+	});
+	console.log("[USR] ibocse@crlab2-h032: quake3.exe()");
+	return new Task($win);
+}
+Quake3.acceptsFilePaths = false;
+
+function Minecraft() {
+	let $win = make_iframe_window({
+		src: "https://eaglercraft.com/mc/1.8.8/",
+		icons: iconsAtTwoSizes("minecraft"),
+		title: "Minecraft",
+		outerWidth: 1280,
+		outerHeight: 720,
+		resizable: true
+	});
+	console.log("[USR] ibocse@crlab2-h032: minecraft.exe()");
+	return new Task($win);
+}
+Minecraft.acceptsFilePaths = false;
+
+function SkiFree() {
+	let $win = make_iframe_window({
+		src: "https://basicallydan.github.io/skifree.js/",
+		icons: iconsAtTwoSizes("skifree"),
+		title: "SkiFree",
+		outerWidth: 720,
+		outerHeight: 576,
+		resizable: true
+	});
+	console.log("[USR] ibocse@crlab2-h032: skifree.exe()");
+	return new Task($win);
+}
+SkiFree.acceptsFilePaths = false;
+
 function PDFViewer(file_path) {
 	// There is no normal way to determine the height of a pdf that has yet to be loaded into the DOM.
 	// This is a hackjob, but the show must go on. 
@@ -416,17 +501,51 @@ function Network(file_path) {
 Network.acceptsFilePaths = true;
 
 function openWithProgram(file_path) {
-	withFilesystem(function () {
-		var fs = BrowserFS.BFSRequire('fs');
-		fs.readFile(file_path, "utf8", function (error, data) {
-			var program = data.split('\n').shift() 
-			var func = new Function(program); func();
-			if (error) {
-				alert("Failed to run executable: " + error);
-				throw error;
-			}
+	if (file_path.includes("wolf3d")) {
+		Wolf3d(file_path);
+		return;
+	}
+	if (file_path.includes("pinball")) {
+		Pinball(file_path);
+		return;
+	}
+	if (file_path.includes("minesweeper")) {
+		Minesweeper(file_path);
+		return;
+	}
+	if (file_path.includes("diablo")) {
+		Diablo(file_path);
+		return;
+	}
+	if (file_path.includes("tombraider")) {
+		TombRaider();
+		return;
+	}
+	if (file_path.includes("minecraft")) {
+		Minecraft();
+		return;
+	}
+	if (file_path.includes("skifree")) {
+		SkiFree();
+		return;
+	}
+	if (file_path.includes("quake3")) {
+		Quake3();
+		return;
+	} else {
+		withFilesystem(function () {
+			var fs = BrowserFS.BFSRequire('fs');
+			fs.readFile(file_path, "utf8", function (error, data) {
+				var program = data.split('\n').shift()
+				var func = new Function(program);
+				func();
+				if (error) {
+					alert("Failed to run executable: " + error);
+					throw error;
+				}
+			});
 		});
-	});
+	}
 	return;
 }
 openWithProgram.acceptsFilePaths = true;
@@ -798,9 +917,8 @@ function Explorer(address) {
 }
 Explorer.acceptsFilePaths = true;
 
-function VirtualMachine(address) {
-	address = "https://127.0.0.1:3000";
-	// address = "https://ibocse.onrender.com:1998";
+function VirtualMachine() {
+	address = "localhost:5173";
 	var win_title = "VMware - Sinclair OS";
 	var $win = make_iframe_window({
 		src: "programs/vmware/index.html" + (address ? ("?address=" + encodeURIComponent(address)) : ""),
@@ -1183,6 +1301,7 @@ function openWinamp(file_path) {
 			// 	raf_id = requestAnimationFrame(animate);
 			// };
 			// raf_id = requestAnimationFrame(animate);
+			$webamp.setVolume(0);
 
 			whenLoaded()
 		}, (error) => {
@@ -1533,12 +1652,42 @@ add_icon_not_via_filesystem({
 add_icon_not_via_filesystem({
 	title: "VMware 2.0",
 	iconID: "vm",
-	open: function () { VirtualMachine("http://127.0.0.1:3000"); }
+	open: function () { VirtualMachine(); }
+});
+add_icon_not_via_filesystem({
+	title: "Diablo",
+	iconID: "diablo1",
+	open: function () { Diablo(); },
+	shortcut: true
 });
 add_icon_not_via_filesystem({
 	title: "Pinball",
 	iconID: "pinball",
 	open: Pinball,
+	shortcut: true
+});
+add_icon_not_via_filesystem({
+	title: "Wolfenstein",
+	iconID: "wolf-3d",
+	open: function () { Wolf3d(); },
+	shortcut: true
+});
+add_icon_not_via_filesystem({
+	title: "Tomb Raider",
+	iconID: "tomb-raider",
+	open: function () { TombRaider(); },
+	shortcut: true
+});
+add_icon_not_via_filesystem({
+	title: "Quake III",
+	iconID: "quake3",
+	open: function () { Quake3(); },
+	shortcut: true
+});
+add_icon_not_via_filesystem({
+	title: "Minecraft",
+	iconID: "minecraft",
+	open: function () { Minecraft(); },
 	shortcut: true
 });
 add_icon_not_via_filesystem({
@@ -1566,6 +1715,7 @@ add_icon_not_via_filesystem({
 	open: function () { systemExecuteFile("/My Documents/CV (RO).pdf"); },
 	shortcut: true
 });
+
 
 folder_view.arrange_icons();
 

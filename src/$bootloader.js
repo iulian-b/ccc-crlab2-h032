@@ -129,8 +129,16 @@ const bootText = [
 		<span style="color: rgb(150, 150, 150)">[</span>  <span style="color: rgb(0, 255, 0)">OK</span> <span style="color: rgb(150, 150, 150)">] Loaded </span>VMware.<br>
 		<span style="color: rgb(150, 150, 150)">[</span>  <span style="color: rgb(0, 255, 0)">OK</span> <span style="color: rgb(150, 150, 150)">] Loaded </span>Winamp.<br>
 	</div>`,
-
-    // 17
+    // 16-17
+    `<div class="fade">
+        <span style="color: rgb(150, 150, 150)">[</span>  <span style="color: rgb(0, 255, 0)">OK</span> <span style="color: rgb(150, 150, 150)">] Loaded </span>Diablo.<br>
+        <span style="color: rgb(150, 150, 150)">[</span>  <span style="color: rgb(0, 255, 0)">OK</span> <span style="color: rgb(150, 150, 150)">] Loaded </span>Wolfenstein.<br>
+        <span style="color: rgb(150, 150, 150)">[</span>  <span style="color: rgb(0, 255, 0)">OK</span> <span style="color: rgb(150, 150, 150)">] Loaded </span>TombRaider.<br>
+        <span style="color: rgb(150, 150, 150)">[</span>  <span style="color: rgb(0, 255, 0)">OK</span> <span style="color: rgb(150, 150, 150)">] Loaded </span>Quake3.<br>
+        <span style="color: rgb(150, 150, 150)">[</span>  <span style="color: rgb(0, 255, 0)">OK</span> <span style="color: rgb(150, 150, 150)">] Loaded </span>Minecraft.<br>
+        <span style="color: rgb(150, 150, 150)">[</span>  <span style="color: rgb(0, 255, 0)">OK</span> <span style="color: rgb(150, 150, 150)">] Loaded </span>SKiFree.<br>
+    </div>`,
+    // 19
 	`<div class="fade"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: rgb(150, 150, 150)">Starting Desktop Envirovement...</span><br></div>`
 ];
                 
@@ -147,7 +155,10 @@ function toggleDeskop(switcher) {
         sleep(1000).then(() => { desktopIcons.style.display = "flex";});
         sleep(2000).then(() => { taskBar.style.display = "flex"; });
         buildText.style.color = "white";
-        sleep(2300).then(() => { systemExecuteFile("/My Documents/CV (EN).pdf"); });
+
+        sleep(2300).then(() => { localStorage.setItem("boot", "true");});
+        sleep(2300).then(() => { PDFViewer("/My Documents/CV (EN).pdf");});
+        // sleep(2300).then(() => { systemExecuteFile("/My Documents/CV (EN).pdf"); });
     }
 }
 
@@ -190,9 +201,10 @@ window.addEventListener('DOMContentLoaded', function() {
         bootLoader.insertAdjacentHTML('beforeend',bootText[15]);
         bootLoader.insertAdjacentHTML('beforeend',bootText[16]);
         bootLoader.insertAdjacentHTML('beforeend',bootText[17]);
-        
+        bootLoader.insertAdjacentHTML('beforeend',bootText[18]);
+
         // Toggle desktop ON
-        sleep(3500).then(() => { 
+        sleep(3900).then(() => {
             toggleDeskop(true); 
         });
 
@@ -200,10 +212,8 @@ window.addEventListener('DOMContentLoaded', function() {
         console.log(loadASCII)
         console.log("[SYS] User log in");
         console.log("[SYS] Welcome, ibocse.")
-        console.log("[USR] ibocse@crlab2-h032: pls hire me");
 
         // Toggle BOOT = TRUE so it doesnt replay next time
-        localStorage.setItem("boot", "true");
     } else {
         if (bootLoader != null) bootLoader.remove();
     }

@@ -1,11 +1,5 @@
 var $desktop = $(".desktop");
 $desktop.css("touch-action", "none"); // TODO: should this be in FolderView, or is it to prevent scrolling the page or what?
-const loopAudio = new Audio('../audio/LOOP.wav');
-const bootAudio = new Audio('../audio/BOOT.wav');
-const panicAudio = new Audio('../audio/PANIC.wav');
-loopAudio.volume = 0.2;
-bootAudio.volume = 0.2;
-panicAudio.volume = 1.0;
 var interacted = false;
 
 // Folder view
@@ -102,54 +96,17 @@ $("html").on("drop", function (event) {
 	}
 });
 
-// Decided for it lo load everytime
-// function open_CV() {
-// 	if (localStorage.getItem("boot") === true) return;
-// 	if (localStorage.getItem("boot") === null) {
-// 		localStorage.setItem("boot", true);
-// 		console.log("[USR] ibocse@crlab2-h032: Opened CV (pls hire me)");
-// 		systemExecuteFile("/My Documents/CV (EN).pdf");
-// 	} 
-// 	return;
-// }
-
 // Listeners
 window.addEventListener('DOMContentLoaded', function() {
-	if (localStorage.getItem("boot") == "true") {
-		systemExecuteFile("/My Documents/CV (EN).pdf");
-		// systemExecuteFile("/Desktop/Projects/qrscanner/README.md");
+	if (localStorage.getItem("boot") === "true") {
+		PDFViewer("/My Documents/CV (EN).pdf");
+		// localStorage.setItem("init", "true");
 	}
 });
 
-// Audio
-// Audio can only play after the user has interacted with the page.
-// Autoplay is deprecated, so this momentarily works despite it being a hackjob.
-document.getElementById('desktop').addEventListener('click', () => {
-	if (!interacted) {
-		interacted = true;
 
-		// Play the boot audio first
-		bootAudio.play();
-		// When the boot audio finishes, play the loop audio
-		bootAudio.addEventListener("ended", function() {
-			loopAudio.play();
-		});
-
-		// When the loop audio finishes, loop the file itself (hence then name)
-		loopAudio.addEventListener("ended", function() {
-			loopAudio.play();
-		});
-	} 
-
-
-});
 
 function timeToPanic() {
-	// Play audio
-	bootAudio.pause();
-	loopAudio.pause();
-	panicAudio.play();
-
 	const kernelText = `<p id="kpanic" class="crt" style="color: whitesmoke; font-family: IBM3x;">
 		[	1.089542] Kernel panic - not syncing: VFS: Unable to mount package digitalis on unkown-block(0,0)<br>
 		[	1.090150] CPU: 0 PID: 1 Comm: swapper/0 Not tainted 3.10.8-327.el7x86_64 #<br>
@@ -172,6 +129,8 @@ function timeToPanic() {
 		[	1.107856]  [<ffffffff81624e1e>] kernel_init+0xe/0xf0<br>
 		[	1.107911]  [<ffffffff81645858>] ret_from_fork+0x58/0x90<br>
 		[	1.108146]  [<ffffffff81624e10>] ? rest_init+0x80/0x80<br>
+		<br>
+		Bailing out, you are on your own. Good luck.
 		</p>`;
 
 	$desktop.css({backgroundImage: `url("../images/glitch.jpg")`});
@@ -203,9 +162,15 @@ window.addEventListener("storage", () => {
 				case "pinball.exe": { Pinball(); break;}
 				case "recorder.exe": { Recorder(); break; }
 				case "winamp.exe": { winamp(); break; }
-				case "digitalis.exe": { timeToPanic(); break; }
+				case "wolf3d.exe": { Wolf3d(); break; }
+				case "tombraider.exe": { TombRaider(); break; }
+				case "quake3.exe": { Quake3(); break; }
+				case "diablo.exe": { Diablo(); break; }
+				case "minecraft.exe": { Minecraft(); break; }
+				case "skifree.exe": { SkiFree(); break; }
+				case "digitalis.exe": { audioPanic(); timeToPanic(); break; }
 			}
-		} else if (target != "" ) Explorer(target);
+		} else if (target !== "" ) Explorer(target);
 		localStorage.removeItem("run");
 	}
 });

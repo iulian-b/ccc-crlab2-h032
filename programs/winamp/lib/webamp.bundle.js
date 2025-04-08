@@ -21894,6 +21894,10 @@ class webampLazy_Webamp {
     this.store.dispatch(media_stop());
   }
 
+  setVolume(volume) {
+      this.store.dispatch(media_setVolume(volume));
+  }
+
   seekBackward(seconds) {
     this.store.dispatch(media_seekBackward(seconds));
   }
@@ -21924,7 +21928,6 @@ class webampLazy_Webamp {
     const nextIndex = getTrackCount(this.store.getState());
     this.store.dispatch(files_loadMediaFiles(tracks, LOAD_STYLE.NONE, nextIndex));
   } // Replace any existing tracks with this array of tracks, and begin playing.
-
 
   setTracksToPlay(tracks) {
     this.store.dispatch(files_loadMediaFiles(tracks, LOAD_STYLE.PLAY));

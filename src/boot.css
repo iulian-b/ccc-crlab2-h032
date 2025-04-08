@@ -121,3 +121,6 @@
 .fade:nth-child(18) {
     animation-delay: 3s;
 }
+.fade:nth-child(19) {
+    animation-delay: 3.2s;
+}
