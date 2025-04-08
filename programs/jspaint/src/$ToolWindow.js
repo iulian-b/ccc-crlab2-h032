@@ -10,7 +10,7 @@ import { $G, E } from "./helpers.js";
 function make_window_supporting_scale(options) {
 	const $w = $Window(options);
 
-	const scale_for_eye_gaze_mode_and_center = () => {
+	const scale_for_enlarge_ui_mode_and_center = () => {
 		if (!$w.is(".edit-colors-window, .storage-manager, .attributes-window, .flip-and-rotate, .stretch-and-skew")) {
 			return;
 		}
@@ -23,7 +23,7 @@ function make_window_supporting_scale(options) {
 			marginRight: "",
 			marginBottom: "",
 		});
-		if (document.body.classList.contains("eye-gaze-mode")) {
+		if (document.body.classList.contains("enlarge-ui")) {
 			scale = Math.min(
 				(innerWidth) / c.offsetWidth,
 				(innerHeight - t.offsetHeight) / c.offsetHeight
@@ -41,23 +41,23 @@ function make_window_supporting_scale(options) {
 			$w.center();
 		}
 		// for testing (WARNING: can cause rapid flashing, which can cause seizures):
-		// requestAnimationFrame(scale_for_eye_gaze_mode_and_center);
+		// requestAnimationFrame(scale_for_enlarge_ui_mode_and_center);
 	};
 
 	if (!options.$component) {
 		$w.center();
 
-		const scale_for_eye_gaze_mode_and_center_next_frame = () => {
-			requestAnimationFrame(scale_for_eye_gaze_mode_and_center);
+		const scale_for_enlarge_ui_mode_and_center_next_frame = () => {
+			requestAnimationFrame(scale_for_enlarge_ui_mode_and_center);
 		};
 		const on_close = () => {
 			$w.off("close", on_close);
-			$G.off("eye-gaze-mode-toggled resize", scale_for_eye_gaze_mode_and_center_next_frame);
+			$G.off("enlarge-ui-toggled resize", scale_for_enlarge_ui_mode_and_center_next_frame);
 		};
 		$w.on("close", on_close);
-		$G.on("eye-gaze-mode-toggled resize", scale_for_eye_gaze_mode_and_center_next_frame);
+		$G.on("enlarge-ui-toggled resize", scale_for_enlarge_ui_mode_and_center_next_frame);
 
-		scale_for_eye_gaze_mode_and_center_next_frame();
+		scale_for_enlarge_ui_mode_and_center_next_frame();
 	}
 
 	if (options.$component) {

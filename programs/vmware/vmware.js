@@ -270,7 +270,7 @@ var resolve_address = async function (address) {
 				!address.match(/^https?:\/\/(www\.)?(copy.sh|topotech.github.io\/interdimensionalcable|isaiahodhner.io|brie.fi\/ng)/) &&
 				!address.match(/^(file|data|blob):\/\//)
 			) {
-				address = "http://127.0.0.1:3000";
+				address = "https://127.0.0.1:5173";
 				// address = "https://ibocse.onrender.com:1998";
 			}
 		}

@@ -26,9 +26,17 @@ import { TOOL_CURVE, TOOL_FREE_FORM_SELECT, TOOL_POLYGON, TOOL_SELECT, TOOL_TEXT
 // expresses order in the URL as well as type
 const param_types = {
 	// settings
-	"eye-gaze-mode": "bool",
-	"vertical-color-box-mode": "bool",
-	"speech-recognition-mode": "bool",
+	"eye-gaze-mode": "bool", // maps to "enlarge-ui"+"dwell-clicker"+"vertical-color-box-mode"+"easy-undo"
+	"enlarge-ui": "bool",
+	"easy-undo": "bool",
+	"dwell-clicker": "bool",
+	"head-tracker": "bool",
+	"vertical-color-box-mode": "bool", // could rename this to simply "vertical-color-box" or "vertical-palette"
+	"speech-recognition-mode": "bool", // could rename this to simply "voice"
+	// dev settings
+	"compare-reference": "bool",
+	"compare-reference-tool-windows": "bool",
+	"force-open-project-news": "bool",
 	// sessions
 	"local": "string",
 	"session": "string",
@@ -1758,6 +1766,25 @@ function show_news() {
 	$news_window.center(); // @XXX - but it helps tho
 
 	$latest_news.attr("tabIndex", "-1").focus();
+
+	// Prevent opening images dropped on news window
+	// especially those dragged from the news window itself (accidentally or habitually/idly)
+	// TODO: should this be for all windows?
+	$news_window.on("dragover", (event) => {
+		// the default behavior is to not allow dropping,
+		// so don't prevent the default, but do stop propagation
+		// so that the global handler doesn't allow the drop
+		event.stopPropagation();
+	});
+	$news_window.on("dragenter", (event) => {
+		// same as dragover, but just prevents flickering of the cursor basically,
+		// when dragover is already handled
+		event.stopPropagation();
+	});
+	$news_window.on("drop", (event) => {
+		event.preventDefault();
+		event.stopPropagation();
+	});
 }
 
 

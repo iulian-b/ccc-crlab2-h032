@@ -9,7 +9,7 @@ import { Handles } from "./Handles.js";
 // import { get_direction, localize } from "./app-localization.js";
 import { default_palette, get_winter_palette } from "./color-data.js";
 import { image_formats } from "./file-format-data.js";
-import { $this_version_news, cancel, change_url_param, clear, confirm_overwrite_capability, delete_selection, deselect, edit_copy, edit_cut, edit_paste, file_new, file_open, file_save, file_save_as, get_tool_by_id, get_uris, image_attributes, image_flip_and_rotate, image_invert_colors, image_stretch_and_skew, load_image_from_uri, make_or_update_undoable, open_from_file, paste, paste_image_from_file, redo, render_history_as_gif, reset_canvas_and_history, reset_file, reset_selected_colors, resize_canvas_and_save_dimensions, resize_canvas_without_saving_dimensions, save_as_prompt, select_all, select_tool, select_tools, set_magnification, show_document_history, show_error_message, show_news, show_resource_load_error_message, toggle_grid, undo, update_canvas_rect, update_disable_aa, update_helper_layer, update_magnified_canvas_size, view_bitmap, write_image_file } from "./functions.js";
+import { $this_version_news, cancel, change_some_url_params, change_url_param, clear, confirm_overwrite_capability, delete_selection, deselect, edit_copy, edit_cut, edit_paste, file_new, file_open, file_save, file_save_as, get_tool_by_id, get_uris, image_attributes, image_flip_and_rotate, image_invert_colors, image_stretch_and_skew, load_image_from_uri, make_or_update_undoable, open_from_file, paste, paste_image_from_file, redo, render_history_as_gif, reset_canvas_and_history, reset_file, reset_selected_colors, resize_canvas_and_save_dimensions, resize_canvas_without_saving_dimensions, save_as_prompt, select_all, select_tool, select_tools, set_magnification, show_document_history, show_error_message, show_news, show_resource_load_error_message, toggle_grid, undo, update_canvas_rect, update_disable_aa, update_helper_layer, update_magnified_canvas_size, view_bitmap, write_image_file } from "./functions.js";
 import { show_help } from "./help.js";
 import { $G, E, TAU, get_file_extension, get_help_folder_icon, is_discord_embed, make_canvas, to_canvas_coords } from "./helpers.js";
 import { init_webgl_stuff, rotate } from "./image-manipulation.js";
@@ -35,7 +35,6 @@ import { TOOL_AIRBRUSH, TOOL_BRUSH, TOOL_CURVE, TOOL_ELLIPSE, TOOL_ERASER, TOOL_
 // @TODO: Minimize global variables and exports from app.js
 window.update_fill_and_stroke_colors_and_lineWidth = update_fill_and_stroke_colors_and_lineWidth;
 window.tool_go = tool_go;
-window.average_points = average_points;
 
 // #endregion
 
@@ -73,12 +72,12 @@ window.systemHookDefaults = {
 		// In particular, some formats are ambiguous with the file name, e.g. different bit depths of BMP files.
 		// So, it's a tradeoff with the benefit of overwriting on Save.
 		// https://developer.mozilla.org/en-US/docs/Web/API/Window/showSaveFilePicker
-		// Also, if you're using accessibility options Speech Recognition or Eye Gaze Mode,
+		// Also, if you're using accessibility options Speech Recognition or Dwell Clicker,
 		// `showSaveFilePicker` fails based on a notion of it not being a "user gesture".
 		// `saveAs` will likely also fail on the same basis,
 		// but at least in chrome, there's a "Downloads Blocked" icon with a popup where you can say Always Allow.
 		// I can't detect when it's allowed or blocked, but `saveAs` has a better chance of working,
-		// so in Speech Recognition and Eye Gaze Mode, I set a global flag temporarily to disable File System Access API (window.untrusted_gesture).
+		// so for Speech Recognition and Dwell Clicker, I set a global flag temporarily to disable File System Access API (window.untrusted_gesture).
 		if (window.showSaveFilePicker && !window.untrusted_gesture && enable_fs_access_api) {
 			// We can't get the selected file type, not even from newHandle.getFile()
 			// so limit formats shown to a set that can all be used by their unique file extensions
@@ -204,7 +203,8 @@ window.systemHookDefaults = {
 	showOpenFileDialog: async ({ formats }) => {
 		if (window.untrusted_gesture) {
 			// We can't show a file picker RELIABLY.
-			show_error_message("Sorry, a file picker cannot be shown when using Speech Recognition or Eye Gaze Mode. You must click File > Open directly with the mouse, or press Ctrl+O on the keyboard.");
+			// FIXME: double error message
+			show_error_message("Sorry, a file picker cannot be shown when using Speech Recognition or Dwell Clicker. You must click File > Open directly with the mouse, or press Ctrl+O on the keyboard.");
 			throw new Error("can't show file picker reliably");
 		}
 		if (window.showOpenFilePicker && enable_fs_access_api) {
@@ -311,21 +311,37 @@ for (const [key, defaultValue] of Object.entries(window.systemHookDefaults)) {
 
 // #region URL Params
 const update_from_url_params = () => {
-	if (location.hash.match(/eye-gaze-mode/i)) {
-		if (!$("body").hasClass("eye-gaze-mode")) {
-			$("body").addClass("eye-gaze-mode");
-			$G.triggerHandler("eye-gaze-mode-toggled");
+	// Dwell Clicker
+	// (Head Tracker implies Dwell Clicker for now, but could be made independent if Tracky Mouse supports other modes in the future.)
+	if (location.hash.match(/dwell-clicker|head-tracker/i)) {
+		if (!$("body").hasClass("dwell-clicker-mode")) {
+			$("body").addClass("dwell-clicker-mode");
+			$G.triggerHandler("dwell-clicker-toggled");
+		}
+	} else {
+		if ($("body").hasClass("dwell-clicker-mode")) {
+			$("body").removeClass("dwell-clicker-mode");
+			$G.triggerHandler("dwell-clicker-toggled");
+		}
+	}
+
+	// Enlarge UI
+	if (location.hash.match(/enlarge-ui/i)) {
+		if (!$("body").hasClass("enlarge-ui")) {
+			$("body").addClass("enlarge-ui");
+			$G.triggerHandler("enlarge-ui-toggled");
 			$G.triggerHandler("theme-load"); // signal layout change
 		}
 	} else {
-		if ($("body").hasClass("eye-gaze-mode")) {
-			$("body").removeClass("eye-gaze-mode");
-			$G.triggerHandler("eye-gaze-mode-toggled");
+		if ($("body").hasClass("enlarge-ui")) {
+			$("body").removeClass("enlarge-ui");
+			$G.triggerHandler("enlarge-ui-toggled");
 			$G.triggerHandler("theme-load"); // signal layout change
 		}
 	}
 
-	if (location.hash.match(/vertical-color-box-mode|eye-gaze-mode/i)) {
+	// Vertical Color Box Mode
+	if (location.hash.match(/vertical-color-box-mode/i)) {
 		if (!$("body").hasClass("vertical-color-box-mode")) {
 			$("body").addClass("vertical-color-box-mode");
 			$G.triggerHandler("vertical-color-box-mode-toggled");
@@ -339,12 +355,44 @@ const update_from_url_params = () => {
 		}
 	}
 
+	// Quick Undo Button
+	if (location.hash.match(/easy-undo/i)) {
+		if (!$("body").hasClass("easy-undo-mode")) {
+			$("body").addClass("easy-undo-mode");
+			$G.triggerHandler("easy-undo-mode-toggled");
+			$G.triggerHandler("theme-load"); // signal layout change (just copying pattern thoughtlessly)
+		}
+	} else {
+		if ($("body").hasClass("easy-undo-mode")) {
+			$("body").removeClass("easy-undo-mode");
+			$G.triggerHandler("easy-undo-mode-toggled");
+			$G.triggerHandler("theme-load"); // signal layout change (just copying pattern thoughtlessly)
+		}
+	}
+
+	// Head Tracker Mode
+	if (location.hash.match(/head-tracker/i)) {
+		if (!$("body").hasClass("head-tracker-mode")) {
+			$("body").addClass("head-tracker-mode");
+			$G.triggerHandler("head-tracker-toggled");
+		}
+	} else {
+		if ($("body").hasClass("head-tracker-mode")) {
+			$("body").removeClass("head-tracker-mode");
+			$G.triggerHandler("head-tracker-toggled");
+		}
+	}
+
+	// Speech Recognition Mode
 	if (location.hash.match(/speech-recognition-mode/i)) {
 		enable_speech_recognition();
 	} else {
 		disable_speech_recognition();
 	}
 
+	// Developer helpers to compare with reference screenshots of MS Paint
+	// (Seems like the color box is getting (un)shifted when this is enabled, making it line up less than it should?
+	// like the code "// Nudge the Colors component over a tiny bit" is applying and then being reset.)
 	$("body").toggleClass("compare-reference", !!location.hash.match(/compare-reference/i));
 	$("body").toggleClass("compare-reference-tool-windows", !!location.hash.match(/compare-reference-tool-windows/i));
 	setTimeout(() => {
@@ -379,13 +427,38 @@ const update_from_url_params = () => {
 			$("[aria-label='About Paint']")[0].dispatchEvent(new Event("pointerenter"));
 		}
 	}, 500);
+
+	// dev helper to open Project News window to preview news write-up
+	// I'm naming this "force-open-project-news" and not simply "project-news"
+	// because I'm not handling closing the window, and I don't want it to sound
+	// super friendly.
+	// I did go on a tangent of making it a proper UI navigation URL hash,
+	// and binding the window state to the URL state (bidirectionally),
+	// but I'm not sure how it should work with the back button.
+	// It's probably nice on mobile for the back button to close windows,
+	// but I'd want it to be consistent between all the windows of the app.
+	if (location.hash.match(/force-open-project-news/i)) {
+		if (!$(".news-window:visible").length) {
+			show_news();
+		}
+	}
 };
 update_from_url_params();
 $G.on("hashchange popstate change-url-params", update_from_url_params);
 
 // handle backwards compatibility URLs
-if (location.search.match(/eye-gaze-mode/)) {
-	change_url_param("eye-gaze-mode", true, { replace_history_state: true });
+// Eye Gaze Mode was a monolithic feature that has been since been split into smaller features.
+// We can maintain backwards compatibility with the old URL param by mapping it to the new features.
+// (BTW: Eye Gaze Mode never included an actual eye tracker (instead relying on external software),
+// but if I added that as a feature I could call the feature Eye Tracker, so it wouldn't be too confusing.)
+if (location.search.match(/eye-gaze-mode/) || location.hash.match(/eye-gaze-mode/)) {
+	change_some_url_params({
+		"eye-gaze-mode": false,
+		"enlarge-ui": true,
+		"dwell-clicker": true,
+		"vertical-color-box-mode": true,
+		"easy-undo": true,
+	}, { replace_history_state: true });
 	update_from_url_params();
 }
 if (location.search.match(/vertical-colors?-box/)) {
@@ -458,17 +531,22 @@ const news_seen_key = "jspaint latest news seen";
 const latest_news_datetime = $this_version_news.find("time").attr("datetime");
 const $news_indicator = $(`
 	<a class="news-indicator" href="#project-news">
-		<!--<img src="images/winter/present.png" width="24" height="22" alt=""/>-->
-		<img src="images/about/news.gif" width="40" height="16" alt="" style="filter: hue-rotate(234deg);"/>
+		<img src="images/winter/present.png" width="24" height="22" alt=""/>
+		<!--<img src="images/about/news.gif" width="40" height="16" alt=""/>-->
 		<!--<img src="images/new.gif" width="40" height="16" alt=""/>-->
+		<span class="marquee" dir="ltr" style="--text-width: 69ch; --animation-duration: 3s;">
+			<span>
+				Discord server, Head Tracker, Quick Undo Button, Enlarge UI, and Dwell Clicker
+			</span>
+		</span>
 		<!--<span class="marquee" dir="ltr" style="--text-width: 44ch; --animation-duration: 3s;">
 			<span>
 				<b>Cool new things</b> — One thing! Another thing! Something else!
 			</span>
-		</span>-->
-		<span>
-			<b>Bubblegum theme</b>
 		</span>
+		<span>
+			<b>Just One Thing</b>
+		</span>-->
 	</a>
 `);
 $news_indicator.on("click auxclick", (event) => {
@@ -707,27 +785,13 @@ let $colorbox = $ColorBox($("body").hasClass("vertical-color-box-mode"));
 window.$colorbox = $colorbox;
 
 $G.on("vertical-color-box-mode-toggled", () => {
+	// Destroy and recreate the color box because it uses a constructor parameter
+	// for this state and this handles re-docking to the correct edge
 	$colorbox.destroy();
 	$colorbox = $ColorBox($("body").hasClass("vertical-color-box-mode"));
 	window.$colorbox = $colorbox;
 	prevent_selection($colorbox);
 });
-$G.on("eye-gaze-mode-toggled", () => {
-	$colorbox.destroy();
-	$colorbox = $ColorBox($("body").hasClass("vertical-color-box-mode"));
-	window.$colorbox = $colorbox;
-	prevent_selection($colorbox);
-
-	$toolbox.destroy();
-	$toolbox = $ToolBox(tools);
-	window.$toolbox = $toolbox;
-	prevent_selection($toolbox);
-
-	// $toolbox2.destroy();
-	// $toolbox2 = $ToolBox(extra_tools, true);
-	// prevent_selection($toolbox2);
-});
-
 
 $G.on("resize", () => { // for browser zoom, and in-app zoom of the canvas
 	update_canvas_rect();
@@ -1122,10 +1186,11 @@ addEventListener("wheel", (e) => {
 	if (e.altKey) {
 		e.preventDefault();
 		let new_magnification = magnification;
+		const factor = 1 + Math.min(0.5, Math.abs(e.deltaY) / 100);
 		if (e.deltaY < 0) {
-			new_magnification *= 1.5;
+			new_magnification *= factor;
 		} else {
-			new_magnification /= 1.5;
+			new_magnification /= factor;
 		}
 		new_magnification = Math.max(0.5, Math.min(new_magnification, 80));
 		set_magnification(new_magnification, to_canvas_coords(e));
@@ -1449,7 +1514,7 @@ $canvas_area.on("pointerdown", (event) => {
 	}
 
 	if (pointers.every((pointer) =>
-		// prevent multitouch panning in case of synthetic events from eye gaze mode
+		// prevent multitouch panning in case of synthetic events from Dwell Clicker
 		pointer.pointerId !== 1234567890 &&
 		// prevent multitouch panning in case of dragging across iframe boundary with a mouse/pen
 		// Note: there can be multiple active primary pointers, one per pointer type
@@ -1540,7 +1605,7 @@ $canvas.on("pointerdown", (e) => {
 		cancel(false, discard_document_state);
 		pointer_active = false; // NOTE: pointer_active used in cancel(); must be set after cancel()
 
-		// in eye gaze mode, allow drawing with mouse after canceling gaze gesture with mouse
+		// in Dwell Clicker mode, allow drawing with mouse after canceling dwell gesture with mouse
 		pointers = pointers.filter((pointer) =>
 			pointer.pointerId !== 1234567890
 		);

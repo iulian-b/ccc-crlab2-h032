@@ -79,7 +79,6 @@
   "dependencies": {
     "argparse": "^2.0.1",
     "electron-squirrel-startup": "^1.0.0",
-    "jspaint": "file:",
     "lookpath": "^1.2.2",
     "wallpaper": "^4.4.2"
   },

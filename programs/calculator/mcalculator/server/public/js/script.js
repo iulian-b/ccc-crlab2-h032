@@ -347,8 +347,8 @@ function initialise() {
         }
     }
     /**
-    * send button clicks as commands
-    */
+     * send button clicks as commands
+     */
     document.querySelectorAll('button').forEach((button) => {
         button = filterOut(button);
         if (button) {
@@ -410,13 +410,13 @@ function initialise() {
 
 
     /**
-    * listens to keyboard clicks and map them to COMMAND
-    */
+     * listens to keyboard clicks and map them to COMMAND
+     */
     document.addEventListener('keydown', (ev) => {
         if (ev.defaultPrevented)
             return;
         const ctrlOrMeta = ev.ctrlKey || ev.metaKey; // macOS has meta key used similarly to ctrl key on Windows
-        
+
         // in case of menus, or dialogs, don't intercept
         // but still allow it globally (i.e. with nothing focused)
         if (
@@ -449,8 +449,8 @@ function initialise() {
         }
     })
     /**
-    * Sidebar navigation // please rewrite this shitty code better
-    */
+     * Sidebar navigation // please rewrite this shitty code better
+     */
     function makeActive(menuItem) {
         document.querySelectorAll('#sidebar > #nav > .nav-item').forEach(it => {
             it.classList.remove('active');
@@ -479,8 +479,8 @@ function initialise() {
     }
 
     /**
-    * History related funcs
-    */
+     * History related funcs
+     */
     window.setHistoryItem = function setHistoryItemAddingOneMoreItemToList(hEx, hRes) {
         let hItem = document.createElement('button');
         hItem.className = 'history-item';
@@ -490,7 +490,7 @@ function initialise() {
         let hItemRes = document.createElement('div');
         hItemRes.className = 'result';
         hItem.appendChild(hItemRes);
-        //created an empty dom node 
+        //created an empty dom node
         hItemEx.textContent = hEx;
         hItemRes.textContent = hRes;
 
@@ -517,7 +517,7 @@ function initialise() {
 
     /**
      * Memory related funcs
-    */
+     */
     window.setMemoryItem = function appendToListOfMemoryItem(memStr) {
         document.querySelector('#memory-indicator')?.classList.add("memory-exists");
 
@@ -674,8 +674,8 @@ function initialise() {
 
     function filterOut(button) {
         /**
-        * TODO room for more tests
-        */
+         * TODO room for more tests
+         */
         //filter out disabled, menu or similar numbers
         if (button.disabled || !commandIDs[button.id])
             return null;

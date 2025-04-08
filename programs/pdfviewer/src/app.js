@@ -57,7 +57,7 @@ function load_pdf() {
 		frameElement.parentElement.parentElement.style.left='60%';	
 	}
 	// OLD WxH = 100%x1000px
-	var newPdf = '<embed src="../../' + file_path + '", scrollbar=0, frameborder=0, width="" height="100%" />';
+	var newPdf = '<embed src="../..' + file_path + '", scrollbar=0, frameborder=0, width="" height="100%" />';
 	var parent = document.getElementById("document");
 	parent.insertAdjacentHTML('afterbegin', newPdf); 
 }

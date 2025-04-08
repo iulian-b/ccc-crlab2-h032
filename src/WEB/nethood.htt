@@ -4,7 +4,23 @@
  -->
 
 <html>
-	<link rel=stylesheet href="%TEMPLATEDIR%\webview.css" title="Windows">
+	<style>
+		body		{font: 8pt/10pt verdana; margin: 0}
+		#FileList	{position: absolute; left: 30%; width: 70%; height: 100%}
+		#Media		{margin-left: 15px}
+		#Panel		{position: absolute; width: 30%; height: 100%; overflow: auto}
+		#PieChart	{width: 100px; height: 50px; margin-top: 10px}
+		#Thumbnail	{width: 160px; height: 160px; margin-top: 0px}
+		#Status		{margin-left: 15px}
+		#Brand		{position: absolute; left: 30%; width: 70%; height: 100%; overflow: auto}
+		p		{margin-left: 15px; margin-top: 15px; margin-right: 15px}
+		p.Title		{font: 16pt; font-weight: bold; margin-top: 5px}
+		p.LogoLine	{margin-left: 0; margin-top: -5px; margin-right: 0; margin-bottom: 20px}
+		p.Warning	{font-weight: bold; color: red}
+		p.Links		{margin-top: 5px}
+		a.Command	{font-weight: bold}
+		div.Release     {width: 160px; text-align: right; background: buttonface; padding: 0px, 8px, 4px, 8px}
+	</style>
 	<head>
 		<script language="JavaScript">
 			var L_Intro_Text	= "This folder contains links to all the computers in your workgroup and on the entire network.<br><br>To see the shared resources available on a specific computer, just click the computer icon.<br><br>To install a network printer from this folder, locate the printer in Network Neighborhood, right-click its icon, and then click Install.";
@@ -75,10 +91,6 @@
 			else
 				text = "<b>" + name + "</b>";
 				
-			// comment
-			data = fldr.GetDetailsOf(items, 1);
-			if (data != "")
-				text += "<br>" + data;
 
 			// tip?
 			data = fldr.GetDetailsOf(items, -1);

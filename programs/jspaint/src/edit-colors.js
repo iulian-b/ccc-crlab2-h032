@@ -307,7 +307,7 @@ function choose_color(initial_color, callback) {
 	// for mobile layout, re-enable button because it's a navigation button in that case, rather than one-time expand action
 	const maybe_reenable_button_for_mobile_navigation = () => {
 		// if ($right.is(":hidden")) {
-		if ($w.width() < 300 || document.body.classList.contains("eye-gaze-mode")) {
+		if ($w.width() < 300 || document.body.classList.contains("enlarge-ui")) {
 			$define_custom_colors_button.removeAttr("disabled");
 		}
 	};
@@ -388,7 +388,7 @@ function choose_color(initial_color, callback) {
 		select_hue_sat(event);
 
 		$(rainbow_canvas).on("pointermove", select_hue_sat);
-		if (event.pointerId !== 1234567890) { // for Eye Gaze Mode simulated clicks
+		if (event.pointerId !== 1234567890) { // for Dwell Clicker simulated clicks
 			rainbow_canvas.setPointerCapture(event.pointerId);
 		}
 	});
@@ -409,7 +409,7 @@ function choose_color(initial_color, callback) {
 		select_lum(event);
 
 		$(luminosity_canvas).on("pointermove", select_lum);
-		if (event.pointerId !== 1234567890) { // for Eye Gaze Mode simulated clicks
+		if (event.pointerId !== 1234567890) { // for Dwell Clicker simulated clicks
 			luminosity_canvas.setPointerCapture(event.pointerId);
 		}
 	});

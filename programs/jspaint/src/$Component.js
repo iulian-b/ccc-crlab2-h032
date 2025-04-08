@@ -107,19 +107,61 @@ function $Component(title, className, orientation, $el) {
 		$c.css(`margin-${get_direction() === "rtl" ? "right" : "left"}`, "3px");
 	}
 
+	const apply_scale = () => {
+		const enabled = $("body").hasClass("enlarge-ui");
+
+		// Temporarily disable the transform to measure the unscaled size
+		// (Previously used scrollWidth/scrollHeight, which is naturally unaffected by the scale,
+		// but that is affected by the advent calendar style tool button flaps in the Winter theme.)
+		$c.css("transform", "none");
+
+		// Measure the untransformed size
+		const containerBounds = $c[0].getBoundingClientRect();
+		const containerWidth = containerBounds.width;
+		const containerHeight = containerBounds.height;
+
+		// Define CSS properties for scaling
+		let scale = 3;
+		const docked = $c.parent().is(".component-area");
+		if (docked) {
+			scale = Math.min(scale,
+				orientation === "tall" ?
+					$c.parent().height() / containerHeight :
+					$c.parent().width() / containerWidth
+			);
+		}
+		const props = {
+			// The `transform` breaks the overflow of the Winter theme's tool button flaps, but what are you going to do?
+			// Well, `zIndex: 2` or higher seems to fix it, probably competing with the .main-canvas's z-index of 2,
+			// but causes other problems, like depth ordering with the floating undo button,
+			// and there's probably a reason for the .main-canvas having that z-index, and I don't really want to play z-index wack-a-mole.
+			// zIndex: 2, // @#: z-index
+			transform: `scale(${scale})`,
+			transformOrigin: "0 0",
+			marginRight: containerWidth * (scale - 1),
+			marginBottom: containerHeight * (scale - 1),
+		};
+
+		// Apply or remove the scaling
+		if (enabled) {
+			$c.css(props);
+		} else {
+			for (const key in props) {
+				$c.css(key, "");
+			}
+		}
+	};
 	let iid;
-	if ($("body").hasClass("eye-gaze-mode")) {
-		// @TODO: don't use an interval for this!
-		iid = setInterval(() => {
-			const scale = 3;
-			$c.css({
-				transform: `scale(${scale})`,
-				transformOrigin: "0 0",
-				marginRight: $c[0].scrollWidth * (scale - 1),
-				marginBottom: $c[0].scrollHeight * (scale - 1),
-			});
-		}, 200);
-	}
+	const update_auto_scaling = () => {
+		clearInterval(iid);
+		if ($("body").hasClass("enlarge-ui")) {
+			// @TODO: don't use an interval for this!
+			iid = setInterval(apply_scale, 200);
+		}
+		apply_scale();
+	};
+	$G.on("enlarge-ui-toggled", update_auto_scaling);
+	update_auto_scaling();
 
 	let ox, oy;
 	let ox2, oy2;
@@ -199,6 +241,17 @@ function $Component(title, className, orientation, $el) {
 	$w.on("window-drag-start", (e) => {
 		e.preventDefault();
 	});
+	const size_css_props = (styles) => {
+		const scale_match = styles.transform.match(/(?:scale|matrix)\((\d+(?:\.\d+)?)/);
+		const scale = Number((scale_match ?? [])[1] ?? "1");
+		return {
+			width: `calc(${styles.width} * ${scale})`,
+			height: `calc(${styles.height} * ${scale})`,
+			// don't copy margin, margin is actually used for positioning the components in the docking areas
+			// don't copy padding, padding changes based on whether the component is in a window in modern theme
+			// let padding be influenced by CSS
+		};
+	};
 	const imagine_window_dimensions = () => {
 		const prev_window_shown = $w.is(":visible");
 		$w.show();
@@ -206,13 +259,7 @@ function $Component(title, className, orientation, $el) {
 		let { offsetLeft, offsetTop } = $c[0];
 		if ($c.closest(".tool-window").length == 0) {
 			const styles = getComputedStyle($c[0]);
-			$spacer = $(E("div")).addClass("component").css({
-				width: styles.width,
-				height: styles.height,
-				// don't copy margin, margin is actually used for positioning the components in the docking areas
-				// don't copy padding, padding changes based on whether the component is in a window in modern theme
-				// let padding be influenced by CSS
-			});
+			$spacer = $(E("div")).addClass("component").css(size_css_props(styles));
 			$w.append($spacer);
 			({ offsetLeft, offsetTop } = $spacer[0]);
 		}
@@ -234,8 +281,7 @@ function $Component(title, className, orientation, $el) {
 		}
 		const styles = getComputedStyle($c[0]);
 		const $spacer = $(E("div")).addClass("component").css({
-			width: styles.width,
-			height: styles.height,
+			...size_css_props(styles),
 			flex: "0 0 auto",
 		});
 		$dock_to.prepend($spacer);
@@ -284,8 +330,6 @@ function $Component(title, className, orientation, $el) {
 				$(e.target).closest("button").length === 0
 			);
 		if (!validTarget) { return; }
-		// Don't allow dragging in eye gaze mode
-		if ($("body").hasClass("eye-gaze-mode")) { return; }
 
 		const docked = imagine_docked_dimensions();
 		const rect = $c[0].getBoundingClientRect();
