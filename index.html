@@ -38,6 +38,7 @@
 		<div id="bootloader" class="unselectable"></div>
 		<!-- <div id="screen" class="crt"></div> -->
 		<!-- Wallpaper -->
+		<div id="preloader"></div>
 		<div id="desktop" class="desktop" style="background-image: url(images/wallpaper.jpg); background-size: cover; background-position: center; "></div>
 		<!-- Build -->
 		<div id="buildtext" class="build-text unselectable" style="position: absolute; right: 5px; bottom: 28px; font-family: italic Fixedsys Excelsior, FixedSys, monospace; font-size: 11px; line-height: 0.4; color: white;">
@@ -71,64 +72,64 @@
 							<button id="start_btn_update" class="start-btn">
 								<img draggable="false" src="images/icons/sinclair-updates-32x32.png" width="32" height="32" style="vertical-align: middle;" onclick=""/>
 								About
-							</button>	
+							</button>
 						</li>
 						<div class="start-menu-divider inset-shallow"></div>
 						<li>
 							<button id="start_btn_programs" class="start-btn">
 								<img draggable="false" src="images/icons/programs-32x32.png" width="32" height="32" style="vertical-align: middle;"/>
 								Programs
-							</button>	
+							</button>
 						</li>
 						<li>
 							<button id="start_btn_favorites" class="start-btn">
 								<img draggable="false" src="images/icons/favorites-32x32.png" width="32" height="32" style="vertical-align: middle;" />
 								Favorites
-							</button>	
+							</button>
 						</li>
 						<li>
 							<button id="start_btn_documents" class="start-btn">
 								<img draggable="false" src="images/icons/my-documents-32x32.png" width="32" height="32" style="vertical-align: middle;" />
 								Documents
-							</button>	
+							</button>
 						</li>
 						<li>
 							<button id="start_btn_settings" class="start-btn">
 								<img draggable="false" src="images/icons/settings-32x32.png" width="32" height="32" style="vertical-align: middle;" />
 								Settings
-							</button>	
+							</button>
 						</li>
 						<li>
 							<button id="start_btn_find" class="start-btn">
 								<img draggable="false" src="images/icons/find-file-32x32.png" width="32" height="32" style="vertical-align: middle;" />
 								Find
-							</button>	
+							</button>
 						</li>
 						<li>
 							<button id="start_btn_help" class="start-btn">
 								<img draggable="false" src="images/icons/help-32x32.png" width="32" height="32" style="vertical-align: middle;" />
 								Help
-							</button>	
+							</button>
 						</li>
 						<li>
 							<button id="start_btn_run" class="start-btn">
 								<img draggable="false" src="images/icons/run-32x32.png" width="32" height="32" style="vertical-align: middle;" />
 								Run
-							</button>	
+							</button>
 						</li>
 						<div class="start-menu-divider inset-shallow"></div>
 						<li>
 							<button id="start_btn_logoff" class="start-btn ">
 								<img draggable="false" src="images/icons/key_win_2-32x32.png" width="32" height="32" style="vertical-align: middle;" />
 								Log Off
-							</button>	
+							</button>
 						</li>
 						<li>
 							<button id="start_btn_shutdown" class="start-btn">
 								<img draggable="false" src="images/icons/Computer3-32x32.png" width="32" height="32" style="vertical-align: middle;" />
 								Shutdown
-							</button>	
-						</li>					
+							</button>
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -151,6 +152,7 @@
 		<script src="src/$start-menu.js"></script>
 		<script src="src/FolderView.js"></script>
 		<script src="src/FolderViewItem.js"></script>
+		<script src="src/crash-handler.js"></script>
 		<script src="src/$desktop.js"></script>
 		<script src="src/window-switcher.js"></script>
 		<script src="src/visualizer-overlay.js"></script>

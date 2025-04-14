@@ -270,8 +270,8 @@ var resolve_address = async function (address) {
 				!address.match(/^https?:\/\/(www\.)?(copy.sh|topotech.github.io\/interdimensionalcable|isaiahodhner.io|brie.fi\/ng)/) &&
 				!address.match(/^(file|data|blob):\/\//)
 			) {
-				address = "https://127.0.0.1:5173";
-				// address = "https://ibocse.onrender.com:1998";
+				// address = "https://127.0.0.1:5173";
+				address = "https://127.0.0.1:1999";
 			}
 		}
 		is_url = true;
@@ -984,7 +984,7 @@ function executeFile(file_path) {
 
 $(function () {
 	var query = parse_query_string(location.search);
-	// try to prevent our (potentially existing) iframe from blocking the iframe we're *inside* from blocking the *window* we're inside from showing up until the page loads 
+	// try to prevent our (potentially existing) iframe from blocking the iframe we're *inside* from blocking the *window* we're inside from showing up until the page loads
 	// TODO: do so consistently
 	// wait wouldn't the iframe we're in have loaded by now? or no
 	setTimeout(function () {

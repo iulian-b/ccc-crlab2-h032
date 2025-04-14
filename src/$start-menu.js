@@ -59,7 +59,7 @@ $("body").on("pointerdown", function (e) {
 		close_start_menu();
 	}
 });
-// Note: A lot of the time it's good to use focusout (in jQuery, or else blur with useCapture?[1]) as opposed to 
+// Note: A lot of the time it's good to use focusout (in jQuery, or else blur with useCapture?[1]) as opposed to
 // That might be the case here as well, but maybe not since programs opening might grab focus and that probably shouldn't close the start menu
 // Although at the operating system level it would probably prevent focus switching in the first place, so maybe we could do that
 // The point being this is an operating system control and so it may warrant special handling,
@@ -129,5 +129,8 @@ document.getElementById('start_btn_shutdown').addEventListener("click", function
 
 	// Clear storage and cookies
 	ClearStorage();
+
+	// Set next boot cookie
+	localStorage.setItem("POST", "0");
 });
 
