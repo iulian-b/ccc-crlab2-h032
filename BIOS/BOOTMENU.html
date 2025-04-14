@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap w/ Vite</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+<!--    <link rel="stylesheet" href="BIOS/css/bootstrap-grid.css">-->
+<!--    <link rel="stylesheet" href="BIOS/css/bootstrap-grid.min.css">-->
+<!--    <link rel="stylesheet" href="BIOS/css/bootstrap-reboot.css">-->
+<!--    <link rel="stylesheet" href="BIOS/css/bootstrap-reboot.min.css">-->
+    <link rel="stylesheet" href="../css/bios.css">
+    <script src="../lib/jquery.min.js"></script>
+<!--    <script type="module" src="BIOS/js/bootstrap.js"></script>-->
+<!--    <script type="module" src="BIOS/js/bootstrap.bundle.js"></script>-->
+</head>
+<body>
+<h1 class="boot_heading">Please selsect boot device:</h1><br>
+<div class="jumbotron jumbotron-fluid" id="bootmenu">
+    <div class="container">
+        <div class="btn-group-vertical">
+            <button class="btn btn-primary" data-toggle="button" aria-pressed="false">
+                Network:IBA GE Slot 0600 v1242
+            </button>
+            <br>&nbsp;
+            <a href="../$POST.html" class="btn btn-primary" data-toggle="button" aria-pressed="false">
+                HDD:Lexar LNM620X256G-RNNNG
+            </a>
+            <br>&nbsp;
+            <a href="../$POST.html" class="btn btn-primary" data-toggle="button" aria-pressed="false">
+                USB:Virtual FDD
+            </a>
+            <br>&nbsp;
+            <a href="../$POST.html" class="btn btn-primary" data-toggle="button" aria-pressed="false">
+                USB:Virtual DVD/CD-ROM
+            </a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function validateForm() {
+        document.getElementById("biosPassword").value = "";
+        console.log("[BIOS] Invalid Password");
+    }
+</script>
+</body>
+</html>

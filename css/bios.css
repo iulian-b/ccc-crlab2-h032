@@ -1,0 +1,44 @@
+#password_jumbotron {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 200px;
+    height: 50px;
+}
+body {
+    background: black;
+}
+
+#bootmenu {
+    display: block;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 300px;
+    height: 110px;
+}
+
+.boot_heading {
+    display: block;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    bottom: 16%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 306px;
+    height: 40px;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap w/ Vite</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+<!--    <link rel="stylesheet" href="BIOS/css/bootstrap-grid.css">-->
+<!--    <link rel="stylesheet" href="BIOS/css/bootstrap-grid.min.css">-->
+<!--    <link rel="stylesheet" href="BIOS/css/bootstrap-reboot.css">-->
+<!--    <link rel="stylesheet" href="BIOS/css/bootstrap-reboot.min.css">-->
+    <link rel="stylesheet" href="../css/bios.css">
+    <script src="../lib/jquery.min.js"></script>
+<!--    <script type="module" src="BIOS/js/bootstrap.js"></script>-->
+<!--    <script type="module" src="BIOS/js/bootstrap.bundle.js"></script>-->
+</head>
+<body>
+<div class="jumbotron jumbotron-fluid" id="password_jumbotron">
+    <div class="container">
+        <h1 class="display-4">Password</h1>
+        <form>
+            <div class="form-group">
+                <input type="password" onsubmit="validateForm()" class="form-control" id="biosPassword" placeholder="">
+            </div>
+        </form>
+    </div>
+    <br>
+</div>
+<script type="text/javascript">
+    function validateForm() {
+        document.getElementById("biosPassword").value = "";
+        console.log("[BIOS] Invalid Password");
+    }
+</script>
+</body>
+</html>

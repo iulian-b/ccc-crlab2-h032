@@ -3,6 +3,9 @@ const desktop = document.getElementById("desktop");
 const desktopIcons = document.getElementById("desktop-icons");
 const buildText = document.getElementById("buildtext");
 const taskBar = document.getElementById("taskbar");
+const preloader = document.getElementById("preloader");
+
+preloader.style.display = "flex";
 
 const bootText = [
     // 0-5
@@ -141,7 +144,7 @@ const bootText = [
     // 19
 	`<div class="fade"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: rgb(150, 150, 150)">Starting Desktop Envirovement...</span><br></div>`
 ];
-                
+
 
 function toggleDeskop(switcher) {
     if (!switcher) {
@@ -150,7 +153,7 @@ function toggleDeskop(switcher) {
         taskBar.style.display = "none";
         buildText.style.color = "black";
     } else {
-        desktop.style.display = "flex"; 
+        desktop.style.display = "flex";
         bootLoader.remove();
         sleep(1000).then(() => { desktopIcons.style.display = "flex";});
         sleep(2000).then(() => { taskBar.style.display = "flex"; });
@@ -162,17 +165,17 @@ function toggleDeskop(switcher) {
     }
 }
 
-function scrollUp() { 
-    bootLoader.scrollIntoView(); 
+function scrollUp() {
+    bootLoader.scrollIntoView();
 }
 
-function scrollDown() { 
-    bootLoader.lastElementChild.scrollIntoView(); 
+function scrollDown() {
+    bootLoader.lastElementChild.scrollIntoView();
 }
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
-  
+
 window.addEventListener('DOMContentLoaded', function() {
     // Play only first time
     if (localStorage.getItem("boot") == null) {
@@ -184,7 +187,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		// AUTOPLAY DOES NOT WORK IN 2024.
 		// FIND AN ALTERNATIVE
 		// document.getElementById("audio-container").insertAdjacentHTML('beforeend',`<div id="player"><audio autoplay hidden><source src="../audio/BOOT.wav" type="audio/wav"></audio></div>`);
-        
+
 		// Boot animation
         scrollUp();
         for(var i=0; i<8;i++){
@@ -192,7 +195,7 @@ window.addEventListener('DOMContentLoaded', function() {
         }
         bootLoader.insertAdjacentHTML('beforeend',bootText[9]);
         bootLoader.insertAdjacentHTML('beforeend',bootText[10]);
-        setTimeout(scrollDown, 1300); 
+        setTimeout(scrollDown, 1300);
 
         bootLoader.insertAdjacentHTML('beforeend',bootText[11]);
         bootLoader.insertAdjacentHTML('beforeend',bootText[12]);
@@ -203,9 +206,11 @@ window.addEventListener('DOMContentLoaded', function() {
         bootLoader.insertAdjacentHTML('beforeend',bootText[17]);
         bootLoader.insertAdjacentHTML('beforeend',bootText[18]);
 
+        preloader.style.display = "none";
+
         // Toggle desktop ON
         sleep(3900).then(() => {
-            toggleDeskop(true); 
+            toggleDeskop(true);
         });
 
         const loadASCII = "\n███████╗██╗███╗   ██╗ ██████╗██╗      █████╗ ██╗██████╗      ██████╗ ███████╗       █████╗ \n██╔════╝██║████╗  ██║██╔════╝██║     ██╔══██╗██║██╔══██╗    ██╔═══██╗██╔════╝      ██╔══██╗\n███████╗██║██╔██╗ ██║██║     ██║     ███████║██║██████╔╝    ██║   ██║███████╗█████╗╚██████║\n╚════██║██║██║╚██╗██║██║     ██║     ██╔══██║██║██╔══██╗    ██║   ██║╚════██║╚════╝ ╚═══██║\n███████║██║██║ ╚████║╚██████╗███████╗██║  ██║██║██║  ██║    ╚██████╔╝███████║       █████╔╝\n╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝╚══════╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝     ╚═════╝ ╚══════╝       ╚════╝ \n                                                                                          \n";

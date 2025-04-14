@@ -7,12 +7,20 @@ html, body {
 	border: 0;
 	overflow: hidden;
 }
+#preloader {
+	z-index: 8000!important;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	display: none;
+}
 .start-menu {
 	position: absolute !important; /* XXX overriding relative; could instead of using :after use border-image */
 	left: 2px;
 	bottom: 25px;
 	width: calc(186px + 21px); /* 186px isn't the proper width measured out, just what I had it before, (for the content, on chrome on windows 10; text wrapping is not cross-platform-consistent) */
-	/* height: 340px; */ /* Uncomment for scrollbar */ 
+	/* height: 340px; */ /* Uncomment for scrollbar */
 	max-height: calc(100vh - 26px); /* based on taskbar height TODO: do this differently, probably in JS, since the taskbar will be resizable (or could be) */
 	box-sizing: border-box;
 	display: flex;
@@ -21,7 +29,7 @@ html, body {
 .start-menu-titlebar {
 	flex: 0 0 auto;
 	width: 21px;
-}	
+}
 .start-menu-content {
 	overflow: auto;
 	padding: 1px;

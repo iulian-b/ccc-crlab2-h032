@@ -386,7 +386,7 @@ SkiFree.acceptsFilePaths = false;
 
 function PDFViewer(file_path) {
 	// There is no normal way to determine the height of a pdf that has yet to be loaded into the DOM.
-	// This is a hackjob, but the show must go on. 
+	// This is a hackjob, but the show must go on.
 	function getHeight() {
 		if (file_path.includes("cs50_")) return 580;
 		else if (file_path.includes("EUCIP")) return 540;
@@ -410,7 +410,7 @@ function PDFViewer(file_path) {
 	var document_title = file_path ? file_name_from_path(file_path) : "Untitled";
 	var win_title = document_title + " - PDF Viewer";
 	// TODO: focus existing window if file is currently open?
-	
+
 	var $win = make_iframe_window({
 		src: "programs/pdfviewer/index.html" + (file_path ? ("?path=" + file_path) : ""),
 		icons: iconsAtTwoSizes("doc"),
@@ -434,15 +434,15 @@ function Picview(file_path) {
 		imgDim[1] = img.height;
 
 		// Normalize width
-		
-		if (imgDim[0] <= 400) { 
+
+		if (imgDim[0] <= 400) {
 			imgDim[0] = 400;
 			imgDim[1] = 260;
 		} else if (imgDim[0] >= 1000) {
 			imgDim[0] = 1000;
 		}
 		// Normalize height
-		if (imgDim[1] <= 260) { 
+		if (imgDim[1] <= 260) {
 			imgDim[1] = 260;
 
 		} else if (imgDim[0] >= 750) {
@@ -451,7 +451,7 @@ function Picview(file_path) {
 
 		// Fix for vertical images.
 		// Multiplies the heigh with the original WxH ratio of the picture
-		// to get the corrected height 
+		// to get the corrected height
 		if (img.height > img.width) {
 			const ratio = img.width / img.height;
 			imgDim[0] = ratio * imgDim[1];
@@ -478,7 +478,7 @@ function Picview(file_path) {
 Picview.acceptsFilePaths = true;
 
 function Network(file_path) {
-	if (!file_path.includes("/Network")) return; 
+	if (!file_path.includes("/Network")) return;
 
 	if (file_path === "/Network/LAB02") {
 		showMessageBox({iconID: 'error', title:'Error', message: 'Could not establish a connection to //LAB02/X01/X01_b . \n[Cause: 511 Network Authentication Required]'});
@@ -1035,7 +1035,7 @@ function openWinamp(file_path) {
 			// 		{url: "/My Music/smells like teen spirit.mp3"},
 			// 		{url: "/My Music/STILL DRE.mp3"},
 			// 	];
-				
+
 			// 	await webamp.appendTracks(tracks);
 			} else {
 				const track = await filePathToTrack(file_path);
@@ -1301,7 +1301,7 @@ function openWinamp(file_path) {
 			// 	raf_id = requestAnimationFrame(animate);
 			// };
 			// raf_id = requestAnimationFrame(animate);
-			$webamp.setVolume(0);
+			// $webamp.setVolume(0);
 
 			whenLoaded()
 		}, (error) => {
@@ -1506,7 +1506,7 @@ var file_extension_associations = {
 	url: openURLFile,
 	theme: openThemeFile,
 	themepack: openThemeFile,
-	pdf: PDFViewer, 
+	pdf: PDFViewer,
 	git: openURLFile,
 };
 
