@@ -4,7 +4,7 @@ var fs = require("fs");
 var path = require("path");
 var symLinks = {};
 var ignoreFiles = ['.github', '.gitignore', '.gitattributes', '.idea', '.vscode', 'audio', 'font', 'help', 'images', 'lib', 'node_modules', 'src',
-    'tests', 'extract-icons.sh', 'browserconfig.xml','package.json','package-lock.json','playwright.config.ts','site.webmanifest','theme.css','TODO.md',
+    'tests', 'extract-icons.sh', 'browserconfig.xml','package.json','package-lock.json','playwright.config.ts','site.webmanifest','theme.css',
     'make_http_index.js','layout.css','index.html','favico*','cspell.json','classic.css', 'pull-libs.js'];
 ignoreFiles += ['android-chrome-192x192.png', 'android-chrome-256x256.png', 'apple-touch-icon.png','apple-touch-icon-57x57.png',
     'apple-touch-icon-57x57-precomposed.png','apple-touch-icon-60x60.png','apple-touch-icon-60x60-precomposed.png','apple-touch-icon-72x72.png',

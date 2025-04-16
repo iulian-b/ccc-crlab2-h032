@@ -1,0 +1,5024 @@
+{
+  "Desktop": {
+    "Projects": {
+      "qrscanner": {
+        "app": {
+          "icon": {
+            "icon.png": null
+          },
+          "licenses": {
+            "android-sdk-preview-license": null
+          },
+          "src": {
+            "androidTest": {
+              "java": {
+                "com": {
+                  "ibocse": {
+                    "qrscanner": {
+                      "ExampleInstrumentedTest.java": null
+                    }
+                  }
+                }
+              }
+            },
+            "main": {
+              "java": {
+                "com": {
+                  "ibocse": {
+                    "qrscanner": {
+                      "GenerateQR.kt": null,
+                      "Main.kt": null
+                    }
+                  }
+                }
+              },
+              "res": {
+                "drawable": {
+                  "fab_save_foreground.xml": null,
+                  "fab_text_foreground.xml": null,
+                  "ic_encode_foreground.xml": null,
+                  "ic_launcher_background.xml": null
+                },
+                "drawable-v24": {
+                  "ic_launcher_foreground.xml": null
+                },
+                "layout": {
+                  "layout_generate.xml": null,
+                  "layout_mainund.xml": null
+                },
+                "mipmap-anydpi-v26": {
+                  "app_icon.xml": null,
+                  "app_icon_round.xml": null,
+                  "fab_save.xml": null,
+                  "fab_text.xml": null
+                },
+                "mipmap-hdpi": {
+                  "app_icon_background.png": null,
+                  "app_icon_foreground.png": null,
+                  "app_icon_round.png": null,
+                  "fab_save.png": null
+                },
+                "mipmap-mdpi": {
+                  "app_icon.png": null,
+                  "app_icon_foreground.png": null,
+                  "fab_save.png": null
+                },
+                "mipmap-xhdpi": {
+                  "app_icon.png": null,
+                  "app_icon_background.png": null,
+                  "app_icon_round.png": null,
+                  "fab_save.png": null
+                },
+                "mipmap-xxhdpi": {
+                  "app_icon.png": null,
+                  "app_icon_background.png": null,
+                  "app_icon_foreground.png": null,
+                  "app_icon_round.png": null,
+                  "fab_save.png": null
+                },
+                "mipmap-xxxhdpi": {
+                  "app_icon.png": null,
+                  "app_icon_background.png": null,
+                  "app_icon_foreground.png": null,
+                  "app_icon_round.png": null,
+                  "fab_save.png": null
+                },
+                "values": {
+                  "colors.xml": null,
+                  "dimens.xml": null,
+                  "fab_save_background.xml": null,
+                  "fab_text_background.xml": null,
+                  "ic_encode_background.xml": null,
+                  "strings.xml": null,
+                  "themes.xml": null
+                }, 
+                "values-land": {
+                  "dimens.xml": null
+                },
+                "values-night": {
+                  "themes.xml": null
+                },
+                "values-w600dp": {
+                  "dimens.xml": null
+                },
+                "values-w1240dp": {
+                  "dimens.xml": null
+                }
+              },
+              "AndroidManifest.xml": null,
+              "app_icon-playstore.png": null
+            },
+            "test": {
+              "java": {
+                "com": {
+                  "ibocse": {
+                    "qrscanner": {
+                      "ExampleUnitTest.java": null
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "build.gradle": null,
+          "proguard-rules.pro": null
+        },
+        "gradle":{
+          "wrapper": {
+            "gradle-wrapper.jar": null,
+            "gradle-wrapper.properties": null
+          }
+        },
+        "test": {
+          "contact.png": null,
+          "link.png": null,
+          "telefon.png": null,
+          "text.png": null
+        },
+        "build.gradle": null,
+        "gradle.properties": null,
+        "gradlew": null,
+        "gradlew.bat": null,
+        "README.md": null,
+        "REPO.git": null,
+        "settings.gradle": null
+      },
+      "proiect-tjpad": {
+        "out": {
+          "production": {
+            "tjpad": {
+              "client": {
+                "ClientRunnable.class": null,
+                "Main.class": null
+              },
+              "server": {
+                "Main.class": null,
+                "ServerThread.class": null
+              }
+            }  
+          }
+        },
+        "src": {
+          "client": {
+            "ClientRunnable.java": null,
+            "Main.java": null
+          },
+          "server": {
+            "Main.java": null,
+            "ServerThread.java": null
+          }
+        },
+        "REPO.git": null,
+        "tjpad.iml": null
+      },
+      "ntfb": {
+        "assets": {
+          "css": {
+            "style.css": null
+          },
+          "doc": {},
+          "img": {},
+          "js": {
+            "main.js": null
+          },
+          "scss": {
+            "_footer.scss": null,
+            "_general.scss": null,
+            "_header.scss": null,
+            "_hero.scss": null,
+            "_nav.scss": null,
+            "_sections.scss": null,
+            "_variables.scss": null,
+            "style.scss": null
+          },
+          "vendor": {
+          }
+        },
+        "forms": {
+          "contact.php": null
+        },
+        "en": {
+          "services": {
+            "aml_audit.html": null,
+            "consulting.html": null,
+            "organizational_audit.html": null,
+            "statuatory_internal_audit.html": null
+          },
+          "404.html": null,
+          "index.html": null,
+          "privacy_policy.html": null
+        },
+        "404.shtml": null,
+        "index.html": null,
+        "REPO.git": null
+      },
+      "indartech": {
+        "assets": {
+          "css": {
+            "style.css": null
+          },
+          "doc": {},
+          "img": {},
+          "js": {
+            "main.js": null
+          }
+        },
+        "forms": {
+          "contact.php": null
+        },
+        "en": {
+          "products": {
+            "briquetting": {
+              "equipment": {
+                "btt50.html.deprecated": null,
+                "btt65.html.deprecated": null,
+                "btt75.html.deprecated": null,
+                "btt85.html.deprecated": null
+              },
+              "briquetting.html": null
+            },
+            "sanding": {
+              "consumables": {
+                "metallic": {
+                  "granule_alama_cilindrice.html": null,
+                  "granule_aluminiu_cilindrice.html": null,
+                  "granule_inox_cilindrice.html": null,
+                  "granule_inox_colturoase.html": null,
+                  "granule_inox_sferice.html": null,
+                  "granule_otel_cilindrice.html": null,
+                  "granule_otel_colturoase.html": null,
+                  "granule_otel_sferice.html": null,
+                  "granule_sp_inox_cilindrice.html": null,
+                  "granule_sp_otel_cilindrice.html": null,
+                  "granule_sp_sferice.html": null,
+                  "granule_zinc_cilindrice.html": null
+                },
+                "non-metallic": {
+                  "carbura_siliciu.html": null,
+                  "electrocorindon_alb.html": null,
+                  "electrocorindon_maro.html": null,
+                  "granat.html": null,
+                  "microgranule_plastic.html": null,
+                  "microsfere_ceramice.html": null,
+                  "microsfere_sp_ceramice.html": null,
+                  "microsfere_sp_sticla.html": null,
+                  "microsfere_sticla.html": null,
+                  "zgura_cupru.html": null
+                },
+                "metal-granules": null,
+                "non-metallic-abrazives": null
+              },
+              "equipment": {
+                "turbine": {
+                  "echipamente_speciale_la_tema.html.deprecated": null,
+                  "microgranule_plastic.html": null,
+                  "equipment_with_hook.html": null,
+                  "plastic_sandblasting_equipment.html": null,
+                  "rubber_band_equipment.html": null,
+                  "tunnel_type_equipment_with_conveyor_rollers.html": null,
+                  "tunnel_type_equipment_with_wire_strip.html": null
+                },
+                "compressed-air": null,
+                "turbine": null
+              },
+              "sanding.html": null
+            },
+            "spare-parts": {
+              "spare_parts.html": null
+            },
+            "tube-bending": {
+              "accessories": {
+                "crank.html": null,
+                "lubricant_spray.html": null,
+                "rolls_grinding.html": null,
+                "teflon_rolls_kit.html": null,
+                "tie_rod.html": null,
+                "workbench_bm34.html": null
+              },
+              "bend-dies": {
+                "aluminum_bend_die_kit_bm34.html": null,
+                "bend_die_kit_bm34.html": null,
+                "bend_die_kit_bm42.html": null,
+                "bend_die_kit_bm48.html": null,
+                "bend_die_kit_bm60_bm76.html": null,
+                "bend_die_kit_counterbend_die_roll.html": null,
+                "bend_die_kit_counterbend_die_std_roll.html": null,
+                "inox_bend_die_kit.html": null,
+                "special_bend_die_kit.html": null,
+                "special_bend_die_kit_gas_in_ampco.html": null,
+                "special_bend_die_r260.html": null
+              },
+              "equipment": {
+                "bm34.html": null,
+                "bm42.html": null,
+                "bm48.html": null,
+                "bm60.html": null,
+                "bm76.html": null
+              },
+              "tube-bending.html": null
+            },
+            "vibrofinishing": {
+              "consumables": {
+                "consumables.html": null
+              },
+              "equipment": {
+                "equipment.html": null,
+                "iwt.html": null,
+                "kem.html": null,
+                "msf.html": null,
+                "pmrf.html": null,
+                "vbt.html": null,
+                "wtf.html": null
+              },
+              "vibrofinishing.html": null
+            },
+            "contact.html": null
+          },
+          "404.html": null,
+          "index.html": null,
+          "privacy_policy.html": null
+        },
+        "400.shtml": null,
+        "401.shtml": null,
+        "403.shtml": null,
+        "404.shtml": null,
+        "408.shtml": null,
+        "500.shtml": null,
+        "502.shtml": null,
+        "index.html": null,
+        "package.json": null,
+        "REPO.git": null
+      },
+      "ICIS-project": {
+        "Assets": {
+          "Materials": {
+            "Asphalt_texture_12.mat": null,
+            "Asphalt_texture_13.mat": null,
+            "Asphalt_texture_14.mat": null,
+            "Asphalt_texture_15.mat": null,
+            "Asphalt_texture_16.mat": null,
+            "Asphalt_texture_17.mat": null,
+            "Metal.mat": null,
+            "Tyre.mat": null,
+            "WPSector1.mat": null,
+            "WPSector2.mat": null,
+            "WPSector3.mat": null
+          },
+          "Models": {
+            "Car": {
+              "Materials": {
+                "Blob_shadow.mat": null,
+                "CAR_Body.mat": null,
+                "CAR_Bottom-Interior-Wheel.mat": null,
+                "CAR_Lights.mat": null,
+                "CAR_TailLights.mat": null,
+                "CAR_Windows.mat": null,
+                "catamount-collider_bottommat.mat": null,
+                "catamount-collider_topmat.mat": null,
+                "Collider_BottomMat.mat": null,
+                "Collider_TopMat.mat": null
+              },
+              "catamount.fbx": null
+            },
+            "monza.blend": null,
+            "RB6.blend": null,
+            "RB6.FBX": null,
+            "TruckTyre.FBX": null
+          },
+          "Plot": {
+            "plot.py": null
+          },
+          "Prefabs": {
+            "Car": {
+              "Car.prefab": null,
+              "TruckTyre.prefab": null
+            },
+            "Car.prefab": null,
+            "Menu.prefab": null,
+            "RB6.prefab": null
+          },
+          "Scenes": {
+            "Main.unity": null,
+            "Menu.unity": null
+          },
+          "Scripts": {
+            "AIController.cs": null,
+            "AntiRoll.cs": null,
+            "AvoidDetector.cs": null,
+            "Camera.cs": null,
+            "Circuit.cs": null,
+            "Drive.cs": null,
+            "Flip.cs": null,
+            "GameLogic.cs": null,
+            "Grafic.cs": null,
+            "InitSettings.cs": null,
+            "MenuSwitcher.cs": null,
+            "StartMainScene.cs": null
+          },
+          "Settings": {
+            "AIController.cs": null,
+            "AvoidDetector.cs": null,
+            "Flip.cs": null,
+            "SpawnCars.cs": null
+          },
+          "Shaders": {
+            "PolyTerrain": {
+              "FirstPassLightmap.shader": null,
+              "polysplatting.cginc": null
+            },
+            "Alpha-Diffuse-ZWrite.shader": null,
+            "AlphaTest-Diffuse-GEqual.shader": null,
+            "Alpha-VertexLitGlow02.shader": null,
+            "GlassReflect.shader": null,
+            "Glassreflect2D.shader": null,
+            "LightMappedDiffusetDetail.shader": null,
+            "LightsEmmissive.shader": null,
+            "MirrorReflectionLit.shader": null,
+            "Normal-BumpSpec_EnvLightmapped.shader": null,
+            "ShadowProjection.shader": null,
+            "Skidmarks.shader": null,
+            "TransparentLightMappedVertexLiZWrite.shader": null
+          },
+          "Textures": {
+            "Dirt": {
+              "Materials": {
+                "dirtA.mat": null
+              },
+              "dirtA.tiff": null,
+              "dirtN.tiff": null
+            },
+            "Minimaps": {
+              "cam1.png": null,
+              "cam2.png": null,
+              "cam3.png": null,
+              "cam4.png": null
+            },
+            "RB6": {
+              "AC_black.DDS": null,
+              "AC_specular.dds": null,
+              "blight10_glow.dds": null,
+              "brake.dds": null,
+              "car_chassis.dds": null,
+              "car_chassis_S.dds": null,
+              "car_chassis0.dds": null,
+              "car_chassis0_S.dds": null,
+              "car_chassis1.dds": null,
+              "car_chassis1_S.dds": null,
+              "car_chassis4.DDS": null,
+              "carbon.dds": null,
+              "carbon_b.dds": null,
+              "clearled.dds": null,
+              "DISC.DDS": null,
+              "DISC_BLUR.dds": null,
+              "DISC_GLOW.dds": null,
+              "ferrim_BLUR.dds": null,
+              "flat_nm.dds": null,
+              "gearsbk.dds": null,
+              "hi_carbfbd.dds": null,
+              "hi_carbfbd_nm.dds": null,
+              "int_body.dds": null,
+              "int_body_map.dds": null,
+              "mat_carbon_dirt.dds": null,
+              "mat_carbon_dirt_nm.dds": null,
+              "mirror.png": null,
+              "normaltyres_.dds": null,
+              "normaltyres_00_DIRT.dds": null,
+              "normaltyres_02.dds": null,
+              "normaltyres_b_00.dds": null,
+              "normaltyres_b_02.dds": null,
+              "NULL.dds": null,
+              "plastic_detail.dds": null,
+              "rbrcpitmisc.dds": null,
+              "rbrrim.dds": null,
+              "rbrrim_BLUR.dds": null,
+              "rbrwheel10.dds": null,
+              "rbrwheel10_NM.dds": null,
+              "Rim_Blurred_map.DDS": null,
+              "rims_spokes_nm.dds": null,
+              "slickstread_.dds": null,
+              "slickstread_02.dds": null,
+              "slickstread_b_00.dds": null,
+              "slickstread_b_02.dds": null,
+              "TREAD_DIRT.dds": null
+            },
+            "bgsettings.png": null,
+            "logo.png": null
+          },
+          "ics_project.unitypackage": null
+        },
+        "Packages": {
+          "manifest.json": null,
+          "packages-lock.json": null
+        },
+        "ProjectSettings": {
+          "Packages": {
+            "com.unity.testtools.codecoverage": {
+              "Settings.json": null
+            }
+          },
+          "AudioManager.asset": null,
+          "boot.config": null,
+          "ClusterInputManager.asset": null,
+          "DynamicsManager.asset": null,
+          "EditorBuildSettings.asset": null,
+          "EditorSettings.asset": null,
+          "GraphicsSettings.asset": null,
+          "InputManager.asset": null,
+          "MemorySettings.asset": null,
+          "NavMeshAreas.asset": null,
+          "PackageManagerSettings.asset": null,
+          "Physics2DSettings.asset": null,
+          "PresetManager.asset": null,
+          "ProjectVersion.txt": null,
+          "QualitySettings.asset": null,
+          "SceneTemplateSettings.json": null,
+          "TagManager.asset": null,
+          "TimeManager.asset": null,
+          "UnityConnectSettings.asset": null,
+          "VersionControlSettings.asset": null,
+          "VFXManager.asset": null,
+          "XRSettings.asset": null
+        },
+        "Documentation.pdf": null,
+        "README.md": null,
+        "LICENSE.txt": null,
+        "REPO.git": null
+      },
+      "giovanni-bot": {
+        "src": {
+          "commands": {
+            "ai": {
+              "bing-chat.js": null
+            },
+            "misc": {
+              "ping.js": null
+            },
+            "politics": {
+              "createParty.js": null,
+              "leaveParty.js": null
+            },
+            "userinfo": {
+              "id.js": null,
+              "resetRoles.js": null
+            }
+          },
+          "events": {
+            "interactionCreate": {
+              "handleCommands.js": null
+            },
+            "messageCreate": {
+              "ai_gpt.js": null,
+              "haiduk.js": null
+            },
+            "ready": {
+              "01registerCommands.js": null,
+              "consoleLog.js": null
+            },
+            "handlers": {
+              "eventHandler.js": null
+            },
+            "images": {
+              "gio": {
+                "gio_fire.png": null,
+                "gio_propic.png": null,
+                "gio_propic_cut.png": null,
+                "gio_sing1.png": null,
+                "gio_sing2.png": null,
+                "lighter.png": null,
+                "whiskey.png": null
+              },
+              "ee-logo.png": null
+            },
+            "utils": {
+              "areCommandsDifferent.js": null,
+              "countriesList": null,
+              "getAllFiles.js": null,
+              "getApplicationCommands.js": null,
+              "getLocalCommands.js": null
+            }
+          },
+          "index.js": null
+        },
+        "package.json": null,
+        "package-lock.json": null,
+        "README.md": null,
+        "REPO.git": null
+      },
+      "CS50SQL": {
+        "Final Project": {
+          "CSSQL Presentation.pptx": null,
+          "DESIGN.md": null,
+          "queries.sql": null,
+          "schema.sql": null
+        },
+        "PSET 0": {
+          "cyberchase": {
+            "1.sql": null,
+            "2.sql": null,
+            "3.sql": null,
+            "4.sql": null,
+            "5.sql": null,
+            "6.sql": null,
+            "7.sql": null,
+            "8.sql": null,
+            "9.sql": null,
+            "10.sql": null,
+            "11.sql": null,
+            "12.sql": null,
+            "13.sql": null
+          },
+          "players": {
+            "1.sql": null,
+            "2.sql": null,
+            "3.sql": null,
+            "4.sql": null,
+            "5.sql": null,
+            "6.sql": null,
+            "7.sql": null,
+            "8.sql": null,
+            "9.sql": null,
+            "10.sql": null
+          },
+          "views": {
+            "1.sql": null,
+            "2.sql": null,
+            "3.sql": null,
+            "4.sql": null,
+            "5.sql": null,
+            "6.sql": null,
+            "7.sql": null,
+            "8.sql": null,
+            "9.sql": null,
+            "10.sql": null
+          }
+        },
+        "PSET 1": {
+          "dese": {
+            "1.sql": null,
+            "2.sql": null,
+            "3.sql": null,
+            "4.sql": null,
+            "5.sql": null,
+            "6.sql": null,
+            "7.sql": null,
+            "8.sql": null,
+            "9.sql": null,
+            "10.sql": null,
+            "11.sql": null,
+            "12.sql": null,
+            "13.sql": null
+          },
+          "moneyball": {
+            "1.sql": null,
+            "2.sql": null,
+            "3.sql": null,
+            "4.sql": null,
+            "5.sql": null,
+            "6.sql": null,
+            "7.sql": null,
+            "8.sql": null,
+            "9.sql": null,
+            "10.sql": null,
+            "12.sql": null
+          },
+          "packages": {
+            "answers.txt": null,
+            "log.sql": null
+          }
+        },
+        "PSET 2": {
+          "atl": {
+            "schema.sql": null
+          },
+          "connect": {
+            "schema.sql": null
+          },
+          "donuts": {
+            "schema.sql": null
+          }
+        },
+        "PSET 3": {
+          "dont-panic": {
+            "hack.sql": null,
+            "reset.sql": null
+          },
+          "meteorites": {
+            "import.sql": null
+          }
+        },
+        "PSET 4": {
+          "bnb": {
+            "available.sql": null,
+            "frequently_reviewed.sql": null,
+            "june_vacancies.sql": null,
+            "no_descriptions.sql": null,
+            "one_bedrooms.sql": null
+          },
+          "census": {
+            "by_district.sql": null,
+            "most_populated.sql": null,
+            "rural.sql": null,
+            "total.sql": null
+          },
+          "private": {
+            "private.sql": null
+          }
+        },
+        "PSET 5": {
+          "harvard": {
+            "indexes.sql": null
+          }
+        },
+        "PSET 6": {
+          "dont-panic-python": {
+            "hack.py": null,
+            "reset.sql": null
+          },
+          "sentimental-connect": {
+            "schema.sql": null
+          }
+        },
+        "Certificate.jpg": null,
+        "Certificate.pdf": null,
+        "README.md": null,
+        "REPO.git": null
+      },
+      "caverna-pysqlcipher": {
+        "__pycache__": {
+          "__init__.cpython-311.py": null,
+          "_sqlite3.cpython-311.py": null,
+          "dbapi2.cpython-311.py": null,
+          "dump.cpython-311.py": null
+        },
+        "test": {
+          "__pycache__": {
+            "__init__.cpython-311.py": null
+          },
+          "python3": {
+            "__pycache__": {
+              "__init__.cpython-311.py": null,
+              "dbapi.cpython-311.py": null,
+              "dump.cpython-311.py": null,
+              "factory.cpython-311.py": null,
+              "hooks.cpython-311.py": null,
+              "regression.cpython-311.py": null,
+              "sqlcipher.cpython-311.py": null,
+              "transactions.cpython-311.py": null,
+              "types.cpython-311.py": null,
+              "userfunctions.cpython-311.py": null
+            },
+            "__init__.py": null,
+            "dbapi.py": null,
+            "dump.py": null,
+            "factory.py": null,
+            "hooks.py": null,
+            "regression.py": null,
+            "sqlcipher.py": null,
+            "transactions.py": null,
+            "types.py": null,
+            "userfunctions.py": null
+          },
+          "__init__.py": null
+        },
+        "__init__.py": null,
+        "_sqlite3.cp311-win_amd64.pyd": null,
+        "_sqlite3.py": null,
+        "dbapi2.py": null,
+        "dump.py": null,
+        "README.md": null,
+        "REPO.git": null
+      },
+      "caverna": {
+        "css": {
+          "login.tcss": null,
+          "menu.tcss": null,
+          "notes.tcss": null,
+          "otp.tcss": null,
+          "vault.tcss": null
+        },
+        "server": {
+          "server.py": null
+        },
+        "ui": {
+          "login.py": null,
+          "mail.py": null,
+          "menu.py": null,
+          "notes.py": null,
+          "otp.py": null,
+          "vault.py": null
+        },
+        "utils": {
+          "db_tools.py": null,
+          "pwd_tools.py": null,
+          "sync_tools.py": null,
+          "ui_utils.py": null
+        },
+        "caverna.py": null,
+        "README.md": null,
+        "REPO.git": null,
+        "requirements.txt": null
+      },
+      "ccc-crlab2-h032": {
+        "main.exe": null,
+        "REPO.git": null
+      }
+    }
+  },
+  "Favorites": {},
+  "Recycle Bin": {
+    "m00nwalk.wav": null,
+    "c29ycm93.wav": null,
+    "aW5maW5pdHk=.wav": null
+  },
+  "My Documents": {
+    "Geotagging Backup": {
+      "Sessions": {
+        "01Oct2019":{
+          "01Oct2019.kml": null,
+          "dHJp.wav": null
+        },
+        "03Jul2019": {
+          "03Jul2019.kml": null
+        },
+        "17Aug2019": {
+          "17Aug2019.kml": null,
+          "ZHVv.wav": null
+        },
+        "21Aug2019": {
+          "21Aug2019.kml": null
+        },
+        "24Feb2020": {
+          "24Feb2020.kml": null,
+          "dGV0.wav": null
+        },
+        "28Jun2019": {
+          "Pics": {
+            "cHJp.wav": null
+          },
+          "28Jun2019.kml": null
+        },
+        "29Jun2019": {
+          "29Jun2019.kml": null
+        }
+      },
+      "Symbols": {
+        "accesdenied.png": null,
+        "airport.png": null,
+        "ambulance.png": null,
+        "anthropo.png": null,
+        "aquarium.png": null,
+        "art-museum.png": null,
+        "audio.png": null,
+        "bar.png": null,
+        "bed_breakfast.png": null,
+        "bowling.png": null,
+        "bunker.png": null,
+        "busstop.png": null,
+        "cablecar.png": null,
+        "carrental.png": null,
+        "carwash.png": null,
+        "casino.png": null,
+        "caution.png": null,
+        "cemetary.png": null,
+        "channelchange.png": null,
+        "church.png": null,
+        "cinema.png": null,
+        "circus.png": null,
+        "clothers.png": null,
+        "coffee.png": null,
+        "comedyclub.png": null,
+        "computers.png": null,
+        "congress.png": null,
+        "cross.png": null,
+        "dentist.png": null,
+        "drink.png": null,
+        "drinkingwater.png": null,
+        "drogerie.png": null,
+        "emergencyphone.png": null,
+        "farm.png": null,
+        "fastfood.png": null,
+        "ferry.png": null,
+        "festival.png": null,
+        "fillingstation.png": null,
+        "firemen.png": null,
+        "firstaid.png": null,
+        "forest.png": null,
+        "freqchg.png": null,
+        "geocaching.png": null,
+        "geocaching2.png": null,
+        "glasses.png": null,
+        "gun.png": null,
+        "harbor.png": null,
+        "helipad.png": null,
+        "highschool.png": null,
+        "historical_museum.png": null,
+        "home.png": null,
+        "home1.png": null,
+        "home2.png": null,
+        "home3.png": null,
+        "home4.png": null,
+        "home5.png": null,
+        "hospital.png": null,
+        "hostel.png": null,
+        "hotel.png": null,
+        "hunting.png": null,
+        "information.png": null,
+        "jazzclub.png": null,
+        "jewelry.png": null,
+        "kebab.png": null,
+        "key.png": null,
+        "lake.png": null,
+        "library.png": null,
+        "lock-2.png": null,
+        "lodging.png": null,
+        "mainroad.png": null,
+        "market.png": null,
+        "motel.png": null,
+        "museum_archeological.png": null,
+        "museum_art.png": null,
+        "museum_industry.png": null,
+        "museum_openair.png": null,
+        "museum_science.png": null,
+        "music.png": null,
+        "number_0.png": null,
+        "number_1.png": null,
+        "number_2.png": null,
+        "number_3.png": null,
+        "number_4.png": null,
+        "number_5.png": null,
+        "number_6.png": null,
+        "number_7.png": null,
+        "number_8.png": null,
+        "number_9.png": null,
+        "ophthalmologist.png": null,
+        "parkinggarage.png": null,
+        "phones.png": null,
+        "photo.png": null,
+        "photography.png": null,
+        "pinother.png": null,
+        "pizzeria.png": null,
+        "planetarium.png": null,
+        "police.png": null,
+        "postal.png": null,
+        "radar.png": null,
+        "radio-station.png": null,
+        "regroup.png": null,
+        "repair.png": null,
+        "restaurant.png": null,
+        "riparianhabitat.png": null,
+        "river.png": null,
+        "sandwich.png": null,
+        "shoes.png": null,
+        "shootingrange.png": null,
+        "stripclub.png": null,
+        "supermarket.png": null,
+        "taxiboat.png": null,
+        "teahouse.png": null,
+        "theater.png": null,
+        "themepark.png": null,
+        "toilets.png": null,
+        "train.png": null,
+        "tramway.png": null,
+        "treasure_chest.png": null,
+        "triangle-down.png": null,
+        "underground.png": null,
+        "unlock.png": null,
+        "video.png": null,
+        "videogames.png": null,
+        "waterdrop.png": null,
+        "waterfall.png": null,
+        "waterpark.png": null,
+        "waterwell.png": null,
+        "wifi_secured.png": null,
+        "workshop.png": null,
+        "zoo.png": null
+      },
+      "autobkp1.kml": null,
+      "autobkp2.kml": null,
+      "autobkp3.kml": null,
+      "Symbols.zip": null
+    },
+    "cs50_cybersec.pdf": null,
+    "cs50_sql.pdf": null,
+    "EUCIP IT Admin.pdf": null,
+    "FIRST.pdf": null,
+    "KET.pdf": null,
+    "NETACAD_learning_transcript.pdf": null,
+    "CV (EN).pdf": null,
+    "CV (RO).pdf": null
+  },
+  "My Music": {
+    "Playlists": {
+      "1984 Chevrolet Impala.m3u": null,
+      "Black Dodge Hellcat.m3u": null,
+      "Mercedes W124.m3u": null,
+      "Golf Mk3 1.9 TDI.m3u": null,
+      "Mustang 308.m3u": null,
+      "S14 With Shitty Mods.m3u": null,
+      "Skyline GTR R32.m3u": null,
+      "Toyota AE86.m3u": null,
+      "VAZ-2121.m3u": null,
+      "Krait Mk.II.m3u": null
+    },
+    "better-off-alone.mp3": null,
+    "Big Poppa.mp3": null,
+    "big_mountain-baby_i_love_your_way.mp3": null,
+    "blue.mp3": null,
+    "Coolio - Gangsta's Paradise.mp3": null,
+    "Juicy.mp3": null,
+    "linkin_park-numb.mp3": null,
+    "linkin_park-in_the_end.mp3": null,
+    "Losing my religion.mp3": null,
+    "Nirvana - Heart Shaped Box.mp3": null,
+    "Radiohead - Creep.mp3": null,
+    "smells like teen spirit.mp3": null,
+    "STILL DRE.mp3": null
+  },
+  "My Pictures": {
+    "20170131_114817.jpg": null,
+    "20170225_160324.jpg": null,
+    "20170307_111751.jpg": null,
+    "20170307_112355.jpg": null,
+    "20170512_175122.jpg": null,
+    "20170512_175939.jpg": null,
+    "20170512_175945.jpg": null,
+    "20170512_180116.jpg": null,
+    "20170512_180256.jpg": null,
+    "20170513_140417.jpg": null,
+    "20170514_134324.jpg": null,
+    "20170824_181126.jpg": null,
+    "20170824_181334.jpg": null,
+    "20171031_101509.jpg": null,
+    "20181128_082505.jpg": null,
+    "20190202_130627.jpg": null,
+    "20190411_082408.jpg": null,
+    "20201130_074445.jpg": null,
+    "20240509-103654806.jpg": null,
+    "20240509-103832933.jpg": null,
+    "20240509-105955665.jpg": null
+  },
+  "Network": {
+    "CNTR": null,
+    "CNTR-BKP": null,
+    "LAB01": null,
+    "LAB02": null
+  },
+  "Games": {
+    "diablo.exe": null,
+    "minecraft.exe": null,
+    "minesweeper.exe": null,
+    "pinball.exe": null,
+    "quake3.exe": null,
+    "skifree.exe": null,
+    "tombraider.exe": null,
+    "wolf3d.exe": null
+  },
+  "Program Files": {
+    "calculator": {
+      "index.html": null,
+      "mcalculator": {
+        "engine": {
+          "CalcManager": {
+            "CalcManager.vcxproj": null,
+            "CalcManager.vcxproj.filters": null,
+            "CalculatorHistory.cpp": null,
+            "CalculatorHistory.h": null,
+            "CalculatorManager.cpp": null,
+            "CalculatorManager.h": null,
+            "CalculatorResource.h": null,
+            "CalculatorVector.h": null,
+            "CEngine": {
+              "calc.cpp": null,
+              "CalcInput.cpp": null,
+              "CalcUtils.cpp": null,
+              "History.cpp": null,
+              "Number.cpp": null,
+              "Rational.cpp": null,
+              "RationalMath.cpp": null,
+              "scicomm.cpp": null,
+              "scidisp.cpp": null,
+              "scifunc.cpp": null,
+              "scioper.cpp": null,
+              "sciset.cpp": null
+            },
+            "CMakeLists.txt": null,
+            "Command.h": null,
+            "ExpressionCommand.cpp": null,
+            "ExpressionCommand.h": null,
+            "ExpressionCommandInterface.h": null,
+            "Header Files": {
+              "CalcEngine.h": null,
+              "CalcInput.h": null,
+              "CalcUtils.h": null,
+              "CCommand.h": null,
+              "EngineStrings.h": null,
+              "History.h": null,
+              "ICalcDisplay.h": null,
+              "IHistoryDisplay.h": null,
+              "Number.h": null,
+              "RadixType.h": null,
+              "Rational.h": null,
+              "RationalMath.h": null
+            },
+            "NumberFormattingUtils.cpp": null,
+            "NumberFormattingUtils.h": null,
+            "pch.cpp": null,
+            "pch.h": null,
+            "Ratpack": {
+              "basex.cpp": null,
+              "CalcErr.h": null,
+              "conv.cpp": null,
+              "exp.cpp": null,
+              "fact.cpp": null,
+              "itrans.cpp": null,
+              "itransh.cpp": null,
+              "logic.cpp": null,
+              "num.cpp": null,
+              "rat.cpp": null,
+              "ratconst.h": null,
+              "ratpak.h": null,
+              "support.cpp": null,
+              "trans.cpp": null,
+              "transh.cpp": null
+            },
+            "sal_cross_platform.h": null,
+            "UnitConverter.cpp": null,
+            "UnitConverter.h": null,
+            "winerror_cross_platform.h": null
+          },
+          "CalcModel": {
+            "CMakeLists.txt": null,
+            "Common": {
+              "CalcDisplay.cpp": null,
+              "CalcDisplay.h": null,
+              "EngineResourceProv.cpp": null,
+              "EngineResourceProv.h": null
+            },
+            "StandardModel.cpp": null,
+            "StandardModel.h": null
+          },
+          "clean.sh": null,
+          "CMakeLists.txt": null,
+          "engine.js": null,
+          "engine.wasm": null,
+          "LICENSE": null,
+          "NOTICE.txt": null,
+          "README.md": null,
+          "SECURITY.md": null,
+          "wrapper.cpp": null
+        },
+        "LICENSE": null,
+        "README.md": null,
+        "server": {
+          "app.js": null,
+          "bin": {
+            "www": null
+          },
+          "package-lock.json": null,
+          "package.json": null,
+          "public": {
+            "assets": {
+              "CalcMDL2.ttf": null,
+              "calculator.png": null
+            },
+            "favicon.ico": null,
+            "fonts.css": null,
+            "Images": {
+              "00c318bc-252c-0d61-9228-0611c9e72a0f.webPlatform.png": null,
+              "051ef8d6-8df0-e637-1800-5ddb88e77882.webPlatform.png": null,
+              "107a9bca-be63-43bf-e1b2-d8de5b3e6533.webPlatform.png": null,
+              "1f9fdcc5-6dd0-fb52-c49c-670bccd4bdf3.webPlatform.png": null,
+              "4a95d14c-a6dd-acef-95af-8ac55e003304.webPlatform.png": null,
+              "808ab329-46e7-5e3d-a5a9-178d7c3949a1.webPlatform.png": null,
+              "8263746e-c6dc-56c4-0285-29aa069be483.webPlatform.png": null,
+              "928fc572-71e2-9ee5-88c6-d7fe4039bc09.webPlatform.png": null,
+              "9b51305a-80ec-7735-fe39-52dfc09ffc3a.webPlatform.png": null,
+              "a12fd612-f826-c43a-b85e-1a666b4a7caa.webPlatform.png": null,
+              "a6060958-20eb-3f73-61a7-6358e1c0f454.webPlatform.png": null,
+              "bf651140-2c68-35e4-c350-b52087ca6e38.webPlatform.png": null,
+              "c4760eee-35aa-b203-5714-6ca910ff839f.webPlatform.png": null,
+              "c58c078a-cbaa-5b6e-ab1f-664818f3623d.webPlatform.png": null,
+              "d8ce1c7c-6af3-378e-ce5b-05f998ab3922.webPlatform.png": null,
+              "e50ae6dd-1227-10ce-b8b8-d004dd5bb1b1.webPlatform.png": null,
+              "e5f3afaa-d3d4-f912-91ae-017461f01e81.webPlatform.png": null,
+              "e8e8bd30-db70-43fc-26bd-e21571d511d7.webPlatform.png": null,
+              "eca1d252-e2aa-60bf-b92a-0c061bb25046.webPlatform.png": null
+            },
+            "index.html": null,
+            "js": {
+              "engine.js": null,
+              "engine.wasm": null,
+              "script.js": null
+            },
+            "manifest.json": null,
+            "service-worker.js": null,
+            "splash.css": null,
+            "standard.css": null
+          },
+          "README.md": null,
+          "routes": {
+            "index.js": null
+          }
+        }
+      },
+      "menus.js": null,
+      "calc.exe": null,
+      "README.md": null,
+      "windows-98-calc.css": null
+    },
+    "command": {
+      "command-message.zip": null,
+      "cmd.exe": null,
+      "index.html": null,
+      "msg.bat": null,
+      "CREDITS.md": null
+    },
+    "explorer": {
+      "explorer.exe": null,
+      "explorer.css": null,
+      "explorer.js": null,
+      "index.html": null,
+      "menus.js": null,
+      "README.md": null
+    },
+    "js-solitaire": {
+      "src": {
+        "index.js": null,
+        "menus.js": null,
+        "solitaire.css": null,
+        "spritesheet.png": null
+      },
+      "solitaire.exe": null,
+      "index.html": null,
+      "LICENSE": null,
+      "README.md": null
+    },
+    "jspaint": {
+      "audio": {
+        "chord.wav": null
+      },
+      "about.html": null,
+      "browserconfig.xml": null,
+      "CHANGELOG.md": null,
+      "CNAME": null,
+      "CONTRIBUTING.md": null,
+      "cspell.json": null,
+      "cypress": {
+        "cypress-image-snapshot-viewer.js": null,
+        "fixtures": {
+          "example.json": null
+        },
+        "integration": {
+          "tool-tests.spec.js": null,
+          "visual-tests.spec.js": null
+        },
+        "plugins": {
+          "index.js": null
+        },
+        "snapshots": {
+          "tool-tests.spec.js": {
+            "tool tests -- brush tool.snap.png": null,
+            "tool tests -- ellipse tool.snap.png": null,
+            "tool tests -- eraser tool.snap.png": null,
+            "tool tests -- line tool.snap.png": null,
+            "tool tests -- pencil tool.snap.png": null,
+            "tool tests -- rectangle tool.snap.png": null,
+            "tool tests -- rounded rectangle tool.snap.png": null
+          },
+          "visual-tests.spec.js": {
+            "visual tests -- about window during pride month.snap.png": null,
+            "visual tests -- about window.snap.png": null,
+            "visual tests -- airbrush selected.snap.png": null,
+            "visual tests -- brush selected.snap.png": null,
+            "visual tests -- bubblegum theme - custom zoom window.snap.png": null,
+            "visual tests -- bubblegum theme -- about window.snap.png": null,
+            "visual tests -- bubblegum theme -- eye gaze mode.snap.png": null,
+            "visual tests -- bubblegum theme -- main screenshot.snap.png": null,
+            "visual tests -- custom zoom window.snap.png": null,
+            "visual tests -- edit colors dialog.snap.png": null,
+            "visual tests -- eraser selected.snap.png": null,
+            "visual tests -- eye gaze mode.snap.png": null,
+            "visual tests -- flip and rotate window.snap.png": null,
+            "visual tests -- help window.snap.png": null,
+            "visual tests -- image attributes window.snap.png": null,
+            "visual tests -- line selected.snap.png": null,
+            "visual tests -- magnifier selected.snap.png": null,
+            "visual tests -- main screenshot.snap.png": null,
+            "visual tests -- modern dark theme -- custom zoom window.snap.png": null,
+            "visual tests -- modern dark theme -- image attributes window.snap.png": null,
+            "visual tests -- modern light theme -- edit colors dialog (expanded).snap.png": null,
+            "visual tests -- modern light theme -- eye gaze mode.snap.png": null,
+            "visual tests -- modern light theme -- main screenshot.snap.png": null,
+            "visual tests -- modern light theme -- vertical color box.snap.png": null,
+            "visual tests -- rectangle selected.snap.png": null,
+            "visual tests -- select selected.snap.png": null,
+            "visual tests -- stretch and skew window.snap.png": null,
+            "visual tests -- vertical color box.snap.png": null,
+            "visual tests -- winter theme -- edit colors dialog (expanded).snap.png": null,
+            "visual tests -- winter theme -- main screenshot.snap.png": null,
+            "visual tests -- winter theme -- vertical color box.snap.png": null
+          }
+        },
+        "support": {
+          "commands.js": null,
+          "index.js": null
+        }
+      },
+      "cypress.json": null,
+      "eslint.config.mjs": null,
+      "favicon.ico": null,
+      "forge.config.js": null,
+      "help": {
+        "cloud-mask.png": null,
+        "clouds.jpg": null,
+        "coUA.css": null,
+        "default.html": null,
+        "flag&clouds.gif": null,
+        "memcopy.html": null,
+        "mspaint.hhc": null,
+        "mspaint.hhk": null,
+        "nobgcolor.css": null,
+        "onestep.gif": null,
+        "online_support.htm": null,
+        "paint_airbrush.html": null,
+        "paint_blackwhite.html": null,
+        "paint_brush.html": null,
+        "paint_change_color.html": null,
+        "paint_change_size.html": null,
+        "paint_clear_image.html": null,
+        "paint_color_box.html": null,
+        "paint_curves.html": null,
+        "paint_custom_colors.html": null,
+        "paint_cutout_copy_move.html": null,
+        "paint_cutout_save.html": null,
+        "paint_cutout_select.html": null,
+        "paint_enlarge_area.html": null,
+        "paint_erase_large.html": null,
+        "paint_erase_small.html": null,
+        "paint_fill.html": null,
+        "paint_flip_picture.html": null,
+        "paint_freeform_lines.html": null,
+        "paint_grid.html": null,
+        "paint_insert_file.html": null,
+        "paint_invert.html": null,
+        "paint_lines.html": null,
+        "paint_not_in_color_box.html": null,
+        "paint_ovals.html": null,
+        "paint_polygons.html": null,
+        "paint_print.html": null,
+        "paint_rectangles.html": null,
+        "paint_set_default_colors.html": null,
+        "paint_skew_picture.html": null,
+        "paint_text.html": null,
+        "paint_toolbox.html": null,
+        "paint_trans_opaque.html": null,
+        "paint_undo.html": null,
+        "paint_wallpaper.html": null,
+        "paint_zoom.html": null,
+        "prettify-html.ahk": null,
+        "p_airb.gif": null,
+        "p_blank.png": null,
+        "p_brush.gif": null,
+        "p_color.png": null,
+        "p_curve.gif": null,
+        "p_cut.png": null,
+        "p_database.png": null,
+        "p_delete.png": null,
+        "p_erase.gif": null,
+        "p_eye.gif": null,
+        "p_fliph.png": null,
+        "p_flipv.png": null,
+        "p_free.gif": null,
+        "p_invert.png": null,
+        "p_line.gif": null,
+        "p_make_opaque.png": null,
+        "p_monochrome.png": null,
+        "p_opaq.gif": null,
+        "p_open.png": null,
+        "p_oval.gif": null,
+        "p_paint.gif": null,
+        "p_paste.png": null,
+        "p_pencil.gif": null,
+        "p_poly.gif": null,
+        "p_rect.gif": null,
+        "p_rotate_ccw.png": null,
+        "p_rotate_ccw_thin.png": null,
+        "p_rotate_cw.png": null,
+        "p_rotate_cw_thin.png": null,
+        "p_rrect.gif": null,
+        "p_save.png": null,
+        "p_sel.gif": null,
+        "p_skew_h.png": null,
+        "p_skew_v.png": null,
+        "p_stretch_both.png": null,
+        "p_stretch_h.png": null,
+        "p_stretch_v.png": null,
+        "p_trans.gif": null,
+        "p_txt.gif": null,
+        "p_zoom.gif": null,
+        "vaporwave.js": null
+      },
+      "images": {
+        "88x31": {
+          "collected": {
+            "98plusani.gif": null,
+            "abc.gif": null,
+            "adobe_getflashp.gif": null,
+            "anibanner.gif": null,
+            "antinft.gif": null,
+            "bookmark_this_page.gif": null,
+            "cssdif.gif": null,
+            "dark-mode.gif": null,
+            "ddg.gif": null,
+            "delete-twitter.gif": null,
+            "desp-anim.gif": null,
+            "diff-now.gif": null,
+            "digby88.gif": null,
+            "esheep.gif": null,
+            "ezgif_now.gif": null,
+            "folder2.gif": null,
+            "games.gif": null,
+            "gh-pages-bo.gif": null,
+            "github-check.gif": null,
+            "goodieblink.png": null,
+            "google_stand.gif": null,
+            "imissxp.gif": null,
+            "internetarchive.gif": null,
+            "is_it_slow_say_so.gif": null,
+            "mousemade.gif": null,
+            "mspaint.gif": null,
+            "mswin98_89.gif": null,
+            "new-tab.gif": null,
+            "nneighborhoodsmall.gif": null,
+            "nofuckingthanks.gif": null,
+            "paintnet.gif": null,
+            "vscbutton.gif": null,
+            "webdisk.gif": null,
+            "winamp.gif": null,
+            "yay_its_a_button.gif": null
+          },
+          "custom": {
+            "98.js.org-88x31.png": null,
+            "a-little-bit-of-everything.gif": null,
+            "creative-constraints-88x31-v2.png": null,
+            "creative-constraints-88x31-v3.png": null,
+            "creative-constraints-88x31-v4.png": null,
+            "creative-constraints-88x31-v5.png": null,
+            "creative-constraints-88x31-v6.png": null,
+            "creative-constraints-88x31-v7-history.gif": null,
+            "creative-constraints-88x31-v7.png": null,
+            "creative-constraints-88x31.png": null,
+            "electron-sucks-88x31-v0.png": null,
+            "electron-sucks-88x31-v1.png": null,
+            "how-now-brown-cow-88x31-v1.png": null,
+            "how-now-brown-cow-88x31-v2.png": null,
+            "jspaint-button-88x31-bubbly-inverse.png": null,
+            "jspaint-button-88x31-bubbly.png": null,
+            "jspaint-button-88x31-custom-font.png": null,
+            "jspaint-button-88x31-gray-border.png": null,
+            "jspaint-button-88x31-history.gif": null,
+            "jspaint-button-88x31-v1.png": null,
+            "jspaint-button-88x31-v2-history.gif": null,
+            "jspaint-button-88x31-v2.png": null,
+            "jspaint-button-88x31.png": null,
+            "jspaint-button-basic-88x31-v1.png": null,
+            "junkbot-88x31-v0.png": null,
+            "junkbot-88x31-v1.png": null,
+            "junkbot-88x31-v2.png": null,
+            "junkbot-88x31-v3.png": null,
+            "junkbot-88x31-v4.png": null,
+            "junkbot-88x31-v5.png": null,
+            "junkbot-88x31-v6.png": null,
+            "junkbot-88x31-v7.png": null,
+            "junkbot-88x31-v8.png": null,
+            "junkbot-88x31-v9-history.gif": null,
+            "junkbot-88x31-v9.png": null,
+            "junkbot-play-88x31-frame-1.png": null,
+            "junkbot-play-88x31-frame-2.png": null,
+            "junkbot-play-88x31-frame-3.png": null,
+            "junkbot-play-88x31-frame-4.png": null,
+            "made-with-jspaint-88x31-v1.png": null,
+            "made-with-jspaint-88x31-v2.png": null,
+            "made-with-jspaint-88x31-v3.png": null,
+            "made-with-jspaint-88x31-v4.png": null,
+            "made-with-jspaint-88x31-v5-history.gif": null,
+            "made-with-jspaint-88x31-v5.png": null,
+            "pipe-strip-88x31-v0.psd": null,
+            "pipe-strip-88x31-v1.png": null,
+            "pipe-strip-88x31-v1.psd": null,
+            "pipe-strip-88x31-v2.png": null,
+            "pipe-strip-88x31-v2.psd": null,
+            "pipe-strip-88x31-v3.png": null,
+            "pipe-strip-88x31-v3.psd": null,
+            "pipe-strip-88x31-v4.png": null,
+            "pipe-strip-88x31-v4.psd": null,
+            "take-this-88x31-v1.png": null,
+            "take-this-88x31-v2-frame-2.png": null,
+            "take-this-88x31-v2-history.gif": null,
+            "take-this-88x31-v2.gif": null,
+            "take-this-88x31-v2.png": null,
+            "turbo-encabulator-88x31-v0.psd": null,
+            "turbo-encabulator-88x31-v1.png": null,
+            "ublock-origin--transparent-88x31.png": null,
+            "ublock-origin-88x31-v1.png": null,
+            "ublock-origin-88x31-v2.png": null,
+            "ublock-origin-88x31.gif": null,
+            "vs-code-88x31-v3-no-border.png": null,
+            "vs-code-88x31-v4-overlapping-border.png": null,
+            "vs-code-88x31-v5-history.gif": null,
+            "vs-code-88x31-v5-within-border.png": null,
+            "vs-code-88x31-v6-shadow.png": null,
+            "vs-code-88x31-v7-animated.gif": null,
+            "windows-7-template-88x31.png": null,
+            "windows-7-vs-11.png": null,
+            "windows-7.png": null
+          }
+        },
+        "98.js.org.svg": null,
+        "about": {
+          "98.js.org.png": null,
+          "artcreated.gif": null,
+          "atom.gif": null,
+          "atombgwht.gif": null,
+          "atomo010.gif": null,
+          "bubbles.webp": null,
+          "CHESS_CUBE.gif": null,
+          "Computer-04-june.gif": null,
+          "conpaint.gif": null,
+          "cordborder.gif": null,
+          "dat-boi-transparent-small.gif": null,
+          "dos-samp.gif": null,
+          "download5.gif": null,
+          "electron-app-titlebar-icon-mac.png": null,
+          "ENTERsolar.gif": null,
+          "filmreel.gif": null,
+          "flagani.gif": null,
+          "foco.gif": null,
+          "free.gif": null,
+          "gatinha.gif": null,
+          "grey-tabby.gif": null,
+          "guitar.gif": null,
+          "here.gif": null,
+          "home.gif": null,
+          "izquierda.gif": null,
+          "junkbot-bin.png": null,
+          "junkbot-collecting-bin.gif": null,
+          "junkbot.gif": null,
+          "links.gif": null,
+          "linuxlogo.gif": null,
+          "maclogo.gif": null,
+          "mn_download.gif": null,
+          "money4.gif": null,
+          "monitor.png": null,
+          "moreinfo_paint.gif": null,
+          "news.gif": null,
+          "paintbutton.gif": null,
+          "red_paint_bucket_brush_md_clr_24887PURPLE.gif": null,
+          "WindowCLR_WRK.gif": null,
+          "windows-button.gif": null,
+          "windowslogo.gif": null
+        },
+        "anypalette-logo-128x128.png": null,
+        "arrows.png": null,
+        "bubblegum": {
+          "airbrush-128x128.png": null,
+          "brush-128x128.png": null,
+          "brush2-128x128.png": null,
+          "bubble.png": null,
+          "bubblegum-border-with-recess.png": null,
+          "bubblegum-border.png": null,
+          "bubblegum-paint-128x128.png": null,
+          "bubblegum-recess.png": null,
+          "bubblegum-recess.psd": null,
+          "bubblegum-tools.svg": null,
+          "cube-64x64.png": null,
+          "curve-128x128.png": null,
+          "curve2-128x128.png": null,
+          "cylinder-64x128.png": null,
+          "ellipse-128x128.png": null,
+          "ellipse2-128x128.png": null,
+          "eraser-128x128.png": null,
+          "eraser2-128x128.png": null,
+          "eye-gaze-pause-128x128.png": null,
+          "eye-gaze-pause-button.psd": null,
+          "eye-gaze-unpause-128x128.png": null,
+          "fill-with-color-128x128.png": null,
+          "fill-with-color.psd": null,
+          "line-128x128-wip-has-artifacts.png": null,
+          "line-128x128.png": null,
+          "magnifier-128x128.png": null,
+          "options-transparency-overwrought.svg": null,
+          "options-transparency.svg": null,
+          "pencil-128x128.png": null,
+          "pencil2-128x128.png": null,
+          "pencil3-128x128.png": null,
+          "pick-color-128x128.png": null,
+          "rectangle-128x128.png": null,
+          "rectangle2-128x128.png": null,
+          "rounded-rectangle-128x128.png": null,
+          "sphere-64x64.png": null,
+          "text-128x128.png": null,
+          "triangle-128x128.png": null
+        },
+        "chm-16x16.png": null,
+        "classic": {
+          "eye-gaze-pause.svg": null,
+          "eye-gaze-unpause.svg": null,
+          "options-transparency.png": null,
+          "options-transparency.svg": null,
+          "tools-and-stuff.png": null,
+          "tools-spaced-for-svg.png": null,
+          "tools.png": null,
+          "tools.svg": null,
+          "undo.png": null,
+          "undo.svg": null
+        },
+        "cursors": {
+          "airbrush.png": null,
+          "default.png": null,
+          "ew-resize.png": null,
+          "eye-dropper.png": null,
+          "fill-bucket.png": null,
+          "magnifier.png": null,
+          "move.png": null,
+          "nesw-resize.png": null,
+          "ns-resize.png": null,
+          "nwse-resize.png": null,
+          "pencil.png": null,
+          "precise-dotted.png": null,
+          "precise.png": null,
+          "precise2.png": null
+        },
+        "dark": {
+          "eye-gaze-pause.svg": null,
+          "eye-gaze-unpause.svg": null,
+          "options-transparency.png": null,
+          "options-transparency.svg": null,
+          "tools-spaced-for-svg.png": null,
+          "tools.png": null,
+          "tools.svg": null,
+          "undo.png": null,
+          "undo.svg": null
+        },
+        "enter.gif": null,
+        "error-16x16-8bpp.png": null,
+        "error-32x32-1bpp.png": null,
+        "error-32x32-8bpp.png": null,
+        "error-32x32-8bpp.svg": null,
+        "help-icons.png": null,
+        "help-viewer-toolbar-icons-grayscale.png": null,
+        "help-viewer-toolbar-icons.png": null,
+        "icons": {
+          "128x128.png": null,
+          "144x144.png": null,
+          "16x16.png": null,
+          "192x192.png": null,
+          "32x32.png": null,
+          "36x36.png": null,
+          "48x48.png": null,
+          "512x512.png": null,
+          "72x72.png": null,
+          "96x96.png": null,
+          "apple-icon-180x180.png": null,
+          "gay-es-paint-128x128.png": null,
+          "gay-es-paint-16x16-alt.png": null,
+          "gay-es-paint-16x16-light-outline.png": null,
+          "gay-es-paint-16x16.png": null,
+          "gay-es-paint-32x32-light-outline.png": null,
+          "gay-es-paint-32x32.png": null,
+          "jspaint-gay-pride-smooth.svg": null,
+          "jspaint-gay-pride.svg": null,
+          "jspaint.icns": null,
+          "jspaint.ico": null,
+          "jspaint.svg": null,
+          "ms-icon-144x144.png": null,
+          "ms-icon-150x150.png": null,
+          "ms-icon-310x310.png": null,
+          "ms-icon-70x70.png": null,
+          "og-image-279x279.jpg": null,
+          "safari-pinned-tab-source.svg": null,
+          "safari-pinned-tab.svg": null,
+          "silhouette-48x48.svg": null
+        },
+        "idea.gif": null,
+        "info-16x16-8bpp.png": null,
+        "info-32x32-1bpp.png": null,
+        "info-32x32-8bpp.png": null,
+        "info-32x32-8bpp.svg": null,
+        "meta": {
+          "electron-app-screenshot-mac.png": null,
+          "main-screenshot.png": null,
+          "mobipaint.png": null,
+          "twitter-card-plz-no-crop.png": null
+        },
+        "modern": {
+          "cursors": {
+            "airbrush-alt.cur": null,
+            "airbrush.cur": null,
+            "crosshair-large.cur": null,
+            "crosshair.cur": null,
+            "ew-resize-large.cur": null,
+            "ew-resize.cur": null,
+            "eye-dropper-large.cur": null,
+            "eye-dropper.cur": null,
+            "magnifier-large.cur": null,
+            "magnifier.cur": null,
+            "move-large-alt.cur": null,
+            "move-large.cur": null,
+            "move.cur": null,
+            "nesw-resize-large.cur": null,
+            "nesw-resize.cur": null,
+            "ns-resize-large.cur": null,
+            "ns-resize.cur": null,
+            "nwse-resize-large.cur": null,
+            "nwse-resize.cur": null,
+            "paint-bucket-large.cur": null,
+            "paint-bucket.cur": null,
+            "pencil-large.cur": null,
+            "pencil.cur": null,
+            "precise-large.cur": null,
+            "precise.cur": null,
+            "select-alt.cur": null,
+            "select-large-alt.cur": null,
+            "select-large.cur": null,
+            "select.cur": null,
+            "text-large.cur": null,
+            "text.cur": null,
+            "zoom-in-large.cur": null,
+            "zoom-in.cur": null,
+            "zoom-out-large.cur": null,
+            "zoom-out.cur": null
+          },
+          "modern-dark-tools.png": null,
+          "modern-dark-tools.svg": null,
+          "modern-light-tools.svg": null,
+          "options-transparency.png": null,
+          "options-transparency.svg": null,
+          "vista-tools-and-stuff.png": null,
+          "vista-tools-spaced-like-svg.png": null,
+          "vista-tools.png": null
+        },
+        "mspaint-win98-reference-tool-windows.png": null,
+        "mspaint-win98-reference.png": null,
+        "new.gif": null,
+        "new2.gif": null,
+        "nuke-32x32-8bpp.png": null,
+        "occult": {
+          "eye-gaze-pause.svg": null,
+          "eye-gaze-unpause.svg": null,
+          "options-transparency.png": null,
+          "tools.png": null,
+          "tools.svg": null,
+          "undo.png": null,
+          "undo.svg": null
+        },
+        "options-airbrush-size.png": null,
+        "options-magnification.png": null,
+        "options-magnification.svg": null,
+        "question-32x32-1bpp.png": null,
+        "question-32x32-8bpp.png": null,
+        "question-32x32-8bpp.svg": null,
+        "save.gif": null,
+        "soon-twist-anim.gif": null,
+        "soon.gif": null,
+        "text-tools.png": null,
+        "tracky-mouse-16x16.png": null,
+        "transforms": {
+          "skew-x.png": null,
+          "skew-y.png": null,
+          "stretch-x.png": null,
+          "stretch-y.png": null
+        },
+        "updated.gif": null,
+        "warning-16x16-8bpp.png": null,
+        "warning-32x32-1bpp.png": null,
+        "warning-32x32-8bpp.png": null,
+        "warning-32x32-8bpp.svg": null,
+        "windows-16x16.png": null,
+        "windows-32x32.png": null,
+        "winter": {
+          "grinch-smile-spritesheet.png": null,
+          "options-transparency.png": null,
+          "present.png": null,
+          "tools-and-stuff.png": null,
+          "tools.png": null
+        }
+      },
+      "index.html": null,
+      "jsconfig.json": null,
+      "lib": {
+        "98.css": {
+          "98.custom-build.css": null,
+          "98.custom-build.css.map": null,
+          "98.custom-build.rtl.css": null,
+          "98.custom-src.css": null,
+          "modified-build.js": null
+        },
+        "anypalette-0.6.0.js": null,
+        "bmp.js": null,
+        "FileSaver.js": null,
+        "firebase.js": null,
+        "font-detective.js": null,
+        "gif.js": {
+          "gif.js": null,
+          "gif.js.map": null,
+          "gif.worker.js": null,
+          "gif.worker.js.map": null
+        },
+        "imagetracer_v1.2.5.js": null,
+        "jquery-3.4.1.min.js": null,
+        "libtess.min.js": null,
+        "os-gui": {
+          "$Window.js": null,
+          "MenuBar.js": null,
+          "os-gui.d.ts": null,
+          "parse-theme.js": null
+        },
+        "os-gui.patch": null,
+        "pako-2.0.3.min.js": null,
+        "pdf.js": {
+          "LICENSE": null,
+          "web": {
+            "cmaps": {
+              "78-EUC-H.bcmap": null,
+              "78-EUC-V.bcmap": null,
+              "78-H.bcmap": null,
+              "78-RKSJ-H.bcmap": null,
+              "78-RKSJ-V.bcmap": null,
+              "78-V.bcmap": null,
+              "78ms-RKSJ-H.bcmap": null,
+              "78ms-RKSJ-V.bcmap": null,
+              "83pv-RKSJ-H.bcmap": null,
+              "90ms-RKSJ-H.bcmap": null,
+              "90ms-RKSJ-V.bcmap": null,
+              "90msp-RKSJ-H.bcmap": null,
+              "90msp-RKSJ-V.bcmap": null,
+              "90pv-RKSJ-H.bcmap": null,
+              "90pv-RKSJ-V.bcmap": null,
+              "Add-H.bcmap": null,
+              "Add-RKSJ-H.bcmap": null,
+              "Add-RKSJ-V.bcmap": null,
+              "Add-V.bcmap": null,
+              "Adobe-CNS1-0.bcmap": null,
+              "Adobe-CNS1-1.bcmap": null,
+              "Adobe-CNS1-2.bcmap": null,
+              "Adobe-CNS1-3.bcmap": null,
+              "Adobe-CNS1-4.bcmap": null,
+              "Adobe-CNS1-5.bcmap": null,
+              "Adobe-CNS1-6.bcmap": null,
+              "Adobe-CNS1-UCS2.bcmap": null,
+              "Adobe-GB1-0.bcmap": null,
+              "Adobe-GB1-1.bcmap": null,
+              "Adobe-GB1-2.bcmap": null,
+              "Adobe-GB1-3.bcmap": null,
+              "Adobe-GB1-4.bcmap": null,
+              "Adobe-GB1-5.bcmap": null,
+              "Adobe-GB1-UCS2.bcmap": null,
+              "Adobe-Japan1-0.bcmap": null,
+              "Adobe-Japan1-1.bcmap": null,
+              "Adobe-Japan1-2.bcmap": null,
+              "Adobe-Japan1-3.bcmap": null,
+              "Adobe-Japan1-4.bcmap": null,
+              "Adobe-Japan1-5.bcmap": null,
+              "Adobe-Japan1-6.bcmap": null,
+              "Adobe-Japan1-UCS2.bcmap": null,
+              "Adobe-Korea1-0.bcmap": null,
+              "Adobe-Korea1-1.bcmap": null,
+              "Adobe-Korea1-2.bcmap": null,
+              "Adobe-Korea1-UCS2.bcmap": null,
+              "B5-H.bcmap": null,
+              "B5-V.bcmap": null,
+              "B5pc-H.bcmap": null,
+              "B5pc-V.bcmap": null,
+              "CNS-EUC-H.bcmap": null,
+              "CNS-EUC-V.bcmap": null,
+              "CNS1-H.bcmap": null,
+              "CNS1-V.bcmap": null,
+              "CNS2-H.bcmap": null,
+              "CNS2-V.bcmap": null,
+              "ETen-B5-H.bcmap": null,
+              "ETen-B5-V.bcmap": null,
+              "ETenms-B5-H.bcmap": null,
+              "ETenms-B5-V.bcmap": null,
+              "ETHK-B5-H.bcmap": null,
+              "ETHK-B5-V.bcmap": null,
+              "EUC-H.bcmap": null,
+              "EUC-V.bcmap": null,
+              "Ext-H.bcmap": null,
+              "Ext-RKSJ-H.bcmap": null,
+              "Ext-RKSJ-V.bcmap": null,
+              "Ext-V.bcmap": null,
+              "GB-EUC-H.bcmap": null,
+              "GB-EUC-V.bcmap": null,
+              "GB-H.bcmap": null,
+              "GB-V.bcmap": null,
+              "GBK-EUC-H.bcmap": null,
+              "GBK-EUC-V.bcmap": null,
+              "GBK2K-H.bcmap": null,
+              "GBK2K-V.bcmap": null,
+              "GBKp-EUC-H.bcmap": null,
+              "GBKp-EUC-V.bcmap": null,
+              "GBpc-EUC-H.bcmap": null,
+              "GBpc-EUC-V.bcmap": null,
+              "GBT-EUC-H.bcmap": null,
+              "GBT-EUC-V.bcmap": null,
+              "GBT-H.bcmap": null,
+              "GBT-V.bcmap": null,
+              "GBTpc-EUC-H.bcmap": null,
+              "GBTpc-EUC-V.bcmap": null,
+              "H.bcmap": null,
+              "Hankaku.bcmap": null,
+              "Hiragana.bcmap": null,
+              "HKdla-B5-H.bcmap": null,
+              "HKdla-B5-V.bcmap": null,
+              "HKdlb-B5-H.bcmap": null,
+              "HKdlb-B5-V.bcmap": null,
+              "HKgccs-B5-H.bcmap": null,
+              "HKgccs-B5-V.bcmap": null,
+              "HKm314-B5-H.bcmap": null,
+              "HKm314-B5-V.bcmap": null,
+              "HKm471-B5-H.bcmap": null,
+              "HKm471-B5-V.bcmap": null,
+              "HKscs-B5-H.bcmap": null,
+              "HKscs-B5-V.bcmap": null,
+              "Katakana.bcmap": null,
+              "KSC-EUC-H.bcmap": null,
+              "KSC-EUC-V.bcmap": null,
+              "KSC-H.bcmap": null,
+              "KSC-Johab-H.bcmap": null,
+              "KSC-Johab-V.bcmap": null,
+              "KSC-V.bcmap": null,
+              "KSCms-UHC-H.bcmap": null,
+              "KSCms-UHC-HW-H.bcmap": null,
+              "KSCms-UHC-HW-V.bcmap": null,
+              "KSCms-UHC-V.bcmap": null,
+              "KSCpc-EUC-H.bcmap": null,
+              "KSCpc-EUC-V.bcmap": null,
+              "LICENSE": null,
+              "NWP-H.bcmap": null,
+              "NWP-V.bcmap": null,
+              "RKSJ-H.bcmap": null,
+              "RKSJ-V.bcmap": null,
+              "Roman.bcmap": null,
+              "UniCNS-UCS2-H.bcmap": null,
+              "UniCNS-UCS2-V.bcmap": null,
+              "UniCNS-UTF16-H.bcmap": null,
+              "UniCNS-UTF16-V.bcmap": null,
+              "UniCNS-UTF32-H.bcmap": null,
+              "UniCNS-UTF32-V.bcmap": null,
+              "UniCNS-UTF8-H.bcmap": null,
+              "UniCNS-UTF8-V.bcmap": null,
+              "UniGB-UCS2-H.bcmap": null,
+              "UniGB-UCS2-V.bcmap": null,
+              "UniGB-UTF16-H.bcmap": null,
+              "UniGB-UTF16-V.bcmap": null,
+              "UniGB-UTF32-H.bcmap": null,
+              "UniGB-UTF32-V.bcmap": null,
+              "UniGB-UTF8-H.bcmap": null,
+              "UniGB-UTF8-V.bcmap": null,
+              "UniJIS-UCS2-H.bcmap": null,
+              "UniJIS-UCS2-HW-H.bcmap": null,
+              "UniJIS-UCS2-HW-V.bcmap": null,
+              "UniJIS-UCS2-V.bcmap": null,
+              "UniJIS-UTF16-H.bcmap": null,
+              "UniJIS-UTF16-V.bcmap": null,
+              "UniJIS-UTF32-H.bcmap": null,
+              "UniJIS-UTF32-V.bcmap": null,
+              "UniJIS-UTF8-H.bcmap": null,
+              "UniJIS-UTF8-V.bcmap": null,
+              "UniJIS2004-UTF16-H.bcmap": null,
+              "UniJIS2004-UTF16-V.bcmap": null,
+              "UniJIS2004-UTF32-H.bcmap": null,
+              "UniJIS2004-UTF32-V.bcmap": null,
+              "UniJIS2004-UTF8-H.bcmap": null,
+              "UniJIS2004-UTF8-V.bcmap": null,
+              "UniJISPro-UCS2-HW-V.bcmap": null,
+              "UniJISPro-UCS2-V.bcmap": null,
+              "UniJISPro-UTF8-V.bcmap": null,
+              "UniJISX0213-UTF32-H.bcmap": null,
+              "UniJISX0213-UTF32-V.bcmap": null,
+              "UniJISX02132004-UTF32-H.bcmap": null,
+              "UniJISX02132004-UTF32-V.bcmap": null,
+              "UniKS-UCS2-H.bcmap": null,
+              "UniKS-UCS2-V.bcmap": null,
+              "UniKS-UTF16-H.bcmap": null,
+              "UniKS-UTF16-V.bcmap": null,
+              "UniKS-UTF32-H.bcmap": null,
+              "UniKS-UTF32-V.bcmap": null,
+              "UniKS-UTF8-H.bcmap": null,
+              "UniKS-UTF8-V.bcmap": null,
+              "V.bcmap": null,
+              "WP-Symbol.bcmap": null
+            },
+            "compressed.tracemonkey-pldi-09.pdf": null,
+            "debugger.js": null,
+            "images": {
+              "annotation-check.svg": null,
+              "annotation-comment.svg": null,
+              "annotation-help.svg": null,
+              "annotation-insert.svg": null,
+              "annotation-key.svg": null,
+              "annotation-newparagraph.svg": null,
+              "annotation-noicon.svg": null,
+              "annotation-note.svg": null,
+              "annotation-paragraph.svg": null,
+              "findbarButton-next.svg": null,
+              "findbarButton-previous.svg": null,
+              "grab.cur": null,
+              "grabbing.cur": null,
+              "loading-dark.svg": null,
+              "loading-icon.gif": null,
+              "loading.svg": null,
+              "secondaryToolbarButton-documentProperties.svg": null,
+              "secondaryToolbarButton-firstPage.svg": null,
+              "secondaryToolbarButton-handTool.svg": null,
+              "secondaryToolbarButton-lastPage.svg": null,
+              "secondaryToolbarButton-rotateCcw.svg": null,
+              "secondaryToolbarButton-rotateCw.svg": null,
+              "secondaryToolbarButton-scrollHorizontal.svg": null,
+              "secondaryToolbarButton-scrollVertical.svg": null,
+              "secondaryToolbarButton-scrollWrapped.svg": null,
+              "secondaryToolbarButton-selectTool.svg": null,
+              "secondaryToolbarButton-spreadEven.svg": null,
+              "secondaryToolbarButton-spreadNone.svg": null,
+              "secondaryToolbarButton-spreadOdd.svg": null,
+              "shadow.png": null,
+              "toolbarButton-bookmark.svg": null,
+              "toolbarButton-currentOutlineItem.svg": null,
+              "toolbarButton-download.svg": null,
+              "toolbarButton-menuArrow.svg": null,
+              "toolbarButton-openFile.svg": null,
+              "toolbarButton-pageDown.svg": null,
+              "toolbarButton-pageUp.svg": null,
+              "toolbarButton-presentationMode.svg": null,
+              "toolbarButton-print.svg": null,
+              "toolbarButton-search.svg": null,
+              "toolbarButton-secondaryToolbarToggle.svg": null,
+              "toolbarButton-sidebarToggle.svg": null,
+              "toolbarButton-viewAttachments.svg": null,
+              "toolbarButton-viewLayers.svg": null,
+              "toolbarButton-viewOutline.svg": null,
+              "toolbarButton-viewThumbnail.svg": null,
+              "toolbarButton-zoomIn.svg": null,
+              "toolbarButton-zoomOut.svg": null,
+              "treeitem-collapsed.svg": null,
+              "treeitem-expanded.svg": null
+            },
+            "locale": {
+              "ach": {
+                "viewer.properties": null
+              },
+              "af": {
+                "viewer.properties": null
+              },
+              "an": {
+                "viewer.properties": null
+              },
+              "ar": {
+                "viewer.properties": null
+              },
+              "ast": {
+                "viewer.properties": null
+              },
+              "az": {
+                "viewer.properties": null
+              },
+              "be": {
+                "viewer.properties": null
+              },
+              "bg": {
+                "viewer.properties": null
+              },
+              "bn": {
+                "viewer.properties": null
+              },
+              "bo": {
+                "viewer.properties": null
+              },
+              "br": {
+                "viewer.properties": null
+              },
+              "brx": {
+                "viewer.properties": null
+              },
+              "bs": {
+                "viewer.properties": null
+              },
+              "ca": {
+                "viewer.properties": null
+              },
+              "cak": {
+                "viewer.properties": null
+              },
+              "ckb": {
+                "viewer.properties": null
+              },
+              "cs": {
+                "viewer.properties": null
+              },
+              "cy": {
+                "viewer.properties": null
+              },
+              "da": {
+                "viewer.properties": null
+              },
+              "de": {
+                "viewer.properties": null
+              },
+              "dsb": {
+                "viewer.properties": null
+              },
+              "el": {
+                "viewer.properties": null
+              },
+              "en-CA": {
+                "viewer.properties": null
+              },
+              "en-GB": {
+                "viewer.properties": null
+              },
+              "en-US": {
+                "viewer.properties": null
+              },
+              "eo": {
+                "viewer.properties": null
+              },
+              "es-AR": {
+                "viewer.properties": null
+              },
+              "es-CL": {
+                "viewer.properties": null
+              },
+              "es-ES": {
+                "viewer.properties": null
+              },
+              "es-MX": {
+                "viewer.properties": null
+              },
+              "et": {
+                "viewer.properties": null
+              },
+              "eu": {
+                "viewer.properties": null
+              },
+              "fa": {
+                "viewer.properties": null
+              },
+              "ff": {
+                "viewer.properties": null
+              },
+              "fi": {
+                "viewer.properties": null
+              },
+              "fr": {
+                "viewer.properties": null
+              },
+              "fy-NL": {
+                "viewer.properties": null
+              },
+              "ga-IE": {
+                "viewer.properties": null
+              },
+              "gd": {
+                "viewer.properties": null
+              },
+              "gl": {
+                "viewer.properties": null
+              },
+              "gn": {
+                "viewer.properties": null
+              },
+              "gu-IN": {
+                "viewer.properties": null
+              },
+              "he": {
+                "viewer.properties": null
+              },
+              "hi-IN": {
+                "viewer.properties": null
+              },
+              "hr": {
+                "viewer.properties": null
+              },
+              "hsb": {
+                "viewer.properties": null
+              },
+              "hu": {
+                "viewer.properties": null
+              },
+              "hy-AM": {
+                "viewer.properties": null
+              },
+              "hye": {
+                "viewer.properties": null
+              },
+              "ia": {
+                "viewer.properties": null
+              },
+              "id": {
+                "viewer.properties": null
+              },
+              "is": {
+                "viewer.properties": null
+              },
+              "it": {
+                "viewer.properties": null
+              },
+              "ja": {
+                "viewer.properties": null
+              },
+              "ka": {
+                "viewer.properties": null
+              },
+              "kab": {
+                "viewer.properties": null
+              },
+              "kk": {
+                "viewer.properties": null
+              },
+              "km": {
+                "viewer.properties": null
+              },
+              "kn": {
+                "viewer.properties": null
+              },
+              "ko": {
+                "viewer.properties": null
+              },
+              "lij": {
+                "viewer.properties": null
+              },
+              "lo": {
+                "viewer.properties": null
+              },
+              "locale.properties": null,
+              "lt": {
+                "viewer.properties": null
+              },
+              "ltg": {
+                "viewer.properties": null
+              },
+              "lv": {
+                "viewer.properties": null
+              },
+              "meh": {
+                "viewer.properties": null
+              },
+              "mk": {
+                "viewer.properties": null
+              },
+              "mr": {
+                "viewer.properties": null
+              },
+              "ms": {
+                "viewer.properties": null
+              },
+              "my": {
+                "viewer.properties": null
+              },
+              "nb-NO": {
+                "viewer.properties": null
+              },
+              "ne-NP": {
+                "viewer.properties": null
+              },
+              "nl": {
+                "viewer.properties": null
+              },
+              "nn-NO": {
+                "viewer.properties": null
+              },
+              "oc": {
+                "viewer.properties": null
+              },
+              "pa-IN": {
+                "viewer.properties": null
+              },
+              "pl": {
+                "viewer.properties": null
+              },
+              "pt-BR": {
+                "viewer.properties": null
+              },
+              "pt-PT": {
+                "viewer.properties": null
+              },
+              "rm": {
+                "viewer.properties": null
+              },
+              "ro": {
+                "viewer.properties": null
+              },
+              "ru": {
+                "viewer.properties": null
+              },
+              "scn": {
+                "viewer.properties": null
+              },
+              "si": {
+                "viewer.properties": null
+              },
+              "sk": {
+                "viewer.properties": null
+              },
+              "sl": {
+                "viewer.properties": null
+              },
+              "son": {
+                "viewer.properties": null
+              },
+              "sq": {
+                "viewer.properties": null
+              },
+              "sr": {
+                "viewer.properties": null
+              },
+              "sv-SE": {
+                "viewer.properties": null
+              },
+              "szl": {
+                "viewer.properties": null
+              },
+              "ta": {
+                "viewer.properties": null
+              },
+              "te": {
+                "viewer.properties": null
+              },
+              "th": {
+                "viewer.properties": null
+              },
+              "tl": {
+                "viewer.properties": null
+              },
+              "tr": {
+                "viewer.properties": null
+              },
+              "trs": {
+                "viewer.properties": null
+              },
+              "uk": {
+                "viewer.properties": null
+              },
+              "ur": {
+                "viewer.properties": null
+              },
+              "uz": {
+                "viewer.properties": null
+              },
+              "vi": {
+                "viewer.properties": null
+              },
+              "wo": {
+                "viewer.properties": null
+              },
+              "xh": {
+                "viewer.properties": null
+              },
+              "zh-CN": {
+                "viewer.properties": null
+              },
+              "zh-TW": {
+                "viewer.properties": null
+              }
+            },
+            "viewer.css": null,
+            "viewer.html": null,
+            "viewer.js": null,
+            "viewer.js.map": null
+          }
+        },
+        "tracky-mouse": {
+          "facemesh.worker.js": null,
+          "images": {
+            "tracky-mouse-logo-16.png": null,
+            "tracky-mouse-logo-32.png": null,
+            "tracky-mouse-logo-512.png": null,
+            "tracky-mouse-logo.svg": null
+          },
+          "index.html": null,
+          "lib": {
+            "clmtrackr.js": null,
+            "facemesh": {
+              "blazeface": {
+                "group1-shard1of1.bin": null,
+                "model.json": null
+              },
+              "facemesh": {
+                "group1-shard1of1.bin": null,
+                "model.json": null
+              },
+              "facemesh.js": null
+            },
+            "jsfeat-min.js": null,
+            "stats.js": null,
+            "tf.js": null,
+            "tf.js.map": null
+          },
+          "LICENSE.txt": null,
+          "package-lock.json": null,
+          "package.json": null,
+          "README.md": null,
+          "tracky-mouse-electron": {
+            "forge.config.js": null,
+            "package-lock.json": null,
+            "package.json": null,
+            "src": {
+              "electron-main.js": null,
+              "preload.js": null
+            }
+          },
+          "tracky-mouse.css": null,
+          "tracky-mouse.js": null
+        },
+        "UPNG.js": null,
+        "UTIF.js": null
+      },
+      "LICENSE.txt": null,
+      "localization": {
+        "ar": {
+          "Dialog": {
+            "0401": {
+              "105.rc": null,
+              "108.rc": null,
+              "112.rc": null,
+              "113.rc": null,
+              "132.rc": null,
+              "30721.rc": null,
+              "30722.rc": null,
+              "30723.rc": null,
+              "37.rc": null,
+              "4001.rc": null
+            }
+          },
+          "localizations.js": null,
+          "Menu": {
+            "0401": {
+              "113.rc": null,
+              "118.rc": null,
+              "119.rc": null,
+              "2.rc": null,
+              "4.rc": null,
+              "5.rc": null
+            }
+          },
+          "String Table": {
+            "0401": {
+              "1.rc": null,
+              "129.rc": null,
+              "130.rc": null,
+              "131.rc": null,
+              "132.rc": null,
+              "135.rc": null,
+              "139.rc": null,
+              "141.rc": null,
+              "144.rc": null,
+              "145.rc": null,
+              "153.rc": null,
+              "2.rc": null,
+              "2049.rc": null,
+              "2050.rc": null,
+              "222.rc": null,
+              "2354.rc": null,
+              "2355.rc": null,
+              "2356.rc": null,
+              "2610.rc": null,
+              "2628.rc": null,
+              "2753.rc": null,
+              "2757.rc": null,
+              "2758.rc": null,
+              "2765.rc": null,
+              "2794.rc": null,
+              "3.rc": null,
+              "3585.rc": null,
+              "3601.rc": null,
+              "3602.rc": null,
+              "3603.rc": null,
+              "3605.rc": null,
+              "3606.rc": null,
+              "3713.rc": null,
+              "3714.rc": null,
+              "3825.rc": null,
+              "3826.rc": null,
+              "3841.rc": null,
+              "3842.rc": null,
+              "3843.rc": null,
+              "3845.rc": null,
+              "3849.rc": null,
+              "3850.rc": null,
+              "3857.rc": null,
+              "3858.rc": null,
+              "3859.rc": null,
+              "3865.rc": null,
+              "3866.rc": null,
+              "3867.rc": null,
+              "3868.rc": null,
+              "3869.rc": null,
+              "39.rc": null,
+              "40.rc": null,
+              "41.rc": null,
+              "430.rc": null,
+              "442.rc": null,
+              "578.rc": null,
+              "626.rc": null,
+              "63.rc": null,
+              "7.rc": null
+            }
+          }
+        },
+        "cs": {
+          "Dialog": {
+            "0405": {
+              "105.rc": null,
+              "108.rc": null,
+              "112.rc": null,
+              "113.rc": null,
+              "132.rc": null,
+              "30721.rc": null,
+              "30722.rc": null,
+              "30723.rc": null,
+              "37.rc": null,
+              "4001.rc": null
+            }
+          },
+          "localizations.js": null,
+          "Menu": {
+            "0405": {
+              "113.rc": null,
+              "118.rc": null,
+              "119.rc": null,
+              "2.rc": null,
+              "4.rc": null,
+              "5.rc": null
+            }
+          },
+          "String Table": {
+            "0405": {
+              "1.rc": null,
+              "129.rc": null,
+              "130.rc": null,
+              "131.rc": null,
+              "132.rc": null,
+              "135.rc": null,
+              "139.rc": null,
+              "141.rc": null,
+              "144.rc": null,
+              "145.rc": null,
+              "153.rc": null,
+              "2.rc": null,
+              "2049.rc": null,
+              "2050.rc": null,
+              "222.rc": null,
+              "2354.rc": null,
+              "2355.rc": null,
+              "2356.rc": null,
+              "2610.rc": null,
+              "2628.rc": null,
+              "2753.rc": null,
+              "2757.rc": null,
+              "2758.rc": null,
+              "2765.rc": null,
+              "2794.rc": null,
+              "3.rc": null,
+              "3585.rc": null,
+              "3601.rc": null,
+              "3602.rc": null,
+              "3603.rc": null,
+              "3605.rc": null,
+              "3606.rc": null,
+              "3713.rc": null,
+              "3714.rc": null,
+              "3825.rc": null,
+              "3826.rc": null,
+              "3841.rc": null,
+              "3842.rc": null,
+              "3843.rc": null,
+              "3845.rc": null,
+              "3849.rc": null,
+              "3850.rc": null,
+              "3857.rc": null,
+              "3858.rc": null,
+              "3859.rc": null,
+              "3865.rc": null,
+              "3866.rc": null,
+              "3867.rc": null,
+              "3868.rc": null,
+              "3869.rc": null,
+              "39.rc": null,
+              "40.rc": null,
+              "41.rc": null,
+              "430.rc": null,
+              "442.rc": null,
+              "578.rc": null,
+              "626.rc": null,
+              "63.rc": null,
+              "7.rc": null
+            }
+          }
+        },
+        "da": {
+          "Dialog": {
+            "0406": {
+              "105.rc": null,
+              "108.rc": null,
+              "112.rc": null,
+              "113.rc": null,
+              "132.rc": null,
+              "30721.rc": null,
+              "30722.rc": null,
+              "30723.rc": null,
+              "37.rc": null,
+              "4001.rc": null
+            }
+          },
+          "localizations.js": null,
+          "Menu": {
+            "0406": {
+              "113.rc": null,
+              "118.rc": null,
+              "119.rc": null,
+              "2.rc": null,
+              "4.rc": null,
+              "5.rc": null
+            }
+          },
+          "String Table": {
+            "0406": {
+              "1.rc": null,
+              "129.rc": null,
+              "130.rc": null,
+              "131.rc": null,
+              "132.rc": null,
+              "135.rc": null,
+              "139.rc": null,
+              "141.rc": null,
+              "144.rc": null,
+              "145.rc": null,
+              "153.rc": null,
+              "2.rc": null,
+              "2049.rc": null,
+              "2050.rc": null,
+              "222.rc": null,
+              "2354.rc": null,
+              "2355.rc": null,
+              "2356.rc": null,
+              "2610.rc": null,
+              "2628.rc": null,
+              "2753.rc": null,
+              "2757.rc": null,
+              "2758.rc": null,
+              "2765.rc": null,
+              "2794.rc": null,
+              "3.rc": null,
+              "3585.rc": null,
+              "3601.rc": null,
+              "3602.rc": null,
+              "3603.rc": null,
+              "3605.rc": null,
+              "3606.rc": null,
+              "3713.rc": null,
+              "3714.rc": null,
+              "3825.rc": null,
+              "3826.rc": null,
+              "3841.rc": null,
+              "3842.rc": null,
+              "3843.rc": null,
+              "3845.rc": null,
+              "3849.rc": null,
+              "3850.rc": null,
+              "3857.rc": null,
+              "3858.rc": null,
+              "3859.rc": null,
+              "3865.rc": null,
+              "3866.rc": null,
+              "3867.rc": null,
+              "3868.rc": null,
+              "3869.rc": null,
+              "39.rc": null,
+              "40.rc": null,
+              "41.rc": null,
+              "430.rc": null,
+              "442.rc": null,
+              "578.rc": null,
+              "626.rc": null,
+              "63.rc": null,
+              "7.rc": null
+            }
+          }
+        },
+        "de": {
+          "Dialog": {
+            "0407": {
+              "105.rc": null,
+              "108.rc": null,
+              "112.rc": null,
+              "113.rc": null,
+              "132.rc": null,
+              "30721.rc": null,
+              "30722.rc": null,
+              "30723.rc": null,
+              "37.rc": null,
+              "4001.rc": null
+            }
+          },
+          "localizations.js": null,
+          "Menu": {
+            "0407": {
+              "113.rc": null,
+              "118.rc": null,
+              "119.rc": null,
+              "2.rc": null,
+              "4.rc": null,
+              "5.rc": null
+            }
+          },
+          "String Table": {
+            "0407": {
+              "1.rc": null,
+              "129.rc": null,
+              "130.rc": null,
+              "131.rc": null,
+              "132.rc": null,
+              "135.rc": null,
+              "139.rc": null,
+              "141.rc": null,
+              "144.rc": null,
+              "145.rc": null,
+              "153.rc": null,
+              "2.rc": null,
+              "2049.rc": null,
+              "2050.rc": null,
+              "222.rc": null,
+              "2354.rc": null,
+              "2355.rc": null,
+              "2356.rc": null,
+              "2610.rc": null,
+              "2628.rc": null,
+              "2753.rc": null,
+              "2757.rc": null,
+              "2758.rc": null,
+              "2765.rc": null,
+              "2794.rc": null,
+              "3.rc": null,
+              "3585.rc": null,
+              "3601.rc": null,
+              "3602.rc": null,
+              "3603.rc": null,
+              "3605.rc": null,
+              "3606.rc": null,
+              "3713.rc": null,
+              "3714.rc": null,
+              "3825.rc": null,
+              "3826.rc": null,
+              "3841.rc": null,
+              "3842.rc": null,
+              "3843.rc": null,
+              "3845.rc": null,
+              "3849.rc": null,
+              "3850.rc": null,
+              "3857.rc": null,
+              "3858.rc": null,
+              "3859.rc": null,
+              "3865.rc": null,
+              "3866.rc": null,
+              "3867.rc": null,
+              "3868.rc": null,
+              "3869.rc": null,
+              "39.rc": null,
+              "40.rc": null,
+              "41.rc": null,
+              "430.rc": null,
+              "442.rc": null,
+              "578.rc": null,
+              "626.rc": null,
+              "63.rc": null,
+              "7.rc": null
+            }
+          }
+        },
+        "el": {
+          "Dialog": {
+            "0408": {
+              "105.rc": null,
+              "108.rc": null,
+              "112.rc": null,
+              "113.rc": null,
+              "132.rc": null,
+              "30721.rc": null,
+              "30722.rc": null,
+              "30723.rc": null,
+              "37.rc": null,
+              "4001.rc": null
+            }
+          },
+          "localizations.js": null,
+          "Menu": {
+            "0408": {
+              "113.rc": null,
+              "118.rc": null,
+              "119.rc": null,
+              "2.rc": null,
+              "4.rc": null,
+              "5.rc": null
+            }
+          },
+          "String Table": {
+            "0408": {
+              "1.rc": null,
+              "129.rc": null,
+              "130.rc": null,
+              "131.rc": null,
+              "132.rc": null,
+              "135.rc": null,
+              "139.rc": null,
+              "141.rc": null,
+              "144.rc": null,
+              "145.rc": null,
+              "153.rc": null,
+              "2.rc": null,
+              "2049.rc": null,
+              "2050.rc": null,
+              "222.rc": null,
+              "2354.rc": null,
+              "2355.rc": null,
+              "2356.rc": null,
+              "2610.rc": null,
+              "2628.rc": null,
+              "2753.rc": null,
+              "2757.rc": null,
+              "2758.rc": null,
+              "2765.rc": null,
+              "2794.rc": null,
+              "3.rc": null,
+              "3585.rc": null,
+              "3601.rc": null,
+              "3602.rc": null,
+              "3603.rc": null,
+              "3605.rc": null,
+              "3606.rc": null,
+              "3713.rc": null,
+              "3714.rc": null,
+              "3825.rc": null,
+              "3826.rc": null,
+              "3841.rc": null,
+              "3842.rc": null,
+              "3843.rc": null,
+              "3845.rc": null,
+              "3849.rc": null,
+              "3850.rc": null,
+              "3857.rc": null,
+              "3858.rc": null,
+              "3859.rc": null,
+              "3865.rc": null,
+              "3866.rc": null,
+              "3867.rc": null,
+              "3868.rc": null,
+              "3869.rc": null,
+              "39.rc": null,
+              "40.rc": null,
+              "41.rc": null,
+              "430.rc": null,
+              "442.rc": null,
+              "578.rc": null,
+              "626.rc": null,
+              "63.rc": null,
+              "7.rc": null
+            }
+          }
+        },
+        "en": {
+          "Dialog": {
+            "0409": {
+              "105.rc": null,
+              "108.rc": null,
+              "112.rc": null,
+              "113.rc": null,
+              "132.rc": null,
+              "30721.rc": null,
+              "30722.rc": null,
+              "30723.rc": null,
+              "37.rc": null,
+              "4001.rc": null
+            }
+          },
+          "Menu": {
+            "0409": {
+              "113.rc": null,
+              "118.rc": null,
+              "119.rc": null,
+              "2.rc": null,
+              "4.rc": null,
+              "5.rc": null
+            }
+          },
+          "String Table": {
+            "0409": {
+              "1.rc": null,
+              "129.rc": null,
+              "130.rc": null,
+              "131.rc": null,
+              "132.rc": null,
+              "135.rc": null,
+              "139.rc": null,
+              "141.rc": null,
+              "144.rc": null,
+              "145.rc": null,
+              "153.rc": null,
+              "2.rc": null,
+              "2049.rc": null,
+              "2050.rc": null,
+              "222.rc": null,
+              "2354.rc": null,
+              "2355.rc": null,
+              "2356.rc": null,
+              "2610.rc": null,
+              "2628.rc": null,
+              "2753.rc": null,
+              "2757.rc": null,
+              "2758.rc": null,
+              "2765.rc": null,
+              "2794.rc": null,
+              "3.rc": null,
+              "3585.rc": null,
+              "3601.rc": null,
+              "3602.rc": null,
+              "3603.rc": null,
+              "3605.rc": null,
+              "3606.rc": null,
+              "3713.rc": null,
+              "3714.rc": null,
+              "3825.rc": null,
+              "3826.rc": null,
+              "3841.rc": null,
+              "3842.rc": null,
+              "3843.rc": null,
+              "3845.rc": null,
+              "3849.rc": null,
+              "3850.rc": null,
+              "3857.rc": null,
+              "3858.rc": null,
+              "3859.rc": null,
+              "3865.rc": null,
+              "3866.rc": null,
+              "3867.rc": null,
+              "3868.rc": null,
+              "3869.rc": null,
+              "39.rc": null,
+              "40.rc": null,
+              "41.rc": null,
+              "430.rc": null,
+              "442.rc": null,
+              "578.rc": null,
+              "626.rc": null,
+              "63.rc": null,
+              "7.rc": null
+            }
+          }
+        },
+        "es": {
+          "Dialog": {
+            "0C0A": {
+              "105.rc": null,
+              "108.rc": null,
+              "112.rc": null,
+              "113.rc": null,
+              "132.rc": null,
+              "30721.rc": null,
+              "30722.rc": null,
+              "30723.rc": null,
+              "37.rc": null,
+              "4001.rc": null
+            }
+          },
+          "localizations.js": null,
+          "Menu": {
+            "0C0A": {
+              "113.rc": null,
+              "118.rc": null,
+              "119.rc": null,
+              "2.rc": null,
+              "4.rc": null,
+              "5.rc": null
+            }
+          },
+          "String Table": {
+            "0C0A": {
+              "1.rc": null,
+              "129.rc": null,
+              "130.rc": null,
+              "131.rc": null,
+              "132.rc": null,
+              "135.rc": null,
+              "139.rc": null,
+              "141.rc": null,
+              "144.rc": null,
+              "145.rc": null,
+              "153.rc": null,
+              "2.rc": null,
+              "2049.rc": null,
+              "2050.rc": null,
+              "222.rc": null,
+              "2354.rc": null,
+              "2355.rc": null,
+              "2356.rc": null,
+              "2610.rc": null,
+              "2628.rc": null,
+              "2753.rc": null,
+              "2757.rc": null,
+              "2758.rc": null,
+              "2765.rc": null,
+              "2794.rc": null,
+              "3.rc": null,
+              "3585.rc": null,
+              "3601.rc": null,
+              "3602.rc": null,
+              "3603.rc": null,
+              "3605.rc": null,
+              "3606.rc": null,
+              "3713.rc": null,
+              "3714.rc": null,
+              "3825.rc": null,
+              "3826.rc": null,
+              "3841.rc": null,
+              "3842.rc": null,
+              "3843.rc": null,
+              "3845.rc": null,
+              "3849.rc": null,
+              "3850.rc": null,
+              "3857.rc": null,
+              "3858.rc": null,
+              "3859.rc": null,
+              "3865.rc": null,
+              "3866.rc": null,
+              "3867.rc": null,
+              "3868.rc": null,
+              "3869.rc": null,
+              "39.rc": null,
+              "40.rc": null,
+              "41.rc": null,
+              "430.rc": null,
+              "442.rc": null,
+              "578.rc": null,
+              "626.rc": null,
+              "63.rc": null,
+              "7.rc": null
+            }
+          }
+        },
+        "fi": {
+          "Dialog": {
+            "040B": {
+              "105.rc": null,
+              "108.rc": null,
+              "112.rc": null,
+              "113.rc": null,
+              "132.rc": null,
+              "30721.rc": null,
+              "30722.rc": null,
+              "30723.rc": null,
+              "37.rc": null,
+              "4001.rc": null
+            }
+          },
+          "localizations.js": null,
+          "Menu": {
+            "040B": {
+              "113.rc": null,
+              "118.rc": null,
+              "119.rc": null,
+              "2.rc": null,
+              "4.rc": null,
+              "5.rc": null
+            }
+          },
+          "String Table": {
+            "040B": {
+              "1.rc": null,
+              "129.rc": null,
+              "130.rc": null,
+              "131.rc": null,
+              "132.rc": null,
+              "135.rc": null,
+              "139.rc": null,
+              "141.rc": null,
+              "144.rc": null,
+              "145.rc": null,
+              "153.rc": null,
+              "2.rc": null,
+              "2049.rc": null,
+              "2050.rc": null,
+              "222.rc": null,
+              "2354.rc": null,
+              "2355.rc": null,
+              "2356.rc": null,
+              "2610.rc": null,
+              "2628.rc": null,
+              "2753.rc": null,
+              "2757.rc": null,
+              "2758.rc": null,
+              "2765.rc": null,
+              "2794.rc": null,
+              "3.rc": null,
+              "3585.rc": null,
+              "3601.rc": null,
+              "3602.rc": null,
+              "3603.rc": null,
+              "3605.rc": null,
+              "3606.rc": null,
+              "3713.rc": null,
+              "3714.rc": null,
+              "3825.rc": null,
+              "3826.rc": null,
+              "3841.rc": null,
+              "3842.rc": null,
+              "3843.rc": null,
+              "3845.rc": null,
+              "3849.rc": null,
+              "3850.rc": null,
+              "3857.rc": null,
+              "3858.rc": null,
+              "3859.rc": null,
+              "3865.rc": null,
+              "3866.rc": null,
+              "3867.rc": null,
+              "3868.rc": null,
+              "3869.rc": null,
+              "39.rc": null,
+              "40.rc": null,
+              "41.rc": null,
+              "430.rc": null,
+              "442.rc": null,
+              "578.rc": null,
+              "626.rc": null,
+              "63.rc": null,
+              "7.rc": null
+            }
+          }
+        },
+        "fr": {
+          "Dialog": {
+            "040C": {
+              "105.rc": null,
+              "108.rc": null,
+              "112.rc": null,
+              "113.rc": null,
+              "132.rc": null,
+              "30721.rc": null,
+              "30722.rc": null,
+              "30723.rc": null,
+              "37.rc": null,
+              "4001.rc": null
+            }
+          },
+          "localizations.js": null,
+          "Menu": {
+            "040C": {
+              "113.rc": null,
+              "118.rc": null,
+              "119.rc": null,
+              "2.rc": null,
+              "4.rc": null,
+              "5.rc": null
+            }
+          },
+          "String Table": {
+            "040C": {
+              "1.rc": null,
+              "129.rc": null,
+              "130.rc": null,
+              "131.rc": null,
+              "132.rc": null,
+              "135.rc": null,
+              "139.rc": null,
+              "141.rc": null,
+              "144.rc": null,
+              "145.rc": null,
+              "153.rc": null,
+              "2.rc": null,
+              "2049.rc": null,
+              "2050.rc": null,
+              "222.rc": null,
+              "2354.rc": null,
+              "2355.rc": null,
+              "2356.rc": null,
+              "2610.rc": null,
+              "2628.rc": null,
+              "2753.rc": null,
+              "2757.rc": null,
+              "2758.rc": null,
+              "2765.rc": null,
+              "2794.rc": null,
+              "3.rc": null,
+              "3585.rc": null,
+              "3601.rc": null,
+              "3602.rc": null,
+              "3603.rc": null,
+              "3605.rc": null,
+              "3606.rc": null,
+              "3713.rc": null,
+              "3714.rc": null,
+              "3825.rc": null,
+              "3826.rc": null,
+              "3841.rc": null,
+              "3842.rc": null,
+              "3843.rc": null,
+              "3845.rc": null,
+              "3849.rc": null,
+              "3850.rc": null,
+              "3857.rc": null,
+              "3858.rc": null,
+              "3859.rc": null,
+              "3865.rc": null,
+              "3866.rc": null,
+              "3867.rc": null,
+              "3868.rc": null,
+              "3869.rc": null,
+              "39.rc": null,
+              "40.rc": null,
+              "41.rc": null,
+              "430.rc": null,
+              "442.rc": null,
+              "578.rc": null,
+              "626.rc": null,
+              "63.rc": null,
+              "7.rc": null
+            }
+          }
+        },
+        "grab-files-from-vm.sh": null,
+        "he": {
+          "Dialog": {
+            "040D": {
+              "105.rc": null,
+              "108.rc": null,
+              "112.rc": null,
+              "113.rc": null,
+              "132.rc": null,
+              "30721.rc": null,
+              "30722.rc": null,
+              "30723.rc": null,
+              "37.rc": null,
+              "4001.rc": null
+            }
+          },
+          "localizations.js": null,
+          "Menu": {
+            "040D": {
+              "113.rc": null,
+              "118.rc": null,
+              "119.rc": null,
+              "2.rc": null,
+              "4.rc": null,
+              "5.rc": null
+            }
+          },
+          "String Table": {
+            "040D": {
+              "1.rc": null,
+              "129.rc": null,
+              "130.rc": null,
+              "131.rc": null,
+              "132.rc": null,
+              "135.rc": null,
+              "139.rc": null,
+              "141.rc": null,
+              "144.rc": null,
+              "145.rc": null,
+              "153.rc": null,
+              "2.rc": null,
+              "2049.rc": null,
+              "2050.rc": null,
+              "222.rc": null,
+              "2354.rc": null,
+              "2355.rc": null,
+              "2356.rc": null,
+              "2610.rc": null,
+              "2628.rc": null,
+              "2753.rc": null,
+              "2757.rc": null,
+              "2758.rc": null,
+              "2765.rc": null,
+              "2794.rc": null,
+              "3.rc": null,
+              "3585.rc": null,
+              "3601.rc": null,
+              "3602.rc": null,
+              "3603.rc": null,
+              "3605.rc": null,
+              "3606.rc": null,
+              "3713.rc": null,
+              "3714.rc": null,
+              "3825.rc": null,
+              "3826.rc": null,
+              "3841.rc": null,
+              "3842.rc": null,
+              "3843.rc": null,
+              "3845.rc": null,
+              "3849.rc": null,
+              "3850.rc": null,
+              "3857.rc": null,
+              "3858.rc": null,
+              "3859.rc": null,
+              "3865.rc": null,
+              "3866.rc": null,
+              "3867.rc": null,
+              "3868.rc": null,
+              "3869.rc": null,
+              "39.rc": null,
+              "40.rc": null,
+              "41.rc": null,
+              "430.rc": null,
+              "442.rc": null,
+              "578.rc": null,
+              "626.rc": null,
+              "63.rc": null,
+              "7.rc": null
+            }
+          }
+        },
+        "hu": {
+          "Dialog": {
+            "040E": {
+              "105.rc": null,
+              "108.rc": null,
+              "112.rc": null,
+              "113.rc": null,
+              "132.rc": null,
+              "30721.rc": null,
+              "30722.rc": null,
+              "30723.rc": null,
+              "37.rc": null,
+              "4001.rc": null
+            }
+          },
+          "localizations.js": null,
+          "Menu": {
+            "040E": {
+              "113.rc": null,
+              "118.rc": null,
+              "119.rc": null,
+              "2.rc": null,
+              "4.rc": null,
+              "5.rc": null
+            }
+          },
+          "String Table": {
+            "040E": {
+              "1.rc": null,
+              "129.rc": null,
+              "130.rc": null,
+              "131.rc": null,
+              "132.rc": null,
+              "135.rc": null,
+              "139.rc": null,
+              "141.rc": null,
+              "144.rc": null,
+              "145.rc": null,
+              "153.rc": null,
+              "2.rc": null,
+              "2049.rc": null,
+              "2050.rc": null,
+              "222.rc": null,
+              "2354.rc": null,
+              "2355.rc": null,
+              "2356.rc": null,
+              "2610.rc": null,
+              "2628.rc": null,
+              "2753.rc": null,
+              "2757.rc": null,
+              "2758.rc": null,
+              "2765.rc": null,
+              "2794.rc": null,
+              "3.rc": null,
+              "3585.rc": null,
+              "3601.rc": null,
+              "3602.rc": null,
+              "3603.rc": null,
+              "3605.rc": null,
+              "3606.rc": null,
+              "3713.rc": null,
+              "3714.rc": null,
+              "3825.rc": null,
+              "3826.rc": null,
+              "3841.rc": null,
+              "3842.rc": null,
+              "3843.rc": null,
+              "3845.rc": null,
+              "3849.rc": null,
+              "3850.rc": null,
+              "3857.rc": null,
+              "3858.rc": null,
+              "3859.rc": null,
+              "3865.rc": null,
+              "3866.rc": null,
+              "3867.rc": null,
+              "3868.rc": null,
+              "3869.rc": null,
+              "39.rc": null,
+              "40.rc": null,
+              "41.rc": null,
+              "430.rc": null,
+              "442.rc": null,
+              "578.rc": null,
+              "626.rc": null,
+              "63.rc": null,
+              "7.rc": null
+            }
+          }
+        },
+        "install-windows-98.sh": null,
+        "it": {
+          "Dialog": {
+            "0410": {
+              "105.rc": null,
+              "108.rc": null,
+              "112.rc": null,
+              "113.rc": null,
+              "132.rc": null,
+              "30721.rc": null,
+              "30722.rc": null,
+              "30723.rc": null,
+              "37.rc": null,
+              "4001.rc": null
+            }
+          },
+          "localizations.js": null,
+          "Menu": {
+            "0410": {
+              "113.rc": null,
+              "118.rc": null,
+              "119.rc": null,
+              "2.rc": null,
+              "4.rc": null,
+              "5.rc": null
+            }
+          },
+          "String Table": {
+            "0410": {
+              "1.rc": null,
+              "129.rc": null,
+              "130.rc": null,
+              "131.rc": null,
+              "132.rc": null,
+              "135.rc": null,
+              "139.rc": null,
+              "141.rc": null,
+              "144.rc": null,
+              "145.rc": null,
+              "153.rc": null,
+              "2.rc": null,
+              "2049.rc": null,
+              "2050.rc": null,
+              "222.rc": null,
+              "2354.rc": null,
+              "2355.rc": null,
+              "2356.rc": null,
+              "2610.rc": null,
+              "2628.rc": null,
+              "2753.rc": null,
+              "2757.rc": null,
+              "2758.rc": null,
+              "2765.rc": null,
+              "2794.rc": null,
+              "3.rc": null,
+              "3585.rc": null,
+              "3601.rc": null,
+              "3602.rc": null,
+              "3603.rc": null,
+              "3605.rc": null,
+              "3606.rc": null,
+              "3713.rc": null,
+              "3714.rc": null,
+              "3825.rc": null,
+              "3826.rc": null,
+              "3841.rc": null,
+              "3842.rc": null,
+              "3843.rc": null,
+              "3845.rc": null,
+              "3849.rc": null,
+              "3850.rc": null,
+              "3857.rc": null,
+              "3858.rc": null,
+              "3859.rc": null,
+              "3865.rc": null,
+              "3866.rc": null,
+              "3867.rc": null,
+              "3868.rc": null,
+              "3869.rc": null,
+              "39.rc": null,
+              "40.rc": null,
+              "41.rc": null,
+              "430.rc": null,
+              "442.rc": null,
+              "578.rc": null,
+              "626.rc": null,
+              "63.rc": null,
+              "7.rc": null
+            }
+          }
+        },
+        "ja": {
+          "Dialog": {
+            "0411": {
+              "105.rc": null,
+              "108.rc": null,
+              "112.rc": null,
+              "113.rc": null,
+              "132.rc": null,
+              "30721.rc": null,
+              "30722.rc": null,
+              "30723.rc": null,
+              "37.rc": null,
+              "4001.rc": null
+            }
+          },
+          "localizations.js": null,
+          "Menu": {
+            "0411": {
+              "113.rc": null,
+              "118.rc": null,
+              "119.rc": null,
+              "2.rc": null,
+              "4.rc": null,
+              "5.rc": null
+            }
+          },
+          "String Table": {
+            "0411": {
+              "1.rc": null,
+              "129.rc": null,
+              "130.rc": null,
+              "131.rc": null,
+              "132.rc": null,
+              "135.rc": null,
+              "139.rc": null,
+              "141.rc": null,
+              "144.rc": null,
+              "145.rc": null,
+              "153.rc": null,
+              "2.rc": null,
+              "2049.rc": null,
+              "2050.rc": null,
+              "222.rc": null,
+              "2354.rc": null,
+              "2355.rc": null,
+              "2356.rc": null,
+              "2610.rc": null,
+              "2628.rc": null,
+              "2753.rc": null,
+              "2757.rc": null,
+              "2758.rc": null,
+              "2765.rc": null,
+              "2794.rc": null,
+              "3.rc": null,
+              "3585.rc": null,
+              "3601.rc": null,
+              "3602.rc": null,
+              "3603.rc": null,
+              "3605.rc": null,
+              "3606.rc": null,
+              "3713.rc": null,
+              "3714.rc": null,
+              "3825.rc": null,
+              "3826.rc": null,
+              "3841.rc": null,
+              "3842.rc": null,
+              "3843.rc": null,
+              "3845.rc": null,
+              "3849.rc": null,
+              "3850.rc": null,
+              "3857.rc": null,
+              "3858.rc": null,
+              "3859.rc": null,
+              "3865.rc": null,
+              "3866.rc": null,
+              "3867.rc": null,
+              "3868.rc": null,
+              "3869.rc": null,
+              "39.rc": null,
+              "40.rc": null,
+              "41.rc": null,
+              "430.rc": null,
+              "442.rc": null,
+              "578.rc": null,
+              "626.rc": null,
+              "63.rc": null,
+              "7.rc": null
+            }
+          }
+        },
+        "ko": {
+          "Dialog": {
+            "0412": {
+              "105.rc": null,
+              "108.rc": null,
+              "112.rc": null,
+              "113.rc": null,
+              "132.rc": null,
+              "30721.rc": null,
+              "30722.rc": null,
+              "30723.rc": null,
+              "37.rc": null,
+              "4001.rc": null
+            }
+          },
+          "localizations.js": null,
+          "Menu": {
+            "0412": {
+              "113.rc": null,
+              "118.rc": null,
+              "119.rc": null,
+              "2.rc": null,
+              "4.rc": null,
+              "5.rc": null
+            }
+          },
+          "String Table": {
+            "0412": {
+              "1.rc": null,
+              "129.rc": null,
+              "130.rc": null,
+              "131.rc": null,
+              "132.rc": null,
+              "135.rc": null,
+              "139.rc": null,
+              "141.rc": null,
+              "144.rc": null,
+              "145.rc": null,
+              "153.rc": null,
+              "2.rc": null,
+              "2049.rc": null,
+              "2050.rc": null,
+              "222.rc": null,
+              "2354.rc": null,
+              "2355.rc": null,
+              "2356.rc": null,
+              "2610.rc": null,
+              "2628.rc": null,
+              "2753.rc": null,
+              "2757.rc": null,
+              "2758.rc": null,
+              "2765.rc": null,
+              "2794.rc": null,
+              "3.rc": null,
+              "3585.rc": null,
+              "3601.rc": null,
+              "3602.rc": null,
+              "3603.rc": null,
+              "3605.rc": null,
+              "3606.rc": null,
+              "3713.rc": null,
+              "3714.rc": null,
+              "3825.rc": null,
+              "3826.rc": null,
+              "3841.rc": null,
+              "3842.rc": null,
+              "3843.rc": null,
+              "3845.rc": null,
+              "3849.rc": null,
+              "3850.rc": null,
+              "3857.rc": null,
+              "3858.rc": null,
+              "3859.rc": null,
+              "3865.rc": null,
+              "3866.rc": null,
+              "3867.rc": null,
+              "3868.rc": null,
+              "3869.rc": null,
+              "39.rc": null,
+              "40.rc": null,
+              "41.rc": null,
+              "430.rc": null,
+              "442.rc": null,
+              "578.rc": null,
+              "626.rc": null,
+              "63.rc": null,
+              "7.rc": null
+            }
+          }
+        },
+        "nl": {
+          "Dialog": {
+            "0413": {
+              "105.rc": null,
+              "108.rc": null,
+              "112.rc": null,
+              "113.rc": null,
+              "132.rc": null,
+              "30721.rc": null,
+              "30722.rc": null,
+              "30723.rc": null,
+              "37.rc": null,
+              "4001.rc": null
+            }
+          },
+          "localizations.js": null,
+          "Menu": {
+            "0413": {
+              "113.rc": null,
+              "118.rc": null,
+              "119.rc": null,
+              "2.rc": null,
+              "4.rc": null,
+              "5.rc": null
+            }
+          },
+          "String Table": {
+            "0413": {
+              "1.rc": null,
+              "129.rc": null,
+              "130.rc": null,
+              "131.rc": null,
+              "132.rc": null,
+              "135.rc": null,
+              "139.rc": null,
+              "141.rc": null,
+              "144.rc": null,
+              "145.rc": null,
+              "153.rc": null,
+              "2.rc": null,
+              "2049.rc": null,
+              "2050.rc": null,
+              "222.rc": null,
+              "2354.rc": null,
+              "2355.rc": null,
+              "2356.rc": null,
+              "2610.rc": null,
+              "2628.rc": null,
+              "2753.rc": null,
+              "2757.rc": null,
+              "2758.rc": null,
+              "2765.rc": null,
+              "2794.rc": null,
+              "3.rc": null,
+              "3585.rc": null,
+              "3601.rc": null,
+              "3602.rc": null,
+              "3603.rc": null,
+              "3605.rc": null,
+              "3606.rc": null,
+              "3713.rc": null,
+              "3714.rc": null,
+              "3825.rc": null,
+              "3826.rc": null,
+              "3841.rc": null,
+              "3842.rc": null,
+              "3843.rc": null,
+              "3845.rc": null,
+              "3849.rc": null,
+              "3850.rc": null,
+              "3857.rc": null,
+              "3858.rc": null,
+              "3859.rc": null,
+              "3865.rc": null,
+              "3866.rc": null,
+              "3867.rc": null,
+              "3868.rc": null,
+              "3869.rc": null,
+              "39.rc": null,
+              "40.rc": null,
+              "41.rc": null,
+              "430.rc": null,
+              "442.rc": null,
+              "578.rc": null,
+              "626.rc": null,
+              "63.rc": null,
+              "7.rc": null
+            }
+          }
+        },
+        "no": {
+          "Dialog": {
+            "0414": {
+              "105.rc": null,
+              "108.rc": null,
+              "112.rc": null,
+              "113.rc": null,
+              "132.rc": null,
+              "30721.rc": null,
+              "30722.rc": null,
+              "30723.rc": null,
+              "37.rc": null,
+              "4001.rc": null
+            }
+          },
+          "localizations.js": null,
+          "Menu": {
+            "0414": {
+              "113.rc": null,
+              "118.rc": null,
+              "119.rc": null,
+              "2.rc": null,
+              "4.rc": null,
+              "5.rc": null
+            }
+          },
+          "String Table": {
+            "0414": {
+              "1.rc": null,
+              "129.rc": null,
+              "130.rc": null,
+              "131.rc": null,
+              "132.rc": null,
+              "135.rc": null,
+              "139.rc": null,
+              "141.rc": null,
+              "144.rc": null,
+              "145.rc": null,
+              "153.rc": null,
+              "2.rc": null,
+              "2049.rc": null,
+              "2050.rc": null,
+              "222.rc": null,
+              "2354.rc": null,
+              "2355.rc": null,
+              "2356.rc": null,
+              "2610.rc": null,
+              "2628.rc": null,
+              "2753.rc": null,
+              "2757.rc": null,
+              "2758.rc": null,
+              "2765.rc": null,
+              "2794.rc": null,
+              "3.rc": null,
+              "3585.rc": null,
+              "3601.rc": null,
+              "3602.rc": null,
+              "3603.rc": null,
+              "3605.rc": null,
+              "3606.rc": null,
+              "3713.rc": null,
+              "3714.rc": null,
+              "3825.rc": null,
+              "3826.rc": null,
+              "3841.rc": null,
+              "3842.rc": null,
+              "3843.rc": null,
+              "3845.rc": null,
+              "3849.rc": null,
+              "3850.rc": null,
+              "3857.rc": null,
+              "3858.rc": null,
+              "3859.rc": null,
+              "3865.rc": null,
+              "3866.rc": null,
+              "3867.rc": null,
+              "3868.rc": null,
+              "3869.rc": null,
+              "39.rc": null,
+              "40.rc": null,
+              "41.rc": null,
+              "430.rc": null,
+              "442.rc": null,
+              "578.rc": null,
+              "626.rc": null,
+              "63.rc": null,
+              "7.rc": null
+            }
+          }
+        },
+        "parse-rc-file.js": null,
+        "pl": {
+          "Dialog": {
+            "0415": {
+              "105.rc": null,
+              "108.rc": null,
+              "112.rc": null,
+              "113.rc": null,
+              "132.rc": null,
+              "30721.rc": null,
+              "30722.rc": null,
+              "30723.rc": null,
+              "37.rc": null,
+              "4001.rc": null
+            }
+          },
+          "localizations.js": null,
+          "Menu": {
+            "0415": {
+              "113.rc": null,
+              "118.rc": null,
+              "119.rc": null,
+              "2.rc": null,
+              "4.rc": null,
+              "5.rc": null
+            }
+          },
+          "String Table": {
+            "0415": {
+              "1.rc": null,
+              "129.rc": null,
+              "130.rc": null,
+              "131.rc": null,
+              "132.rc": null,
+              "135.rc": null,
+              "139.rc": null,
+              "141.rc": null,
+              "144.rc": null,
+              "145.rc": null,
+              "153.rc": null,
+              "2.rc": null,
+              "2049.rc": null,
+              "2050.rc": null,
+              "222.rc": null,
+              "2354.rc": null,
+              "2355.rc": null,
+              "2356.rc": null,
+              "2610.rc": null,
+              "2628.rc": null,
+              "2753.rc": null,
+              "2757.rc": null,
+              "2758.rc": null,
+              "2765.rc": null,
+              "2794.rc": null,
+              "3.rc": null,
+              "3585.rc": null,
+              "3601.rc": null,
+              "3602.rc": null,
+              "3603.rc": null,
+              "3605.rc": null,
+              "3606.rc": null,
+              "3713.rc": null,
+              "3714.rc": null,
+              "3825.rc": null,
+              "3826.rc": null,
+              "3841.rc": null,
+              "3842.rc": null,
+              "3843.rc": null,
+              "3845.rc": null,
+              "3849.rc": null,
+              "3850.rc": null,
+              "3857.rc": null,
+              "3858.rc": null,
+              "3859.rc": null,
+              "3865.rc": null,
+              "3866.rc": null,
+              "3867.rc": null,
+              "3868.rc": null,
+              "3869.rc": null,
+              "39.rc": null,
+              "40.rc": null,
+              "41.rc": null,
+              "430.rc": null,
+              "442.rc": null,
+              "578.rc": null,
+              "626.rc": null,
+              "63.rc": null,
+              "7.rc": null
+            }
+          }
+        },
+        "preprocess.js": null,
+        "pt": {
+          "Dialog": {
+            "0816": {
+              "105.rc": null,
+              "108.rc": null,
+              "112.rc": null,
+              "113.rc": null,
+              "132.rc": null,
+              "30721.rc": null,
+              "30722.rc": null,
+              "30723.rc": null,
+              "37.rc": null,
+              "4001.rc": null
+            }
+          },
+          "localizations.js": null,
+          "Menu": {
+            "0816": {
+              "113.rc": null,
+              "118.rc": null,
+              "119.rc": null,
+              "2.rc": null,
+              "4.rc": null,
+              "5.rc": null
+            }
+          },
+          "String Table": {
+            "0816": {
+              "1.rc": null,
+              "129.rc": null,
+              "130.rc": null,
+              "131.rc": null,
+              "132.rc": null,
+              "135.rc": null,
+              "139.rc": null,
+              "141.rc": null,
+              "144.rc": null,
+              "145.rc": null,
+              "153.rc": null,
+              "2.rc": null,
+              "2049.rc": null,
+              "2050.rc": null,
+              "222.rc": null,
+              "2354.rc": null,
+              "2355.rc": null,
+              "2356.rc": null,
+              "2610.rc": null,
+              "2628.rc": null,
+              "2753.rc": null,
+              "2757.rc": null,
+              "2758.rc": null,
+              "2765.rc": null,
+              "2794.rc": null,
+              "3.rc": null,
+              "3585.rc": null,
+              "3601.rc": null,
+              "3602.rc": null,
+              "3603.rc": null,
+              "3605.rc": null,
+              "3606.rc": null,
+              "3713.rc": null,
+              "3714.rc": null,
+              "3825.rc": null,
+              "3826.rc": null,
+              "3841.rc": null,
+              "3842.rc": null,
+              "3843.rc": null,
+              "3845.rc": null,
+              "3849.rc": null,
+              "3850.rc": null,
+              "3857.rc": null,
+              "3858.rc": null,
+              "3859.rc": null,
+              "3865.rc": null,
+              "3866.rc": null,
+              "3867.rc": null,
+              "3868.rc": null,
+              "3869.rc": null,
+              "39.rc": null,
+              "40.rc": null,
+              "41.rc": null,
+              "430.rc": null,
+              "442.rc": null,
+              "578.rc": null,
+              "626.rc": null,
+              "63.rc": null,
+              "7.rc": null
+            }
+          }
+        },
+        "pt-br": {
+          "Dialog": {
+            "0416": {
+              "105.rc": null,
+              "108.rc": null,
+              "112.rc": null,
+              "113.rc": null,
+              "132.rc": null,
+              "30721.rc": null,
+              "30722.rc": null,
+              "30723.rc": null,
+              "37.rc": null,
+              "4001.rc": null
+            }
+          },
+          "localizations.js": null,
+          "Menu": {
+            "0416": {
+              "113.rc": null,
+              "118.rc": null,
+              "119.rc": null,
+              "2.rc": null,
+              "4.rc": null,
+              "5.rc": null
+            }
+          },
+          "String Table": {
+            "0416": {
+              "1.rc": null,
+              "129.rc": null,
+              "130.rc": null,
+              "131.rc": null,
+              "132.rc": null,
+              "135.rc": null,
+              "139.rc": null,
+              "141.rc": null,
+              "144.rc": null,
+              "145.rc": null,
+              "153.rc": null,
+              "2.rc": null,
+              "2049.rc": null,
+              "2050.rc": null,
+              "222.rc": null,
+              "2354.rc": null,
+              "2355.rc": null,
+              "2356.rc": null,
+              "2610.rc": null,
+              "2628.rc": null,
+              "2753.rc": null,
+              "2757.rc": null,
+              "2758.rc": null,
+              "2765.rc": null,
+              "2794.rc": null,
+              "3.rc": null,
+              "3585.rc": null,
+              "3601.rc": null,
+              "3602.rc": null,
+              "3603.rc": null,
+              "3605.rc": null,
+              "3606.rc": null,
+              "3713.rc": null,
+              "3714.rc": null,
+              "3825.rc": null,
+              "3826.rc": null,
+              "3841.rc": null,
+              "3842.rc": null,
+              "3843.rc": null,
+              "3845.rc": null,
+              "3849.rc": null,
+              "3850.rc": null,
+              "3857.rc": null,
+              "3858.rc": null,
+              "3859.rc": null,
+              "3865.rc": null,
+              "3866.rc": null,
+              "3867.rc": null,
+              "3868.rc": null,
+              "3869.rc": null,
+              "39.rc": null,
+              "40.rc": null,
+              "41.rc": null,
+              "430.rc": null,
+              "442.rc": null,
+              "578.rc": null,
+              "626.rc": null,
+              "63.rc": null,
+              "7.rc": null
+            }
+          }
+        },
+        "ru": {
+          "Dialog": {
+            "0419": {
+              "105.rc": null,
+              "108.rc": null,
+              "112.rc": null,
+              "113.rc": null,
+              "132.rc": null,
+              "30721.rc": null,
+              "30722.rc": null,
+              "30723.rc": null,
+              "37.rc": null,
+              "4001.rc": null
+            }
+          },
+          "localizations.js": null,
+          "Menu": {
+            "0419": {
+              "113.rc": null,
+              "118.rc": null,
+              "119.rc": null,
+              "2.rc": null,
+              "4.rc": null,
+              "5.rc": null
+            }
+          },
+          "String Table": {
+            "0419": {
+              "1.rc": null,
+              "129.rc": null,
+              "130.rc": null,
+              "131.rc": null,
+              "132.rc": null,
+              "135.rc": null,
+              "139.rc": null,
+              "141.rc": null,
+              "144.rc": null,
+              "145.rc": null,
+              "153.rc": null,
+              "2.rc": null,
+              "2049.rc": null,
+              "2050.rc": null,
+              "222.rc": null,
+              "2354.rc": null,
+              "2355.rc": null,
+              "2356.rc": null,
+              "2610.rc": null,
+              "2628.rc": null,
+              "2753.rc": null,
+              "2757.rc": null,
+              "2758.rc": null,
+              "2765.rc": null,
+              "2794.rc": null,
+              "3.rc": null,
+              "3585.rc": null,
+              "3601.rc": null,
+              "3602.rc": null,
+              "3603.rc": null,
+              "3605.rc": null,
+              "3606.rc": null,
+              "3713.rc": null,
+              "3714.rc": null,
+              "3825.rc": null,
+              "3826.rc": null,
+              "3841.rc": null,
+              "3842.rc": null,
+              "3843.rc": null,
+              "3845.rc": null,
+              "3849.rc": null,
+              "3850.rc": null,
+              "3857.rc": null,
+              "3858.rc": null,
+              "3859.rc": null,
+              "3865.rc": null,
+              "3866.rc": null,
+              "3867.rc": null,
+              "3868.rc": null,
+              "3869.rc": null,
+              "39.rc": null,
+              "40.rc": null,
+              "41.rc": null,
+              "430.rc": null,
+              "442.rc": null,
+              "578.rc": null,
+              "626.rc": null,
+              "63.rc": null,
+              "7.rc": null
+            }
+          }
+        },
+        "sk": {
+          "Dialog": {
+            "041B": {
+              "105.rc": null,
+              "108.rc": null,
+              "112.rc": null,
+              "113.rc": null,
+              "132.rc": null,
+              "30721.rc": null,
+              "30722.rc": null,
+              "30723.rc": null,
+              "37.rc": null,
+              "4001.rc": null
+            }
+          },
+          "localizations.js": null,
+          "Menu": {
+            "041B": {
+              "113.rc": null,
+              "118.rc": null,
+              "119.rc": null,
+              "2.rc": null,
+              "4.rc": null,
+              "5.rc": null
+            }
+          },
+          "String Table": {
+            "041B": {
+              "1.rc": null,
+              "129.rc": null,
+              "130.rc": null,
+              "131.rc": null,
+              "132.rc": null,
+              "135.rc": null,
+              "139.rc": null,
+              "141.rc": null,
+              "144.rc": null,
+              "145.rc": null,
+              "153.rc": null,
+              "2.rc": null,
+              "2049.rc": null,
+              "2050.rc": null,
+              "222.rc": null,
+              "2354.rc": null,
+              "2355.rc": null,
+              "2356.rc": null,
+              "2610.rc": null,
+              "2628.rc": null,
+              "2753.rc": null,
+              "2757.rc": null,
+              "2758.rc": null,
+              "2765.rc": null,
+              "2794.rc": null,
+              "3.rc": null,
+              "3585.rc": null,
+              "3601.rc": null,
+              "3602.rc": null,
+              "3603.rc": null,
+              "3605.rc": null,
+              "3606.rc": null,
+              "3713.rc": null,
+              "3714.rc": null,
+              "3825.rc": null,
+              "3826.rc": null,
+              "3841.rc": null,
+              "3842.rc": null,
+              "3843.rc": null,
+              "3845.rc": null,
+              "3849.rc": null,
+              "3850.rc": null,
+              "3857.rc": null,
+              "3858.rc": null,
+              "3859.rc": null,
+              "3865.rc": null,
+              "3866.rc": null,
+              "3867.rc": null,
+              "3868.rc": null,
+              "3869.rc": null,
+              "39.rc": null,
+              "40.rc": null,
+              "41.rc": null,
+              "430.rc": null,
+              "442.rc": null,
+              "578.rc": null,
+              "626.rc": null,
+              "63.rc": null,
+              "7.rc": null
+            }
+          }
+        },
+        "sl": {
+          "Dialog": {
+            "0424": {
+              "105.rc": null,
+              "108.rc": null,
+              "112.rc": null,
+              "113.rc": null,
+              "132.rc": null,
+              "30721.rc": null,
+              "30722.rc": null,
+              "30723.rc": null,
+              "37.rc": null,
+              "4001.rc": null
+            }
+          },
+          "localizations.js": null,
+          "Menu": {
+            "0424": {
+              "113.rc": null,
+              "118.rc": null,
+              "119.rc": null,
+              "2.rc": null,
+              "4.rc": null,
+              "5.rc": null
+            }
+          },
+          "String Table": {
+            "0424": {
+              "1.rc": null,
+              "129.rc": null,
+              "130.rc": null,
+              "131.rc": null,
+              "132.rc": null,
+              "135.rc": null,
+              "139.rc": null,
+              "141.rc": null,
+              "144.rc": null,
+              "145.rc": null,
+              "153.rc": null,
+              "2.rc": null,
+              "2049.rc": null,
+              "2050.rc": null,
+              "222.rc": null,
+              "2354.rc": null,
+              "2355.rc": null,
+              "2356.rc": null,
+              "2610.rc": null,
+              "2628.rc": null,
+              "2753.rc": null,
+              "2757.rc": null,
+              "2758.rc": null,
+              "2765.rc": null,
+              "2794.rc": null,
+              "3.rc": null,
+              "3585.rc": null,
+              "3601.rc": null,
+              "3602.rc": null,
+              "3603.rc": null,
+              "3605.rc": null,
+              "3606.rc": null,
+              "3713.rc": null,
+              "3714.rc": null,
+              "3825.rc": null,
+              "3826.rc": null,
+              "3841.rc": null,
+              "3842.rc": null,
+              "3843.rc": null,
+              "3845.rc": null,
+              "3849.rc": null,
+              "3850.rc": null,
+              "3857.rc": null,
+              "3858.rc": null,
+              "3859.rc": null,
+              "3865.rc": null,
+              "3866.rc": null,
+              "3867.rc": null,
+              "3868.rc": null,
+              "3869.rc": null,
+              "39.rc": null,
+              "40.rc": null,
+              "41.rc": null,
+              "430.rc": null,
+              "442.rc": null,
+              "578.rc": null,
+              "626.rc": null,
+              "63.rc": null,
+              "7.rc": null
+            }
+          }
+        },
+        "sv": {
+          "Dialog": {
+            "041D": {
+              "105.rc": null,
+              "108.rc": null,
+              "112.rc": null,
+              "113.rc": null,
+              "132.rc": null,
+              "30721.rc": null,
+              "30722.rc": null,
+              "30723.rc": null,
+              "37.rc": null,
+              "4001.rc": null
+            }
+          },
+          "localizations.js": null,
+          "Menu": {
+            "041D": {
+              "113.rc": null,
+              "118.rc": null,
+              "119.rc": null,
+              "2.rc": null,
+              "4.rc": null,
+              "5.rc": null
+            }
+          },
+          "String Table": {
+            "041D": {
+              "1.rc": null,
+              "129.rc": null,
+              "130.rc": null,
+              "131.rc": null,
+              "132.rc": null,
+              "135.rc": null,
+              "139.rc": null,
+              "141.rc": null,
+              "144.rc": null,
+              "145.rc": null,
+              "153.rc": null,
+              "2.rc": null,
+              "2049.rc": null,
+              "2050.rc": null,
+              "222.rc": null,
+              "2354.rc": null,
+              "2355.rc": null,
+              "2356.rc": null,
+              "2610.rc": null,
+              "2628.rc": null,
+              "2753.rc": null,
+              "2757.rc": null,
+              "2758.rc": null,
+              "2765.rc": null,
+              "2794.rc": null,
+              "3.rc": null,
+              "3585.rc": null,
+              "3601.rc": null,
+              "3602.rc": null,
+              "3603.rc": null,
+              "3605.rc": null,
+              "3606.rc": null,
+              "3713.rc": null,
+              "3714.rc": null,
+              "3825.rc": null,
+              "3826.rc": null,
+              "3841.rc": null,
+              "3842.rc": null,
+              "3843.rc": null,
+              "3845.rc": null,
+              "3849.rc": null,
+              "3850.rc": null,
+              "3857.rc": null,
+              "3858.rc": null,
+              "3859.rc": null,
+              "3865.rc": null,
+              "3866.rc": null,
+              "3867.rc": null,
+              "3868.rc": null,
+              "3869.rc": null,
+              "39.rc": null,
+              "40.rc": null,
+              "41.rc": null,
+              "430.rc": null,
+              "442.rc": null,
+              "578.rc": null,
+              "626.rc": null,
+              "63.rc": null,
+              "7.rc": null
+            }
+          }
+        },
+        "tr": {
+          "Dialog": {
+            "041F": {
+              "105.rc": null,
+              "108.rc": null,
+              "112.rc": null,
+              "113.rc": null,
+              "132.rc": null,
+              "30721.rc": null,
+              "30722.rc": null,
+              "30723.rc": null,
+              "37.rc": null,
+              "4001.rc": null
+            }
+          },
+          "localizations.js": null,
+          "Menu": {
+            "041F": {
+              "113.rc": null,
+              "118.rc": null,
+              "119.rc": null,
+              "2.rc": null,
+              "4.rc": null,
+              "5.rc": null
+            }
+          },
+          "String Table": {
+            "041F": {
+              "1.rc": null,
+              "129.rc": null,
+              "130.rc": null,
+              "131.rc": null,
+              "132.rc": null,
+              "135.rc": null,
+              "139.rc": null,
+              "141.rc": null,
+              "144.rc": null,
+              "145.rc": null,
+              "153.rc": null,
+              "2.rc": null,
+              "2049.rc": null,
+              "2050.rc": null,
+              "222.rc": null,
+              "2354.rc": null,
+              "2355.rc": null,
+              "2356.rc": null,
+              "2610.rc": null,
+              "2628.rc": null,
+              "2753.rc": null,
+              "2757.rc": null,
+              "2758.rc": null,
+              "2765.rc": null,
+              "2794.rc": null,
+              "3.rc": null,
+              "3585.rc": null,
+              "3601.rc": null,
+              "3602.rc": null,
+              "3603.rc": null,
+              "3605.rc": null,
+              "3606.rc": null,
+              "3713.rc": null,
+              "3714.rc": null,
+              "3825.rc": null,
+              "3826.rc": null,
+              "3841.rc": null,
+              "3842.rc": null,
+              "3843.rc": null,
+              "3845.rc": null,
+              "3849.rc": null,
+              "3850.rc": null,
+              "3857.rc": null,
+              "3858.rc": null,
+              "3859.rc": null,
+              "3865.rc": null,
+              "3866.rc": null,
+              "3867.rc": null,
+              "3868.rc": null,
+              "3869.rc": null,
+              "39.rc": null,
+              "40.rc": null,
+              "41.rc": null,
+              "430.rc": null,
+              "442.rc": null,
+              "578.rc": null,
+              "626.rc": null,
+              "63.rc": null,
+              "7.rc": null
+            }
+          }
+        },
+        "zh": {
+          "Dialog": {
+            "0404": {
+              "105.rc": null,
+              "108.rc": null,
+              "112.rc": null,
+              "113.rc": null,
+              "132.rc": null,
+              "30721.rc": null,
+              "30722.rc": null,
+              "30723.rc": null,
+              "37.rc": null,
+              "4001.rc": null
+            }
+          },
+          "localizations.js": null,
+          "Menu": {
+            "0404": {
+              "113.rc": null,
+              "118.rc": null,
+              "119.rc": null,
+              "2.rc": null,
+              "4.rc": null,
+              "5.rc": null
+            }
+          },
+          "String Table": {
+            "0404": {
+              "1.rc": null,
+              "129.rc": null,
+              "130.rc": null,
+              "131.rc": null,
+              "132.rc": null,
+              "135.rc": null,
+              "139.rc": null,
+              "141.rc": null,
+              "144.rc": null,
+              "145.rc": null,
+              "153.rc": null,
+              "2.rc": null,
+              "2049.rc": null,
+              "2050.rc": null,
+              "222.rc": null,
+              "2354.rc": null,
+              "2355.rc": null,
+              "2356.rc": null,
+              "2610.rc": null,
+              "2628.rc": null,
+              "2753.rc": null,
+              "2757.rc": null,
+              "2758.rc": null,
+              "2765.rc": null,
+              "2794.rc": null,
+              "3.rc": null,
+              "3585.rc": null,
+              "3601.rc": null,
+              "3602.rc": null,
+              "3603.rc": null,
+              "3605.rc": null,
+              "3606.rc": null,
+              "3713.rc": null,
+              "3714.rc": null,
+              "3825.rc": null,
+              "3826.rc": null,
+              "3841.rc": null,
+              "3842.rc": null,
+              "3843.rc": null,
+              "3845.rc": null,
+              "3849.rc": null,
+              "3850.rc": null,
+              "3857.rc": null,
+              "3858.rc": null,
+              "3859.rc": null,
+              "3865.rc": null,
+              "3866.rc": null,
+              "3867.rc": null,
+              "3868.rc": null,
+              "3869.rc": null,
+              "39.rc": null,
+              "40.rc": null,
+              "41.rc": null,
+              "430.rc": null,
+              "442.rc": null,
+              "578.rc": null,
+              "626.rc": null,
+              "63.rc": null,
+              "7.rc": null
+            }
+          }
+        },
+        "zh-simplified": {
+          "Dialog": {
+            "0804": {
+              "105.rc": null,
+              "108.rc": null,
+              "112.rc": null,
+              "113.rc": null,
+              "132.rc": null,
+              "30721.rc": null,
+              "30722.rc": null,
+              "30723.rc": null,
+              "37.rc": null,
+              "4001.rc": null
+            }
+          },
+          "localizations.js": null,
+          "Menu": {
+            "0804": {
+              "113.rc": null,
+              "118.rc": null,
+              "119.rc": null,
+              "2.rc": null,
+              "4.rc": null,
+              "5.rc": null
+            }
+          },
+          "String Table": {
+            "0804": {
+              "1.rc": null,
+              "129.rc": null,
+              "130.rc": null,
+              "131.rc": null,
+              "132.rc": null,
+              "135.rc": null,
+              "139.rc": null,
+              "141.rc": null,
+              "144.rc": null,
+              "145.rc": null,
+              "153.rc": null,
+              "2.rc": null,
+              "2049.rc": null,
+              "2050.rc": null,
+              "222.rc": null,
+              "2354.rc": null,
+              "2355.rc": null,
+              "2356.rc": null,
+              "2610.rc": null,
+              "2628.rc": null,
+              "2753.rc": null,
+              "2757.rc": null,
+              "2758.rc": null,
+              "2765.rc": null,
+              "2794.rc": null,
+              "3.rc": null,
+              "3585.rc": null,
+              "3601.rc": null,
+              "3602.rc": null,
+              "3603.rc": null,
+              "3605.rc": null,
+              "3606.rc": null,
+              "3713.rc": null,
+              "3714.rc": null,
+              "3825.rc": null,
+              "3826.rc": null,
+              "3841.rc": null,
+              "3842.rc": null,
+              "3843.rc": null,
+              "3845.rc": null,
+              "3849.rc": null,
+              "3850.rc": null,
+              "3857.rc": null,
+              "3858.rc": null,
+              "3859.rc": null,
+              "3865.rc": null,
+              "3866.rc": null,
+              "3867.rc": null,
+              "3868.rc": null,
+              "3869.rc": null,
+              "39.rc": null,
+              "40.rc": null,
+              "41.rc": null,
+              "430.rc": null,
+              "442.rc": null,
+              "578.rc": null,
+              "626.rc": null,
+              "63.rc": null,
+              "7.rc": null
+            }
+          }
+        }
+      },
+      "manifest.webmanifest": null,
+      "package-lock.json": null,
+      "package.json": null,
+      "privacy.html": null,
+      "prune-globals.js": null,
+      "README.md": null,
+      "src": {
+        "$ColorBox.js": null,
+        "$Component.js": null,
+        "$FontBox.js": null,
+        "$ToolBox.js": null,
+        "$ToolWindow.js": null,
+        "app-localization.js": null,
+        "app-state.js": null,
+        "app.js": null,
+        "color-data.js": null,
+        "copy-inkscape-labels.js": null,
+        "edit-colors.js": null,
+        "electron-injected.js": null,
+        "electron-main.js": null,
+        "error-handling-basic.js": null,
+        "error-handling-enhanced.js": null,
+        "extra-tools.js": null,
+        "eye-gaze-mode.js": null,
+        "file-format-data.js": null,
+        "functions.js": null,
+        "globals.d.ts": null,
+        "Handles.js": null,
+        "help.js": null,
+        "helpers.js": null,
+        "image-manipulation.js": null,
+        "imgur.js": null,
+        "konami.js": null,
+        "manage-storage.js": null,
+        "menus.js": null,
+        "msgbox.js": null,
+        "OnCanvasHelperLayer.js": null,
+        "OnCanvasObject.js": null,
+        "OnCanvasSelection.js": null,
+        "OnCanvasTextBox.js": null,
+        "repack-spritesheet.js": null,
+        "sessions.js": null,
+        "simulate-random-gestures.js": null,
+        "speech-recognition.js": null,
+        "storage.js": null,
+        "test-news.js": null,
+        "theme.js": null,
+        "tool-options.js": null,
+        "tools.js": null,
+        "vaporwave-fun.js": null
+      },
+      "styles": {
+        "about.css": null,
+        "layout.css": null,
+        "layout.rtl.css": null,
+        "legal.css": null,
+        "normalize.css": null,
+        "print.css": null,
+        "themes": {
+          "bubblegum.css": null,
+          "classic.css": null,
+          "dark.css": null,
+          "modern-dark.css": null,
+          "modern.css": null,
+          "occult.css": null,
+          "red-wine.css": null,
+          "vista-esque-midnight-green.css": null,
+          "winter.css": null
+        }
+      },
+      "svg-paint": {
+        "index.html": null,
+        "svg-paint.js": null
+      },
+      "paint.exe": null,
+      "sync-package.js": null,
+      "test-news-newer.html": null,
+      "TODO.md": null
+    },
+    "minesweeper": {
+      "img": {
+        "sprite.png": null
+      },
+      "lib": {
+        "konami.js": null,
+        "rocket.12.06.js": null,
+        "seedrandom.js": null
+      },
+      "grid.js": null,
+      "face.js": null,
+      "fun.js": null,
+      "index.html": null,
+      "menus.js": null,
+      "minesweeper.js": null,
+      "README.md": null,
+      "ssd.js": null,
+      "tile.js": null,
+      "WINMINE.exe": null
+    },
+    "notepad": {
+      "lib": {
+        "FileSaver.js": null,
+        "moment.js": null
+      },
+      "src": {
+        "app.js": null,
+        "menus.js": null
+      },
+      "notepad.exe": null,
+      "index.html": null,
+      "README.md": null
+    },
+    "pdfviewer": {
+      "src": {
+        "app.js": null,
+        "menus.js": null
+      },
+      "index.html": null,
+      "pdfviewer.exe": null,
+      "pdfviewer.css": null
+    },
+    "picview": {
+      "lib": {
+        "FileSaver.js": null,
+        "moment.js": null
+      },
+      "src": {
+        "app.js": null
+      },
+      "index.html": null,
+      "picview.exe": null,
+      "picview.css": null
+    },
+    "pinball": {
+      "pinball.exe": null,
+      "space-cadet-menus.js": null,
+      "space-cadet.html": null,
+      "SpaceCadetPinball.data": null,
+      "SpaceCadetPinball.js": null,
+      "SpaceCadetPinball.wasm": null
+    },
+    "run": {
+      "src": {
+        "app.js": null
+      },
+      "index.html": null,
+      "run.exe": null,
+      "rundiag.css": null
+    },
+    "screensavers": {
+      "3D-FlowerBox": {
+        "Common": {
+          "initShaders.js": null,
+          "MV.js": null,
+          "webgl-utils.js": null
+        },
+        "flowerbox.exe": null,
+        "FlowerBox.js": null,
+        "geometry.js": null,
+        "index.html": null,
+        "CREDITS.md": null
+      },
+      "pipes": {
+        "images": {
+          "meta": {
+            "favicon.ico": null,
+            "icon-16x16.png": null,
+            "icon-32x32.png": null,
+            "screencap.gif": null
+          },
+          "textures": {
+            "candycane.png": null,
+            "rusty.png": null
+          }
+        },
+        "lib": {
+          "OrbitControls.js": null,
+          "sri-fallback.js": null,
+          "TeapotBufferGeometry.js": null,
+          "three.min.js": null
+        },
+        "index.html": null,
+        "LICENSE": null,
+        "package-lock.json": null,
+        "package.json": null,
+        "pipes.exe": null,
+        "README.md": null,
+        "screensaver.js": null
+      }
+    },
+    "sound-recorder": {
+      "img": {
+        "buttons-spaced-out.png": null,
+        "buttons.png": null
+      },
+      "lib": {
+        "buffaudio.js": null,
+        "jquery-ui.js": null,
+        "jquery.min.js": null,
+        "recorder.js": null,
+        "recorderWorker.js": null
+      },
+      "src": {
+        "$app.js": null,
+        "app.js": null,
+        "AudioFile.js": null,
+        "effects.js": null,
+        "menus.js": null,
+        "sound-recorder.css": null,
+        "WaveDisplay.js": null
+      },
+      "index.html": null,
+      "README.md": null,
+      "recorder.exe":null
+    },
+    "vmware": {
+      "index.html": null,
+      "menus.js": null,
+      "vmware.css": null,
+      "vmware.js": null,
+      "vmware.exe": null
+    },
+    "winamp": {
+      "lib": {
+        "butterchurn.min.js": null,
+        "butterchurnPresets.min.js": null,
+        "webamp.bundle.js": null,
+        "webamp.bundle.min.js": null,
+        "webamp.bundle.min.js.map": null
+      },
+      "skins": {
+        "base-2.91.wsz": null,
+        "ascii_amp3.7.wsz": null,
+        "Microchip_2.wsz": null,
+        "Winamp3_Classified_v5.5.wsz": null,
+        "Winamp98_plus_IE5.wsz": null
+      },
+      "README.md": null,
+      "winamp.exe": null
+    }
+  }
+}

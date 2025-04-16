@@ -173,7 +173,7 @@
 	cursor: pointer;
 }
 .help-window li:before {
-	background-image: url("../../images/help-icons.png");
+	background-image: url("images/help-icons.png");
 }
 .help-window:not(.focused) .item.selected {
 	background-color: var(--ButtonFace);
@@ -266,11 +266,11 @@
 	text-decoration-skip: none;
     text-decoration-skip-ink: none;
 }
-/* .unselectable {
+.unselectable {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-} */
+}
