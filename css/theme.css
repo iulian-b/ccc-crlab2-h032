@@ -20,7 +20,7 @@
 .start-menu-titlebar {
 	/* background-image: url("images/start-menu-side.png"); */
 	/* background-image: url("images/start-menu-side-98-js.png"); */
-	background-image: url("images/start-menu-side-98-js-alt.png");
+	background-image: url("images/start-menu-side.png");
 	background-repeat: no-repeat;
 	background-position: bottom left;
 	background-color: #000080;
@@ -173,7 +173,7 @@
 	cursor: pointer;
 }
 .help-window li:before {
-	background-image: url("../../images/help-icons.png");
+	background-image: url("images/help-icons.png");
 }
 .help-window:not(.focused) .item.selected {
 	background-color: var(--ButtonFace);
