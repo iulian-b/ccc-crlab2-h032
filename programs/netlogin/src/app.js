@@ -1,3 +1,5 @@
+window.defaultMessageBoxTitle = "Network Login";
+
 let container = document.getElementById("app");
 
 $("body").on("mousedown selectstart contextmenu", function (e) {

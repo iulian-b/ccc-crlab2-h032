@@ -11,6 +11,9 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+		<!-- frame-src lists the sites of the external games in src/programs.js; the hash is for <script>0</script> below;
+		     'unsafe-eval' is only needed because Butterchurn (Winamp's Milkdrop visualizer) compiles its presets with new Function -->
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-eval' 'sha256-X+zrZv/IbzjZUnhsbWlsecLbwjndTpG0ZynXOif7V+k='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' data: blob:; worker-src 'self' blob:; frame-src 'self' https://git.nihilogic.dk https://d07riv.github.io http://xproger.info http://www.quakejs.com https://eaglercraft.com https://basicallydan.github.io; object-src 'none'; base-uri 'self'; form-action 'self'">
 		<title>ibocse@crlab2-h032</title>
 		<link href="layout.css" rel="stylesheet" type="text/css">
 		<link href="lib/os-gui/layout.css" rel="stylesheet" type="text/css">
@@ -56,7 +59,7 @@
 			<div class="tray inset-shallow">
 				<div class="tray-icons">
 					<!-- Calendar -->
-					<img class="tray-icon" src="images/icons/network-error-16x16.png" title="Network Error." onclick="showMessageBox({iconID: 'error', title:'Error', message: 'Could not establish a connection to //LAB02/X01/X01_b . \n[Cause: 511 Network Authentication Required]'})">
+					<img class="tray-icon" src="images/icons/network-error-16x16.png" title="Network Error." id="network-tray-icon">
 					<!-- Audio -->
 					<img class="tray-icon" src="images/icons/audio-okay-16x16.png" title="Volume" id="volume-tray-icon">
 				</div>
@@ -70,7 +73,7 @@
 					<ul>
 						<li>
 							<button id="start_btn_update" class="start-btn">
-								<img draggable="false" src="images/icons/sinclair-updates-32x32.png" width="32" height="32" style="vertical-align: middle;" onclick=""/>
+								<img draggable="false" src="images/icons/sinclair-updates-32x32.png" width="32" height="32" style="vertical-align: middle;"/>
 								About
 							</button>
 						</li>
@@ -142,7 +145,6 @@
 		<script src="lib/os-gui/MenuBar.js"></script>
 		<script src="lib/os-gui/$Window.js"></script>
 		<script src="src/msgbox.js"></script>
-		<script>defaultMessageBoxTitle = "Sinclair";</script>
 		<script src="src/3d-fun.js"></script>
 		<script src="src/helpers.js"></script>
 		<script src="src/filesystem-setup.js"></script>
@@ -185,11 +187,5 @@
 				</filter>
 			</defs>
 		</svg>
-		<script>
-			window.addEventListener("resize", ()=> {
-				document.getElementById("disabled-inset-filter").setAttribute("x", "0");
-			});
-
-		</script>
 	</body>
 </html>

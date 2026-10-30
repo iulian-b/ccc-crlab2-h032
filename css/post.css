@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'ibm';
-    src: url('https://api.allorigins.win/raw?url=https://int10h.org/oldschool-pc-fonts/fontlist/woff/web_ibm_vga_8x16.woff');
+    src: url('../font/imb-model3x/Web437_IBM_Model3x_Alt1.woff');
 }
 
 #z2:checked ~ main > div > section {

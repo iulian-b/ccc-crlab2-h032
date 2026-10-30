@@ -37,7 +37,8 @@
 		<div id="app-wrapper" class="inset-shallow">
 			<div id="dosbox" hidden></div>
 		</div>
-		<script src="https://js-dos.com/cdn/js-dos-api.js"></script>
+		<!-- js-dos 3, vendored from js-dos.com/cdn (the API loads the emulator from lib/js-dos-v3.js) -->
+		<script src="lib/js-dos-api.js"></script>
 		<script>
 			var dosbox = new Dosbox({
 				id: "dosbox",

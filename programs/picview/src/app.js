@@ -1,3 +1,5 @@
+window.defaultMessageBoxTitle = "PicView";
+
 let currentZoom = 1;
 let minZoom = 1;
 let maxZoom = 3;
@@ -64,10 +66,16 @@ if (query.path) {
 var default_file_name_for_title = "Untitled";
 
 function load_pic() {
-	// var newPic = '<img src="' + file_path + '" id="pic", style="position: relative; left: 45%; top: 45%"/>';
-	var newPic = '<img src="' + file_path + '" id="pic", style="display: block; margin: 0 auto; height: 100%"/>';
-
-	document.getElementById("app").insertAdjacentHTML('afterbegin', newPic); 
+	var url = file_path_to_url(file_path, ["png", "jpg", "jpeg", "gif", "bmp", "webp"]);
+	if (!url) {
+		showMessageBox({ iconID: "error", message: "Cannot open " + (file_path || "file") + ": not a supported image path." });
+		return;
+	}
+	var pic = document.createElement("img");
+	pic.id = "pic";
+	pic.src = url;
+	pic.style.cssText = "display: block; margin: 0 auto; height: 100%";
+	document.getElementById("app").prepend(pic);
 }
 
 function update_title() {

@@ -254,7 +254,7 @@ function Notepad(file_path) {
 	// TODO: focus existing window if file is currently open?
 
 	var $win = make_iframe_window({
-		src: "programs/notepad/index.html" + (file_path ? ("?path=" + file_path) : ""),
+		src: "programs/notepad/index.html" + (file_path ? ("?path=" + encodeURIComponent(file_path)) : ""),
 		icons: iconsAtTwoSizes("notepad"),
 		title: win_title,
 		outerWidth: 480,
@@ -272,7 +272,7 @@ function Markdown(file_path) {
 	var win_title = document_title + " - MDView";
 
 	var $win = make_iframe_window({
-		src: "programs/mdview/index.html" + (file_path ? ("?path=" + file_path) : ""),
+		src: "programs/mdview/index.html" + (file_path ? ("?path=" + encodeURIComponent(file_path)) : ""),
 		icons: iconsAtTwoSizes("md"),
 		title: win_title,
 		outerWidth: 480,
@@ -299,9 +299,15 @@ function openRunDialog() {
 }
 openRunDialog.acceptsFilePaths = true;
 
+// External games are other websites: sandboxed so they can't navigate the desktop away.
+const external_game_sandbox = "allow-scripts allow-same-origin allow-forms allow-pointer-lock allow-popups allow-modals allow-downloads";
+const external_game_allow = "fullscreen; gamepad; autoplay";
+
 function Wolf3d() {
 	let $win = make_iframe_window({
 		src: "https://git.nihilogic.dk/wolf3d",
+		sandbox: external_game_sandbox,
+		allow: external_game_allow,
 		icons: iconsAtTwoSizes("wolf-3d"),
 		title: "Wolf 3D",
 		outerWidth: 750,
@@ -316,6 +322,8 @@ Wolf3d.acceptsFilePaths = false;
 function Diablo() {
 	let $win = make_iframe_window({
 		src: "https://d07riv.github.io/diabloweb/",
+		sandbox: external_game_sandbox,
+		allow: external_game_allow,
 		icons: iconsAtTwoSizes("diablo1"),
 		title: "wolf3d",
 		outerWidth: 1280,
@@ -331,6 +339,8 @@ Diablo.acceptsFilePaths = false;
 function TombRaider() {
 	let $win = make_iframe_window({
 		src: "http://xproger.info/projects/OpenLara/",
+		sandbox: external_game_sandbox,
+		allow: external_game_allow,
 		icons: iconsAtTwoSizes("tomb-raider"),
 		title: "Tomb Raider",
 		outerWidth: 865,
@@ -345,6 +355,8 @@ TombRaider.acceptsFilePaths = false;
 function Quake3() {
 	let $win = make_iframe_window({
 		src: "http://www.quakejs.com/play?set%20fs_game%20baseq3&set%20g_gametype%200&set%20g_teamAutoJoin%201&map%20q3dm1&addbot%20grunt%204%20f&addbot%20major%204%20f&addbot%20sarge%204%20f&addbot%20grunt%204%20f&addbot%20major%204%20f",
+		sandbox: external_game_sandbox,
+		allow: external_game_allow,
 		icons: iconsAtTwoSizes("quake3"),
 		title: "Quake III",
 		outerWidth: 1280,
@@ -359,6 +371,8 @@ Quake3.acceptsFilePaths = false;
 function Minecraft() {
 	let $win = make_iframe_window({
 		src: "https://eaglercraft.com/mc/1.8.8/",
+		sandbox: external_game_sandbox,
+		allow: external_game_allow,
 		icons: iconsAtTwoSizes("minecraft"),
 		title: "Minecraft",
 		outerWidth: 1280,
@@ -373,6 +387,8 @@ Minecraft.acceptsFilePaths = false;
 function SkiFree() {
 	let $win = make_iframe_window({
 		src: "https://basicallydan.github.io/skifree.js/",
+		sandbox: external_game_sandbox,
+		allow: external_game_allow,
 		icons: iconsAtTwoSizes("skifree"),
 		title: "SkiFree",
 		outerWidth: 720,
@@ -412,7 +428,7 @@ function PDFViewer(file_path) {
 	// TODO: focus existing window if file is currently open?
 
 	var $win = make_iframe_window({
-		src: "programs/pdfviewer/index.html" + (file_path ? ("?path=" + file_path) : ""),
+		src: "programs/pdfviewer/index.html" + (file_path ? ("?path=" + encodeURIComponent(file_path)) : ""),
 		icons: iconsAtTwoSizes("doc"),
 		title: win_title,
 		outerWidth: width,
@@ -465,7 +481,7 @@ function Picview(file_path) {
 	var dimentions = getImgDimentions();
 
 	var $win = make_iframe_window({
-		src: "programs/picview/index.html" + (file_path ? ("?path=" + file_path) : ""),
+		src: "programs/picview/index.html" + (file_path ? ("?path=" + encodeURIComponent(file_path)) : ""),
 		icons: iconsAtTwoSizes("kodak-imaging"),
 		title: win_title,
 		outerWidth: dimentions[0],
@@ -487,7 +503,7 @@ function Network(file_path) {
 	else {
 		file_path = file_path.slice(9);
 		var $win = make_iframe_window({
-			src: "programs/netlogin/index.html" + (file_path ? ("?path=" + file_path) : ""),
+			src: "programs/netlogin/index.html" + (file_path ? ("?path=" + encodeURIComponent(file_path)) : ""),
 			icons: iconsAtTwoSizes("network"),
 			title: "Network Login",
 			outerWidth: 400,
@@ -500,53 +516,46 @@ function Network(file_path) {
 }
 Network.acceptsFilePaths = true;
 
+// .exe files are shortcuts: known games are matched by file name, and any other .exe
+// must contain a single call to one of these programs, e.g. "Calculator();".
+// The file's contents are only looked up in these lists, never run as code.
+var exe_programs_by_file_name = {
+	"wolf3d.exe": Wolf3d,
+	"pinball.exe": Pinball,
+	"minesweeper.exe": Minesweeper,
+	"diablo.exe": Diablo,
+	"tombraider.exe": TombRaider,
+	"minecraft.exe": Minecraft,
+	"skifree.exe": SkiFree,
+	"quake3.exe": Quake3,
+};
+var exe_programs_by_name = {
+	Calculator, CommandPrompt, Diablo, Explorer, FlowerBox, Minecraft, Minesweeper, Notepad, Paint, Pinball,
+	Pipes, Quake3, SkiFree, Solitaire, SoundRecorder, TombRaider, VirtualMachine, Wolf3d, openWinamp,
+};
+
 function openWithProgram(file_path) {
-	if (file_path.includes("wolf3d")) {
-		Wolf3d(file_path);
+	var exe_name = file_name_from_path(file_path);
+	var program = exe_programs_by_file_name[exe_name.toLowerCase()];
+	if (program) {
+		program();
 		return;
 	}
-	if (file_path.includes("pinball")) {
-		Pinball(file_path);
-		return;
-	}
-	if (file_path.includes("minesweeper")) {
-		Minesweeper(file_path);
-		return;
-	}
-	if (file_path.includes("diablo")) {
-		Diablo(file_path);
-		return;
-	}
-	if (file_path.includes("tombraider")) {
-		TombRaider();
-		return;
-	}
-	if (file_path.includes("minecraft")) {
-		Minecraft();
-		return;
-	}
-	if (file_path.includes("skifree")) {
-		SkiFree();
-		return;
-	}
-	if (file_path.includes("quake3")) {
-		Quake3();
-		return;
-	} else {
-		withFilesystem(function () {
-			var fs = BrowserFS.BFSRequire('fs');
-			fs.readFile(file_path, "utf8", function (error, data) {
-				var program = data.split('\n').shift()
-				var func = new Function(program);
-				func();
-				if (error) {
-					alert("Failed to run executable: " + error);
-					throw error;
-				}
-			});
+	withFilesystem(function () {
+		var fs = BrowserFS.BFSRequire('fs');
+		fs.readFile(file_path, "utf8", function (error, data) {
+			if (error) {
+				alert("Failed to run executable: " + error);
+				return;
+			}
+			var match = data.split('\n')[0].trim().match(/^([A-Za-z_$][\w$]*)\(\);?$/);
+			if (!match || !Object.hasOwn(exe_programs_by_name, match[1])) {
+				showMessageBox({ iconID: "error", title: exe_name, message: exe_name + " is not a valid Win32 application." });
+				return;
+			}
+			exe_programs_by_name[match[1]]();
 		});
-	}
-	return;
+	});
 }
 openWithProgram.acceptsFilePaths = true;
 
@@ -688,7 +697,7 @@ function SoundRecorder(file_path) {
 	var win_title = document_title + " - Sound Recorder";
 	// TODO: focus existing window if file is currently open?
 	var $win = make_iframe_window({
-		src: "programs/sound-recorder/index.html" + (file_path ? ("?path=" + file_path) : ""),
+		src: "programs/sound-recorder/index.html" + (file_path ? ("?path=" + encodeURIComponent(file_path)) : ""),
 		icons: iconsAtTwoSizes("speaker"),
 		title: win_title,
 		innerWidth: 270,
@@ -932,24 +941,34 @@ function VirtualMachine() {
 }
 VirtualMachine.acceptsFilePaths = true;
 
+// Uses a script element rather than $.getScript, which evals the code and is blocked by the Content-Security-Policy.
+function load_script(src) {
+	return new Promise((resolve, reject) => {
+		const script = document.createElement("script");
+		script.src = src;
+		script.async = false; // run in the order added
+		script.onload = () => resolve();
+		script.onerror = () => reject(new Error(`Failed to load ${src}`));
+		document.head.append(script);
+	});
+}
+
 var webamp_bundle_loaded = false;
 var load_winamp_bundle_if_not_loaded = function (includeButterchurn, callback) {
-	// FIXME: webamp_bundle_loaded not actually set to true when loaded
 	// TODO: also maybe handle already-loading-but-not-done
 	if (webamp_bundle_loaded) {
 		callback();
 	} else {
-		// TODO: parallelize (if possible)
-		$.getScript("programs/winamp/lib/webamp.bundle.min.js", () => {
-			if (includeButterchurn) {
-				$.getScript("programs/winamp/lib/butterchurn.min.js", () => {
-					$.getScript("programs/winamp/lib/butterchurnPresets.min.js", () => {
-						callback();
-					});
-				});
-			} else {
-				callback();
-			}
+		const scripts = ["programs/winamp/lib/webamp.bundle.min.js"];
+		if (includeButterchurn) {
+			scripts.push("programs/winamp/lib/butterchurn.min.js", "programs/winamp/lib/butterchurnPresets.min.js");
+		}
+		Promise.all(scripts.map(load_script)).then(() => {
+			webamp_bundle_loaded = true;
+			callback();
+		}, (error) => {
+			winamp_loading = false;
+			alert("Failed to load Webamp:\n\n" + error.message);
 		});
 	}
 }
@@ -1094,7 +1113,7 @@ function openWinamp(file_path) {
 		if (includeButterchurn) {
 			webamp_options.__butterchurnOptions = {
 				importButterchurn: () => Promise.resolve(window.butterchurn),
-				getPresets: () => {
+				getPresets: async () => {
 					const presets = window.butterchurnPresets.getPresets();
 					return Object.keys(presets).map((name) => {
 						return {
@@ -1105,11 +1124,11 @@ function openWinamp(file_path) {
 				},
 				butterchurnOpen: true,
 			};
-			webamp_options.__initialWindowLayout = {
-				main: { position: { x: 0, y: 0 } },
-				equalizer: { position: { x: 0, y: 116 } },
-				playlist: { position: { x: 0, y: 232 }, size: [0, 4] },
-				milkdrop: { position: { x: 275, y: 0 }, size: [7, 12] }
+			webamp_options.windowLayout = {
+				main: { position: { left: 0, top: 0 } },
+				equalizer: { position: { left: 0, top: 116 } },
+				playlist: { position: { left: 0, top: 232 }, size: { extraWidth: 0, extraHeight: 4 } },
+				milkdrop: { position: { left: 275, top: 0 }, size: { extraWidth: 7, extraHeight: 12 } }
 			};
 		}
 		webamp = new Webamp(webamp_options);
@@ -1218,7 +1237,7 @@ function openWinamp(file_path) {
 				let taskTitle = "Winamp 2.91";
 				const $cell = $webamp.find(".playlist-track-titles .track-cell.current");
 				if ($cell.length) {
-					taskTitle = `${$cell.text()} - Winamp`;
+					taskTitle = `${$cell.text().trim()} - Winamp`;
 					switch (webamp.getMediaStatus()) {
 						case "STOPPED":
 							taskTitle = `${taskTitle} [Stopped]`
@@ -1336,11 +1355,21 @@ function openURLFile(file_path) {
 			}
 			// it's supposed to be an ini-style file, but lets handle files that are literally just a URL as well, just in case
 			var match = content.match(/URL\s*=\s*([^\n\r]+)/i);
-			var url = match ? match[1] : content;
+			var url = (match ? match[1] : content).trim();
+			// Only web links; a javascript: URL would run with access to this page through window.opener
+			var protocol;
+			try {
+				protocol = new URL(url, location.href).protocol;
+			} catch (error) {
+				// invalid URL
+			}
+			if (protocol !== "http:" && protocol !== "https:") {
+				return alert("Cannot open " + url);
+			}
 			if (!file_path)  console.log("[USR] ibocse@crlab2-h032: explorer.exe()");
 			else console.log("[USR] ibocse@crlab2-h032: explorer.exe(" + file_path + ")");
 			// Explorer(url);
-			open(url);
+			open(url, "_blank", "noopener");
 		});
 	});
 }

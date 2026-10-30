@@ -1,3 +1,4 @@
+window.defaultMessageBoxTitle = "Notepad";
 
 var $textarea = $("#document-textarea");
 var $print_helper = $("#print-helper");
@@ -179,7 +180,10 @@ function select_all() {
 }
 
 function insert_time_and_date() {
-	var str = moment().format("LT l");
+	// Same output as moment's "LT l" in English, e.g. "8:27 AM 10/30/2026"
+	var now = new Date();
+	var time = now.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" }).replace(/ /g, " ");
+	var str = time + " " + now.toLocaleDateString("en-US");
 	$textarea.focus();
 	document.execCommand("insertText", false, str);
 }

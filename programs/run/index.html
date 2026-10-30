@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' data: blob:; media-src 'self' data: blob:; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'">
 		<title>Run</title>
 		<style>
 			html,
@@ -39,7 +40,7 @@
 					<input type="text" id="target">
 					<div class="button-container">
 						<button type="submit">OK</button>
-						<button value="Cancel" onclick="cancel()">Cancel</button>
+						<button type="button" value="Cancel" id="cancel-button">Cancel</button>
 					</div>
 				</form>
 			</div>
@@ -52,8 +53,7 @@
 		<script src="../../lib/os-gui/MenuBar.js"></script>
 		<script src="../../lib/os-gui/$Window.js"></script>
 		<script src="../../src/msgbox.js"></script>
-		<script>defaultMessageBoxTitle = "Run";</script>
-		<script src="src/app.js"></script>   
+		<script src="src/app.js"></script>
         <style>
 			#app {
 				background: var(--ButtonFace);

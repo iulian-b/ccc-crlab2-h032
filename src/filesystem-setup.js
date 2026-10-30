@@ -86,3 +86,16 @@ function file_name_from_path(file_path) {
 function file_extension_from_path(file_path) {
 	return (file_path.match(/\.(\w+)$/) || [, ""])[1];
 }
+
+// Turns a virtual filesystem path (e.g. from a ?path= query parameter) into a URL on this server.
+// Returns null for anything that isn't a plain absolute path with one of the allowed extensions,
+// so the result can't point at another origin or smuggle in a query string.
+function file_path_to_url(file_path, allowed_extensions) {
+	if (typeof file_path !== "string" || !file_path.startsWith("/") || file_path.startsWith("//")) {
+		return null;
+	}
+	if (!allowed_extensions.includes(file_extension_from_path(file_path).toLowerCase())) {
+		return null;
+	}
+	return web_server_root_for_browserfs + file_path.slice(1).split("/").map(encodeURIComponent).join("/");
+}

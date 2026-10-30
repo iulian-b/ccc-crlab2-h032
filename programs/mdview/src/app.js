@@ -1,5 +1,6 @@
+window.defaultMessageBoxTitle = "MDView";
+
 // var $textarea = $("#document-textarea");
-import {MarkdownBlock, MarkdownSpan, MarkdownElement} from "https://md-block.verou.me/md-block.js";
 var $textarea = document.getElementById("document-textarea");
 var $print_helper = $("#print-helper");
 
@@ -182,7 +183,10 @@ function select_all() {
 }
 
 function insert_time_and_date() {
-	var str = moment().format("LT l");
+	// Same output as moment's "LT l" in English, e.g. "8:27 AM 10/30/2026"
+	var now = new Date();
+	var time = now.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" }).replace(/ /g, " ");
+	var str = time + " " + now.toLocaleDateString("en-US");
 	$textarea.focus();
 	// document.execCommand("insertText", false, str);
 }
@@ -239,7 +243,7 @@ if (file_path) {
 	});
 } else if (local_storage_document_id) {
 	try {
-		$textarea.insertAdjacentHTML('beforeend', localStorage["notepad:" + local_storage_document_id] || "");
+		$textarea.textContent = localStorage["notepad:" + local_storage_document_id] || "";
 		// $textarea.val(localStorage["notepad:" + local_storage_document_id] || "");
 	} catch (e) { }
 	update_print_helper();

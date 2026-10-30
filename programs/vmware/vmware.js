@@ -174,10 +174,17 @@ var go_to = async function (address, action_name = "go") {
 	$("#content").empty(); // in case of apps loaded in the iframe which append menu bars outside of the iframe (@TODO: make apps not do this, and instead look only for a specifically designated $Window instance associated with the iframe)
 
 	if (is_url) {
+		// Pages from this site don't get allow-same-origin: together with allow-scripts it would let them reach into the desktop and lift their own sandbox.
+		let same_origin = false;
+		try {
+			same_origin = new URL(address, location.href).origin === location.origin;
+		} catch (error) {
+			// not a parseable URL; treated as another origin
+		}
 		$iframe = $("<iframe>").attr({
 			src: address,
 			allowfullscreen: "allowfullscreen",
-			sandbox: "allow-same-origin allow-scripts allow-forms allow-pointer-lock allow-modals allow-popups",
+			sandbox: (same_origin ? "" : "allow-same-origin ") + "allow-scripts allow-forms allow-pointer-lock allow-modals allow-popups",
 			allow: "camera https://brie.fi;microphone https://brie.fi",
 		}).appendTo("#content");
 
@@ -481,6 +488,9 @@ ${doc.documentElement.outerHTML}`;
 		Object.defineProperty(window, "FileList", {
 			get() { return document.getElementById("FileList"); }
 		});
+
+		// The templates build HTML out of file names, which users can choose freely.
+		window.escapeHTML = (text) => String(text).replace(/[&<>"']/g, (char) => `&#${char.charCodeAt(0)};`);
 
 		// It uses pixelWidth/pixelHeight/pixelLeft/pixelTop and unitless top/left
 		// Originally I polyfilled this on `style`, but it broke `setProperty()` in Firefox (and maybe Chrome but it doesn't seem to come up as a problem somehow?)

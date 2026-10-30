@@ -89,11 +89,9 @@ window.showMessageBox = window.showMessageBox || (({
 	promise.$window = $window;
 	promise.$message = $message;
 	promise.promise = promise; // for easy destructuring
-	try {
-		chord_audio.play();
-	} catch (error) {
+	chord_audio.play().catch((error) => {
 		console.log(`Failed to play ${chord_audio.src}: `, error);
-	}
+	});
 	return promise;
 });
 

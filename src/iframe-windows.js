@@ -156,7 +156,8 @@ function make_iframe_window(options) {
 	options.resizable ??= true;
 	var $win = new $Window(options);
 
-	var $iframe = $win.$iframe = $("<iframe>").attr({ src: options.src });
+	// sandbox/allow are only set for third-party content (undefined leaves the attribute off)
+	var $iframe = $win.$iframe = $("<iframe>").attr({ sandbox: options.sandbox, allow: options.allow, src: options.src });
 	enhance_iframe($iframe[0]);
 	$win.$content.append($iframe);
 	var iframe = $win.iframe = $iframe[0];

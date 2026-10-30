@@ -33,6 +33,10 @@ function E(t) {
 	return document.createElement(t);
 }
 
+function escapeHTML(text) {
+	return String(text).replace(/[&<>"']/g, (char) => `&#${char.charCodeAt(0)};`);
+}
+
 var DESKTOP_ICON_SIZE = 32;
 var TASKBAR_ICON_SIZE = 16;
 var TITLEBAR_ICON_SIZE = 16;

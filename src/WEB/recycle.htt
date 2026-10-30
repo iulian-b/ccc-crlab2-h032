@@ -167,7 +167,7 @@
 						text += "<br>" + L_FileSize_Text + FormatNumber(size.toString()) + L_Bytes_Text + "<br>";
 					if (data <= 16)
 						for (i = 0; i < data; i++)
-							text += "<br>" + FileList.SelectedItems().Item(i).Name;
+							text += "<br>" + escapeHTML(FileList.SelectedItems().Item(i).Name);
 				}
 				// restore these files
 				if (data <= 16)
@@ -181,7 +181,7 @@
 
 			// name
 			name = fldr.GetDetailsOf(items, 0);
-			text = "<b>" + name + "</b>";
+			text = "<b>" + escapeHTML(name) + "</b>";
 
 			// type
 			data = fldr.GetDetailsOf(items, 2);
@@ -287,10 +287,10 @@
 				ext = ext.toLowerCase();		
 				if (ext == 'avi' || ext == 'mov' || ext == 'qt' || ext == 'mpe' || ext == 'mpeg' || ext == 'mpg') {
 					// show a movie player
-					document.all.Media.innerHTML = '<object ID="Player" style="width: 160px; height: 148px" classid=clsid:05589FA1-C356-11CE-BF01-00AA0055595A><param name="FileName" value="' + items.Path + '"><param name=ShowDisplay value=0><param name=BorderStyle value=0></object>';
+					document.all.Media.innerHTML = '<object ID="Player" style="width: 160px; height: 148px" classid=clsid:05589FA1-C356-11CE-BF01-00AA0055595A><param name="FileName" value="' + escapeHTML(items.Path) + '"><param name=ShowDisplay value=0><param name=BorderStyle value=0></object>';
 				} else if (ext == 'aif' || ext == 'aifc' || ext == 'aiff' || ext == 'au' || ext == 'mid' || ext == 'rmi' || ext == 'snd' || ext == 'wav') {
 					// show a sound player
-					document.all.Media.innerHTML = '<object ID="Player" style="width: 160px; height: 28px" classid=clsid:05589FA1-C356-11CE-BF01-00AA0055595A><param name="FileName" value="' + items.Path + '"><param name=ShowDisplay value=0></center></object>'
+					document.all.Media.innerHTML = '<object ID="Player" style="width: 160px; height: 28px" classid=clsid:05589FA1-C356-11CE-BF01-00AA0055595A><param name="FileName" value="' + escapeHTML(items.Path) + '"><param name=ShowDisplay value=0></center></object>'
 				}
 			}
 

@@ -1,3 +1,5 @@
+window.defaultMessageBoxTitle = "Run";
+
 let container = document.getElementById("app");
 const panicAudio = new Audio('../../../audio/PANIC.wav');
 
@@ -16,6 +18,7 @@ $("body").on("mousedown selectstart contextmenu", function (e) {
 function cancel() {
 	window.close();
 }
+document.getElementById("cancel-button").addEventListener("click", cancel);
 
 function parse_query_string(queryString) {
 	var query = {};

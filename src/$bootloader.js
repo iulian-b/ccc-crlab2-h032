@@ -14,7 +14,7 @@ const bootText = [
     `<div class="fade">/dev/sda3: clean, 45425/1607520 files, 606564/6425339 blocks<br></div>`,
     `<div class="fade">:: mounting '/dev/sda3' on real root<br>::running cleanup hook [udev]<br></div>`,
     `<div class="fade"><br><img src="images/bootlogo.png"><br>Welcome to <span style="color: #4fa1ed">Sinclaire OS</span>!<br></div>`,
-    `<div class="fade">Tunnel Client:<br>` + navigator.userAgent + `<br></div><br>`,
+    `<div class="fade">Tunnel Client:<br>` + escapeHTML(navigator.userAgent) + `<br></div><br>`,
 
     // 6-9
     `<div class="fade">
@@ -86,7 +86,7 @@ const bootText = [
 		<span style="color: rgb(150, 150, 150)">[    3.090185] piix4_smbus 0000:00:07.3 SMBus base address uninitialized - upgrade BIOS or use force_addr = 0xaddr</span><br>
 	</div>`,
     `<div class="fade">
-		<span style="color: rgb(150, 150, 150)">[</span>  <span style="color: rgb(0, 255, 0)">OK</span> <span style="color: rgb(150, 150, 150)">] Found </span>tunnel client ` + navigator.userAgent + `<br>
+		<span style="color: rgb(150, 150, 150)">[</span>  <span style="color: rgb(0, 255, 0)">OK</span> <span style="color: rgb(150, 150, 150)">] Found </span>tunnel client ` + escapeHTML(navigator.userAgent) + `<br>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: rgb(150, 150, 150)">Activating swap /dev/disk/by-uuid/8ed17f08-db8c-4374-bc43-b3ee4dabc875...</span><br>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: rgb(150, 150, 150)">Mounting /boot...</span><br>
 		<span style="color: rgb(150, 150, 150)">[</span>  <span style="color: rgb(0, 255, 0)">OK</span> <span style="color: rgb(150, 150, 150)">] Activated </span>swap /dev/disk/by-uuid/8ed17f08-db8c-4374-bc43-b3ee4dabc875.<br>

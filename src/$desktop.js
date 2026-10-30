@@ -2,6 +2,8 @@ if (localStorage.getItem("POST") === "0") {
 	location.replace("$POST.html");
 }
 
+window.defaultMessageBoxTitle = "Sinclair";
+
 var $desktop = $(".desktop");
 $desktop.css("touch-action", "none"); // TODO: should this be in FolderView, or is it to prevent scrolling the page or what?
 var interacted = false;
@@ -151,6 +153,15 @@ window.addEventListener("storage", () => {
 // We need to prevent (reset) scroll, and also avoid scrollIntoView().
 $(window).on("scroll focusin", () => {
 	window.scrollTo(0, 0);
+});
+
+// Tray
+document.getElementById("network-tray-icon").addEventListener("click", () => {
+	showMessageBox({iconID: 'error', title:'Error', message: 'Could not establish a connection to //LAB02/X01/X01_b . \n[Cause: 511 Network Authentication Required]'});
+});
+
+window.addEventListener("resize", ()=> {
+	document.getElementById("disabled-inset-filter").setAttribute("x", "0");
 });
 
 
