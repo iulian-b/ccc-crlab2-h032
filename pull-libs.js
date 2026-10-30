@@ -1,4 +1,4 @@
-// TODO: include jquery and stuff; maybe even update script tags in html, with CDN URLs, integrity checksums, and fallbacks
+// TODO: maybe even update script tags in html, with CDN URLs, integrity checksums, and fallbacks
 
 const { copySync, readFileSync, writeFileSync } = require("fs-extra");
 const { basename, join } = require("path");
@@ -9,8 +9,12 @@ const copy = (from, toDir) => {
 	copySync(from, to);
 };
 
-copy("node_modules/os-gui/build/windows-98.css", "lib/os-gui/");
-copy("node_modules/os-gui/build/windows-98.css.map", "lib/os-gui/");
+// These vendored files carry local changes, so they are NOT copied over here;
+// diff against node_modules and re-apply the changes by hand when updating them:
+// - lib/os-gui/windows-98.css: this site's color theme
+// - lib/os-gui/$Window.js: titlebar icon margin, null check, draggable="false" for jQuery 4,
+//   no error when a window is closed before its iframe finishes loading
+// - lib/browserfs.js: "unlock of a non-locked mutex" error disabled
 copy("node_modules/os-gui/build/layout.css", "lib/os-gui/");
 copy("node_modules/os-gui/build/layout.css.map", "lib/os-gui/");
 copy("node_modules/os-gui/build/windows-default.css", "lib/os-gui/");
@@ -20,14 +24,13 @@ copy("node_modules/os-gui/build/peggys-pastels.css.map", "lib/os-gui/");
 copy("node_modules/os-gui/parse-theme.js", "lib/os-gui/");
 copy("node_modules/os-gui/$MenuBar.js", "lib/os-gui/");
 copy("node_modules/os-gui/MenuBar.js", "lib/os-gui/");
-copy("node_modules/os-gui/$Window.js", "lib/os-gui/");
-copy("node_modules/browserfs/dist/browserfs.js", "lib/");
 copy("node_modules/browserfs/dist/browserfs.js.map", "lib/");
 copy("node_modules/browserfs/dist/browserfs.min.js", "lib/");
 copy("node_modules/browserfs/dist/browserfs.min.js.map", "lib/");
 copy("node_modules/jquery/dist/jquery.min.js", "lib/");
-copy("node_modules/jquery/dist/jquery.min.js", "programs/sound-recorder/lib/");
 copy("node_modules/jquery-ui/dist/jquery-ui.js", "programs/sound-recorder/lib/");
+copy("node_modules/file-saver/dist/FileSaver.js", "programs/notepad/lib/");
+copy("node_modules/file-saver/dist/FileSaver.js", "programs/mdview/lib/");
 // copy("node_modules/webamp/built/webamp.bundle.js", "programs/winamp/lib/");
 // copy("node_modules/webamp/built/webamp.bundle.min.js", "programs/winamp/lib/");
 // copy("node_modules/webamp/built/webamp.bundle.min.js.map", "programs/winamp/lib/");

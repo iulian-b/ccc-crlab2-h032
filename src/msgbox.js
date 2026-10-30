@@ -32,7 +32,7 @@ window.showMessageBox = window.showMessageBox || (({
 				fontFamily: "MS Sans Serif, Arial, sans-serif",
 				fontSize: "14px",
 				marginTop: "22px",
-				flex: 1,
+				flex: "1",
 				minWidth: 0, // Fixes hidden overflow, see https://css-tricks.com/flexbox-truncated-text/
 				whiteSpace: "normal", // overriding .window:not(.squish)
 			});

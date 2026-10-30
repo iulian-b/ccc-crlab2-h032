@@ -33,9 +33,9 @@
             document.querySelector(".splash").style.display = "none";
         }
     </script>
-    <!--TODO: is there a race condition where script.js loads too late to define initialise for engine.js to call? or is order guaranteed even with async somehow?-->
-    <script async src="mcalculator/server/public/js/script.js"></script>
-    <script async onload="show('Please wait...');" src="mcalculator/server/public/js/engine.js"></script>
+    <!--defer (not async) so script.js always runs first and defines initialise() before engine.js calls it-->
+    <script defer src="mcalculator/server/public/js/script.js"></script>
+    <script defer onload="show('Please wait...');" src="mcalculator/server/public/js/engine.js"></script>
     <!--Ids of buttons exactly match the Command enum names of CalculationManager namespace of engine-->
     <div style="display: none;" class="container">
         <div id="calc">

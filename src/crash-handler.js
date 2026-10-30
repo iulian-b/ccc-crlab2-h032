@@ -32,8 +32,8 @@ function timeToPanic() {
 
     sleep(1000).then(() => {
         document.documentElement.innerHTML = '<body style="background-color:black;" class="unselectable"></body>';
-        document.body.insertAdjacentHTML('beforeend',`<link href="src/boot.css" rel="stylesheet" type="text/css">`);
-        document.body.insertAdjacentHTML('beforeend',`<link href="src/crt.css" rel="stylesheet" type="text/css">`);
+        document.body.insertAdjacentHTML('beforeend',`<link href="css/boot.css" rel="stylesheet" type="text/css">`);
+        document.body.insertAdjacentHTML('beforeend',`<link href="css/crt.css" rel="stylesheet" type="text/css">`);
         document.body.insertAdjacentHTML('beforeend',kernelText);
     });
     console.log("[SYSTEM] Fatal system error!");

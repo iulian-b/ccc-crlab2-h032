@@ -107,7 +107,7 @@ function FolderViewItem(options) {
 			const src = this.icons[this.iconSize];
 			$icon = $("<img class='icon'/>");
 			$icon.attr({
-				draggable: false,
+				draggable: "false", // a string: since jQuery 4, false removes the attribute (and images are draggable by default)
 				src,
 				width: this.iconSize,
 				height: this.iconSize, 
@@ -147,7 +147,7 @@ function FolderViewItem(options) {
 			return;
 		}
 		$container.addClass("renaming");
-		$container.attr("draggable", false);
+		$container.attr("draggable", "false");
 		const old_title = $title.text();
 		// @TODO: auto-size the input box,
 		// and wrap to multiple lines

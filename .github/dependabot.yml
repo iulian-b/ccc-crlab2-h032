@@ -1,0 +1,17 @@
+version: 2
+updates:
+  # Bumps to the vendored libraries (jquery, jquery-ui, webamp, butterchurn, os-gui, browserfs, file-saver)
+  # fail CI until `npm run pull-libs` is run on the branch and the copied files are committed.
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      dev-tools:
+        patterns: ["*"]
+        exclude-patterns: [jquery, jquery-ui, webamp, butterchurn, butterchurn-presets, os-gui, browserfs, file-saver]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly

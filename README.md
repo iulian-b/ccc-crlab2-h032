@@ -29,6 +29,18 @@ As far as features that were added by me:
 * Now runs with _vite_ instead of _live-server_
 * Some other minor fixes and changes that i can't recall...
 
+## Development
+
+Requires Node.js 22.12 or newer.
+
+* `npm install`, then `npm start` runs the site at http://localhost:1998
+* `npm run build` puts the deployable site in `dist/`: plain static files that any static host can serve (see [scripts/build.js](scripts/build.js))
+* `npm run preview` serves `dist/` the way a static host would
+* `npm test` builds the site and runs the [Playwright](https://playwright.dev) tests against it in Chromium, Firefox and WebKit (the first time, run `npx playwright install`)
+* `npm run pull-libs` copies the libraries the site ships (jQuery, jQuery UI, Webamp, Butterchurn, FileSaver.js, ...) from `node_modules` into the site after updating them with npm. CI fails if they're out of sync with `package.json`.
+
+The desktop's virtual C: drive is made of the `Desktop`, `Favorites`, `Games`, `My Documents`, `My Music`, `My Pictures`, `Network`, `Program Files` and `Recycle Bin` folders. Files added to them show up on their own: the dev server and the build generate `filesystem-index.json` from them (see [scripts/filesystem-index.js](scripts/filesystem-index.js)).
+
 [//]: # (## Demo)
 
 [//]: # ()
@@ -47,7 +59,6 @@ As far as features that were added by me:
 * A Video Player: 98.js's README mentioned [win-95-media-player](https://benwiley4000.github.io/win95-media-player/), but i remain open to other options.
 * Extend Picview and PDFview with Filepicker dialogs (see notepad.exe filesystem thing)
 * Clean up all of the unused stuff from 98.js (as in not used by me)
-* Fix the goddamn filsesystem-index
 * Add digitalis
 
 ## Credits and Licence

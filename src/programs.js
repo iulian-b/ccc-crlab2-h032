@@ -325,7 +325,7 @@ function Diablo() {
 		sandbox: external_game_sandbox,
 		allow: external_game_allow,
 		icons: iconsAtTwoSizes("diablo1"),
-		title: "wolf3d",
+		title: "Diablo",
 		outerWidth: 1280,
 		outerHeight: 720,
 		resizable: true,
@@ -338,7 +338,7 @@ Diablo.acceptsFilePaths = false;
 // FIX SIZE
 function TombRaider() {
 	let $win = make_iframe_window({
-		src: "http://xproger.info/projects/OpenLara/",
+		src: "https://xproger.github.io/OpenLara/",
 		sandbox: external_game_sandbox,
 		allow: external_game_allow,
 		icons: iconsAtTwoSizes("tomb-raider"),
@@ -352,35 +352,17 @@ function TombRaider() {
 }
 TombRaider.acceptsFilePaths = false;
 
+// quakejs.com, which hosted this, is gone
 function Quake3() {
-	let $win = make_iframe_window({
-		src: "http://www.quakejs.com/play?set%20fs_game%20baseq3&set%20g_gametype%200&set%20g_teamAutoJoin%201&map%20q3dm1&addbot%20grunt%204%20f&addbot%20major%204%20f&addbot%20sarge%204%20f&addbot%20grunt%204%20f&addbot%20major%204%20f",
-		sandbox: external_game_sandbox,
-		allow: external_game_allow,
-		icons: iconsAtTwoSizes("quake3"),
-		title: "Quake III",
-		outerWidth: 1280,
-		outerHeight: 720,
-		resizable: true,
-	});
 	console.log("[USR] ibocse@crlab2-h032: quake3.exe()");
-	return new Task($win);
+	showMessageBox({ iconID: "error", title: "Quake III", message: "quake3.exe: Could not connect to the game server. \n[Cause: 503 Service Unavailable]" });
 }
 Quake3.acceptsFilePaths = false;
 
+// eaglercraft.com no longer allows being embedded in other sites
 function Minecraft() {
-	let $win = make_iframe_window({
-		src: "https://eaglercraft.com/mc/1.8.8/",
-		sandbox: external_game_sandbox,
-		allow: external_game_allow,
-		icons: iconsAtTwoSizes("minecraft"),
-		title: "Minecraft",
-		outerWidth: 1280,
-		outerHeight: 720,
-		resizable: true
-	});
 	console.log("[USR] ibocse@crlab2-h032: minecraft.exe()");
-	return new Task($win);
+	showMessageBox({ iconID: "error", title: "Minecraft", message: "minecraft.exe: The server refused the connection. \n[Cause: 403 Forbidden]" });
 }
 Minecraft.acceptsFilePaths = false;
 
@@ -494,7 +476,8 @@ function Picview(file_path) {
 Picview.acceptsFilePaths = true;
 
 function Network(file_path) {
-	if (!file_path.includes("/Network")) return;
+	// Extensionless files outside the network folder (LICENSE, gradlew, ...) are plain text
+	if (!file_path.includes("/Network")) return Notepad(file_path);
 
 	if (file_path === "/Network/LAB02") {
 		showMessageBox({iconID: 'error', title:'Error', message: 'Could not establish a connection to //LAB02/X01/X01_b . \n[Cause: 511 Network Authentication Required]'});
@@ -927,7 +910,8 @@ function Explorer(address) {
 Explorer.acceptsFilePaths = true;
 
 function VirtualMachine() {
-	address = "localhost:5173";
+	// The "guest OS" is this site's own desktop
+	var address = location.origin + "/";
 	var win_title = "VMware - Sinclair OS";
 	var $win = make_iframe_window({
 		src: "programs/vmware/index.html" + (address ? ("?address=" + encodeURIComponent(address)) : ""),
@@ -1081,7 +1065,7 @@ function openWinamp(file_path) {
 			initialTracks: [
 				{metaData: {artist: "Alice Deejay", title: "Better Off Alone"}, url: "/My Music/better-off-alone.mp3"},
 				{metaData: {artist: "BIG Mountain", title: "Baby i Love Your Way"}, url: "/My Music/big_mountain-baby_i_love_your_way.mp3"},
-				{metaData: {artist: "Coolio", title: "Gangsta's Paradise"}, url: "/My Music/Coolio - Gangsta's Paradise.mp3 "},
+				{metaData: {artist: "Coolio", title: "Gangsta's Paradise"}, url: "/My Music/Coolio - Gangsta's Paradise.mp3"},
 				{metaData: {artist: "Dr. Dre", title: "Still D.R.E."}, url: "/My Music/STILL DRE.mp3"},
 				{metaData: {artist: "Eiffel 65", title: "Blue"}, url: "/My Music/blue.mp3"},
 				{metaData: {artist: "Linkin Park", title: "In The End"}, url: "/My Music/linkin_park-in_the_end.mp3"},

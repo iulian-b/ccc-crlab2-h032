@@ -17,9 +17,9 @@
 <div class="jumbotron jumbotron-fluid" id="password_jumbotron">
     <div class="container">
         <h1 class="display-4">Password</h1>
-        <form>
+        <form id="biosForm">
             <div class="form-group">
-                <input type="password" onsubmit="validateForm()" class="form-control" id="biosPassword" placeholder="">
+                <input type="password" class="form-control" id="biosPassword" placeholder="ESC: Exit">
             </div>
         </form>
     </div>
@@ -30,6 +30,13 @@
         document.getElementById("biosPassword").value = "";
         console.log("[BIOS] Invalid Password");
     }
+    document.getElementById("biosForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        validateForm();
+    });
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") location.replace("../$POST.html");
+    });
 </script>
 </body>
 </html>

@@ -2,7 +2,7 @@ var $start_menu = $(".start-menu");
 var $start_selection = $(".start-btn");
 $start_menu.hide();
 var $start_content = document.getElementsByClassName("start-menu-content");
-const shutdownAudio = new Audio('../audio/SHUTDOWN.WAV');
+const shutdownAudio = new Audio('../audio/SHUTDOWN.wav');
 shutdownAudio.volume = 0.2;
 
 function ClearStorage() {
@@ -70,7 +70,7 @@ $(window).on("keydown", function (e) {
 	if (e.which === 27) { // Esc to close
 		close_start_menu();
 	}
-	if (e.which === 17) { // lWin to open
+	if (e.key === "Meta") { // lWin to open
 		toggle_start_menu();
 	}
 });

@@ -4006,6 +4006,7 @@ function read_image_file(blob, callback) {
 				data: file_bytes,
 				cMapUrl: "lib/pdf.js/web/cmaps/",
 				cMapPacked: true,
+				isEvalSupported: false, // mitigates CVE-2024-4367 (code execution from a crafted PDF) in this old pdf.js 2.8
 			});
 
 			loadingTask.promise.then((pdf) => {

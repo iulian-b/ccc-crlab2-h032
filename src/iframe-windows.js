@@ -116,7 +116,7 @@ function enhance_iframe(iframe) {
 	$iframe.css({
 		minWidth: 0,
 		minHeight: 0, // overrides user agent styling apparently, fixes Sound Recorder
-		flex: 1,
+		flex: "1",
 		border: 0, // overrides user agent styling
 	});
 }

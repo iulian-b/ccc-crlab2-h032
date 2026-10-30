@@ -1,7 +1,3 @@
-if (localStorage.getItem("POST") === "0") {
-	location.replace("$POST.html");
-}
-
 window.defaultMessageBoxTitle = "Sinclair";
 
 var $desktop = $(".desktop");
@@ -113,38 +109,33 @@ window.addEventListener('DOMContentLoaded', function() {
 	}
 });
 
-// Run Handler
-window.addEventListener("storage", () => {
-	if (localStorage.getItem("run") != null) {
-		var target = localStorage.getItem("run");
-
-		// EXE
-		if (target.includes(".exe")) {
-			switch(target) {
-				case "calc.exe": { Calculator(); break; }
-				case "cmd.exe": { CommandPrompt(); break;}
-				case "explorer.exe": { Explorer(); break; }
-				case "solitaire.exe": { Solitaire(); break; }
-				case "paint.exe": { Paint(); break; }
-				case "notepad.exe": { Notepad(); break; }
-				case "WINMINE.exe": { Minesweeper(); break; }
-				case "pdfviewer.exe": { break; }
-				case "picview.exe": { break; }
-				case "pinball.exe": { Pinball(); break;}
-				case "recorder.exe": { Recorder(); break; }
-				case "winamp.exe": { openWinamp(); break; }
-				case "wolf3d.exe": { Wolf3d(); break; }
-				case "tombraider.exe": { TombRaider(); break; }
-				case "quake3.exe": { Quake3(); break; }
-				case "diablo.exe": { Diablo(); break; }
-				case "minecraft.exe": { Minecraft(); break; }
-				case "skifree.exe": { SkiFree(); break; }
-				case "digitalis.exe": { audioPanic(); timeToPanic(); break; }
-			}
-		} else if (target !== "" ) Explorer(target);
-		localStorage.removeItem("run");
-	}
-});
+// Run Handler (called by the Run dialog, programs/run)
+function runCommand(target) {
+	// EXE
+	if (target.includes(".exe")) {
+		switch(target) {
+			case "calc.exe": { Calculator(); break; }
+			case "cmd.exe": { CommandPrompt(); break;}
+			case "explorer.exe": { Explorer(); break; }
+			case "solitaire.exe": { Solitaire(); break; }
+			case "paint.exe": { Paint(); break; }
+			case "notepad.exe": { Notepad(); break; }
+			case "WINMINE.exe": { Minesweeper(); break; }
+			case "pdfviewer.exe": { break; }
+			case "picview.exe": { break; }
+			case "pinball.exe": { Pinball(); break;}
+			case "recorder.exe": { SoundRecorder(); break; }
+			case "winamp.exe": { openWinamp(); break; }
+			case "wolf3d.exe": { Wolf3d(); break; }
+			case "tombraider.exe": { TombRaider(); break; }
+			case "quake3.exe": { Quake3(); break; }
+			case "diablo.exe": { Diablo(); break; }
+			case "minecraft.exe": { Minecraft(); break; }
+			case "skifree.exe": { SkiFree(); break; }
+			case "digitalis.exe": { audioPanic(); timeToPanic(); break; }
+		}
+	} else if (target !== "" ) Explorer(target);
+}
 
 // Despite overflow:hidden on html and body,
 // focusing elements that are partially offscreen can still scroll the page.

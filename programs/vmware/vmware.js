@@ -175,16 +175,19 @@ var go_to = async function (address, action_name = "go") {
 
 	if (is_url) {
 		// Pages from this site don't get allow-same-origin: together with allow-scripts it would let them reach into the desktop and lift their own sandbox.
+		// The exception is the guest OS (this site's own desktop), which isn't sandboxed at all:
+		// it needs its storage, and the PDF viewer's plugin won't load in a sandboxed frame.
 		let same_origin = false;
 		try {
 			same_origin = new URL(address, location.href).origin === location.origin;
 		} catch (error) {
 			// not a parseable URL; treated as another origin
 		}
+		const is_guest_os = address === window.location.origin + "/";
 		$iframe = $("<iframe>").attr({
 			src: address,
 			allowfullscreen: "allowfullscreen",
-			sandbox: (same_origin ? "" : "allow-same-origin ") + "allow-scripts allow-forms allow-pointer-lock allow-modals allow-popups",
+			sandbox: is_guest_os ? null : (same_origin ? "" : "allow-same-origin ") + "allow-scripts allow-forms allow-pointer-lock allow-modals allow-popups",
 			allow: "camera https://brie.fi;microphone https://brie.fi",
 		}).appendTo("#content");
 
@@ -277,8 +280,8 @@ var resolve_address = async function (address) {
 				!address.match(/^https?:\/\/(www\.)?(copy.sh|topotech.github.io\/interdimensionalcable|isaiahodhner.io|brie.fi\/ng)/) &&
 				!address.match(/^(file|data|blob):\/\//)
 			) {
-				// address = "https://127.0.0.1:5173";
-				address = "https://127.0.0.1:1999";
+				// the VM can only reach its guest OS: this site's own desktop
+				address = window.location.origin + "/";
 			}
 		}
 		is_url = true;

@@ -58,10 +58,11 @@ update_title();
 
 
 document.getElementById("runform").addEventListener("submit", function(event){
-	if (document.getElementById("target").value == "digitalis.exe") panicAudio.play();
-	if (localStorage.getItem("run") != null) localStorage.removeItem("run");
-	else localStorage.setItem("run", document.getElementById("target").value);
+	event.preventDefault();
+	var target = document.getElementById("target").value;
+	if (target == "digitalis.exe") panicAudio.play();
+	// The desktop that opened this dialog (when opened on its own, parent is this window and there's nothing to run)
+	parent.runCommand?.(target);
 
 	window.close();
-	event.preventDefault();
   });
