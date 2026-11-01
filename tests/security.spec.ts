@@ -1,14 +1,6 @@
-import { test, expect, openDesktop, windowTitled } from './fixtures';
+import { test, expect, openDesktop, windowTitled, writeFile } from './fixtures';
 
 // Each payload logs "XSS-MARK" if it ever runs.
-
-async function writeFile(page, path: string, content: string) {
-	await page.evaluate(([path, content]) => new Promise<void>((resolve, reject) => {
-		(window as any).withFilesystem(() => {
-			(window as any).BrowserFS.BFSRequire('fs').writeFile(path, content, (error) => error ? reject(error) : resolve());
-		});
-	}), [path, content]);
-}
 
 test.describe('XSS', () => {
 	test.afterEach(async ({ page, xssMarkers }) => {
@@ -29,11 +21,14 @@ test.describe('XSS', () => {
 		await expect(windowTitled(page, /PDF Viewer$/)).toBeVisible();
 	});
 
-	test('MDView stored text', async ({ page }) => {
+	test('Markdown files in MDView', async ({ page }) => {
 		await openDesktop(page);
-		await page.evaluate(() => localStorage.setItem('notepad:xss-test', `<img src=x onerror="console.log('XSS-MARK mdview')">`));
-		await page.goto('/programs/mdview/index.html?xss-test');
-		await expect(page.locator('#document-textarea')).toContainText('<img src=x');
+		await writeFile(page, '/My Documents/evil.md', `<img src=x onerror="console.log('XSS-MARK mdview')">\n\n[click me](javascript:console.log('XSS-MARK mdview-link'))\n`);
+		await page.evaluate(() => (window as any).systemExecuteFile('/My Documents/evil.md'));
+		const markdown = page.frameLocator('iframe[src*="programs/mdview"]').locator('#document');
+		await expect(markdown).toContainText('<img src=x');
+		await expect(markdown).toContainText('click me');
+		await expect(markdown.locator('a')).toHaveCount(0);
 	});
 
 	test('.exe file contents', async ({ page }) => {

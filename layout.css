@@ -201,7 +201,7 @@ html, body {
 	overflow: hidden;
 	text-overflow: ellipsis; /* TODO: make this work with multiline text! This is apparently a limitation of this CSS property and there are various crazy CSS hacks and JS libs to solve this. */
 	word-wrap: break-word; /* All browsers since IE 5.5+ */
-	overflow-wrap: break-word; /* Renamed property in CSS3 draft spec */
+	overflow-wrap: anywhere; /* unlike break-word, also lets the title (a flex container) shrink to fit, so long names without spaces wrap instead of overflowing on both sides */
 }
 .desktop-icon:not(.focused) .title {
 	/* max-height: 2em would only work with line-height: 1 */

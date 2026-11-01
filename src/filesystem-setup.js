@@ -1,7 +1,6 @@
 
 var __fs_initialized;
 var __fs_errored;
-var __fs_timed_out;
 var __fs_waiting_callbacks = [];
 
 const desktop_folder_path = "/Desktop/";
@@ -52,27 +51,21 @@ BrowserFS.configure({
 	__fs_waiting_callbacks = [];
 });
 
+// Starting the filesystem usually takes well under a second, but it downloads filesystem-index.json,
+// so a slow connection or a busy device can make it take longer. What's asked of it in the meantime
+// still happens once it's ready; this only says something if it seems stuck.
 setTimeout(function () {
-	__fs_timed_out = true;
-	if (__fs_waiting_callbacks.length) {
-		// TODO: DRY (can probably simplify this logic significantly)
-		alert("The filesystem is not working.");
+	if (!__fs_initialized && !__fs_errored && __fs_waiting_callbacks.length) {
+		alert("The filesystem is taking a long time to start.");
 	}
-	__fs_waiting_callbacks = [];
-}, 5000);
+}, 30000);
 
 function withFilesystem(callback) {
 	if (__fs_initialized) {
 		callback();
 	} else if (__fs_errored) {
 		alert("The filesystem is not available. It failed to initialize.");
-	} else if (__fs_timed_out) {
-		alert("The filesystem is not working.");
 	} else {
-		// wait within a global period of time while it should be configuring (and not show a message box)
-		// TODO: hm, maybe a global timeout isn't what we want
-		// The desktop should load, regardless of how long it takes.
-		// Other operations could fail in a second or more. Depending on the operation.
 		__fs_waiting_callbacks.push(callback);
 	}
 }
@@ -98,4 +91,45 @@ function file_path_to_url(file_path, allowed_extensions) {
 		return null;
 	}
 	return web_server_root_for_browserfs + file_path.slice(1).split("/").map(encodeURIComponent).join("/");
+}
+
+var mime_types_by_extension = {
+	bmp: "image/bmp",
+	gif: "image/gif",
+	jpeg: "image/jpeg",
+	jpg: "image/jpeg",
+	pdf: "application/pdf",
+	png: "image/png",
+	webp: "image/webp",
+};
+
+// Like file_path_to_url, but for files that may only exist in this browser (dropped onto the desktop, saved from Paint, ...).
+// Files the site serves keep their URL (so a downloaded PDF keeps its name); the rest are read into a blob: URL.
+// Calls back with (error, url).
+function file_path_to_viewable_url(file_path, allowed_extensions, callback) {
+	var url = file_path_to_url(file_path, allowed_extensions);
+	if (!url) {
+		return callback(new Error("not a supported file path"));
+	}
+	withFilesystem(function () {
+		var fs = BrowserFS.BFSRequire("fs");
+		fs.exists(file_path, function (exists) {
+			if (!exists) {
+				return callback(new Error("file not found"));
+			}
+			var browser_storage = fs.getRootFS().getOverlayedFileSystems().writable;
+			browser_storage.exists(file_path, function (in_browser_storage) {
+				if (!in_browser_storage) {
+					return callback(null, url);
+				}
+				fs.readFile(file_path, function (error, buffer) {
+					if (error) {
+						return callback(error);
+					}
+					var type = mime_types_by_extension[file_extension_from_path(file_path).toLowerCase()];
+					callback(null, URL.createObjectURL(new Blob([new Uint8Array(buffer)], { type: type })));
+				});
+			});
+		});
+	});
 }

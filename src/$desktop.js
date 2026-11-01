@@ -110,31 +110,50 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 
 // Run Handler (called by the Run dialog, programs/run)
+// Like on Windows, programs run with or without ".exe", in any case.
 function runCommand(target) {
-	// EXE
-	if (target.includes(".exe")) {
-		switch(target) {
-			case "calc.exe": { Calculator(); break; }
-			case "cmd.exe": { CommandPrompt(); break;}
-			case "explorer.exe": { Explorer(); break; }
-			case "solitaire.exe": { Solitaire(); break; }
-			case "paint.exe": { Paint(); break; }
-			case "notepad.exe": { Notepad(); break; }
-			case "WINMINE.exe": { Minesweeper(); break; }
-			case "pdfviewer.exe": { break; }
-			case "picview.exe": { break; }
-			case "pinball.exe": { Pinball(); break;}
-			case "recorder.exe": { SoundRecorder(); break; }
-			case "winamp.exe": { openWinamp(); break; }
-			case "wolf3d.exe": { Wolf3d(); break; }
-			case "tombraider.exe": { TombRaider(); break; }
-			case "quake3.exe": { Quake3(); break; }
-			case "diablo.exe": { Diablo(); break; }
-			case "minecraft.exe": { Minecraft(); break; }
-			case "skifree.exe": { SkiFree(); break; }
-			case "digitalis.exe": { audioPanic(); timeToPanic(); break; }
-		}
-	} else if (target !== "" ) Explorer(target);
+	target = target.trim();
+	if (target === "") {
+		return;
+	}
+	var programs = {
+		"calc": Calculator,
+		"cmd": CommandPrompt,
+		"command": CommandPrompt,
+		"explorer": Explorer,
+		"solitaire": Solitaire,
+		"sol": Solitaire,
+		"paint": Paint,
+		"mspaint": Paint,
+		"notepad": Notepad,
+		"winmine": Minesweeper,
+		"pdfviewer": PDFViewer,
+		"picview": Picview,
+		"mdview": Markdown,
+		"pinball": Pinball,
+		"recorder": SoundRecorder,
+		"sndrec32": SoundRecorder,
+		"winamp": openWinamp,
+		"wolf3d": Wolf3d,
+		"tombraider": TombRaider,
+		"quake3": Quake3,
+		"diablo": Diablo,
+		"minecraft": Minecraft,
+		"skifree": SkiFree,
+		"digitalis": () => { audioPanic(); timeToPanic(); },
+	};
+	var program_name = target.toLowerCase().replace(/\.exe$/, "");
+	if (Object.hasOwn(programs, program_name)) {
+		programs[program_name]();
+	} else if (target.toLowerCase().endsWith(".exe")) {
+		showMessageBox({ iconID: "error", title: target, message: "Cannot find the file '" + target + "' (or one of its components). Make sure the path and filename are correct and that all required libraries are available." });
+	} else if (target.startsWith("/")) {
+		// a file or folder: opened with its program, like double-clicking it
+		systemExecuteFile(target);
+	} else {
+		// system folder names ("My Documents"), drives ("C:") and web addresses
+		Explorer(target);
+	}
 }
 
 // Despite overflow:hidden on html and body,

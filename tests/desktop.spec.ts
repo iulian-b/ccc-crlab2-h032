@@ -6,6 +6,8 @@ test.describe('first boot', () => {
 	test('plays the boot sequence once, then shows the desktop', async ({ page }) => {
 		await page.goto('/');
 		await expect(page.locator('#bootloader')).toBeVisible();
+		await expect(page.locator('#bootloader')).toContainText('Load Kernel Module configfs...'); // (a part that used to be skipped)
+		await expect(page.locator('#bootloader')).toContainText('Starting Desktop Environment...');
 		await expect(page.locator('#taskbar')).toBeVisible({ timeout: 15_000 });
 		await expect(page.locator('#bootloader')).toHaveCount(0);
 		await expect.poll(() => page.evaluate(() => localStorage.getItem('boot'))).toBe('true');
@@ -77,6 +79,7 @@ test.describe('Start menu', () => {
 		['start_btn_favorites', 'Favorites'],
 		['start_btn_documents', 'My Documents'],
 		['start_btn_settings', 'Error'],
+		['start_btn_find', 'Error'],
 		['start_btn_run', 'Run'],
 	];
 	for (const [id, title] of entries) {
@@ -106,6 +109,34 @@ test.describe('Start menu', () => {
 	});
 });
 
+test.describe('sounds', () => {
+	test('the big ones are only downloaded once they play', async ({ page }) => {
+		const sounds: string[] = [];
+		page.on('request', (request) => {
+			if (/\.wav$/i.test(request.url())) {
+				sounds.push(new URL(request.url()).pathname);
+			}
+		});
+		await openDesktop(page);
+		await page.waitForTimeout(1000);
+		expect(sounds.filter((sound) => /LOOP|PANIC|SHUTDOWN/.test(sound))).toEqual([]);
+	});
+
+	test('the volume icon mutes them, also after a reload', async ({ page }) => {
+		await openDesktop(page);
+		const icon = page.locator('#volume-tray-icon');
+		await icon.click();
+		await expect(icon).toHaveAttribute('src', /audio-nope/);
+		expect(await page.evaluate('[loopAudio.muted, shutdownAudio.muted]')).toEqual([true, true]);
+		await openDesktop(page);
+		await expect(icon).toHaveAttribute('src', /audio-nope/);
+		expect(await page.evaluate('loopAudio.muted')).toBe(true);
+		await icon.click();
+		await expect(icon).toHaveAttribute('src', /audio-okay/);
+		expect(await page.evaluate('loopAudio.muted')).toBe(false);
+	});
+});
+
 test.describe('Run dialog', () => {
 	test('runs programs, one after another', async ({ page }) => {
 		await openDesktop(page);
@@ -116,10 +147,32 @@ test.describe('Run dialog', () => {
 		await expect(windowTitled(page, 'Calculator')).toBeVisible();
 	});
 
+	test('takes program names in any case, with or without .exe', async ({ page }) => {
+		await openDesktop(page);
+		await run(page, 'CALC');
+		await run(page, 'Notepad.EXE');
+		await expect(windowTitled(page, 'Calculator')).toBeVisible();
+		await expect(windowTitled(page, 'Untitled - Notepad')).toBeVisible();
+	});
+
+	test('says when a program or file doesn\'t exist', async ({ page }) => {
+		await openDesktop(page);
+		await run(page, 'setup.exe');
+		await expect(windowTitled(page, 'setup.exe')).toContainText('Cannot find the file \'setup.exe\'');
+		await run(page, '/My Documents/nope.txt');
+		await expect(windowTitled(page, 'nope.txt')).toContainText('Cannot find the file \'/My Documents/nope.txt\'');
+	});
+
 	test('opens folders', async ({ page }) => {
 		await openDesktop(page);
 		await run(page, '/My Documents');
 		await expect(windowTitled(page, 'My Documents')).toBeVisible();
+	});
+
+	test('opens files with their program', async ({ page }) => {
+		await openDesktop(page);
+		await run(page, '/My Documents/CV (EN).pdf');
+		await expect(windowTitled(page, 'CV (EN).pdf - PDF Viewer')).toBeVisible();
 	});
 
 	test('Cancel closes without running anything', async ({ page }) => {
@@ -159,6 +212,17 @@ test.describe('power', () => {
 		await openStartMenu(page);
 		await page.locator('#start_btn_logoff').click();
 		await expect(page.locator('#taskbar')).toHaveCount(0);
+	});
+
+	test('logging off stops Winamp', async ({ page }) => {
+		await openDesktop(page);
+		await skipWithoutWebAudio(page);
+		await page.evaluate(() => (window as any).systemExecuteFile('/My Music/blue.mp3'));
+		await expect(page.locator('.tasks .task .title', { hasText: /^1\. blue - Winamp/ })).toBeVisible({ timeout: 15_000 });
+		await openStartMenu(page);
+		await page.locator('#start_btn_logoff').click();
+		await expect(page.locator('#taskbar')).toHaveCount(0);
+		expect(await page.evaluate('webamp')).toBeNull();
 	});
 
 	test('the BIOS setup can be left with Esc', async ({ page }) => {

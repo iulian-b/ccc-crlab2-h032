@@ -16,6 +16,7 @@ As far as features that were added by me:
 * ![1728122346763](images/README/1728122346763.png) [NetLogin](https://github.com/iulian-b/ccc-crlab2-h032/tree/main/programs/netlogin): used to authenticate when accesing network endpoints in `/Networks` (it's all fake, there's nothing there to access, but it adds a touch of *immersiveness*)
 * ![1728122395806](images/README/1728122395806.png) [PdfViewer](https://github.com/iulian-b/ccc-crlab2-h032/tree/main/programs/pdfviewer): Used to view `.pdf` files
 * ![1728122408057](images/README/1728122408057.png) [PicView](https://github.com/iulian-b/ccc-crlab2-h032/tree/main/programs/picview): Used to view `.png`, `.jpg`, `.gif`, and `.bmp` files
+* [MDView](https://github.com/iulian-b/ccc-crlab2-h032/tree/main/programs/mdview): Used to view `.md` (Markdown) files
 * ![1728122434872](images/README/1728122434872.png) [Run](https://github.com/iulian-b/ccc-crlab2-h032/tree/main/programs/run): A recreation of the Windows 98 [Run dialog](https://perishablepress.com/wp/wp-content/images/2007/misc-chunks/run-command.png)
 * ![1728122449412](images/README/1728122449412.png) [VMware](https://github.com/iulian-b/ccc-crlab2-h032/tree/main/programs/vmware): A fake virtualization software (!no affiliation with VMware LLC!). It is basically just a stripped-down 98.js Explorer that opens on the webiste itself
 * ![1728123166667](images/README/1728123166667.png) Panic: a fake Kernel Panic screen Easter egg
@@ -54,8 +55,6 @@ The desktop's virtual C: drive is made of the `Desktop`, `Favorites`, `Games`, `
 * Add some stuff if `/Favorites/`
 * StartMenu - Find
 * StartMenu - Settings
-* An `.md` viewer
-* Fix explorer() not displaying marquee correctly
 * A Video Player: 98.js's README mentioned [win-95-media-player](https://benwiley4000.github.io/win95-media-player/), but i remain open to other options.
 * Extend Picview and PDFview with Filepicker dialogs (see notepad.exe filesystem thing)
 * Clean up all of the unused stuff from 98.js (as in not used by me)

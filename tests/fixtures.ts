@@ -106,6 +106,18 @@ export async function openStartMenu(page: Page) {
 	await page.waitForTimeout(300); // let it finish sliding open
 }
 
+/** Writes a file to the desktop's virtual filesystem; it ends up in the browser's storage, like files saved by programs. */
+export async function writeFile(page: Page, path: string, content: string | Buffer) {
+	const base64 = typeof content === 'string' ? null : content.toString('base64');
+	await page.evaluate(([path, text, base64]) => new Promise<void>((resolve, reject) => {
+		(window as any).withFilesystem(() => {
+			const { Buffer } = (window as any).BrowserFS.BFSRequire('buffer');
+			const data = base64 === null ? text : Buffer.from(base64, 'base64');
+			(window as any).BrowserFS.BFSRequire('fs').writeFile(path, data, (error) => error ? reject(error) : resolve());
+		});
+	}), [path, typeof content === 'string' ? content : '', base64] as const);
+}
+
 /** Types a command into Start > Run and submits it. */
 export async function run(page: Page, command: string) {
 	await page.evaluate(() => (window as any).openRunDialog());

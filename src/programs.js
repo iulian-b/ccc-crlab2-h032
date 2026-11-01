@@ -1,9 +1,3 @@
-window.mobileCheck = function() {
-	let check = false;
-	(function(a){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4))) check = true;})(navigator.userAgent||navigator.vendor||window.opera);
-	return check;
-};
-
 function show_help(options) {
 	const $help_window = $Window({
 		title: options.title || "Help Topics",
@@ -386,23 +380,14 @@ function PDFViewer(file_path) {
 	// There is no normal way to determine the height of a pdf that has yet to be loaded into the DOM.
 	// This is a hackjob, but the show must go on.
 	function getHeight() {
-		if (file_path.includes("cs50_")) return 580;
-		else if (file_path.includes("EUCIP")) return 540;
+		if (file_path?.includes("cs50_")) return 580;
+		else if (file_path?.includes("EUCIP")) return 540;
 		return 900;
 	}
-	var height, width;
-	if (mobileCheck()) {
-		if (window.matchMedia("(orientation: portrait)").matches) {
-			height = 634;
-			width = window.screen.width;
-		} else if (window.matchMedia("(orientation: landscape)").matches) {
-			height = 350;
-			width = 418;
-		}
-	} else {
-		height = getHeight();
-		width = 700;
-	}
+	// Up against the right side of the screen, but never past its edges or under the taskbar
+	var screen_height = innerHeight - ($(".taskbar").outerHeight() || 0);
+	var width = Math.min(700, innerWidth);
+	var height = Math.min(getHeight(), screen_height - 4);
 
 	// TODO: DRY the default file names and title code (use document.title of the page in the iframe, in make_iframe_window)
 	var document_title = file_path ? file_name_from_path(file_path) : "Untitled";
@@ -417,57 +402,26 @@ function PDFViewer(file_path) {
 		outerHeight: height,
 		resizable: true,
 	});
+	$win.css({
+		left: Math.max(0, Math.min(innerWidth * 0.6, innerWidth - $win.outerWidth())),
+		top: Math.max(0, Math.min(innerHeight * 0.02, screen_height - $win.outerHeight())),
+	});
 	console.log("[USR] ibocse@crlab2-h032: pdfviewer.exe(" + file_path + ")");
 	return new Task($win);
 }
 PDFViewer.acceptsFilePaths = true;
 
 function Picview(file_path) {
-	function getImgDimentions() { //CLEAN UP AS HEIGHT IS RELATIVE
-		// Get image dimentions [W,H]
-		var imgDim = [0,0];
-		var img = new Image();
-		img.src = file_path;
-		imgDim[0] = img.width;
-		imgDim[1] = img.height;
-
-		// Normalize width
-
-		if (imgDim[0] <= 400) {
-			imgDim[0] = 400;
-			imgDim[1] = 260;
-		} else if (imgDim[0] >= 1000) {
-			imgDim[0] = 1000;
-		}
-		// Normalize height
-		if (imgDim[1] <= 260) {
-			imgDim[1] = 260;
-
-		} else if (imgDim[0] >= 750) {
-			imgDim[1] = 750;
-		}
-
-		// Fix for vertical images.
-		// Multiplies the heigh with the original WxH ratio of the picture
-		// to get the corrected height
-		if (img.height > img.width) {
-			const ratio = img.width / img.height;
-			imgDim[0] = ratio * imgDim[1];
-		}
-		return imgDim;
-	}
-
 	var file_title = file_path ? file_name_from_path(file_path) : "Untitled";
 	var win_title = file_title + " - PicView";
 
-	var dimentions = getImgDimentions();
-
+	// PicView fits the window to the picture once it has loaded
 	var $win = make_iframe_window({
 		src: "programs/picview/index.html" + (file_path ? ("?path=" + encodeURIComponent(file_path)) : ""),
 		icons: iconsAtTwoSizes("kodak-imaging"),
 		title: win_title,
-		outerWidth: dimentions[0],
-		outerHeight: dimentions[1],
+		outerWidth: 400,
+		outerHeight: 260,
 		resizable: true,
 	});
 	console.log("[USR] ibocse@crlab2-h032: picview.exe(" + file_path + ")");
@@ -1422,15 +1376,15 @@ var file_extension_associations = {
 	h: Notepad,
 	hhc: Notepad,
 	hhk: Notepad,
-	html: Notepad,
 	ini: Notepad,
 	js: Notepad,
 	json: Notepad,
+	kml: Notepad,
 	log: Notepad,
 	make: Notepad,
 	map: Notepad,
 	marks: Notepad,
-	md: Notepad,
+	md: Markdown,
 	prettierignore: Notepad,
 	properties: Notepad,
 	rc: Notepad,
@@ -1531,6 +1485,9 @@ function systemExecuteFile(file_path) {
 	withFilesystem(function () {
 		var fs = BrowserFS.BFSRequire("fs");
 		fs.stat(file_path, function (err, stats) {
+			if (err?.code === "ENOENT") {
+				return showMessageBox({ iconID: "error", title: file_name_from_path(file_path) || file_path, message: "Cannot find the file '" + file_path + "' (or one of its components). Make sure the path and filename are correct and that all required libraries are available." });
+			}
 			if (err) {
 				return alert("Failed to get info about " + file_path + "\n\n" + err);
 			}

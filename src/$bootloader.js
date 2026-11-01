@@ -16,7 +16,7 @@ const bootText = [
     `<div class="fade"><br><img src="images/bootlogo.png"><br>Welcome to <span style="color: #4fa1ed">Sinclaire OS</span>!<br></div>`,
     `<div class="fade">Tunnel Client:<br>` + escapeHTML(navigator.userAgent) + `<br></div><br>`,
 
-    // 6-9
+    // 6-9 (systemd)
     `<div class="fade">
 		<span style="color: rgb(150, 150, 150)">[</span>  <span style="color: rgb(0, 255, 0)">OK</span> <span style="color: rgb(150, 150, 150)">] Created slice </span> Slice /system/getty.<br>
 		<span style="color: rgb(150, 150, 150)">[</span>  <span style="color: rgb(0, 255, 0)">OK</span> <span style="color: rgb(150, 150, 150)">] Created slice </span> Slice /system/modprobe.<br>
@@ -42,7 +42,7 @@ const bootText = [
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: rgb(150, 150, 150)">Mounting</span> Huge Page File System...<br>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: rgb(150, 150, 150)">Mounting</span> POSIX Message Queue File System...<br>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: rgb(150, 150, 150)">Mounting</span> Kernel Debug File System...<br>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: rgb(150, 150, 150)">Mounting</span> Ketnel Trace File System...<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: rgb(150, 150, 150)">Mounting</span> Kernel Trace File System...<br>
 	</div>`,
     `<div class="fade">
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: rgb(150, 150, 150)">Starting</span> Create List of Static Device Nodes...<br>
@@ -55,7 +55,7 @@ const bootText = [
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: rgb(150, 150, 150)">Starting</span> Coldplug All udev Devices...<br>
 	</div>`,
     `<div class="fade">
-		<span style="color: rgb(150, 150, 150)">[</span>  <span style="color: rgb(0, 255, 0)">OK</span> <span style="color: rgb(150, 150, 150)">] Mounted </span>Huge Pages File Ststem.<br>
+		<span style="color: rgb(150, 150, 150)">[</span>  <span style="color: rgb(0, 255, 0)">OK</span> <span style="color: rgb(150, 150, 150)">] Mounted </span>Huge Pages File System.<br>
 		<span style="color: rgb(150, 150, 150)">[</span>  <span style="color: rgb(0, 255, 0)">OK</span> <span style="color: rgb(150, 150, 150)">] Mounted </span>POSIX Message Queue File System.<br>
 		<span style="color: rgb(150, 150, 150)">[</span>  <span style="color: rgb(0, 255, 0)">OK</span> <span style="color: rgb(150, 150, 150)">] Mounted </span>Kernel Debug File System<br>
 		<span style="color: rgb(150, 150, 150)">[</span>  <span style="color: rgb(0, 255, 0)">OK</span> <span style="color: rgb(150, 150, 150)">] Mounted </span>Kernel Trace File System<br>
@@ -97,10 +97,10 @@ const bootText = [
 		<span style="color: rgb(150, 150, 150)">[</span>  <span style="color: rgb(0, 255, 0)">OK</span> <span style="color: rgb(150, 150, 150)">] Mounted </span>Digital Directory /C:/.<br>
 	</div>`,
 
-    // 14-15
+    // 14-16
     `<div class="fade">
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: rgb(150, 150, 150)">Starting Create Volatile Files and Directories...</span><br>
-		<span style="color: rgb(150, 150, 150)">[</span>  <span style="color: rgb(0, 255, 0)">OK</span> <span style="color: rgb(150, 150, 150)">] Finished </span>Crate Volatile Files and Directories.<br>
+		<span style="color: rgb(150, 150, 150)">[</span>  <span style="color: rgb(0, 255, 0)">OK</span> <span style="color: rgb(150, 150, 150)">] Finished </span>Create Volatile Files and Directories.<br>
 		<span style="color: rgb(150, 150, 150)">[</span>  <span style="color: rgb(0, 255, 0)">OK</span> <span style="color: rgb(150, 150, 150)">] Loaded </span>Hostname Service.<br>
 		<span style="color: rgb(150, 150, 150)">[</span>  <span style="color: rgb(0, 255, 0)">OK</span> <span style="color: rgb(150, 150, 150)">] Loaded </span>Basic System.<br>
 		<span style="color: rgb(150, 150, 150)">[</span>  <span style="color: rgb(0, 255, 0)">OK</span> <span style="color: rgb(150, 150, 150)">] Loaded </span>Network Manager.<br>
@@ -132,7 +132,7 @@ const bootText = [
 		<span style="color: rgb(150, 150, 150)">[</span>  <span style="color: rgb(0, 255, 0)">OK</span> <span style="color: rgb(150, 150, 150)">] Loaded </span>VMware.<br>
 		<span style="color: rgb(150, 150, 150)">[</span>  <span style="color: rgb(0, 255, 0)">OK</span> <span style="color: rgb(150, 150, 150)">] Loaded </span>Winamp.<br>
 	</div>`,
-    // 16-17
+    // 17-18
     `<div class="fade">
         <span style="color: rgb(150, 150, 150)">[</span>  <span style="color: rgb(0, 255, 0)">OK</span> <span style="color: rgb(150, 150, 150)">] Loaded </span>Diablo.<br>
         <span style="color: rgb(150, 150, 150)">[</span>  <span style="color: rgb(0, 255, 0)">OK</span> <span style="color: rgb(150, 150, 150)">] Loaded </span>Wolfenstein.<br>
@@ -141,8 +141,7 @@ const bootText = [
         <span style="color: rgb(150, 150, 150)">[</span>  <span style="color: rgb(0, 255, 0)">OK</span> <span style="color: rgb(150, 150, 150)">] Loaded </span>Minecraft.<br>
         <span style="color: rgb(150, 150, 150)">[</span>  <span style="color: rgb(0, 255, 0)">OK</span> <span style="color: rgb(150, 150, 150)">] Loaded </span>SKiFree.<br>
     </div>`,
-    // 19
-	`<div class="fade"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: rgb(150, 150, 150)">Starting Desktop Envirovement...</span><br></div>`
+	`<div class="fade"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: rgb(150, 150, 150)">Starting Desktop Environment...</span><br></div>`
 ];
 
 
@@ -190,21 +189,10 @@ window.addEventListener('DOMContentLoaded', function() {
 
 		// Boot animation
         scrollUp();
-        for(var i=0; i<8;i++){
-            bootLoader.insertAdjacentHTML('beforeend',bootText[i]);
+        for (const text of bootText) {
+            bootLoader.insertAdjacentHTML('beforeend', text);
         }
-        bootLoader.insertAdjacentHTML('beforeend',bootText[9]);
-        bootLoader.insertAdjacentHTML('beforeend',bootText[10]);
         setTimeout(scrollDown, 1300);
-
-        bootLoader.insertAdjacentHTML('beforeend',bootText[11]);
-        bootLoader.insertAdjacentHTML('beforeend',bootText[12]);
-        bootLoader.insertAdjacentHTML('beforeend',bootText[13]);
-        bootLoader.insertAdjacentHTML('beforeend',bootText[14]);
-        bootLoader.insertAdjacentHTML('beforeend',bootText[15]);
-        bootLoader.insertAdjacentHTML('beforeend',bootText[16]);
-        bootLoader.insertAdjacentHTML('beforeend',bootText[17]);
-        bootLoader.insertAdjacentHTML('beforeend',bootText[18]);
 
         preloader.style.display = "none";
 

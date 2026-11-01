@@ -579,7 +579,8 @@ ${doc.documentElement.outerHTML}`;
 			// Resolve with a single string of CSS text.
 			return Promise.all(styleElements.map((el) => {
 				if (el.href) {
-					return fetch(el.href).then((response) => response.text());
+					// (Accept: text/css makes Vite's dev server send the CSS itself, rather than a module that loads it)
+					return fetch(el.href, { headers: { Accept: "text/css" } }).then((response) => response.text());
 				} else {
 					return el.innerText;
 				}

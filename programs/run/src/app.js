@@ -1,7 +1,6 @@
 window.defaultMessageBoxTitle = "Run";
 
 let container = document.getElementById("app");
-const panicAudio = new Audio('../../../audio/PANIC.wav');
 
 $("body").on("mousedown selectstart contextmenu", function (e) {
 	if (
@@ -60,7 +59,6 @@ update_title();
 document.getElementById("runform").addEventListener("submit", function(event){
 	event.preventDefault();
 	var target = document.getElementById("target").value;
-	if (target == "digitalis.exe") panicAudio.play();
 	// The desktop that opened this dialog (when opened on its own, parent is this window and there's nothing to run)
 	parent.runCommand?.(target);
 

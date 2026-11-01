@@ -1,4 +1,4 @@
-import { test, expect, openDesktop, windowTitled, desktopIcon, skipWithoutWebAudio } from './fixtures';
+import { test, expect, openDesktop, windowTitled, desktopIcon, skipWithoutWebAudio, writeFile } from './fixtures';
 
 test('Notepad inserts the time and date, and saves files', async ({ page }) => {
 	await page.goto('/programs/notepad/index.html');
@@ -40,12 +40,30 @@ test('Explorer lists a folder and can start renaming a file', async ({ page }) =
 	await expect(folder.getByRole('textbox')).toHaveValue('CV (EN).pdf');
 });
 
-test('PicView shows a picture', async ({ page }) => {
+test('PicView shows a picture, in a window shaped like it', async ({ page }) => {
 	await openDesktop(page);
 	await page.evaluate(() => (window as any).systemExecuteFile('/My Pictures/20170225_160324.jpg'));
+	await expect(windowTitled(page, '20170225_160324.jpg - PicView')).toBeVisible();
 	const picture = page.frameLocator('iframe[src*="programs/picview"]').locator('#pic');
 	await expect(picture).toHaveAttribute('src', '/My%20Pictures/20170225_160324.jpg');
-	await expect.poll(() => picture.evaluate((img: HTMLImageElement) => img.naturalWidth)).toBeGreaterThan(0);
+	await expect.poll(() => picture.evaluate((img: HTMLImageElement) => img.naturalWidth)).toBe(2592);
+	// 2592x1944, shrunk to fit the screen
+	const content = page.locator('iframe[src*="programs/picview"]');
+	await expect.poll(async () => {
+		const box = (await content.boundingBox())!;
+		return Math.round(box.width / box.height * 100) / 100;
+	}).toBe(1.33);
+	const windowBox = (await windowTitled(page, /PicView$/).boundingBox())!;
+	expect(windowBox.y + windowBox.height).toBeLessThanOrEqual((await page.locator('.taskbar').boundingBox())!.y);
+});
+
+test('PicView shows a picture that only exists in the browser', async ({ page }) => {
+	await openDesktop(page);
+	await writeFile(page, '/My Pictures/saved.png', require('fs').readFileSync(require('path').resolve(__dirname, '..', 'images', 'start.png')));
+	await page.evaluate(() => (window as any).systemExecuteFile('/My Pictures/saved.png'));
+	const picture = page.frameLocator('iframe[src*="programs/picview"]').locator('#pic');
+	await expect(picture).toHaveAttribute('src', /^blob:/);
+	await expect.poll(() => picture.evaluate((img: HTMLImageElement) => img.naturalWidth)).toBe(16);
 });
 
 test('PDF Viewer embeds the document', async ({ page }) => {
@@ -53,6 +71,40 @@ test('PDF Viewer embeds the document', async ({ page }) => {
 	await desktopIcon(page, 'CV (RO).pdf').dblclick();
 	const embed = page.frameLocator('iframe[src*="programs/pdfviewer"]').locator('embed');
 	await expect(embed).toHaveAttribute('src', '/My%20Documents/CV%20(RO).pdf');
+});
+
+test.describe('on a laptop screen', () => {
+	test.use({ viewport: { width: 1366, height: 768 } });
+	test('the CV opened at startup fits on the screen', async ({ page }) => {
+		await page.goto('/');
+		const cv = windowTitled(page, 'CV (EN).pdf - PDF Viewer');
+		await expect(cv).toBeVisible();
+		const box = (await cv.boundingBox())!;
+		expect(box.x).toBeGreaterThanOrEqual(0);
+		expect(box.y).toBeGreaterThanOrEqual(0);
+		expect(box.x + box.width).toBeLessThanOrEqual(1366);
+		expect(box.y + box.height).toBeLessThanOrEqual((await page.locator('.taskbar').boundingBox())!.y);
+	});
+});
+
+test('MDView shows Markdown files', async ({ page }) => {
+	await openDesktop(page);
+	await writeFile(page, '/My Documents/notes.md', '# Notes\n\n- one\n- two\n\nSee [the project](https://github.com/iulian-b/ccc-crlab2-h032).\n');
+	await page.evaluate(() => (window as any).systemExecuteFile('/My Documents/notes.md'));
+	await expect(windowTitled(page, 'notes.md - MDView')).toBeVisible();
+	const markdown = page.frameLocator('iframe[src*="programs/mdview"]').locator('#document');
+	await expect(markdown.locator('h1')).toHaveText('Notes');
+	await expect(markdown.locator('li')).toHaveText(['one', 'two']);
+	const link = markdown.getByRole('link', { name: 'the project' });
+	await expect(link).toHaveAttribute('href', 'https://github.com/iulian-b/ccc-crlab2-h032');
+	await expect(link).toHaveAttribute('target', '_blank');
+});
+
+test('Notepad opens .kml files', async ({ page }) => {
+	await openDesktop(page);
+	await page.evaluate(() => (window as any).systemExecuteFile('/My Documents/Geotagging Backup/autobkp1.kml'));
+	await expect(windowTitled(page, 'autobkp1.kml - Notepad')).toBeVisible();
+	await expect(page.frameLocator('iframe[src*="programs/notepad"]').locator('#document-textarea')).toHaveValue(/^<\?xml[^]*<kml /);
 });
 
 test('Sound Recorder has its position slider', async ({ page }) => {

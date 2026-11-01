@@ -3,6 +3,7 @@ var $start_selection = $(".start-btn");
 $start_menu.hide();
 var $start_content = document.getElementsByClassName("start-menu-content");
 const shutdownAudio = new Audio('../audio/SHUTDOWN.wav');
+shutdownAudio.preload = "none"; // big, and only needed at the very end
 shutdownAudio.volume = 0.2;
 
 function ClearStorage() {
@@ -94,7 +95,7 @@ document.getElementById('start_btn_settings').addEventListener("click", function
 });
 
 document.getElementById('start_btn_find').addEventListener("click", function () {
-	// alert("NOT YET IMPLEMENTED");
+	showMessageBox({iconID: 'error', title:'Error', message: 'Cannot start the search service in user mode. \n[Cause: 401 Unauthorized Access]'});
 });
 document.getElementById('start_btn_help').addEventListener("click", function () {
 	console.log("[USR] ibocse@crlab2-h032: Opened help page");
@@ -105,23 +106,23 @@ document.getElementById('start_btn_run').addEventListener("click", function () {
 	openRunDialog();
 });
 document.getElementById('start_btn_logoff').addEventListener("click", function () {
-	// Stop all audio
+	// Stop all audio (Winamp's player isn't part of the page, so clearing the page wouldn't stop it)
 	loopAudio.pause();
 	bootAudio.pause();
-	// webamp.stop();
+	winamp_interface?.close();
 
 	// Clear DOM
 	console.log("[SYS] ibocse@crlab2-h032: System log off");
 	document.documentElement.innerHTML = '<body style="background-color:black;"></body>';
 });
 document.getElementById('start_btn_shutdown').addEventListener("click", function () {
-	// Stop all audio
+	// Stop all audio (Winamp's player isn't part of the page, so clearing the page wouldn't stop it)
 	loopAudio.pause();
 	bootAudio.pause();
-	// if (webamp != null)	webamp.stop();
+	winamp_interface?.close();
 
 	// Play shutdown sound
-	shutdownAudio.play();
+	playSound(shutdownAudio);
 
 	// Clear DOM
 	document.documentElement.innerHTML = '<body style="background-color:black;"></body>';
